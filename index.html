@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Automotora CYC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: url('images/fondo.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      min-height: 100vh;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 10;
+      padding: 0 1rem;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      text-shadow: 0 0 10px #fff;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* Navbar normal */
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      font-size: 1rem;
+    }
+
+    .navbar a:hover {
+      color: #ff3c00;
+    }
+
+    /* Botón hamburguesa para móvil */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 28px;
+      height: 21px;
+      justify-content: space-between;
+      z-index: 20;
+    }
+
+    /* Líneas horizontales del menú hamburguesa */
+    .menu-toggle span {
+      display: block;
+      height: 3px;
+      background-color: #fff;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Navbar responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 0 1.5rem;
+      }
+
+      .navbar ul {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: rgba(0,0,0,0.95);
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        z-index: 15;
+        border-radius: 0 0 10px 10px;
+        font-size: 1.2rem;
+        user-select: none;
+      }
+
+      .navbar ul.active {
+        max-height: 300px; /* altura suficiente para mostrar los links */
+        box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+      }
+
+      .navbar a {
+        padding: 0.5rem 1.5rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    .slogan {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #ddd;
+      margin-top: 1rem;
+    }
+
+    .cta {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .cta button,
+    .btn-primary {
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 30px;
+      background-color: #ff3c00;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta button:hover,
+    .btn-primary:hover {
+      background-color: #e53300;
+    }
+
+    .autos-destacados {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .auto-card {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 1rem;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .auto-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .auto-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .auto-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .auto-card p {
+      font-size: 0.95rem;
+      color: #ccc;
+      line-height: 1.4;
+    }
+
+    .quienes-somos {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .quienes-txt {
+      flex: 1;
+    }
+
+    .quienes-txt h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .quienes-txt p {
+      color: #ccc;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .quienes-img {
+      flex: 1;
+      text-align: center;
+    }
+
+    .quienes-img img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 12px;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 3rem 2rem 2rem 2rem;
+      color: #ccc;
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 350px;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+
+    /* Redes sociales y footer credit en fila */
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .social-container {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-start;
+      align-items: center;
+      flex: 1;
+    }
+
+    .social-container a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border-radius: 50%;
+      background-color: rgba(255, 60, 0, 0.85);
+      box-shadow: 0 3px 8px rgba(255, 60, 0, 0.6);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      font-size: 0;
+    }
+
+    .social-container a:hover {
+      background-color: #e53300;
+      box-shadow: 0 5px 15px rgba(229, 51, 0, 0.8);
+    }
+
+    .social-container a img {
+      width: 18px;
+      height: 18px;
+      filter: brightness(1);
+      display: block;
+      margin: auto;
+    }
+
+    .social-container a[aria-label="Facebook CYC Automóviles"] {
+      background-color: #3b5998;
+      box-shadow: 0 3px 8px rgba(59, 89, 152, 0.6);
+    }
+
+    .social-container a[aria-label="Facebook CYC Automóviles"]:hover {
+      background-color: #2d4373;
+      box-shadow: 0 5px 15px rgba(45, 67, 115, 0.8);
+    }
+
+    .social-container a[aria-label="WhatsApp CYC Automóviles"] {
+      background-color: #25D366;
+      box-shadow: 0 3px 8px rgba(37, 211, 102, 0.6);
+    }
+
+    .social-container a[aria-label="WhatsApp CYC Automóviles"]:hover {
+      background-color: #1ebe57;
+      box-shadow: 0 5px 15px rgba(30, 190, 87, 0.8);
+    }
+
+    .footer-credit {
+      flex: 1;
+      text-align: right;
+      font-size: 0.9rem;
+      color: #aaa;
+      border-top: none;
+    }
+
+    .footer-credit a {
+      color: #ff3c00;
+      text-decoration: none;
+    }
+
+    .footer-credit a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive Footer */
+    @media (max-width: 768px) {
+      .map-container {
+        height: 250px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .footer-credit {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <!-- Header y navbar -->
+    <header>
+      <a href="#" class="logo">CYC AUTOMOVILES</a>
+      <nav class="navbar">
+        <ul id="nav-menu">
+          <li><a href="#stock">Stock</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#">Vende tu vehículo</a></li>
+        </ul>
+      </nav>
+      <div class="menu-toggle" id="menu-toggle" aria-label="Menú de navegación" role="button" tabindex="0" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+
+    <div class="slogan">TU PROXIMO AUTO ESTA AQUI</div>
+
+    <div class="cta">
+      <a href="stock.html" class="btn-primary">Ver Stock</a>
+    </div>
+
+    <!-- Autos destacados -->
+    <section class="autos-destacados" id="stock">
+      <div class="auto-card">
+        <img src="images/auto1.png" alt="BMW 128ti" />
+        <h3>BMW 128ti 2023</h3>
+        <p>Motor 2.0 Turbo, único dueño, mantenciones en la marca. Solo 17.900 km.</p>
+      </div>
+      <div class="auto-card">
+        <img src="images/auto2.png" alt="Honda Civic 2017" />
+        <h3>Honda Civic EX 2.0 2017</h3>
+        <p>Automático, excelente estado, rendimiento sobresaliente y diseño moderno.</p>
+      </div>
+      <div class="auto-card">
+        <img src="images/auto3.jpg" alt="Mazda 3" />
+        <h3>Mazda 3 Touring 2019</h3>
+        <p>Transmisión automática, bajo kilometraje, ideal para ciudad y carretera.</p>
+      </div>
+    </section>
+
+    <!-- ¿Quiénes Somos? -->
+    <section class="quienes-somos" id="nosotros">
+      <div class="quienes-txt">
+        <h2>¿Quiénes Somos en CYC?</h2>
+        <p>
+          En <strong>CYC Automóviles</strong>, nuestra pasión es conectar a las personas con el vehículo de sus sueños. Nos dedicamos a ofrecer una selección curada de automóviles de alta calidad, poniendo siempre la confianza y la satisfacción del cliente en el centro de todo lo que hacemos.
+        </p>
+        <p>
+          Con años de experiencia en el mercado automotriz chileno, nuestro equipo está comprometido a brindarte una atención personalizada y transparente.
+        </p>
+        <a href="#" class="btn-primary">Conoce Nuestra Historia</a>
+      </div>
+      <div class="quienes-img">
+        <img src="images/fondo.png" alt="Equipo CYC Automóviles" />
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.706176378415!2d-70.56947328481358!3d-33.45785898077536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf05d9c2a63d%3A0xc3f8f17a9e0a0d0!2sAv.%20La%20Dehesa%202035%2C%20Lo%20Barnechea!5e0!3m2!1ses!2scl!4v1678901234567!5m2!1ses!2scl"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación CYC Automóviles"
+          ></iframe>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="social-container">
+            <a
+              href="https://instagram.com/cyc_automoviles"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram CYC Automóviles"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                alt="Instagram"
+              />
+            </a>
+            <a
+              href="https://facebook.com/cyc_automoviles"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook CYC Automóviles"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+                alt="Facebook"
+              />
+            </a>
+            <a
+              href="https://wa.me/56912345678"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp CYC Automóviles"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+                alt="WhatsApp"
+              />
+            </a>
+          </div>
+          <p class="footer-credit">
+            © 2025 Cyc Automoviles. Powered and secured by <a href="mailto:picininiluciano@gmail.com" target="_blank" rel="noopener noreferrer">Luciano</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+      menuToggle.setAttribute('aria-expanded', !expanded);
+    });
+
+    // Soporte para accesibilidad (Enter y espacio)
+    menuToggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        menuToggle.click();
+      }
+    });
+  </script>
+</body>
+</html>

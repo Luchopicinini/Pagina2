@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Detalle Auto - CYC Automóviles</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* RESET */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f8f8f8;
+      color: #222;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    header {
+      background-color: #111;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      color: #fff;
+      font-size: 1.5rem;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ffcc00;
+    }
+    /* NUEVO CARRUSEL */
+    .carrusel {
+      flex: 1 1 500px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      background: #fff;
+      display: flex;
+      align-items: center;
+    }
+    .carrusel .slider {
+      display: flex;
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+    }
+    .carrusel .slider::-webkit-scrollbar {
+      display: none; /* Safari y Chrome */
+    }
+    .carrusel .slider img {
+      flex: 0 0 100%;
+      max-width: 100%;
+      border-radius: 12px;
+      user-select: none;
+      pointer-events: none;
+      transition: transform 0.3s ease;
+    }
+    /* Flechas */
+    .flecha {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.4);
+      color: #fff;
+      border: none;
+      font-size: 2rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    .flecha:hover {
+      background-color: rgba(0,0,0,0.7);
+    }
+    .flecha.left {
+      left: 12px;
+    }
+    .flecha.right {
+      right: 12px;
+    }
+    /* Indicadores */
+    .indicadores {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+    .indicadores button {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: none;
+      background-color: rgba(255,255,255,0.6);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .indicadores button.active {
+      background-color: #e91e63;
+    }
+    .indicadores button:hover {
+      background-color: #e91e63;
+    }
+    /* Resto de estilos */
+    .detalle-auto {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .auto-info {
+      flex: 1 1 400px;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+    }
+    .auto-info h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .auto-info .descripcion {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .auto-info .precio {
+      font-size: 1.3rem;
+      color: #e91e63;
+      margin-bottom: 1rem;
+    }
+    .caracteristicas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .caracteristica-item {
+      background-color: #eee;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      min-width: 110px;
+    }
+    .caracteristica-item svg {
+      width: 18px;
+      height: 18px;
+      fill: #555;
+      flex-shrink: 0;
+    }
+    .extras {
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    .destacadas {
+      background: #fef3f7;
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .destacadas h3 {
+      margin-bottom: 1rem;
+      color: #e91e63;
+    }
+    .destacadas ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .destacadas li {
+      background: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      flex: 1 1 140px;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 0 8px rgba(233,30,99,0.15);
+      font-weight: 500;
+      color: #555;
+      font-size: 0.95rem;
+    }
+    .destacadas li svg {
+      width: 20px;
+      height: 20px;
+      fill: #e91e63;
+      flex-shrink: 0;
+    }
+    .contacto {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .contacto h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .contacto label {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .contacto input,
+    .contacto textarea {
+      padding: 0.6rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      resize: vertical;
+    }
+    .contacto button {
+      background-color: #111;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 1rem;
+      align-self: flex-start;
+    }
+    .contacto button:hover {
+      background-color: #333;
+    }
+    .btn-volver {
+      display: inline-block;
+      margin-top: 1.5rem;
+      text-decoration: none;
+      color: #111;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .btn-volver:hover {
+      color: #e91e63;
+    }
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      padding: 1.5rem 0;
+      background-color: #111;
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      .detalle-auto {
+        flex-direction: column;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <a href="#" class="logo">CYC Automóviles</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="stock.html">Stock</a></li>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Vende tu vehículo</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Detalle Auto -->
+  <main class="container">
+    <section id="detalle-auto" aria-label="Detalle del vehículo seleccionado">
+      <!-- Contenido generado por JavaScript -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Automotora CYC. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const autos = {
+      "bmw-serie1": {
+        nombre: "BMW Serie 1",
+        imagenes: [
+          "images/auto1.png", "images/auto2.png", "images/auto1-3.png",
+          "images/auto2.png", "images/auto2.png", "images/auto2.png", "images/auto2.png",
+          "images/auto2.png", "images/auto2.png"
+        ],
+        descripcion: "Elegancia y deportividad con tecnología avanzada para los amantes de la conducción.",
+        precio: "$25.000.000",
+        kilometros: "12.000 km",
+        año: "2023",
+        caja: "Automática",
+        combustible: "Bencina",
+        extras: "Tapiz cuero, GPS, cámara 360°, asistente de estacionamiento",
+      },
+      "audi-a3": {
+        nombre: "Audi A3",
+        imagenes: ["images/auto2.png", "images/auto2-2.png", "images/auto2-3.png"],
+        descripcion: "Diseño moderno y rendimiento eficiente, ideal para ciudad y carretera.",
+        precio: "$23.500.000",
+        kilometros: "8.000 km",
+        año: "2022",
+        caja: "Manual",
+        combustible: "Diesel",
+        extras: "Sunroof, sistema de sonido premium, sensores de proximidad",
+        
+      },
+      "mercedes-clase-a": {
+        nombre: "Mercedes Clase A",
+        imagenes: ["images/auto1.png", "images/auto3-2.png", "images/auto3-3.png"],
+        descripcion: "Confort y lujo en un compacto que no pasa desapercibido.",
+        precio: "$27.800.000",
+        kilometros: "10.500 km",
+        año: "2023",
+        caja: "Automática",
+        combustible: "Bencina",
+        extras: "Pantalla táctil, control crucero adaptativo, cámara trasera",
+
+      }
+    };
+
+    function getParam(param) {
+      return new URLSearchParams(window.location.search).get(param);
+    }
+
+    const autoId = getParam('auto');
+    const auto = autos[autoId];
+    const contenedor = document.getElementById('detalle-auto');
+
+    if (auto) {
+      // Crear indicadores dinámicos
+      const indicadoresHTML = `
+        <div class="indicadores" role="tablist" aria-label="Selector de imágenes">
+          ${auto.imagenes.map((_, i) => `<button role="tab" aria-selected="${i === 0}" aria-controls="img-${i}" id="tab-${i}" tabindex="${i === 0 ? '0' : '-1'}" aria-label="Imagen ${i + 1}"></button>`).join('')}
+        </div>
+      `;
+
+      const imagenesHTML = `
+        <div class="carrusel" tabindex="0" aria-roledescription="carousel" aria-label="Galería de imágenes del auto">
+          <button class="flecha left" aria-label="Imagen anterior">&#10094;</button>
+          <div class="slider" id="slider">
+            ${auto.imagenes.map((img, i) => `<img src="${img}" alt="${auto.nombre} foto ${i+1}" id="img-${i}" role="tabpanel" aria-labelledby="tab-${i}" ${i === 0 ? '' : 'hidden'} />`).join('')}
+          </div>
+          <button class="flecha right" aria-label="Imagen siguiente">&#10095;</button>
+          ${indicadoresHTML}
+        </div>
+      `;
+
+      function iconoPorTipo(tipo) {
+        switch(tipo) {
+          case 'Año':
+            return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#555" d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM5 19V8h14v11H5z"/></svg>`;
+          case 'Kilómetros':
+            return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#555" d="M12 4a8 8 0 1 0 8 8 8 8 0 0 0-8-8zm0 14a6 6 0 1 1 6-6 6 6 0 0 1-6 6zm-.5-9h1v5h-1z"/></svg>`;
+          case 'Caja':
+            return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#555" d="M12 2L6 6v12l6 4 6-4V6z"/></svg>`;
+          case 'Combustible':
+            return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#555" d="M6 2h12v20H6z"/></svg>`;
+          default:
+            return '';
+        }
+      }
+
+      const caracteristicasHTML = `
+        <div class="caracteristicas">
+          ${[['Año', auto.año], ['Kilómetros', auto.kilometros], ['Caja', auto.caja], ['Combustible', auto.combustible]]
+            .map(([tipo, valor]) => `
+            <span class="caracteristica-item" title="${tipo}">
+              ${iconoPorTipo(tipo)}<strong>${tipo}:</strong> ${valor}
+            </span>
+          `).join('')}
+        </div>
+      `;
+
+      const destacadasHTML = auto.destacadas ? `
+        <section class="destacadas" aria-label="Características destacadas del vehículo">
+          <h3>Características destacadas</h3>
+          <ul>
+            ${auto.destacadas.map(d => `
+              <li>${d.icon}${d.text}</li>
+            `).join('')}
+          </ul>
+        </section>
+      ` : '';
+
+      contenedor.innerHTML = `
+        <div class="detalle-auto">
+          ${imagenesHTML}
+          <div class="auto-info">
+            <h1>${auto.nombre}</h1>
+            <p class="descripcion">${auto.descripcion}</p>
+            <p class="precio"><strong>Precio:</strong> ${auto.precio}</p>
+            ${caracteristicasHTML}
+            <p class="extras"><strong>Extras:</strong> ${auto.extras}</p>
+            ${destacadasHTML}
+
+            <form class="contacto" id="contacto-form">
+              <h2>Contacta al vendedor</h2>
+              <label for="nombre">Nombre completo:</label>
+              <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" />
+
+              <label for="correo">Correo electrónico:</label>
+              <input type="email" id="correo" name="correo" required placeholder="tu@email.com" />
+
+              <label for="mensaje">Mensaje:</label>
+              <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Estoy interesado en este auto..."></textarea>
+
+              <button type="submit">Enviar consulta</button>
+            </form>
+
+            <a href="stock.html" class="btn-volver">&larr; Volver al Stock</a>
+          </div>
+        </div>
+      `;
+
+      // Carrusel funcionalidad
+      const slider = document.getElementById('slider');
+      const images = slider.querySelectorAll('img');
+      const prevBtn = contenedor.querySelector('.flecha.left');
+      const nextBtn = contenedor.querySelector('.flecha.right');
+      const indicadores = contenedor.querySelectorAll('.indicadores button');
+      let currentIndex = 0;
+
+      function mostrarImagen(idx) {
+        images.forEach((img, i) => {
+          if (i === idx) {
+            img.removeAttribute('hidden');
+          } else {
+            img.setAttribute('hidden', '');
+          }
+        });
+        indicadores.forEach((btn, i) => {
+          btn.classList.toggle('active', i === idx);
+          btn.setAttribute('aria-selected', i === idx);
+          btn.tabIndex = i === idx ? 0 : -1;
+        });
+        currentIndex = idx;
+      }
+
+      prevBtn.addEventListener('click', () => {
+        const nextIndex = (currentIndex - 1 + images.length) % images.length;
+        mostrarImagen(nextIndex);
+      });
+
+      nextBtn.addEventListener('click', () => {
+        const nextIndex = (currentIndex + 1) % images.length;
+        mostrarImagen(nextIndex);
+      });
+
+      indicadores.forEach((btn, i) => {
+        btn.addEventListener('click', () => mostrarImagen(i));
+      });
+
+      // Navegación con teclado para accesibilidad
+      const carruselEl = contenedor.querySelector('.carrusel');
+      carruselEl.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          prevBtn.click();
+        } else if (e.key === 'ArrowRight') {
+          nextBtn.click();
+        }
+      });
+
+      // Mostrar la primera imagen al cargar
+      mostrarImagen(0);
+
+      // Formulario contacto
+      document.getElementById('contacto-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert(`Gracias ${e.target.nombre.value}, tu consulta sobre el ${auto.nombre} ha sido enviada.`);
+        e.target.reset();
+      });
+
+    } else {
+      contenedor.innerHTML = `
+        <p style="text-align:center; font-size: 1.5rem; margin-top: 3rem;">
+          Auto no encontrado. <a href="stock.html">Volver al Stock</a>
+        </p>
+      `;
+    }
+  </script>
+</body>
+</html>
