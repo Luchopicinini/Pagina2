@@ -5,542 +5,564 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Automotora CYC</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
-
-
-<style>
-/* RESET Y BÁSICO */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  text-decoration: none;
-}
-
-body {
-  font-family: 'Barlow', sans-serif;
-  background: url('images/fondo2.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: #e0e0e0;
-  scroll-behavior: smooth;
-  background-color: #111;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.overlay {
-  background: rgba(0, 0, 0, 0.85);
-  min-height: 100vh;
-  padding: 3rem 4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-/* COLOR ROJO SUAVE */
-:root {
-  --red-tranquilo: #a1442f;
-  --red-tranquilo-shadow: rgba(161, 68, 47, 0.6);
-}
-
-/* SLOGAN */
-.slogan {
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-align: center;
-  margin: 3rem 0 4rem;
-  color: #f5f5f5;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font-weight: 500;
-  text-shadow: 0 0 12px var(--red-tranquilo-shadow);
-}
-
-/* HEADER */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 4rem;
-  padding: 0 1rem;
-  position: relative;
-  z-index: 15;
-}
-
-.logo {
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 2px;
-  user-select: none;
-  font-style: italic;
-  text-shadow: 0 0 8px var(--red-tranquilo-shadow);
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.logo:hover {
-  color: var(--red-tranquilo);
-}
-
-/* NAVBAR */
-.navbar ul {
-  display: flex;
-  gap: 2rem;
-}
-
-.navbar a {
-  color: #e0e0e0;
-  font-weight: 500;
-  font-size: 1.1rem;
-  letter-spacing: 1.2px;
-  padding: 0.5rem 0;
-  position: relative;
-  transition: color 0.3s ease;
-  border-bottom: 2px solid transparent;
-}
-
-.navbar a:hover,
-.navbar a:focus {
-  color: var(--red-tranquilo);
-  border-bottom: 2px solid var(--red-tranquilo);
-  outline: none;
-}
-
-/* HAMBURGER */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 6px;
-  cursor: pointer;
-  z-index: 25;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.hamburger span {
-  width: 30px;
-  height: 3px;
-  background-color: var(--red-tranquilo);
-  border-radius: 3px;
-  transition: all 0.4s ease;
-  box-shadow: 0 0 4px var(--red-tranquilo-shadow);
-}
-
-.hamburger.active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}
-
-/* CTA */
-.cta {
-  text-align: center;
-  margin: 3rem 0 5rem;
-}
-
-.btn-primary {
-  padding: 0.85rem 3rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border: 2px solid var(--red-tranquilo);
-  border-radius: 40px;
-  background-color: transparent;
-  color: var(--red-tranquilo);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 8px var(--red-tranquilo-shadow);
-  display: inline-block;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-decoration: none;
-}
-
-.btn-primary:hover,
-.btn-primary:focus {
-  background-color: var(--red-tranquilo);
-  color: #fff;
-  box-shadow: 0 0 20px var(--red-tranquilo-shadow);
-  outline: none;
-  transform: scale(1.05);
-}
-
-/* AUTOS DESTACADOS */
-.autos-destacados {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
-  margin: 2rem 0 5rem;
-}
-
-.auto-card {
-  background-color: rgba(20, 20, 20, 0.85);
-  border-radius: 16px;
-  padding: 1.5rem 1.5rem 2rem; /* agrega algo de padding para no rozar los bordes */
-  box-sizing: border-box;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 100%;
-  overflow: hidden; /* opcional para que nada se salga visualmente */
-}
-
-
-.auto-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 50px var(--red-tranquilo-shadow);
-}
-
-.auto-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 1.5rem;
-  filter: drop-shadow(0 4px 3px var(--red-tranquilo-shadow));
-}
-
-.auto-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.7rem;
-  color: #ff0000;
-  font-weight: 800;
-  text-align: center;
-  letter-spacing: 1px;
-}
-
-.auto-card p {
-  font-size: 1rem;
-  color: #ffffff;
-  line-height: 1.5;
-  text-align: center;
-  font-weight: 400;
-}
-
-/* AUTO INFO - NUEVO BLOQUE */
-.auto-info {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem; /* usa gap en vez de margenes para separar */
-  margin: 1.5rem 0 2rem;
-  width: 100%;
-  box-sizing: border-box;
-  flex-wrap: nowrap; /* evitar que se rompa en varias líneas */
-}
-
-.info-box {
-  background-color: var(--red-tranquilo);
-  flex: 1 1 0;
-  min-width: 80px; /* evita que se achiquen demasiado */
-  padding: 1rem 1.2rem;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 15px var(--red-tranquilo-shadow);
-  color: #fff;
-  font-weight: 600;
-  cursor: default;
-  transition: background-color 0.3s ease;
-}
-
-.info-box:hover {
-  background-color: #8a3528;
-  box-shadow: 0 6px 20px rgba(138, 53, 40, 0.8);
-}
-
-.info-label {
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 0.4rem;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  opacity: 0.8;
-}
-
-.info-value {
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-
-/* Botón "Ver más" estilo coherente */
-.auto-card button {
-  background-color: var(--red-tranquilo);
-  border: none;
-  color: #fff;
-  padding: 0.8rem 2rem;
-  border-radius: 30px;
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: 0 6px 20px var(--red-tranquilo-shadow);
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  align-self: center;
-  margin-top: auto;
-}
-
-.auto-card button:hover,
-.auto-card button:focus {
-  background-color: #8a3528;
-  transform: scale(1.05);
-  outline: none;
-}
-
-/* QUIÉNES SOMOS */
-.quienes-somos {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 3rem;
-  margin-top: 5rem;
-  padding: 0 1rem;
-}
-
-.quienes-txt,
-.quienes-img {
-  flex: 1 1 320px;
-}
-
-.quienes-txt h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  color: #fff;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-.quienes-txt p {
-  color: #bbb;
-  line-height: 1.7;
-  font-weight: 400;
-  font-size: 1.1rem;
-}
-
-.quienes-img img {
-  width: 100%;
-  max-width: 420px;
-  border-radius: 12px;
-  box-shadow: 0 15px 40px var(--red-tranquilo-shadow);
-  transition: transform 0.4s ease;
-}
-
-.quienes-img img:hover {
-  transform: scale(1.05);
-}
-
-/* FOOTER */
-footer {
-  background-color: #121212;
-  padding: 3rem 2rem 2rem 2rem;
-  color: #999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: auto;
-}
-
-.footer-container {
-  max-width: 1100px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
-.map-container {
-  width: 100%;
-  height: 350px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 12px 30px var(--red-tranquilo-shadow);
-}
-
-.map-container iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
-  margin-top: 1rem;
-  gap: 1rem;
-}
-
-.social-container {
-  display: flex;
-  gap: 15px;
-  justify-content: flex-start;
-  align-items: center;
-  flex: 1;
-}
-
-/* Redes sociales - estado normal */
-.social-container a {
-    width: auto;
-    height: auto;
-    background: none;
-    box-shadow: none;
-    padding: 0;
-  }
-
-  .social-container img {
-    width: 26px;
-    height: 26px;
-    filter: brightness(1);
-  }
-}
-
-.social-container a:hover {
-  box-shadow: 0 0 20px var(--red-tranquilo-shadow);
-  transform: scale(1.15);
-}
-
-
-
-/* Pie de página */
-.footer-credit {
-  font-size: 1rem;
-  color: #888;
-  flex: 1;
-  text-align: right;
-  font-weight: 400;
-}
-
-.footer-credit a {
-  color: var(--red-tranquilo);
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-credit a:hover {
-  color: #b1533f;
-  text-decoration: underline;
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 1024px) {
-  .overlay {
-    padding: 2rem 3rem;
-  }
-
-  .autos-destacados {
-    gap: 2rem;
-  }
-
-  .quienes-somos {
-    flex-direction: column;
-    padding: 0 1rem;
-  }
-
-  .quienes-img img {
-    max-width: 90%;
-  }
-}
-
-@media (max-width: 768px) {
-  .overlay {
-    padding: 1.5rem 1.5rem 3rem;
-  }
-
-  header {
-    margin-bottom: 2rem;
-  }
-
-  .navbar ul {
-    position: fixed;
-    top: 70px;
-    right: 1.5rem;
-    flex-direction: column;
-    background-color: rgba(17, 17, 17, 0.95);
-    padding: 1.5rem 2.5rem;
-    border-radius: 16px;
-    display: none;
-    width: 220px;
-    box-shadow: 0 15px 40px var(--red-tranquilo-shadow);
-    transition: all 0.35s ease-in-out;
-    z-index: 100;
-  }
-
-  .navbar ul.show {
-    display: flex;
-  }
-
-  .navbar a {
-    font-size: 1.2rem;
-    padding: 0.8rem 0;
-    border-bottom: none;
-    letter-spacing: 1.8px;
-  }
-
-  .navbar a:hover,
-  .navbar a:focus {
-    color: var(--red-tranquilo);
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  /* Redes sociales SOLO iconos, sin fondo ni sombra */
-  .social-container a {
-    width: auto;
-    height: auto;
-    background: none;
-    box-shadow: none;
-    padding: 0;
-  }
-
-  .social-container img {
-    width: 26px;
-    height: 26px;
-    filter: brightness(1);
-  }
-}
-
-@media (max-width: 480px) {
-  .overlay {
-    padding: 1rem 1rem 2rem;
-  }
-
-  .logo {
-    font-size: 1.8rem;
-  }
-
-  .slogan {
-    font-size: 1.1rem;
-    margin: 2rem 0 3rem;
-    letter-spacing: 3px;
-  }
-
-  .btn-primary {
-    padding: 0.65rem 2.2rem;
-    font-size: 1rem;
-  }
-
-  .autos-destacados {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .quienes-txt h2 {
-    font-size: 1.8rem;
-  }
-}
-</style>
-
-
+  <style>
+    /* RESET Y BÁSICO */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-decoration: none;
+    }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: url('images/fondo2.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #e0e0e0;
+      scroll-behavior: smooth;
+      background-color: #111;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.85);
+      min-height: 100vh;
+      padding: 3rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    /* COLOR ROJO SUAVE */
+    :root {
+      --red-tranquilo: #a1442f;
+      --red-tranquilo-shadow: rgba(161, 68, 47, 0.6);
+    }
+
+    /* SLOGAN */
+    .slogan {
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-align: center;
+      margin: 3rem 0 4rem;
+      color: #f5f5f5;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-weight: 500;
+      text-shadow: 0 0 12px var(--red-tranquilo-shadow);
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 15;
+    }
+
+    .logo {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 2px;
+      user-select: none;
+      font-style: italic;
+      text-shadow: 0 0 8px var(--red-tranquilo-shadow);
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .logo:hover {
+      color: var(--red-tranquilo);
+    }
+
+    /* NAVBAR */
+    .navbar ul {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .navbar a {
+      color: #e0e0e0;
+      font-weight: 500;
+      font-size: 1.1rem;
+      letter-spacing: 1.2px;
+      padding: 0.5rem 0;
+      position: relative;
+      transition: color 0.3s ease;
+      border-bottom: 2px solid transparent;
+    }
+
+    .navbar a:hover,
+    .navbar a:focus {
+      color: var(--red-tranquilo);
+      border-bottom: 2px solid var(--red-tranquilo);
+      outline: none;
+    }
+
+    /* HAMBURGER */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      z-index: 25;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .hamburger span {
+      width: 30px;
+      height: 3px;
+      background-color: var(--red-tranquilo);
+      border-radius: 3px;
+      transition: all 0.4s ease;
+      box-shadow: 0 0 4px var(--red-tranquilo-shadow);
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      margin: 3rem 0 5rem;
+    }
+
+    .btn-primary {
+      padding: 0.85rem 3rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: 2px solid var(--red-tranquilo);
+      border-radius: 40px;
+      background-color: transparent;
+      color: var(--red-tranquilo);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 8px var(--red-tranquilo-shadow);
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: var(--red-tranquilo);
+      color: #fff;
+      box-shadow: 0 0 20px var(--red-tranquilo-shadow);
+      outline: none;
+      transform: scale(1.05);
+    }
+
+    /* AUTOS DESTACADOS */
+    .autos-destacados {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin: 2rem 0 5rem;
+    }
+
+    .auto-card {
+      background-color: rgba(20, 20, 20, 0.85);
+      border-radius: 16px;
+      padding: 1.5rem 1.5rem 2rem;
+      box-sizing: border-box;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .auto-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px var(--red-tranquilo-shadow);
+    }
+
+    .auto-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 4px 3px var(--red-tranquilo-shadow));
+    }
+
+    .auto-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+      color: #ff0000;
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .auto-card p {
+      font-size: 1rem;
+      color: #ffffff;
+      line-height: 1.5;
+      text-align: center;
+      font-weight: 400;
+    }
+
+    /* AUTO INFO - BLOQUE COMPLETO Y CORREGIDO */
+    .auto-info {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin: 1.5rem 0 2rem;
+      width: 100%;
+      box-sizing: border-box;
+      flex-wrap: nowrap;
+    }
+
+    .info-box {
+      background-color: var(--red-tranquilo);
+      flex: 1 1 0;
+      min-width: 80px;
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 15px var(--red-tranquilo-shadow);
+      color: #fff;
+      font-weight: 600;
+      cursor: default;
+      transition: background-color 0.3s ease;
+
+      /* Previene que el texto se desborde */
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .info-box:hover {
+      background-color: #8a3528;
+      box-shadow: 0 6px 20px rgba(138, 53, 40, 0.8);
+    }
+
+    .info-label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      opacity: 0.8;
+
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .info-value {
+      font-size: 1.2rem;
+      font-weight: 700;
+
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    /* Botón "Ver más" estilo coherente */
+    .auto-card button {
+      background-color: var(--red-tranquilo);
+      border: none;
+      color: #fff;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 6px 20px var(--red-tranquilo-shadow);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      align-self: center;
+      margin-top: auto;
+    }
+
+    .auto-card button:hover,
+    .auto-card button:focus {
+      background-color: #8a3528;
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    /* QUIÉNES SOMOS */
+    .quienes-somos {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 3rem;
+      margin-top: 5rem;
+      padding: 0 1rem;
+    }
+
+    .quienes-txt,
+    .quienes-img {
+      flex: 1 1 320px;
+    }
+
+    .quienes-txt h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .quienes-txt p {
+      color: #bbb;
+      line-height: 1.7;
+      font-weight: 400;
+      font-size: 1.1rem;
+    }
+
+    .quienes-img img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 12px;
+      box-shadow: 0 15px 40px var(--red-tranquilo-shadow);
+      transition: transform 0.4s ease;
+    }
+
+    .quienes-img img:hover {
+      transform: scale(1.05);
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #121212;
+      padding: 3rem 2rem 2rem 2rem;
+      color: #999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: auto;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 350px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px var(--red-tranquilo-shadow);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-top: 1rem;
+      gap: 1rem;
+    }
+
+    .social-container {
+      display: flex;
+      gap: 15px;
+      justify-content: flex-start;
+      align-items: center;
+      flex: 1;
+    }
+
+    /* Redes sociales - estado normal */
+    .social-container a {
+      width: auto;
+      height: auto;
+      background: none;
+      box-shadow: none;
+      padding: 0;
+    }
+
+    .social-container img {
+      width: 26px;
+      height: 26px;
+      filter: brightness(1);
+    }
+
+    .social-container a:hover {
+      box-shadow: 0 0 20px var(--red-tranquilo-shadow);
+      transform: scale(1.15);
+    }
+
+    /* Pie de página */
+    .footer-credit {
+      font-size: 1rem;
+      color: #888;
+      flex: 1;
+      text-align: right;
+      font-weight: 400;
+    }
+
+    .footer-credit a {
+      color: var(--red-tranquilo);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-credit a:hover {
+      color: #b1533f;
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1024px) {
+      .overlay {
+        padding: 2rem 3rem;
+      }
+
+      .autos-destacados {
+        gap: 2rem;
+      }
+
+      .quienes-somos {
+        flex-direction: column;
+        padding: 0 1rem;
+      }
+
+      .quienes-img img {
+        max-width: 90%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .overlay {
+        padding: 1.5rem 1.5rem 3rem;
+      }
+
+      header {
+        margin-bottom: 2rem;
+      }
+
+      .navbar ul {
+        position: fixed;
+        top: 70px;
+        right: 1.5rem;
+        flex-direction: column;
+        background-color: rgba(17, 17, 17, 0.95);
+        padding: 1.5rem 2.5rem;
+        border-radius: 16px;
+        display: none;
+        width: 220px;
+        box-shadow: 0 15px 40px var(--red-tranquilo-shadow);
+        transition: all 0.35s ease-in-out;
+        z-index: 100;
+      }
+
+      .navbar ul.show {
+        display: flex;
+      }
+
+      .navbar a {
+        font-size: 1.2rem;
+        padding: 0.8rem 0;
+        border-bottom: none;
+        letter-spacing: 1.8px;
+      }
+
+      .navbar a:hover,
+      .navbar a:focus {
+        color: var(--red-tranquilo);
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      /* Redes sociales SOLO iconos, sin fondo ni sombra */
+      .social-container a {
+        width: auto;
+        height: auto;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+      }
+
+      .social-container img {
+        width: 26px;
+        height: 26px;
+        filter: brightness(1);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .overlay {
+        padding: 1rem 1rem 2rem;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+      }
+
+      .slogan {
+        font-size: 1.1rem;
+        margin: 2rem 0 3rem;
+        letter-spacing: 3px;
+      }
+
+      .btn-primary {
+        padding: 0.65rem 2.2rem;
+        font-size: 1rem;
+      }
+
+      .autos-destacados {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .quienes-txt h2 {
+        font-size: 1.8rem;
+      }
+
+      /* RESPONSIVE AUTO INFO - texto puede hacer salto de línea */
+      .auto-info {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .info-box {
+        white-space: normal;
+        word-break: break-word;
+      }
+
+      .info-label,
+      .info-value {
+        white-space: normal;
+        word-break: break-word;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="overlay">
@@ -575,15 +597,15 @@ footer {
         <p>Motor 2.0 Turbo, único dueño, mantenciones en la marca.</p>
 
         <div class="auto-info">
-          <div class="info-box">
+          <div class="info-box" title="45000">
             <span class="info-label">Km</span>
             <span class="info-value">45,000</span>
           </div>
-          <div class="info-box">
+          <div class="info-box" title="Mecánico">
             <span class="info-label">Transmisión</span>
             <span class="info-value">Mecánico</span>
           </div>
-          <div class="info-box">
+          <div class="info-box" title="Bencina">
             <span class="info-label">Combustible</span>
             <span class="info-value">Bencina</span>
           </div>
@@ -593,64 +615,41 @@ footer {
       </div>
 
       <div class="auto-card">
-        <img src="images/auto2.png" alt="Peugeot 3008" />
-        <h3>Peugeot 3008</h3>
-        <p>Automático, excelente estado, rendimiento sobresaliente y diseño moderno.</p>
-        
+        <img src="images/auto2.png" alt="Kia Sportage" />
+        <h3>Kia Sportage</h3>
+        <p>Automático, motor 2.4, muy cuidado y con mantenciones al día.</p>
+
         <div class="auto-info">
-          <div class="info-box">
+          <div class="info-box" title="35000">
             <span class="info-label">Km</span>
-            <span class="info-value">32,000</span>
+            <span class="info-value">35,000</span>
           </div>
-          <div class="info-box">
+          <div class="info-box" title="Automático">
             <span class="info-label">Transmisión</span>
             <span class="info-value">Automático</span>
           </div>
-          <div class="info-box">
+          <div class="info-box" title="Diesel">
             <span class="info-label">Combustible</span>
-            <span class="info-value">Diésel</span>
+            <span class="info-value">Diesel</span>
           </div>
         </div>
 
-        <button onclick="location.href='stock.html'">Ver más</button>
-      </div>
-
-      <div class="auto-card">
-        <img src="images/auto3.jpg" alt="Ford Escape" />
-        <h3>Ford Escape</h3>
-        <p>Transmisión automática, bajo kilometraje, ideal para ciudad y carretera.</p>
         
-        <div class="auto-info">
-          <div class="info-box">
-            <span class="info-label">Km</span>
-            <span class="info-value">28,500</span>
-          </div>
-          <div class="info-box">
-            <span class="info-label">Transmisión</span>
-            <span class="info-value">Automático</span>
-          </div>
-          <div class="info-box">
-            <span class="info-label">Combustible</span>
-            <span class="info-value">Bencina</span>
-          </div>
-        </div>
 
         <button onclick="location.href='stock.html'">Ver más</button>
       </div>
     </section>
 
     <section class="quienes-somos" id="nosotros">
-      <div class="quienes-txt">
-        <h2>¿Quiénes Somos en CYC?</h2>
-        <p>
-          En <strong>CYC Automóviles</strong>, nuestra pasión es conectar a las personas con el vehículo de sus sueños. Nos dedicamos a ofrecer una selección curada de automóviles de alta calidad, poniendo siempre la confianza y la satisfacción del cliente en el centro de todo lo que hacemos.
-        </p>
-        <p>
-          Con años de experiencia en el mercado automotriz chileno, nuestro equipo está comprometido a brindarte una atención personalizada y transparente.
-        </p>
-      </div>
       <div class="quienes-img">
-        <img src="images/fondo.png" alt="Equipo CYC Automóviles" />
+        <img src="images/fondo1.png" alt="Nosotros - CYC Automóviles" />
+      </div>
+      <div class="quienes-txt">
+        <h2>¿Quiénes somos?</h2>
+        <p>
+          Somos una automotora familiar dedicada a entregar vehículos de calidad, confiables y con mantenciones garantizadas.
+          Nuestro compromiso es que cada cliente encuentre el auto que busca con la mejor asesoría y respaldo.
+        </p>
       </div>
     </section>
 
@@ -658,59 +657,22 @@ footer {
       <div class="footer-container">
         <div class="map-container">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.557224597598!2d-70.55133392406711!3d-33.408714073406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1752815778365!5m2!1ses!2scl"
-            width="600"
-            height="450"
-            style="border:0;"
-            allowfullscreen=""
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.522868692002!2d-70.60310878479692!3d-33.44443488077381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5ff4f87fbd9%3A0xbcd529db9bc73747!2sCYC%20Automotora!5e0!3m2!1ses!2scl!4v1689709101111!5m2!1ses!2scl"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="Ubicación CYC Automóviles"
+            allowfullscreen
+            title="Ubicación de CYC Automotora"
           ></iframe>
         </div>
-
         <div class="footer-bottom">
-          <div class="social-container">
-            <a
-              href="https://www.instagram.com/cycautomoviles_/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram CYC Automóviles"
-            >
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
-                alt="Instagram"
-              />
-            </a>
-            <a
-              href="https://facebook.com/cyc_automoviles"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook CYC Automóviles"
-            >
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
-                alt="Facebook"
-              />
-            </a>
-            <a
-              href="https://wa.me/56912345678"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp CYC Automóviles"
-            >
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
-                alt="WhatsApp"
-              />
-            </a>
+          <div class="social-container" aria-label="Redes sociales">
+            <a href="" aria-label="Facebook"><img src="images/facebook.svg" alt="Facebook" /></a>
+            <a href="#" aria-label="Instagram"><img src="images/instagram.svg" alt="Instagram" /></a>
+            <a href="#" aria-label="Twitter"><img src="images/twitter.svg" alt="Twitter" /></a>
           </div>
-          <p class="footer-credit">
-            © 2025 Cyc Automoviles. Powered and secured by
-            <a href="mailto:picininiluciano@gmail.com" target="_blank" rel="noopener noreferrer"
-              >Luciano</a
-            >
-          </p>
+          <div class="footer-credit">
+            &copy; 2025 CYC Automóviles. Diseñado por <a href="mailto:info@cycautos.cl">CYC Team</a>
+          </div>
         </div>
       </div>
     </footer>
@@ -721,16 +683,16 @@ footer {
     const navMenu = document.getElementById('nav-menu');
 
     hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
       navMenu.classList.toggle('show');
-      document.body.classList.toggle('no-scroll'); // evita scroll cuando menú abierto
     });
 
-    // Cierra el menú al hacer click en un enlace (para UX)
-    document.querySelectorAll('.navbar ul li a').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('show');
-        document.body.classList.remove('no-scroll'); // desbloquea scroll
-      });
+    hamburger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('show');
+      }
     });
   </script>
 </body>
