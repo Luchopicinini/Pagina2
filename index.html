@@ -64,6 +64,10 @@
   }
 
   /* NAVBAR */
+  .navbar {
+    position: relative; /* agregado para que el ul absoluto funcione bien */
+  }
+
   .navbar ul {
     display: flex;
     gap: 1.5rem;
@@ -87,7 +91,8 @@
     flex-direction: column;
     gap: 6px;
     cursor: pointer;
-    z-index: 20;
+    z-index: 100; /* aumentado para que esté arriba del menú */
+    position: relative;
   }
 
   .hamburger span {
@@ -310,10 +315,15 @@
     margin-top: 1rem;
   }
 
-  .btn-primary {
-    width: 100%;
-    max-width: 280px;
-  }
+.btn-primary {
+  width: 100%;
+  max-width: 280px;
+  background-color: #000; /* negro */
+  color: #fff; /* letras blancas */
+  border: 2px solid #ff3c00;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 12px rgba(255, 60, 0, 0.5);
+}
 
   /* AUTOS DESTACADOS */
   .autos-destacados {
@@ -377,6 +387,11 @@
     height: 240px;
   }
 
+}
+
+/* Evita scroll cuando el menú móvil está abierto */
+.no-scroll {
+  overflow: hidden;
 }
 
 </style>
@@ -447,7 +462,10 @@
       <div class="footer-container">
         <div class="map-container">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.557224597598!2d-70.55133392406711!3d-33.408714073406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1752815778365!5m2!1ses!2scl" width="600" height="450" style="border:0;" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.557224597598!2d-70.55133392406711!3d-33.408714073406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1752815778365!5m2!1ses!2scl"
+            width="600"
+            height="450"
+            style="border:0;"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
@@ -492,7 +510,10 @@
             </a>
           </div>
           <p class="footer-credit">
-            © 2025 Cyc Automoviles. Powered and secured by <a href="mailto:picininiluciano@gmail.com" target="_blank" rel="noopener noreferrer">Luciano</a>
+            © 2025 Cyc Automoviles. Powered and secured by
+            <a href="mailto:picininiluciano@gmail.com" target="_blank" rel="noopener noreferrer"
+              >Luciano</a
+            >
           </p>
         </div>
       </div>
@@ -505,12 +526,29 @@
 
     hamburger.addEventListener('click', () => {
       navMenu.classList.toggle('show');
+      document.body.classList.toggle('no-scroll'); // evita scroll cuando menú abierto
     });
 
     // Cierra el menú al hacer click en un enlace (para UX)
     document.querySelectorAll('.navbar ul li a').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('show');
+        document.body.classList.remove('no-scroll'); // desbloquea scroll
+
+
+        const btnPrimary = document.querySelector('.btn-primary');
+
+btnPrimary.addEventListener('click', () => {
+  btnPrimary.style.backgroundColor = '#ff3c00';
+  btnPrimary.style.boxShadow = '0 8px 24px rgba(255, 60, 0, 0.9)';
+  setTimeout(() => {
+    btnPrimary.style.backgroundColor = '#000';
+    btnPrimary.style.boxShadow = '0 4px 12px rgba(255, 60, 0, 0.5)';
+  }, 200);
+});
+
+
+
       });
     });
   </script>
