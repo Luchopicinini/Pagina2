@@ -6,9 +6,12 @@
   <title>Automotora CYC - Inicio</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
+    /* RESET GENERAL */
     * {
       box-sizing: border-box;
     }
+
+    /* Estilos base del body */
     body {
       margin: 0;
       font-family: 'Barlow', sans-serif;
@@ -19,12 +22,14 @@
       flex-direction: column;
     }
 
+    /* Contenedor centralizado y responsivo */
     .container {
       max-width: 1100px;
       margin: 0 auto;
       width: 90%;
     }
 
+    /* ===== HEADER Y NAVEGACIÓN ===== */
     header {
       width: 100%;
       background-color: #111;
@@ -39,14 +44,21 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 0;
+      position: relative;
     }
 
+    /* Logo */
     .logo {
       font-weight: 700;
       font-size: 1.8rem;
       color: #fff;
       text-decoration: none;
       letter-spacing: 2px;
+    }
+
+    /* Navegación desktop */
+    nav {
+      /* visible por defecto en desktop */
     }
 
     nav ul {
@@ -68,6 +80,22 @@
       color: #ccc;
     }
 
+    /* ===== BOTÓN HAMBURGUESA ===== */
+    #btn-menu {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: none; /* oculto en desktop */
+      padding: 0;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
+    #btn-menu svg rect {
+      fill: #fff;
+    }
+
+    /* ===== SECCIÓN HERO ===== */
     .hero {
       display: flex;
       flex-direction: column;
@@ -101,7 +129,7 @@
       opacity: 0;
     }
 
-
+    /* ===== CATÁLOGO ===== */
     .catalogo {
       margin-bottom: 4rem;
     }
@@ -116,59 +144,87 @@
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
     }
+
+    /* Tarjeta de auto mejorada */
     .catalogo-card {
-      background: #222;
-      border-radius: 12px;
+      background: linear-gradient(135deg, #1a1a1a, #111);
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
       color: #fff;
       display: flex;
       flex-direction: column;
+      border: 1px solid #333;
     }
     .catalogo-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 20px #fff;
+      transform: translateY(-12px);
+      box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
+      border-color: #777;
     }
     .catalogo-card img {
       width: 100%;
-      height: 160px;
+      height: 180px;
       object-fit: cover;
-      border-bottom: 3px solid #fff;
+      border-bottom: 4px solid #e50914; /* borde rojo intenso */
+      transition: transform 0.4s ease;
+    }
+    .catalogo-card:hover img {
+      transform: scale(1.05);
     }
     .catalogo-card-content {
-      padding: 1rem;
+      padding: 1.5rem 1.5rem 2rem;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
     .catalogo-card h3 {
-      margin: 0 0 0.8rem;
-      font-weight: 600;
-      font-size: 1.25rem;
+      margin: 0 0 0.4rem;
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: 0.03em;
       color: #fff;
-    }
-    .catalogo-card p {
-      flex-grow: 1;
-      color: #ccc;
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-    }
-    .catalogo-card a {
-      align-self: flex-start;
-      background-color: #111;
-      color: #fff;
-      padding: 0.6rem 1.5rem;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-    }
-    .catalogo-card a:hover {
-      background-color: #333;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.6);
     }
 
+    /* Precio destacado */
+    .precio {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #e50914; /* rojo vibrante */
+      margin: 0 0 1rem;
+      font-family: 'Barlow', sans-serif;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+    }
+
+    .catalogo-card p {
+      flex-grow: 1;
+      color: #bbb;
+      font-size: 1rem;
+      line-height: 1.4;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .catalogo-card a {
+      align-self: flex-start;
+      background-color: #e50914;
+      color: #fff;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      box-shadow: 0 6px 15px rgba(229, 9, 20, 0.6);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .catalogo-card a:hover {
+      background-color: #b20610;
+      box-shadow: 0 10px 20px rgba(178, 6, 16, 0.8);
+    }
+
+    /* ===== BENEFICIOS ===== */
     .beneficios {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -207,6 +263,7 @@
       line-height: 1.4;
     }
 
+    /* ===== CONTACTO RÁPIDO ===== */
     .contacto-rapido {
       background: #fff;
       padding: 3rem 2rem;
@@ -216,18 +273,15 @@
       color: #111;
       margin-bottom: 3rem;
     }
-
     .contacto-rapido h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
       font-weight: 700;
     }
-
     .contacto-rapido p {
       margin-bottom: 2rem;
       font-size: 1.2rem;
     }
-
     .contacto-rapido input[type="email"] {
       padding: 0.8rem 1rem;
       border-radius: 30px;
@@ -239,11 +293,9 @@
       outline: none;
       transition: border-color 0.3s ease;
     }
-
     .contacto-rapido input[type="email"]:focus {
       border-color: #111;
     }
-
     .contacto-rapido button {
       padding: 0.85rem 2rem;
       border-radius: 30px;
@@ -256,11 +308,11 @@
       transition: background-color 0.3s ease;
       box-shadow: 0 3px 12px rgba(0,0,0,0.3);
     }
-
     .contacto-rapido button:hover {
       background-color: #333;
     }
 
+    /* ===== FOOTER ===== */
     footer {
       text-align: center;
       padding: 1rem;
@@ -271,6 +323,7 @@
       background-color: #111;
     }
 
+    /* ===== ANIMACIONES ===== */
     @keyframes slideInFromLeft {
       0% {
         opacity: 0;
@@ -282,12 +335,7 @@
       }
     }
 
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-
+    /* Iconos beneficios */
     .icono-calidad::before {
       content: '⭐';
       display: block;
@@ -310,6 +358,7 @@
       color: #fff;
     }
 
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 2.2rem;
@@ -331,16 +380,67 @@
       .catalogo-card img {
         height: 140px;
       }
+
+      /* NAV responsive: oculto inicialmente */
+      nav {
+        position: absolute;
+        top: 60px; /* altura header */
+        right: 1rem;
+        background-color: #111;
+        border-radius: 8px;
+        width: 200px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        z-index: 999;
+      }
+      nav.open {
+        max-height: 500px; /* mostrar menú */
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 0;
+        margin: 0;
+        padding: 0.5rem 0;
+        display: flex;
+      }
+      nav li {
+        border-bottom: 1px solid #333;
+      }
+      nav li:last-child {
+        border-bottom: none;
+      }
+      nav a {
+        display: block;
+        padding: 0.75rem 1rem;
+        font-weight: 500;
+      }
+
+      /* Mostrar botón menú */
+      #btn-menu {
+        display: block;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- HEADER -->
   <header>
     <div class="container">
       <a href="#" class="logo">CYC Automóviles</a>
-      <nav>
+
+      <!-- Botón menú hamburguesa -->
+      <button id="btn-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+        <svg width="24" height="24" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+          <rect y="4" width="24" height="2"></rect>
+          <rect y="11" width="24" height="2"></rect>
+          <rect y="18" width="24" height="2"></rect>
+        </svg>
+      </button>
+
+      <!-- Navegación -->
+      <nav id="nav-menu">
         <ul>
           <li><a href="index.html">Inicio</a></li>
           <li><a href="stock.html">Stock</a></li>
@@ -350,8 +450,6 @@
       </nav>
     </div>
   </header>
-
- <body>
 
   <!-- Hero -->
   <section class="hero container" role="banner" aria-label="Presentación principal de Automotora CYC">
@@ -364,53 +462,33 @@
     <h2>Catálogo de Autos</h2>
     <div class="catalogo-grid">
       <article class="catalogo-card">
-        <img src="images/auto1.png" alt="BMW Serie 1" />
+        <img src="images/audi1.png" alt="BMW Serie 1" />
         <div class="catalogo-card-content">
-          <h3>BMW Serie 1</h3>
+          <h3>Audi A1</h3>
+          <p class="precio">$25.000.000 CLP</p>
           <p>Elegancia y deportividad con motor turbo y tecnología de punta.</p>
-          <a href="detalle.html?auto=bmw-serie1">Ver más</a>
+          <a href="detalle.html?auto=Audi-A1">Ver más</a>
         </div>
       </article>
       <article class="catalogo-card">
-        <img src="images/auto2.png" alt="Audi A3" />
+        <img src="images/byo1.png" alt="Byo electrico sq40" />
         <div class="catalogo-card-content">
-          <h3>Audi A3</h3>
+          <h3>Bye hibrido</h3>
+          <p class="precio">$22.500.000 CLP</p>
           <p>Diseño moderno y eficiente, ideal para la ciudad y viajes largos.</p>
-          <a href="detalle.html?auto=audi-a3">Ver más</a>
+          <a href="detalle.html?auto=byo2">Ver más</a>
         </div>
       </article>
       <article class="catalogo-card">
-        <img src="images/auto3.jpg" alt="Mercedes Clase A" />
+        <img src="images/auto1.png" alt="Mercedes Clase A" />
         <div class="catalogo-card-content">
-          <h3>Mercedes Clase A</h3>
+          <h3>Chevrolet tahoe</h3>
+          <p class="precio">$28.000.000 CLP</p>
           <p>Confort premium, tecnología avanzada y seguridad garantizada.</p>
-          <a href="detalle.html?auto=mercedes-clase-a">Ver más</a>
+          <a href="detalle.html?auto=auto-1">Ver más</a>
         </div>
       </article>
-      <article class="catalogo-card">
-        <img src="images/auto3.jpg" alt="Mercedes Clase A" />
-        <div class="catalogo-card-content">
-          <h3>Mercedes Clase A</h3>
-          <p>Confort premium, tecnología avanzada y seguridad garantizada.</p>
-          <a href="detalle.html?auto=mercedes-clase-a">Ver más</a>
-        </div>
-      </article>
-      <article class="catalogo-card">
-        <img src="images/auto3.jpg" alt="Mercedes Clase A" />
-        <div class="catalogo-card-content">
-          <h3>Mercedes Clase A</h3>
-          <p>Confort premium, tecnología avanzada y seguridad garantizada.</p>
-          <a href="detalle.html?auto=mercedes-clase-a">Ver más</a>
-        </div>
-      </article>
-      <article class="catalogo-card">
-        <img src="images/auto3.jpg" alt="Mercedes Clase A" />
-        <div class="catalogo-card-content">
-          <h3>Mercedes Clase A</h3>
-          <p>Confort premium, tecnología avanzada y seguridad garantizada.</p>
-          <a href="detalle.html?auto=mercedes-clase-a">Ver más</a>
-        </div>
-      </article>
+      <!-- Puedes añadir más autos con la misma estructura -->
     </div>
   </section>
 
@@ -444,6 +522,17 @@
   <footer>
     <p>&copy; 2025 Automotora CYC. Todos los derechos reservados.</p>
   </footer>
+
+  <!-- SCRIPT para menú hamburguesa -->
+  <script>
+    const btnMenu = document.getElementById('btn-menu');
+    const navMenu = document.getElementById('nav-menu');
+
+    btnMenu.addEventListener('click', () => {
+      const abierto = navMenu.classList.toggle('open');
+      btnMenu.setAttribute('aria-expanded', abierto);
+    });
+  </script>
 
 </body>
 </html>

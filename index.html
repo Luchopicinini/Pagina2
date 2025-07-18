@@ -17,7 +17,7 @@
 
     body {
       font-family: 'Barlow', sans-serif;
-      background: url('images/fondo.png') no-repeat center center fixed;
+      background: url('images/fondo2.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
     }
@@ -28,6 +28,17 @@
       padding: 2rem;
       display: flex;
       flex-direction: column;
+    }
+
+    .slogan {
+      font-size: 200px;               /* Tamaño grande */
+      font-weight: 700;              /* Negrita */
+      text-align: center;            /* Centrado */
+      margin: 2rem 0;                /* Espacio arriba y abajo */
+      color: #1a1a1a;                /* Color oscuro para resaltar */
+      font-family: 'Barlow', sans-serif; /* Fuente limpia */
+      text-transform: uppercase;     /* Todo en mayúsculas */
+      letter-spacing: 2px;           /* Espaciado entre letras */
     }
 
     header {
@@ -45,7 +56,7 @@
     .logo {
       font-size: 2rem;
       font-weight: 700;
-      text-shadow: 0 0 10px #fff;
+      text-shadow: 0 0 10px #000000;
       color: #fff;
       text-decoration: none;
       user-select: none;
@@ -67,7 +78,7 @@
     }
 
     .navbar a:hover {
-      color: #ff3c00;
+      color: #ff0000;
     }
 
     /* HAMBURGER MENU */
@@ -132,7 +143,7 @@
       font-weight: 500;
       border: none;
       border-radius: 30px;
-      background-color: #ff3c00;
+      background-color: #000000;
       color: #fff;
       cursor: pointer;
       transition: background-color 0.3s ease;
@@ -339,7 +350,7 @@
 
       <nav class="navbar">
         <ul id="nav-menu">
-          <li><a href="#">Stock</a></li>
+          <li><a href="stock.html">Stock</a></li>
           <li><a href="#">Nosotros</a></li>
           <li><a href="#">Vende tu vehículo</a></li>
         </ul>
@@ -361,17 +372,18 @@
     <section class="autos-destacados" id="stock">
       <div class="auto-card">
         <img src="images/auto1.png" alt="BMW 128ti" />
-        <h3>BMW 128ti 2023</h3>
-        <p>Motor 2.0 Turbo, único dueño, mantenciones en la marca. Solo 17.900 km.</p>
+        <h3>Chevrolet Tahoe</h3>
+        <p>Motor 2.0 Turbo, único dueño, mantenciones en la marca. </p>
+        
       </div>
       <div class="auto-card">
         <img src="images/auto2.png" alt="Honda Civic 2017" />
-        <h3>Honda Civic EX 2.0 2017</h3>
+        <h3>Peugeot 3008</h3>
         <p>Automático, excelente estado, rendimiento sobresaliente y diseño moderno.</p>
       </div>
       <div class="auto-card">
         <img src="images/auto3.jpg" alt="Mazda 3" />
-        <h3>Mazda 3 Touring 2019</h3>
+        <h3>Ford Escape</h3>
         <p>Transmisión automática, bajo kilometraje, ideal para ciudad y carretera.</p>
       </div>
     </section>
@@ -385,7 +397,6 @@
         <p>
           Con años de experiencia en el mercado automotriz chileno, nuestro equipo está comprometido a brindarte una atención personalizada y transparente.
         </p>
-        <a href="#" class="btn-primary">Conoce Nuestra Historia</a>
       </div>
       <div class="quienes-img">
         <img src="images/fondo.png" alt="Equipo CYC Automóviles" />
@@ -396,7 +407,7 @@
       <div class="footer-container">
         <div class="map-container">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1.0!2d-70.5!3d-33.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDI0JzAwLjAiUyA3MMKwMzAnMDAuMCJX!5e0!3m2!1ses!2scl!4v1626840000000!5m2!1ses!2scl"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.557224597598!2d-70.55133392406711!3d-33.408714073406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1752815778365!5m2!1ses!2scl" width="600" height="450" style="border:0;" 
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
@@ -407,7 +418,7 @@
         <div class="footer-bottom">
           <div class="social-container">
             <a
-              href="https://instagram.com/cyc_automoviles"
+              href="https://www.instagram.com/cycautomoviles_/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram CYC Automóviles"
