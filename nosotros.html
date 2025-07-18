@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CYC Automóviles - Página Nueva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Barlow', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    header {
+      background-color: #111;
+      border-bottom: 1px solid #333;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      position: relative;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ccc;
+    }
+
+    #btn-menu {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: none;
+      margin-left: auto;
+      padding: 0;
+    }
+
+    #btn-menu svg rect {
+      fill: #fff;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 60px;
+        right: 1rem;
+        background-color: #111;
+        border-radius: 8px;
+        width: 200px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        z-index: 999;
+      }
+
+      nav.open {
+        max-height: 500px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        padding: 0.5rem 0;
+      }
+
+      nav li {
+        border-bottom: 1px solid #333;
+      }
+
+      nav li:last-child {
+        border-bottom: none;
+      }
+
+      nav a {
+        display: block;
+        padding: 0.75rem 1rem;
+      }
+
+      #btn-menu {
+        display: block;
+      }
+          footer {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 3rem 2rem 2rem 2rem;
+      color: #ccc;
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 350px;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .social-container {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-start;
+      align-items: center;
+      flex: 1;
+    }
+
+    .social-container a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border-radius: 50%;
+      background-color: rgba(255, 60, 0, 0.85);
+      box-shadow: 0 3px 8px rgba(255, 60, 0, 0.6);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      font-size: 0;
+    }
+
+    .social-container a:hover {
+      background-color: #e53300;
+      box-shadow: 0 5px 15px rgba(229, 51, 0, 0.8);
+    }
+
+    .social-container a img {
+      width: 18px;
+      height: 18px;
+      filter: brightness(1);
+      display: block;
+      margin: auto;
+    }
+
+    .social-container a[aria-label="Facebook CYC Automóviles"] {
+      background-color: #3b5998;
+      box-shadow: 0 3px 8px rgba(59, 89, 152, 0.6);
+    }
+
+    .social-container a[aria-label="Facebook CYC Automóviles"]:hover {
+      background-color: #2d4373;
+      box-shadow: 0 5px 15px rgba(45, 67, 115, 0.8);
+    }
+
+    .social-container a[aria-label="WhatsApp CYC Automóviles"] {
+      background-color: #25D366;
+      box-shadow: 0 3px 8px rgba(37, 211, 102, 0.6);
+    }
+
+    .social-container a[aria-label="WhatsApp CYC Automóviles"]:hover {
+      background-color: #1ebe57;
+      box-shadow: 0 5px 15px rgba(30, 190, 87, 0.8);
+    }
+
+    .footer-credit {
+      flex: 1;
+      text-align: right;
+      font-size: 0.9rem;
+      color: #aaa;
+      border-top: none;
+    }
+
+    .footer-credit a {
+      color: #ff3c00;
+      text-decoration: none;
+    }
+
+    .footer-credit a:hover {
+      text-decoration: underline;
+    }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER reutilizable -->
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">CYC Automóviles</a>
+
+      <!-- Botón menú hamburguesa -->
+      <button id="btn-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <rect y="4" width="24" height="2"></rect>
+          <rect y="11" width="24" height="2"></rect>
+          <rect y="18" width="24" height="2"></rect>
+        </svg>
+      </button>
+
+      <!-- NAVIGATION -->
+      <nav id="nav-menu">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="stock.html">Stock</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="#">Vende tu vehículo</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PERSONALIZADO -->
+  <main class="container" style="padding: 2rem 0;">
+    <h1 style="font-size: 2.5rem;">Título de esta nueva página</h1>
+    <p>Este es un ejemplo de página nueva con la misma barra de navegación responsiva de tu sitio.</p>
+    <!-- Aquí puedes agregar cualquier contenido adicional -->
+  </main>
+
+<footer>
+      <div class="footer-container">
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.557224597598!2d-70.55133392406711!3d-33.408714073406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1752815778365!5m2!1ses!2scl" width="600" height="450" style="border:0;" 
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación CYC Automóviles"
+          ></iframe>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="social-container">
+            <a
+              href="https://www.instagram.com/cycautomoviles_/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram CYC Automóviles"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                alt="Instagram"
+              />
+            </a>
+            <a
+              href="https://facebook.com/cyc_automoviles"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook CYC Automóviles"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+                alt="Facebook"
+              />
+            </a>
+            <a
+              href="https://wa.me/56912345678"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp CYC Automóviles"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+                alt="WhatsApp"
+              />
+            </a>
+          </div>
+          <p class="footer-credit">
+            © 2025 Cyc Automoviles. Powered and secured by <a href="mailto:picininiluciano@gmail.com" target="_blank" rel="noopener noreferrer">Luciano</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    const btnMenu = document.getElementById('btn-menu');
+    const navMenu = document.getElementById('nav-menu');
+
+    btnMenu.addEventListener('click', () => {
+      const abierto = navMenu.classList.toggle('open');
+      btnMenu.setAttribute('aria-expanded', abierto);
+    });
+  </script>
+
+</body>
+</html>

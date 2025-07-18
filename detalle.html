@@ -1,38 +1,52 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Detalle Auto - CYC Automóviles</title>
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
+
+  <meta name="description" content="Detalle del vehículo en venta en CYC Automóviles. Más de 10 años vendiendo autos nuevos y usados con atención personalizada y vehículos certificados en Las Condes, Santiago." />
+  <meta name="keywords" content="venta de autos, vehículos usados, autos nuevos, CYC Automóviles, Las Condes, Santiago, financiamiento autos, Audi A1" />
+
   <style>
-    /* ===== RESET ===== */
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
+    /* Variables de color */
+    :root {
+      --color-fondo: #000000;
+      --color-texto: #fff;
+      --color-principal: #ff3c00;
+      --color-hover: #e53300;
+      --color-footer-bg: rgba(0, 0, 0, 0.5);
     }
 
-    /* ===== Estilos BODY ===== */
+    /* Reset y base */
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Barlow', sans-serif;
-      background-color: #f8f8f8;
-      color: #222;
-      line-height: 1.6;
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
+      margin: 0;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
     }
 
-    /* ===== Contenedor general ===== */
     .container {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 1rem;
-      width: 90%;
+      padding: 0 1rem;
+      flex-grow: 1;
     }
 
-    /* ===== HEADER y NAV ===== */
+    /* HEADER */
     header {
-      width: 100%;
       background-color: #111;
       border-bottom: 1px solid #333;
       position: sticky;
@@ -48,16 +62,14 @@
       position: relative;
     }
 
-    /* Logo */
     .logo {
       font-weight: 700;
       font-size: 1.8rem;
-      color: #fff;
+      color: var(--color-texto);
       text-decoration: none;
       letter-spacing: 2px;
     }
 
-    /* NAV lista horizontal */
     nav ul {
       list-style: none;
       display: flex;
@@ -68,7 +80,7 @@
 
     nav a {
       text-decoration: none;
-      color: #fff;
+      color: var(--color-texto);
       font-weight: 500;
       transition: color 0.3s ease;
     }
@@ -77,16 +89,26 @@
       color: #ccc;
     }
 
-    /* ===== BOTÓN MENU HAMBURGUESA ===== */
+    /* Botón menú hamburguesa */
     #btn-menu {
       background: none;
       border: none;
       cursor: pointer;
-      display: none; /* Oculto por defecto en desktop */
-      padding: 0;
+      display: none;
       margin-left: auto;
-      flex-shrink: 0;
+      padding: 0;
+      transition: fill 0.3s ease;
     }
+
+    #btn-menu svg rect {
+      fill: var(--color-texto);
+      transition: fill 0.3s ease;
+    }
+
+    #btn-menu.open svg rect {
+      fill: var(--color-principal);
+    }
+
 
     /* ===== CARRUSEL ===== */
     .carrusel {
@@ -207,10 +229,15 @@
       margin-bottom: 1rem;
     }
 
+    /* Precio muy resaltado */
     .auto-info .precio {
-      font-size: 1.3rem;
-      color: #e91e63;
-      margin-bottom: 1rem;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #ed1515;
+
+      margin-bottom: 1.5rem;
+      user-select: text;
+      letter-spacing: 1.5px;
     }
 
     .caracteristicas {
@@ -229,6 +256,14 @@
       align-items: center;
       gap: 0.5rem;
       min-width: 110px;
+      cursor: default;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    .caracteristica-item:hover,
+    .caracteristica-item:focus {
+      background-color: #ffd6e7;
+      outline: none;
     }
 
     .caracteristica-item svg {
@@ -243,18 +278,44 @@
       font-weight: 600;
     }
 
+    /* Características destacadas con efecto "mágico" */
     .destacadas {
-      background: #fef3f7;
+      background: linear-gradient(135deg, #fef3f7, #fff0f6);
       border-radius: 12px;
-      padding: 1rem 1.5rem;
-      margin-bottom: 1.5rem;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.8rem;
+      box-shadow:
+        0 0 8px rgba(233, 30, 99, 0.25),
+        inset 0 0 12px rgba(255, 64, 129, 0.3);
+      transition: box-shadow 0.3s ease;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
     }
 
-    .destacadas h3 {
-      margin-bottom: 1rem;
-      color: #e91e63;
+    /* Animación suave de brillo (glow) */
+    @keyframes glow {
+      0%, 100% {
+        box-shadow:
+          0 0 8px rgba(233, 30, 99, 0.25),
+          inset 0 0 12px rgba(255, 64, 129, 0.3);
+      }
+      50% {
+        box-shadow:
+          0 0 20px rgba(233, 30, 99, 0.6),
+          inset 0 0 25px rgba(255, 64, 129, 0.5);
+      }
+    }
+    .destacadas:hover,
+    .destacadas:focus-within {
+      animation: glow 2.5s ease-in-out infinite;
+      box-shadow:
+        0 0 20px rgba(233, 30, 99, 0.6),
+        inset 0 0 25px rgba(255, 64, 129, 0.5);
+      outline: none;
     }
 
+    /* Los ítems con sombra y efecto al pasar mouse */
     .destacadas ul {
       list-style: none;
       display: flex;
@@ -264,16 +325,41 @@
 
     .destacadas li {
       background: #fff;
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
+      padding: 0.85rem 1.2rem;
+      border-radius: 10px;
       flex: 1 1 140px;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      box-shadow: 0 0 8px rgba(233,30,99,0.15);
-      font-weight: 500;
+      gap: 0.7rem;
+      box-shadow:
+        0 2px 6px rgba(233, 30, 99, 0.15);
+      font-weight: 600;
       color: #555;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      user-select: none;
+      transition:
+        background-color 0.35s ease,
+        box-shadow 0.35s ease,
+        transform 0.3s ease;
+      cursor: default;
+      position: relative;
+    }
+
+    .destacadas li:hover,
+    .destacadas li:focus {
+      background-color: #ffe5ee;
+      box-shadow:
+        0 4px 12px rgba(233, 30, 99, 0.45),
+        0 0 12px rgba(233, 30, 99, 0.7);
+      transform: translateY(-3px);
+      outline: none;
+    }
+
+    /* Brillo animado en el icono de check al hacer hover */
+    .destacadas li:hover svg,
+    .destacadas li:focus svg {
+      filter: drop-shadow(0 0 5px #e91e63);
+      transition: filter 0.3s ease;
     }
 
     .destacadas li svg {
@@ -283,71 +369,194 @@
       flex-shrink: 0;
     }
 
-    /* Formulario contacto */
+    /* ===== FORMULARIO DE CONTACTO ===== */
     .contacto {
-      margin-top: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
+      background-color: #fff;
+      padding: 2rem 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.07);
+      margin-top: 3rem;
+      max-width: 600px;
+      width: 100%;
+      align-self: center;
     }
 
     .contacto h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+      color: #000000;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 1px;
+      user-select: none;
+    }
+
+    .contacto form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
     }
 
     .contacto label {
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      color: #444;
+      user-select: none;
     }
 
     .contacto input,
     .contacto textarea {
-      padding: 0.6rem;
+      padding: 0.65rem 1rem;
       font-size: 1rem;
-      border: 1px solid #ccc;
       border-radius: 8px;
+      border: 1.8px solid #ccc;
+      outline-offset: 2px;
+      transition: border-color 0.3s ease;
       resize: vertical;
+      font-family: 'Barlow', sans-serif;
+    }
+
+    .contacto input:focus,
+    .contacto textarea:focus {
+      border-color: #e91e63;
+      box-shadow: 0 0 8px #e91e63aa;
+      outline: none;
+    }
+
+    .contacto textarea {
+      min-height: 100px;
     }
 
     .contacto button {
-      background-color: #111;
+      background-color: #e91e63;
       color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 0.85rem 1rem;
       border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-size: 1rem;
+      border-radius: 12px;
       cursor: pointer;
-      transition: background 0.3s ease;
-      margin-top: 1rem;
-      align-self: flex-start;
+      user-select: none;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .contacto button:hover {
-      background-color: #333;
+    .contacto button:hover,
+    .contacto button:focus {
+      background-color: #b0003a;
+      box-shadow: 0 0 15px #b0003aaa;
+      outline: none;
     }
 
-    .btn-volver {
-      display: inline-block;
-      margin-top: 1.5rem;
-      text-decoration: none;
-      color: #111;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-
-    .btn-volver:hover {
-      color: #e91e63;
-    }
-
-    /* Footer */
+    /* FOOTER */
     footer {
-      margin-top: auto;
-      text-align: center;
-      padding: 1.5rem 0;
-      background-color: #111;
+      background-color: var(--color-footer-bg);
+      padding: 3rem 2rem 2rem 2rem;
       color: #ccc;
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 350px;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .social-container {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-start;
+      align-items: center;
+      flex: 1;
+    }
+
+    .social-container a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border-radius: 50%;
+      background-color: var(--color-principal);
+      box-shadow: 0 3px 8px var(--color-principal);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      font-size: 0;
+    }
+
+    .social-container a:hover {
+      background-color: var(--color-hover);
+      box-shadow: 0 5px 15px var(--color-hover);
+    }
+
+    .social-container a img {
+      width: 18px;
+      height: 18px;
+      filter: brightness(1);
+      display: block;
+      margin: auto;
+    }
+
+    .social-container a[aria-label="Facebook CYC Automóviles"] {
+      background-color: #3b5998;
+      box-shadow: 0 3px 8px rgba(59, 89, 152, 0.6);
+    }
+
+    .social-container a[aria-label="Facebook CYC Automóviles"]:hover {
+      background-color: #2d4373;
+      box-shadow: 0 5px 15px rgba(45, 67, 115, 0.8);
+    }
+
+    .social-container a[aria-label="WhatsApp CYC Automóviles"] {
+      background-color: #25D366;
+      box-shadow: 0 3px 8px rgba(37, 211, 102, 0.6);
+    }
+
+    .social-container a[aria-label="WhatsApp CYC Automóviles"]:hover {
+      background-color: #1ebe57;
+      box-shadow: 0 5px 15px rgba(30, 190, 87, 0.8);
+    }
+
+    .footer-credit {
+      flex: 1;
+      text-align: right;
       font-size: 0.9rem;
+      color: #aaa;
+      border-top: none;
+    }
+
+    .footer-credit a {
+      color: var(--color-principal);
+      text-decoration: none;
+    }
+
+    .footer-credit a:hover {
+      text-decoration: underline;
     }
 
     /* ===== Responsive ===== */
@@ -399,51 +608,219 @@
       #btn-menu {
         display: block;
       }
+
+      /* Formulario centrado y ancho completo */
+      .contacto {
+        max-width: 100%;
+        padding: 1.5rem 1.5rem;
+      }
+
+    /* FOOTER */
+    footer {
+      background-color: var(--color-footer-bg);
+      padding: 3rem 2rem 2rem 2rem;
+      color: #000000;
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 350px;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .social-container {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-start;
+      align-items: center;
+      flex: 1;
+    }
+
+    .social-container a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border-radius: 50%;
+      background-color: var(--color-principal);
+      box-shadow: 0 3px 8px var(--color-principal);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      font-size: 0;
+    }
+
+    .social-container a:hover {
+      background-color: var(--color-hover);
+      box-shadow: 0 5px 15px var(--color-hover);
+    }
+
+    .social-container a img {
+      width: 18px;
+      height: 18px;
+      filter: brightness(1);
+      display: block;
+      margin: auto;
+    }
+
+    .social-container a[aria-label="Facebook CYC Automóviles"] {
+      background-color: #3b5998;
+      box-shadow: 0 3px 8px rgba(59, 89, 152, 0.6);
+    }
+
+    .social-container a[aria-label="Facebook CYC Automóviles"]:hover {
+      background-color: #2d4373;
+      box-shadow: 0 5px 15px rgba(45, 67, 115, 0.8);
+    }
+
+    .social-container a[aria-label="WhatsApp CYC Automóviles"] {
+      background-color: #25D366;
+      box-shadow: 0 3px 8px rgba(37, 211, 102, 0.6);
+    }
+
+    .social-container a[aria-label="WhatsApp CYC Automóviles"]:hover {
+      background-color: #1ebe57;
+      box-shadow: 0 5px 15px rgba(30, 190, 87, 0.8);
+    }
+
+    .footer-credit {
+      flex: 1;
+      text-align: right;
+      font-size: 0.9rem;
+      color: #aaa;
+      border-top: none;
+    }
+
+    .footer-credit a {
+      color: var(--color-principal);
+      text-decoration: none;
+    }
+
+    .footer-credit a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
     <div class="container">
-      <a href="#" class="logo">CYC Automóviles</a>
+      <a href="index.html" class="logo">CYC Automóviles</a>
 
-      <!-- Botón menú hamburguesa para responsive -->
       <button id="btn-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
-        <!-- Icono hamburguesa simple con SVG -->
-        <svg width="24" height="24" fill="#fff" viewBox="0 0 24 24" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <rect y="4" width="24" height="2"></rect>
           <rect y="11" width="24" height="2"></rect>
           <rect y="18" width="24" height="2"></rect>
         </svg>
       </button>
 
-      <!-- Menú de navegación -->
-      <nav id="nav-menu">
+      <nav id="nav-menu" role="navigation" aria-label="Menú principal">
         <ul>
           <li><a href="index.html">Inicio</a></li>
           <li><a href="stock.html">Stock</a></li>
-          <li><a href="#">Nosotros</a></li>
-          <li><a href="#">Vende tu vehículo</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="vender.html">Vende tu vehículo</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- MAIN: Detalle Auto -->
   <main class="container">
     <section id="detalle-auto" aria-label="Detalle del vehículo seleccionado">
-      <!-- Contenido generado por JavaScript -->
+      </section>
+
+    <section class="contacto" aria-labelledby="contacto-title">
+      <h2 id="contacto-title">Contacto y Consulta</h2>
+      <form id="form-contacto" action="#" method="POST" novalidate>
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" autocomplete="name" />
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required placeholder="tucorreo@ejemplo.com" autocomplete="email" />
+
+        <label for="telefono">Teléfono (opcional):</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="+56 9 1234 5678" autocomplete="tel" pattern="[\+0-9\s\-]{8,15}" />
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" required placeholder="Escribe tu consulta o comentario aquí..."></textarea>
+
+        <button type="submit" aria-label="Enviar formulario de contacto">Enviar</button>
+      </form>
     </section>
   </main>
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Automotora CYC. Todos los derechos reservados.</p>
+    <div class="footer-container">
+      <div class="map-container" aria-label="Mapa ubicación CYC Automóviles">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.557224597598!2d-70.55133392406711!3d-33.408714073406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1752815778365!5m2!1ses!2scl"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación CYC Automóviles"
+        ></iframe>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="social-container">
+          <a href="https://www.instagram.com/cycautomoviles_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram CYC Automóviles">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+          </a>
+          <a href="https://facebook.com/cyc_automoviles" target="_blank" rel="noopener noreferrer" aria-label="Facebook CYC Automóviles">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
+          </a>
+          <a href="https://wa.me/56912345678" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp CYC Automóviles">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+          </a>
+        </div>
+        <p class="footer-credit">
+          © 2025 CYC Automóviles. Powered and secured by
+          <a href="mailto:picininiluciano@gmail.com" target="_blank" rel="noopener noreferrer">Luciano</a>
+        </p>
+      </div>
+    </div>
   </footer>
 
   <script>
+    // Script para el menú hamburguesa
+    const btnMenu = document.getElementById('btn-menu');
+    const navMenu = document.getElementById('nav-menu');
+
+    btnMenu.addEventListener('click', () => {
+      const abierto = navMenu.classList.toggle('open');
+      btnMenu.setAttribute('aria-expanded', abierto);
+      btnMenu.classList.toggle('open', abierto);
+    });
+
     // Datos de autos con sus detalles e imágenes
     const autos = {
       "Audi-A1": {
@@ -457,102 +834,83 @@
         año: "2023",
         caja: "Automática",
         combustible: "Bencina",
-        extras: "Tapiz cuero, GPS, cámara 360°, asistente de estacionamiento",
+        extras: "Frenos ABS, Airbags laterales, Cámara de reversa, Bluetooth"
       },
-      "byo2": {
-        nombre: "Byo sq40 Hibrido",
-        imagenes: ["images/byo1.png", "images/byo2.png", "images/byo3.png"],
-        descripcion: "Diseño moderno y rendimiento eficiente, ideal para ciudad y carretera.",
-        precio: "$23.500.000",
-        kilometros: "8.000 km",
-        año: "2022",
-        caja: "Manual",
-        combustible: "Diesel",
-        extras: "Sunroof, sistema de sonido premium, sensores de proximidad",
-      },
-      "auto-1": {
-        nombre: "Chevrolet Tahore, Papeles al dia",
-        imagenes: ["images/auto1.png", "images/auto2.png", "images/auto3.png"],
-        descripcion: "Confort y lujo en un compacto que no pasa desapercibido.",
-        precio: "$27.800.000",
-        kilometros: "10.500 km",
-        año: "2023",
-        caja: "Automática",
-        combustible: "Bencina",
-        extras: "Pantalla táctil, control crucero adaptativo, cámara trasera, Apertura maletero",
-      }
+      // Puedes agregar más autos aquí
     };
 
-    // Función para obtener parámetro de URL (ejemplo: ?auto=bmw-serie1)
-    function getParam(param) {
-      return new URLSearchParams(window.location.search).get(param);
+    // Obtener parámetro URL
+    function obtenerParametro(param) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(param);
     }
 
-    const autoId = getParam('auto');  // Leer qué auto mostrar
-    const auto = autos[autoId];       // Buscar auto en datos
-    const contenedor = document.getElementById('detalle-auto');  // Contenedor para contenido
+    const autoId = obtenerParametro('auto') || "Audi-A1"; // Default si no hay parámetro
 
-    if (auto) {
-      // Crear los indicadores (botones pequeños para cada imagen)
-      const indicadoresHTML = `
-        <div class="indicadores" role="tablist" aria-label="Selector de imágenes">
-          ${auto.imagenes.map((_, i) => `
-            <button role="tab" aria-selected="${i === 0}" aria-controls="img-${i}" id="tab-${i}" tabindex="${i === 0 ? '0' : '-1'}" aria-label="Imagen ${i + 1}"></button>
-          `).join('')}
-        </div>
-      `;
+    const auto = autos[autoId];
 
-      // Crear la sección del carrusel con imágenes y flechas
-      const imagenesHTML = `
-        <div class="carrusel" tabindex="0" aria-roledescription="carousel" aria-label="Galería de imágenes del auto">
-          <button class="flecha left" aria-label="Imagen anterior">&#10094;</button>
-          <div class="slider" id="slider">
-            ${auto.imagenes.map((img, i) => `
-              <img src="${img}" alt="${auto.nombre} foto ${i+1}" id="img-${i}" role="tabpanel" aria-labelledby="tab-${i}" ${i === 0 ? '' : 'hidden'} />
-            `).join('')}
-          </div>
-          <button class="flecha right" aria-label="Imagen siguiente">&#10095;</button>
-          ${indicadoresHTML}
-        </div>
-      `;
+    const contenedor = document.getElementById('detalle-auto');
 
-      // Función para elegir icono según característica
-      function iconoPorTipo(tipo) {
-        switch(tipo) {
-          case 'Año':
-            return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#555" d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM5 19V8h14v11H5z"/></svg>`;
-          case 'Kilómetros':
-            return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#555" d="M12 4a8 8 0 1 0 8 8 8 8 0 0 0-8-8zm0 14a6 6 0 1 1 6-6 6 6 0 0 1-6 6zm-.5-9h1v5h-1z"/></svg>`;
-          case 'Caja':
-            return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#555" d="M12 2L6 6v12l6 4 6-4V6z"/></svg>`;
-          case 'Combustible':
-            return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#555" d="M6 2h12v20H6z"/></svg>`;
-          default:
-            return '';
-        }
+    // Función para devolver iconos SVG personalizados según el tipo y valor
+    function iconoPorTipo(tipo, valor) {
+      switch (tipo) {
+        case 'Año':
+          return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="#555"><path d="M5 3v2h14V3H5zM5 21h14v-2H5v2z"/></svg>`;
+        case 'Kilómetros':
+          return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="#555"><path d="M12 4a8 8 0 1 0 8 8 8 8 0 0 0-8-8zm0 14a6 6 0 1 1 6-6 6 6 0 0 1-6 6zm-.5-9h1v5h-1z"/></svg>`;
+        case 'Caja':
+          if (valor.toLowerCase().includes('automática')) {
+            // Palanca automática
+            return `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#555" viewBox="0 0 24 24"><path d="M7 20h10v-2H7v2zm0-8h10v-2H7v2zm0-6h10V4H7v2z"/></svg>`;
+          } else {
+            // Palanca manual (caja)
+            return `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#555" viewBox="0 0 24 24"><path d="M12 2L6 6v12l6 4 6-4V6z"/></svg>`;
+          }
+        case 'Combustible':
+          if (valor.toLowerCase().includes('bencina')) {
+            // Estanque de bencina
+            return `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#555" viewBox="0 0 24 24"><path d="M7 22h10v-2H7v2zm6-19v5H8v-5h5zM4 9h16v11H4z"/></svg>`;
+          } else {
+            // Otro combustible genérico
+            return `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#555" viewBox="0 0 24 24"><path d="M6 2h12v20H6z"/></svg>`;
+          }
+        default:
+          return '';
       }
+    }
+
+    // Función para generar el HTML completo con datos y carrusel
+    function mostrarDetalle(auto) {
+      if (!auto) {
+        contenedor.innerHTML = `<p>Auto no encontrado.</p>`;
+        return;
+      }
+
+      // Imágenes carrusel
+      const imagenesHTML = auto.imagenes.map((src, i) =>
+        `<img src="${src}" alt="${auto.nombre} imagen ${i + 1}" loading="lazy" draggable="false">`
+      ).join('');
 
       // Características con iconos
       const caracteristicasHTML = `
-        <div class="caracteristicas">
+        <div class="caracteristicas" role="list">
           ${[['Año', auto.año], ['Kilómetros', auto.kilometros], ['Caja', auto.caja], ['Combustible', auto.combustible]]
             .map(([tipo, valor]) => `
-              <div class="caracteristica-item" title="${tipo}">
-                ${iconoPorTipo(tipo)}
+              <div class="caracteristica-item" title="${tipo}" tabindex="0" role="listitem">
+                ${iconoPorTipo(tipo, valor)}
                 <span>${valor}</span>
               </div>
-          `).join('')}
+            `).join('')}
         </div>
       `;
 
-      // Extras destacados (dividir por coma)
-      const extrasHTML = `
-        <div class="destacadas" aria-label="Características destacadas">
-          <h3>Características Destacadas</h3>
+      // Características destacadas con icono check
+      const destacadasHTML = `
+        <div class="destacadas" tabindex="0" aria-label="Características destacadas del vehículo">
           <ul>
             ${auto.extras.split(',').map(extra => `
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.2l-3.5-3.5 1.4-1.4L9 13.4l7.1-7.1 1.4 1.4z"/></svg>
+              <li tabindex="0" role="listitem">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5-1.41 1.41L9 19 20.5 7.5 19.09 6.09z"/></svg>
                 ${extra.trim()}
               </li>
             `).join('')}
@@ -560,81 +918,103 @@
         </div>
       `;
 
-      // Formulario contacto simple
-      const formularioHTML = `
-        <form class="contacto" aria-label="Formulario de contacto">
-          <h2>Contactar</h2>
-          <label for="nombre">Nombre:</label>
-          <input type="text" id="nombre" name="nombre" required autocomplete="name" />
-          <label for="email">Correo electrónico:</label>
-          <input type="email" id="email" name="email" required autocomplete="email" />
-          <label for="mensaje">Mensaje:</label>
-          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-          <button type="submit">Enviar consulta</button>
-        </form>
-      `;
-
-      // Contenido completo detalle auto
+      // HTML final
       contenedor.innerHTML = `
         <div class="detalle-auto">
-          ${imagenesHTML}
+          <div class="carrusel" aria-label="Imágenes del vehículo">
+            <button class="flecha left" aria-label="Imagen anterior" type="button">❮</button>
+            <div class="slider" tabindex="0" role="list">
+              ${imagenesHTML}
+            </div>
+            <button class="flecha right" aria-label="Imagen siguiente" type="button">❯</button>
+            <div class="indicadores" role="tablist" aria-label="Selector de imágenes"></div>
+          </div>
+
           <div class="auto-info">
             <h1>${auto.nombre}</h1>
             <p class="descripcion">${auto.descripcion}</p>
-            <p class="precio">${auto.precio}</p>
+            <div class="precio">${auto.precio}</div>
             ${caracteristicasHTML}
-            ${extrasHTML}
-            ${formularioHTML}
-            <a href="stock.html" class="btn-volver" aria-label="Volver al listado de autos">&larr; Volver al listado</a>
+            <h3>Características destacadas</h3>
+            ${destacadasHTML}
           </div>
         </div>
       `;
 
-      // --- JavaScript para carrusel ---
-      const slider = document.getElementById('slider');
+      // Funcionalidad carrusel (desplazamiento y botones)
+      const slider = contenedor.querySelector('.slider');
+      const btnIzq = contenedor.querySelector('.flecha.left');
+      const btnDer = contenedor.querySelector('.flecha.right');
+      const indicadores = contenedor.querySelector('.indicadores');
       const imgs = slider.querySelectorAll('img');
-      const btnIzq = document.querySelector('.flecha.left');
-      const btnDer = document.querySelector('.flecha.right');
-      const indicadores = document.querySelectorAll('.indicadores button');
 
-      let indice = 0; // imagen actual
+      let indice = 0;
 
-      function mostrarImagen(nuevoIndice) {
-        if (nuevoIndice < 0) nuevoIndice = imgs.length - 1;
-        if (nuevoIndice >= imgs.length) nuevoIndice = 0;
-        // Ocultar todas las imágenes y desactivar tabs
-        imgs.forEach((img, i) => {
-          img.hidden = i !== nuevoIndice;
-          img.setAttribute('aria-hidden', i !== nuevoIndice);
-          indicadores[i].setAttribute('aria-selected', i === nuevoIndice);
-          indicadores[i].tabIndex = i === nuevoIndice ? 0 : -1;
+      function actualizarIndicadores() {
+        indicadores.innerHTML = '';
+        imgs.forEach((_, i) => {
+          const btn = document.createElement('button');
+          btn.setAttribute('aria-label', `Imagen ${i + 1}`);
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-selected', i === indice ? 'true' : 'false');
+          if(i === indice) btn.classList.add('active');
+          btn.addEventListener('click', () => {
+            indice = i;
+            deslizar();
+          });
+          indicadores.appendChild(btn);
         });
-        indice = nuevoIndice;
       }
 
-      btnIzq.addEventListener('click', () => mostrarImagen(indice - 1));
-      btnDer.addEventListener('click', () => mostrarImagen(indice + 1));
+      function deslizar() {
+        slider.scrollTo({
+          left: imgs[indice].offsetLeft,
+          behavior: 'smooth'
+        });
+        actualizarIndicadores();
+      }
 
-      indicadores.forEach((boton, i) => {
-        boton.addEventListener('click', () => mostrarImagen(i));
+      btnIzq.addEventListener('click', () => {
+        indice = (indice - 1 + imgs.length) % imgs.length;
+        deslizar();
       });
 
-      // Inicia mostrando primera imagen
-      mostrarImagen(0);
+      btnDer.addEventListener('click', () => {
+        indice = (indice + 1) % imgs.length;
+        deslizar();
+      });
 
-    } else {
-      contenedor.innerHTML = `<p>Auto no encontrado. <a href="stock.html">Volver al listado</a></p>`;
+      // Actualizar indicadores inicial
+      actualizarIndicadores();
+
+      // Swipe y teclado para accesibilidad
+      let startX = 0;
+      slider.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+      });
+      slider.addEventListener('touchend', e => {
+        let endX = e.changedTouches[0].clientX;
+        if (startX - endX > 40) { // swipe left
+          btnDer.click();
+        } else if (endX - startX > 40) { // swipe right
+          btnIzq.click();
+        }
+      });
+
+      // Scroll con teclado (flechas izquierda/derecha)
+      slider.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          btnIzq.click();
+        } else if (e.key === 'ArrowRight') {
+          btnDer.click();
+        }
+      });
     }
 
-    // ===== SCRIPT para menú hamburguesa responsive =====
-    const btnMenu = document.getElementById('btn-menu');
-    const navMenu = document.getElementById('nav-menu');
-
-    btnMenu.addEventListener('click', () => {
-      const abierto = navMenu.classList.toggle('open');
-      btnMenu.setAttribute('aria-expanded', abierto);
+    // Cargar detalle del auto al cargar la página
+    document.addEventListener('DOMContentLoaded', () => {
+      mostrarDetalle(auto);
     });
-
   </script>
 
 </body>
