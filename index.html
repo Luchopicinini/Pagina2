@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,10 +6,13 @@
   <title>Automotora CYC</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
+    /* Reset y básico */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      text-decoration: none;
+      list-style: none;
     }
 
     body {
@@ -37,6 +39,7 @@
       position: relative;
       z-index: 10;
       padding: 0 1rem;
+      background: transparent;
     }
 
     .logo {
@@ -45,6 +48,7 @@
       text-shadow: 0 0 10px #fff;
       color: #fff;
       text-decoration: none;
+      user-select: none;
     }
 
     /* Navbar normal */
@@ -66,7 +70,49 @@
       color: #ff3c00;
     }
 
+    /* HAMBURGER MENU */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      user-select: none;
+      z-index: 20;
+    }
 
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background-color: white;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    /* Mostrar hamburger solo en pantallas pequeñas */
+    @media (max-width: 768px) {
+      .navbar ul {
+        position: absolute;
+        top: 70px;
+        right: 1rem;
+        flex-direction: column;
+        background-color: rgba(0,0,0,0.9);
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        display: none;
+        width: 180px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+      }
+
+      .navbar ul.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Estilos adicionales del resto del contenido (tu CSS original) */
     .slogan {
       text-align: center;
       font-size: 1.2rem;
@@ -232,7 +278,6 @@
       background-color: rgba(255, 60, 0, 0.85);
       box-shadow: 0 3px 8px rgba(255, 60, 0, 0.6);
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      text-decoration: none;
       font-size: 0;
     }
 
@@ -291,6 +336,7 @@
   <div class="overlay">
     <header>
       <a href="#" class="logo">CYC AUTOMOVILES</a>
+
       <nav class="navbar">
         <ul id="nav-menu">
           <li><a href="#">Stock</a></li>
@@ -298,6 +344,12 @@
           <li><a href="#">Vende tu vehículo</a></li>
         </ul>
       </nav>
+
+      <div class="hamburger" id="hamburger" aria-label="Menú de navegación" role="button" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </header>
 
     <div class="slogan">TU PROXIMO AUTO ESTA AQUI</div>
@@ -396,5 +448,20 @@
     </footer>
   </div>
 
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+
+    // Cierra el menú al hacer click en un enlace (para UX)
+    document.querySelectorAll('.navbar ul li a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('show');
+      });
+    });
+  </script>
 </body>
 </html>
