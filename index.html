@@ -275,27 +275,83 @@
 
   /* ---------------- RESPONSIVE ---------------- */
   @media (max-width: 768px) {
+  /* MENÚ */
   .navbar ul {
     position: absolute;
     top: 70px;
     right: 1rem;
     flex-direction: column;
-    background-color: rgba(0,0,0,0.9);
-    padding: 1rem 2rem;
+    align-items: flex-start;
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 1rem 1.5rem;
     border-radius: 12px;
     display: none;
-    width: 180px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    width: 220px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    z-index: 99;
   }
 
   .navbar ul.show {
     display: flex;
   }
 
+  .navbar a {
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+  }
+
   .hamburger {
     display: flex;
   }
 
+  /* CTA */
+  .cta {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  .btn-primary {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  /* AUTOS DESTACADOS */
+  .autos-destacados {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .auto-card {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .auto-card img {
+    height: 180px;
+    border-radius: 10px;
+  }
+
+  .auto-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .auto-card p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  /* QUIÉNES SOMOS */
+  .quienes-somos {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+
+  .quienes-img img {
+    max-width: 100%;
+  }
+
+  /* FOOTER */
   .footer-bottom {
     flex-direction: column;
     align-items: center;
@@ -306,6 +362,7 @@
   .social-container {
     justify-content: center;
     flex-wrap: wrap;
+    gap: 10px;
   }
 
   .social-container a {
@@ -316,13 +373,10 @@
     font-size: 0.85rem;
   }
 
-  .cta {
-    padding: 1rem;
+  .map-container iframe {
+    height: 240px;
   }
 
-  .auto-card img {
-    height: 200px;
-  }
 }
 
 </style>
