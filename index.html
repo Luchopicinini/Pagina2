@@ -6,294 +6,391 @@
   <title>Automotora CYC</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
 <style>
-  /* RESET Y BÁSICO */
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
-  }
+/* RESET Y BÁSICO */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
 
-  body {
-    font-family: 'Barlow', sans-serif;
-    background: url('images/fondo2.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
-    scroll-behavior: smooth;
-  }
+body {
+  font-family: 'Barlow', sans-serif;
+  background: url('images/fondo2.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #e0e0e0;
+  scroll-behavior: smooth;
+  background-color: #111; /* fallback por si no carga imagen */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
+.overlay {
+  background: rgba(0, 0, 0, 0.85);
+  min-height: 100vh;
+  padding: 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* SLOGAN */
+.slogan {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 3rem 0 4rem;
+  color: #f5f5f5;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 500;
+  text-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 15;
+}
+
+.logo {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  user-select: none;
+  font-style: italic;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: #ff1a00;
+}
+
+/* NAVBAR */
+.navbar ul {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar a {
+  color: #e0e0e0;
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 1.2px;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+  color: #ff1a00;
+  border-bottom: 2px solid #ff1a00;
+  outline: none;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 25;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hamburger span {
+  width: 30px;
+  height: 3px;
+  background-color: #ff1a00;
+  border-radius: 3px;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 4px rgba(255, 26, 0, 0.7);
+}
+
+/* TRANSFORMACIÓN DE HAMBURGER CUANDO ESTÁ ABIERTO */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  margin: 3rem 0 5rem;
+}
+
+.btn-primary {
+  padding: 0.85rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: 2px solid #ff1a00;
+  border-radius: 40px;
+  background-color: transparent;
+  color: #ff1a00;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px rgba(255, 26, 0, 0.6);
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #ff1a00;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 26, 0, 0.9);
+  outline: none;
+  transform: scale(1.05);
+}
+
+/* AUTOS DESTACADOS */
+.autos-destacados {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin: 2rem 0 5rem;
+}
+
+.auto-card {
+  background-color: rgba(20, 20, 20, 0.85);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auto-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(255, 26, 0, 0.8);
+}
+
+.auto-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 3px rgba(255, 26, 0, 0.3));
+}
+
+.auto-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.7rem;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.auto-card p {
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.5;
+  text-align: center;
+  font-weight: 400;
+}
+
+/* QUIÉNES SOMOS */
+.quienes-somos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 5rem;
+  padding: 0 1rem;
+}
+
+.quienes-txt,
+.quienes-img {
+  flex: 1 1 320px;
+}
+
+.quienes-txt h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.quienes-txt p {
+  color: #bbb;
+  line-height: 1.7;
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+.quienes-img img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(255, 26, 0, 0.5);
+  transition: transform 0.4s ease;
+}
+
+.quienes-img img:hover {
+  transform: scale(1.05);
+}
+
+/* FOOTER */
+footer {
+  background-color: #121212;
+  padding: 3rem 2rem 2rem 2rem;
+  color: #999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.map-container {
+  width: 100%;
+  height: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(255, 26, 0, 0.3);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.social-container {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+}
+
+.social-container a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #ff1a00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 26, 0, 0.9);
+}
+
+.social-container a:hover {
+  box-shadow: 0 0 20px rgba(255, 26, 0, 1);
+  transform: scale(1.15);
+}
+
+.social-container img {
+  width: 22px;
+  height: 22px;
+  filter: brightness(1.3);
+}
+
+.footer-credit {
+  font-size: 1rem;
+  color: #888;
+  flex: 1;
+  text-align: right;
+  font-weight: 400;
+}
+
+.footer-credit a {
+  color: #ff1a00;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-credit a:hover {
+  color: #ff4500;
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
   .overlay {
-    background-color: rgba(0, 0, 0, 0.7);
-    min-height: 100vh;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
+    padding: 2rem 3rem;
   }
 
-  /* SLOGAN */
-  .slogan {
-    font-size: 1.3rem;
-    font-weight: 700;
-    text-align: center;
-    margin: 2rem 0;
-    color: #fffcfc;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-  }
-
-  /* HEADER */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 3rem;
-    padding: 0 1rem;
-    position: relative;
-    z-index: 10;
-  }
-
-  .logo {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #fff;
-    text-shadow: 0 0 10px #000000;
-    user-select: none;
-  }
-
-  /* NAVBAR */
-  .navbar {
-    position: relative; /* agregado para que el ul absoluto funcione bien */
-  }
-
-  .navbar ul {
-    display: flex;
-    gap: 1.5rem;
-  }
-
-  .navbar a {
-    color: #fff;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: color 0.3s;
-  }
-
-  .navbar a:hover {
-    color: #ff3c00;
-    text-shadow: 0 0 6px rgba(255, 60, 0, 0.6);
-  }
-
-  /* HAMBURGER */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 6px;
-    cursor: pointer;
-    z-index: 100; /* aumentado para que esté arriba del menú */
-    position: relative;
-  }
-
-  .hamburger span {
-    width: 28px;
-    height: 3px;
-    background-color: white;
-    border-radius: 3px;
-    transition: all 0.3s ease;
-  }
-
-  /* CTA */
-  .cta {
-    text-align: center;
-    margin: 2rem 0;
-  }
-
-  .cta button,
-  .btn-primary {
-    padding: 0.75rem 2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 30px;
-    background-color: #ff3c00;
-    color: #fff;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-    box-shadow: 0 4px 12px rgba(255, 60, 0, 0.4);
-  }
-
-  .cta button:hover,
-  .btn-primary:hover {
-    background-color: #e02c00;
-    transform: scale(1.05);
-    box-shadow: 0 6px 18px rgba(255, 60, 0, 0.6);
-  }
-
-  /* AUTOS DESTACADOS */
   .autos-destacados {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
-    margin: 2rem 0;
   }
 
-  .auto-card {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 1rem;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    transition: 0.3s ease;
-  }
-
-  .auto-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(255, 60, 0, 0.3);
-  }
-
-  .auto-card img {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 1rem;
-  }
-
-  .auto-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    color: #fff;
-  }
-
-  .auto-card p {
-    font-size: 1rem;
-    color: #ccc;
-    line-height: 1.4;
-  }
-
-  /* QUIÉNES SOMOS */
   .quienes-somos {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 2rem;
-    margin-top: 4rem;
-  }
-
-  .quienes-txt, .quienes-img {
-    flex: 1 1 300px;
-  }
-
-  .quienes-txt h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #fff;
-  }
-
-  .quienes-txt p {
-    color: #ccc;
-    line-height: 1.5;
+    flex-direction: column;
+    padding: 0 1rem;
   }
 
   .quienes-img img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    padding: 1.5rem 1.5rem 3rem;
   }
 
-  /* FOOTER */
-  footer {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 3rem 2rem 2rem 2rem;
-    color: #ccc;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  header {
+    margin-bottom: 2rem;
   }
 
-  .footer-container {
-    max-width: 1100px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .map-container iframe {
-    width: 100%;
-    height: 300px;
-    border: none;
-    border-radius: 8px;
-  }
-
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-    margin-top: 1rem;
-  }
-
-  .social-container {
-    display: flex;
-    gap: 12px;
-  }
-
-  .social-container a {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background-color: rgba(255, 60, 0, 0.85);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.3s;
-  }
-
-  .social-container a:hover {
-    background-color: #ff3c00;
-    transform: scale(1.1);
-    box-shadow: 0 5px 15px rgba(255, 60, 0, 0.6);
-  }
-
-  .social-container img {
-    width: 18px;
-    height: 18px;
-    filter: brightness(1.2);
-  }
-
-  .footer-credit {
-    font-size: 0.9rem;
-    color: #aaa;
-  }
-
-  .footer-credit a {
-    color: #ff3c00;
-  }
-
-  .footer-credit a:hover {
-    text-decoration: underline;
-  }
-
-  /* ---------------- RESPONSIVE ---------------- */
-  @media (max-width: 768px) {
-  /* MENÚ */
   .navbar ul {
-    position: absolute;
+    position: fixed;
     top: 70px;
-    right: 1rem;
+    right: 1.5rem;
     flex-direction: column;
-    align-items: flex-start;
-    background-color: rgba(0, 0, 0, 0.95);
-    padding: 1rem 1.5rem;
-    border-radius: 12px;
+    background-color: rgba(17, 17, 17, 0.95);
+    padding: 1.5rem 2.5rem;
+    border-radius: 16px;
     display: none;
     width: 220px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    z-index: 99;
+    box-shadow: 0 15px 40px rgba(255, 26, 0, 0.6);
+    transition: all 0.35s ease-in-out;
+    z-index: 100;
   }
 
   .navbar ul.show {
@@ -301,98 +398,52 @@
   }
 
   .navbar a {
-    font-size: 1.1rem;
-    padding: 0.5rem 0;
+    font-size: 1.2rem;
+    padding: 0.8rem 0;
+    border-bottom: none;
+    letter-spacing: 1.8px;
+  }
+
+  .navbar a:hover,
+  .navbar a:focus {
+    color: #ff1a00;
   }
 
   .hamburger {
     display: flex;
   }
-
-  /* CTA */
-  .cta {
-    padding: 1rem;
-    margin-top: 1rem;
-  }
-
-.btn-primary {
-  width: 100%;
-  max-width: 280px;
-  background-color: #000; /* negro */
-  color: #fff; /* letras blancas */
-  border: 2px solid #ff3c00;
-  transition: all 0.4s ease;
-  box-shadow: 0 4px 12px rgba(255, 60, 0, 0.5);
 }
 
-  /* AUTOS DESTACADOS */
+@media (max-width: 480px) {
+  .overlay {
+    padding: 1rem 1rem 2rem;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .slogan {
+    font-size: 1.1rem;
+    margin: 2rem 0 3rem;
+    letter-spacing: 3px;
+  }
+
+  .btn-primary {
+    padding: 0.65rem 2.2rem;
+    font-size: 1rem;
+  }
+
   .autos-destacados {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    padding: 0 1rem;
   }
 
-  .auto-card {
-    padding: 1rem;
-    border-radius: 12px;
+  .quienes-txt h2 {
+    font-size: 1.8rem;
   }
-
-  .auto-card img {
-    height: 180px;
-    border-radius: 10px;
-  }
-
-  .auto-card h3 {
-    font-size: 1.1rem;
-  }
-
-  .auto-card p {
-    font-size: 0.95rem;
-    line-height: 1.4;
-  }
-
-  /* QUIÉNES SOMOS */
-  .quienes-somos {
-    flex-direction: column;
-    padding: 0 1rem;
-  }
-
-  .quienes-img img {
-    max-width: 100%;
-  }
-
-  /* FOOTER */
-  .footer-bottom {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    text-align: center;
-  }
-
-  .social-container {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .social-container a {
-    margin: 6px;
-  }
-
-  .footer-credit {
-    font-size: 0.85rem;
-  }
-
-  .map-container iframe {
-    height: 240px;
-  }
-
 }
 
-/* Evita scroll cuando el menú móvil está abierto */
-.no-scroll {
-  overflow: hidden;
-}
 
 </style>
 
