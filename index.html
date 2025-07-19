@@ -5,588 +5,608 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Automotora CYC</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
-<style>
-  :root {
-  --red-tranquilo: #a1442f;
-  --red-tranquilo-shadow: rgba(161, 68, 47, 0.6);
-  --bg-dark: #111;
-  --text-light: #e0e0e0;
-  --font-main: 'Barlow', sans-serif;
-}
+  <style>
+    :root {
+      --color-black: #000000;
+      --color-white: #FFFFFF;
+      --color-red: #B22222; /* rojo oscuro firebrick */
+      --color-gray-light: #CCCCCC;
+      --font-main: 'Barlow', sans-serif;
+    }
 
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  list-style: none;
-  text-decoration: none;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* BASE */
-body {
-  font-family: var(--font-main);
-  background: url('images/fondo2.jpg') no-repeat center center fixed;
-  background-size: cover;
-  background-color: var(--bg-dark);
-  color: var(--text-light);
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+    body {
+      font-family: var(--font-main);
+      background-color: var(--color-black);
+      color: var(--color-white);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-.overlay {
-  background: rgba(0, 0, 0, 0.85);
-  min-height: 100vh;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--color-black);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--color-gray-light);
+      z-index: 1000;
+    }
 
-.slogan\.1 {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 400;
-  font-size: 2.5rem;
-  text-transform: uppercase;
-  color: #ffffff; /* rojo tranquilo */
-  text-align: center;
-  letter-spacing: 5px;
-  text-shadow:
-    2px 2px 5px rgb(240, 44, 0),
-    0 0 10px rgba(255, 255, 255, 0.6);
-  margin: 2rem 0;
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--color-white);
+      letter-spacing: 2px;
+      user-select: none;
+    }
+    .logo span.logo-red {
+      color: var(--color-red);
+    }
 
-  /* Animación suave de entrada */
-  opacity: 0;
-  transform: translateY(15px);
-  animation: fadeSlideIn 1s forwards ease-out;
-  animation-delay: 0.3s;
-}
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
 
-@keyframes fadeSlideIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    nav a {
+      color: var(--color-white);
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      transition: color 0.3s ease;
+    }
+    nav a:hover,
+    nav a:focus {
+      color: var(--color-red);
+      outline: none;
+    }
 
-/* HEADER */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 0.5rem 0;
-}
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--color-red);
+      border-radius: 3px;
+    }
 
-.logo {
-  font-size: 2rem;
-  font-weight: 700;
-  color: white;
-  letter-spacing: 2px;
-  font-style: italic;
-  text-shadow: 0 0 8px var(--red-tranquilo-shadow);
-  cursor: pointer;
-}
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 2rem;
+        background: var(--color-black);
+        flex-direction: column;
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
+        border: 1px solid var(--color-gray-light);
+      }
+      nav ul.show {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
 
-.logo:hover {
-  color: var(--red-tranquilo);
-}
+    .hero {
+      background: url('images/fondo2.jpg') center/cover no-repeat;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      color: var(--color-white);
+      text-shadow: 0 0 10px var(--color-red);
+      margin-bottom: 1.5rem;
+      letter-spacing: 4px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .btn-primary {
+      padding: 0.8rem 2.5rem;
+      background: var(--color-red);
+      color: var(--color-white);
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      box-shadow: 0 0 15px var(--color-red);
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background: #7a1313;
+      outline: none;
+      box-shadow: 0 0 25px #7a1313;
+    }
 
-/* NAV */
-.navbar ul {
-  display: flex;
-  gap: 1.5rem;
-}
+    .section-title {
+      margin: 4rem 0 2rem;
+      text-align: center;
+      font-size: 2.6rem;
+      font-weight: 900;
+      letter-spacing: 4px;
+      color: var(--color-white);
+      text-transform: uppercase;
+      text-shadow: 0 0 8px var(--color-red);
+    }
 
-.navbar a {
-  color: var(--text-light);
-  font-weight: 500;
-  font-size: 1rem;
-  letter-spacing: 1px;
-  border-bottom: 2px solid transparent;
-  transition: 0.3s;
-}
+    .autos-destacados {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 2rem 4rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
 
-.navbar a:hover {
-  color: var(--red-tranquilo);
-  border-bottom: 2px solid var(--red-tranquilo);
-}
+    .auto-card {
+      background: #121212;
+      border-radius: 1rem;
+      box-shadow: 0 5px 25px rgba(178, 34, 34, 0.3);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .auto-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(178, 34, 34, 0.6);
+    }
 
-/* HAMBURGER */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
+    .auto-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-bottom: 3px solid var(--color-red);
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+      transition: transform 0.3s ease;
+    }
+    .auto-card:hover img {
+      transform: scale(1.05);
+    }
 
-.hamburger span {
-  width: 26px;
-  height: 3px;
-  background: var(--red-tranquilo);
-  border-radius: 3px;
-  box-shadow: 0 0 4px var(--red-tranquilo-shadow);
-  transition: 0.3s;
-}
+    .auto-content {
+      padding: 1rem 1.5rem 0.6rem;
+      text-align: center;
+      flex-grow: 1;
+    }
+    .auto-content h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--color-white);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .auto-content p {
+      color: var(--color-gray-light);
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
 
-.hamburger.active span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
-}
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active span:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
-}
+    .auto-info {
+      display: flex;
+      justify-content: space-around;
+      background: #1b1b1b;
+      padding: 0.9rem 1rem;
+      color: var(--color-red);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      gap: 1rem;
+      border-radius: 0 0 1rem 1rem;
+      border-top: 1px solid #333;
+    }
+    .info-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+    }
+    .info-label {
+      font-size: 0.75rem;
+      color: var(--color-gray-light);
+      margin-bottom: 0.15rem;
+      font-weight: 600;
+    }
+    .info-value {
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
 
-/* SLOGAN */
-.slogan {
-  text-align: center;
-  font-size: 1.4rem;
-  color: #f5f5f5;
-  text-transform: uppercase;
-  margin: 2rem 0;
-  letter-spacing: 3px;
-  text-shadow: 0 0 10px var(--red-tranquilo-shadow);
+    /* Sección Nosotros */
+    #nosotros {
+      max-width: 900px;
+      margin: 4rem auto 4rem auto;
+      padding: 0 2rem;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--color-gray-light);
+      text-align: center;
+      line-height: 1.7;
+    }
 
-  /* Magia: animación de entrada */
-  opacity: 0;
-  transform: translateY(20px);
-  animation: sloganEntry 1s forwards ease-out;
-  animation-delay: 0.3s;
-}
+    /* Por qué elegirnos */
+    .why-choose {
+      max-width: 1100px;
+      margin: 0 auto 6rem;
+      background: #121212;
+      padding: 4rem 2rem 5rem;
+      border-radius: 1rem;
+      box-shadow: 0 6px 30px rgba(178, 34, 34, 0.25);
+      text-align: center;
+      color: var(--color-white);
+    }
+    .why-choose h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: 4px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--color-red);
+      text-shadow: 0 0 10px rgba(178, 34, 34, 0.8);
+    }
+    .why-choose p.subtitle {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--color-gray-light);
+      margin-bottom: 3rem;
+    }
 
-@keyframes sloganEntry {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2.5rem;
+    }
+    .feature-item {
+      background: #222;
+      padding: 2rem 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(178, 34, 34, 0.15);
+      transition: transform 0.3s ease;
+      cursor: default;
+    }
+    .feature-item:hover,
+    .feature-item:focus {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(178, 34, 34, 0.6);
+      outline: none;
+    }
+    .feature-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      color: var(--color-red);
+      user-select: none;
+    }
+    .feature-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--color-white);
+    }
+    .feature-desc {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--color-gray-light);
+      line-height: 1.5;
+    }
 
-/* BOTÓN */
-.cta {
-  text-align: center;
-  margin-bottom: 3rem;
-}
+    footer {
+      background: #111;
+      padding: 2rem;
+      color: var(--color-gray-light);
+      margin-top: 3rem;
+    }
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .map-container {
+      flex: 1 1 400px;
+      min-width: 280px;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(178, 34, 34, 0.6);
+      transition: box-shadow 0.3s ease;
+    }
+    .map-container iframe:hover {
+      box-shadow: 0 0 30px rgba(178, 34, 34, 0.9);
+    }
 
-.btn-primary {
-  display: inline-block;
-  padding: 0.8rem 2.5rem;
-  border-radius: 40px;
-  background-color: transparent;
-  border: 2px solid var(--red-tranquilo);
-  color: var(--red-tranquilo);
-  font-weight: 600;
-  text-transform: uppercase;
-  transition: 0.3s;
-}
+    .footer-bottom {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-end;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    .social-container {
+      display: flex;
+      gap: 1rem;
+    }
+    .social-link svg {
+      transition: transform 0.3s;
+      cursor: pointer;
+      fill: var(--color-gray-light);
+    }
+    .social-link:hover svg,
+    .social-link:focus svg {
+      transform: scale(1.1);
+      fill: var(--color-red);
+      outline: none;
+      filter: drop-shadow(0 0 5px rgba(178, 34, 34, 0.7));
+    }
+    .footer-credit a {
+      color: var(--color-red);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer-credit a:hover,
+    .footer-credit a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
 
-.btn-primary:hover {
-  background-color: var(--red-tranquilo);
-  color: white;
-}
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .footer-bottom {
+        align-items: center;
+      }
+    }
 
-/* AUTOS DESTACADOS */
-.autos-destacados {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* mínimo 320px por tarjeta */
-  gap: 2rem;
-  margin-bottom: 4rem;
-}
-
-/* Magia: tarjetas con animación fade & slide al entrar en viewport */
-.auto-card {
-  background: rgba(20, 20, 20, 0.9);
-  padding: 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
-  text-align: center;
-  transition: transform 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
-  will-change: transform, opacity;
-}
-
-.auto-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.auto-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px var(--red-tranquilo-shadow);
-}
-
-.auto-card img {
-  width: 100%;
-  height: 300px; /* aumentar altura */
-  object-fit: cover; /* mantiene proporción, recortando si es necesario */
-  border-radius: 10px;
-  margin-bottom: 1rem;
-  transition: transform 0.3s ease;
-}
-
-.auto-card:hover img {
-  transform: scale(1.05); /* efecto zoom al pasar mouse */
-}
-
-.auto-card h3 {
-  font-size: 1.3rem;
-  color: #ff4444;
-  margin-bottom: 0.5rem;
-}
-
-.auto-card p {
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
-}
-
-.auto-info {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.5rem;
-  margin-bottom: 1.2rem;
-}
-
-.info-box {
-  flex: 1;
-  background: var(--red-tranquilo);
-  color: white;
-  border-radius: 8px;
-  padding: 0.5rem;
-  font-size: 0.85rem;
-}
-
-.auto-card button {
-  background: var(--red-tranquilo);
-  border: none;
-  padding: 0.6rem 1.5rem;
-  border-radius: 30px;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.auto-card button:hover {
-  background: #8a3528;
-}
-
-/* QUIÉNES SOMOS */
-.quienes-somos {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-bottom: 4rem;
-}
-
-.quienes-img img {
-  max-width: 100%;
-  border-radius: 1rem;
-  box-shadow: 0 0 20px var(--red-tranquilo-shadow);
-}
-
-.quienes-txt {
-  flex: 1;
-}
-
-.quienes-txt h2 {
-  font-size: 2rem;
-  color: white;
-  margin-bottom: 1rem;
-}
-
-.quienes-txt p {
-  color: #ccc;
-  line-height: 1.6;
-}
-
-/* FOOTER */
-footer {
-  background: #1a1a1a;
-  color: #999;
-  padding: 2rem;
-  text-align: center;
-  margin-top: auto;
-}
-
-.map-container {
-  width: 100%;
-  height: 300px;
-  margin-bottom: 1.5rem;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 20px var(--red-tranquilo-shadow);
-}
-
-.map-container iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.social-container {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.social-container img {
-  width: 28px;
-  filter: brightness(1);
-  transition: transform 0.3s ease;
-}
-
-.social-container a:hover img {
-  transform: scale(1.15);
-}
-
-.footer-credit {
-  font-size: 0.95rem;
-}
-
-.footer-credit a {
-  color: var(--red-tranquilo);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.footer-credit a:hover {
-  text-decoration: underline;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .navbar ul {
-    display: none;
-    position: absolute;
-    top: 70px;
-    right: 1rem;
-    flex-direction: column;
-    background: rgba(20, 20, 20, 0.95);
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 0 15px var(--red-tranquilo-shadow);
-  }
-
-  .navbar ul.show {
-    display: flex;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .quienes-somos {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .auto-info {
-    flex-direction: column;
-  }
-
-  .footer-credit {
-    text-align: center;
-  }
-}
-
-</style>
-
+    /* Chatbot estilo WhatsApp */
+    .chatbot {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--color-red);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(178, 34, 34, 0.6);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: box-shadow 0.3s ease;
+      z-index: 1500;
+    }
+    .chatbot:hover,
+    .chatbot:focus {
+      box-shadow: 0 0 25px rgba(178, 34, 34, 0.9);
+      outline: none;
+    }
+    .chatbot svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--color-white);
+      user-select: none;
+    }
+  </style>
 </head>
 <body>
-  <div class="overlay">
-    <header>
-      <a href="#" class="logo">CYC AUTOMOVILES</a>
+  <header>
+    <div class="logo" tabindex="0">
+      CYC<span class="logo-red"> Automóviles</span>
+    </div>
+    <nav>
+      <ul id="nav-menu">
+        <li><a href="#stock">Stock</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#vender">Vende tu vehículo</a></li>
+        <li><a href="#whychoose">Por qué elegirnos</a></li>
+      </ul>
+    </nav>
+    <div
+      class="hamburger"
+      id="hamburger"
+      tabindex="0"
+      role="button"
+      aria-label="Menú de navegación"
+      aria-expanded="false"
+      aria-controls="nav-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
 
-      <nav class="navbar">
-        <ul id="nav-menu">
-          <li><a href="stock.html">Stock</a></li>
-          <li><a href="nosotros.html">Nosotros</a></li>
-          <li><a href="#">Vende tu vehículo</a></li>
-        </ul>
-      </nav>
+  <section class="hero" role="banner" aria-label="Banner principal">
+    <h1>Tu próximo auto está aquí</h1>
+    <button class="btn-primary" onclick="location.href='#stock'">Ver Stock</button>
+  </section>
 
-      <div class="hamburger" id="hamburger" aria-label="Menú de navegación" role="button" tabindex="0">
-        <span></span>
-        <span></span>
-        <span></span>
+  <h2 class="section-title" id="stock">Vehículos Destacados</h2>
+  <section class="autos-destacados" aria-label="Lista de vehículos destacados">
+    <div class="auto-card" tabindex="0" role="article" aria-label="Peugeot 3008 GT Black Pack, año 2024, 37 mil kilómetros, diesel">
+      <img src="images/peugeto1.jpg" alt="Peugeot 3008 GT Black Pack" />
+      <div class="auto-content">
+        <h3>PEUGEOT 3008 GT BLACK PACK</h3>
+        <p>MOTOR 1.5, CLIMATIZADOR BIZONA, TECHO PANORÁMICO..</p>
       </div>
-    </header>
-
-    <div class="slogan">TU PROXIMO AUTO ESTA AQUI</div>
-
-    <div class="cta">
-      <a href="stock.html" class="btn-primary">Ver Stock</a>
+      <div class="auto-info">
+        <div class="info-box" title="Año">
+          <span class="info-label">AÑO</span>
+          <span class="info-value">2024</span>
+        </div>
+        <div class="info-box" title="Kilometraje">
+          <span class="info-label">KM</span>
+          <span class="info-value">37.000</span>
+        </div>
+        <div class="info-box" title="Combustible">
+          <span class="info-label">COMBUSTIBLE</span>
+          <span class="info-value">DIESEL</span>
+        </div>
+      </div>
+      <button onclick="location.href='stock.html'" aria-label="Ver más detalles Peugeot 3008 GT Black Pack">Ver más</button>
     </div>
 
-  
-    <div class="slogan.1">Vehiculos destacados</div>
-    <section class="autos-destacados" id="stock">
-      <div class="auto-card">
-        <img src="images/auto1.png" alt="Chevrolet Tahoe" />
-        <h3>Chevrolet Tahoe</h3>
-        <p>Motor 2.0 Turbo, único dueño, mantenciones en la marca.</p>
-
-        <div class="auto-info">
-          <div class="info-box" title="45000">
-            <span class="info-label">Km</span>
-            <span class="info-value">45,000</span>
-          </div>
-          <div class="info-box" title="Mecánico">
-            <span class="info-label">Transmisión</span>
-            <span class="info-value">Mecánico</span>
-          </div>
-          <div class="info-box" title="Bencina">
-            <span class="info-label">Combustible</span>
-            <span class="info-value">Bencina</span>
-          </div>
+    <div class="auto-card" tabindex="0" role="article" aria-label="Subaru Impreza 2.0 Limited, año 2021, 45 mil kilómetros, bencina">
+      <img src="images/subarugris1.jpg" alt="Subaru Impreza 2.0 Limited" />
+      <div class="auto-content">
+        <h3>SUBARU IMPREZA 2.0 LIMITED</h3>
+        <p>4X4, ÚNICO DUEÑO, PAPELES AL DÍA...</p>
+      </div>
+      <div class="auto-info">
+        <div class="info-box" title="Año">
+          <span class="info-label">AÑO</span>
+          <span class="info-value">2021</span>
         </div>
-
-        <button onclick="location.href='stock.html'">Ver más</button>
-      </div>
-
-      <div class="auto-card">
-        <img src="images/auto2.png" alt="Kia Sportage" />
-        <h3>Kia Sportage</h3>
-        <p>Automático, motor 2.4, muy cuidado y con mantenciones al día.</p>
-
-        <div class="auto-info">
-          <div class="info-box" title="35000">
-            <span class="info-label">Km</span>
-            <span class="info-value">35,000</span>
-          </div>
-          <div class="info-box" title="Automático">
-            <span class="info-label">Transmisión</span>
-            <span class="info-value">Automático</span>
-          </div>
-          <div class="info-box" title="Diesel">
-            <span class="info-label">Combustible</span>
-            <span class="info-value">Diesel</span>
-          </div>
+        <div class="info-box" title="Kilometraje">
+          <span class="info-label">KM</span>
+          <span class="info-value">45.000</span>
         </div>
-
-        
-
-        <button onclick="location.href='stock.html'">Ver más</button>
-      </div>
-    </section>
-
-    <section class="quienes-somos" id="nosotros">
-      <div class="quienes-img">
-        <img src="images/fondo1.png" alt="Nosotros - CYC Automóviles" />
-      </div>
-      <div class="quienes-txt">
-        <h2>¿Quiénes somos?</h2>
-        <p>
-          Somos una automotora familiar dedicada a entregar vehículos de calidad, confiables y con mantenciones garantizadas.
-          Nuestro compromiso es que cada cliente encuentre el auto que busca con la mejor asesoría y respaldo.
-        </p>
-      </div>
-    </section>
-
-    <footer>
-      <div class="footer-container">
-        <div class="map-container">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.522868692002!2d-70.60310878479692!3d-33.44443488077381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5ff4f87fbd9%3A0xbcd529db9bc73747!2sCYC%20Automotora!5e0!3m2!1ses!2scl!4v1689709101111!5m2!1ses!2scl"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen
-            title="Ubicación de CYC Automotora"
-          ></iframe>
+        <div class="info-box" title="Combustible">
+          <span class="info-label">COMBUSTIBLE</span>
+          <span class="info-value">BENCINA</span>
         </div>
-        <div class="footer-bottom">
-<div class="social-container" aria-label="Redes sociales">
-  <a href="https://facebook.com/tu_pagina" target="_blank" rel="noopener" aria-label="Facebook" class="social-link">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="#1877F2" xmlns="http://www.w3.org/2000/svg">
-      <path d="M22.675 0H1.325C.593 0 0 .593 0 1.326v21.348C0 23.406.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.763v2.312h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.324-.593 1.324-1.326V1.326C24 .593 23.406 0 22.675 0z"/>
+      </div>
+      <button onclick="location.href='stock.html'" aria-label="Ver más detalles Subaru Impreza 2.0 Limited">Ver más</button>
+    </div>
+  </section>
+
+  <h2 class="section-title" id="nosotros">¿Quiénes Somos?</h2>
+  <section id="nosotros" tabindex="0" aria-label="Información sobre Automotora CYC">
+    <p>
+      En Automotora CYC nos dedicamos a ofrecer vehículos certificados y de alta calidad, con garantía y atención personalizada para que encuentres el auto perfecto para ti.
+    </p>
+  </section>
+
+  <section id="whychoose" class="why-choose" aria-labelledby="whychoose-title">
+    <h2 id="whychoose-title">¿Por qué elegirnos?</h2>
+    <p class="subtitle">Comprometidos con la excelencia y la confianza en cada venta.</p>
+    <div class="features-grid">
+      <article class="feature-item" tabindex="0" aria-label="Vehículos certificados">
+        <div class="feature-icon" aria-hidden="true">✔️</div>
+        <h3 class="feature-title">Vehículos Certificados</h3>
+        <p class="feature-desc">Inspección completa y garantía para tu tranquilidad.</p>
+      </article>
+      <article class="feature-item" tabindex="0" aria-label="Mantenimiento garantizado">
+        <div class="feature-icon" aria-hidden="true">🔧</div>
+        <h3 class="feature-title">Mantenimiento Garantizado</h3>
+        <p class="feature-desc">Revisiones técnicas y servicio postventa.</p>
+      </article>
+      <article class="feature-item" tabindex="0" aria-label="Atención personalizada">
+        <div class="feature-icon" aria-hidden="true">🤝</div>
+        <h3 class="feature-title">Atención Personalizada</h3>
+        <p class="feature-desc">Asesoría para encontrar el auto que se adapta a ti.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="map-container" aria-label="Ubicación en mapa">
+        <iframe
+          src="https://maps.google.com/maps?q=chicureo&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa de ubicación de Automotora CYC"
+        ></iframe>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2025 CYC Automóviles</div>
+        <div class="social-container" role="navigation" aria-label="Redes sociales">
+          <a class="social-link" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 5.005 3.657 9.128 8.438 9.877v-6.987h-2.54v-2.89h2.54v-2.206c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.196 2.238.196v2.462h-1.26c-1.243 0-1.63.772-1.63 1.562v1.876h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 17.005 22 12z"/></svg>
+          </a>
+          <a class="social-link" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 3a1 1 0 110 2 1 1 0 010-2zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg>
+          </a>
+          <a class="social-link" href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14.86A4.48 4.48 0 0022.4.4a9.14 9.14 0 01-2.88 1.1 4.48 4.48 0 00-7.64 4.1 12.9 12.9 0 01-9.37-4.75 4.48 4.48 0 001.39 6 4.4 4.4 0 01-2.03-.56v.06a4.49 4.49 0 003.6 4.4 4.52 4.52 0 01-2.02.08 4.49 4.49 0 004.2 3.12A9 9 0 012 19.54a12.72 12.72 0 006.92 2"/></svg>
+          </a>
+        </div>
+        <div class="footer-credit">
+          Diseño por <a href="https://tusitio.com" target="_blank" rel="noopener">Tu Nombre</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/56912345678" target="_blank" rel="noopener" class="chatbot" aria-label="Chatear por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M20.52 3.48A11.83 11.83 0 0012 0C5.37 0 .01 5.37.01 12c0 2.11.55 4.08 1.51 5.79L0 24l6.4-1.53A11.88 11.88 0 0012 24c6.63 0 12-5.37 12-12a11.83 11.83 0 00-3.48-8.52zm-8.11 15.25a7.44 7.44 0 01-3.79-1.05l-.27-.16-4.51 1.09 1.07-4.39-.17-.28a7.47 7.47 0 011.09-8.74 7.4 7.4 0 018.56-1.84 7.36 7.36 0 014.13 6.57 7.41 7.41 0 01-7.38 7.38zm4.1-5.63c-.22-.11-1.28-.63-1.48-.7a.61.61 0 00-.23-.04c-.1 0-.25.03-.38.19-.14.16-.54.66-.67.8-.13.13-.26.14-.48.05-.22-.1-.92-.34-1.75-1.08a6.54 6.54 0 01-1.21-1.5c-.12-.21 0-.32.08-.42.08-.08.22-.2.33-.3a1.37 1.37 0 00.2-.33c.06-.1 0-.2-.02-.3-.04-.1-.38-.91-.52-1.25-.14-.32-.28-.28-.38-.28a3.12 3.12 0 00-.7.13c-.22.1-.84.82-.84 2 .01 1.18.86 2.33.98 2.49.13.16 1.7 2.6 4.12 3.64.57.25 1.02.4 1.37.52.58.18 1.1.16 1.52.1.46-.07 1.4-.57 1.6-1.12.2-.55.2-1.02.14-1.12-.05-.1-.2-.16-.42-.27z"></path>
     </svg>
   </a>
-  <a href="https://instagram.com/tu_pagina" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="#E4405F" xmlns="http://www.w3.org/2000/svg">
-      <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5a4.25 4.25 0 00-4.25-4.25h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zm4.75-.875a1.125 1.125 0 110 2.25 1.125 1.125 0 010-2.25z"/>
-    </svg>
-  </a>
-  <a href="https://twitter.com/tu_pagina" target="_blank" rel="noopener" aria-label="Twitter" class="social-link">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="#1DA1F2" xmlns="http://www.w3.org/2000/svg">
-      <path d="M23.954 4.57a10 10 0 01-2.825.775 4.93 4.93 0 002.163-2.724 9.865 9.865 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482A13.96 13.96 0 011.671 3.15a4.923 4.923 0 001.523 6.573 4.902 4.902 0 01-2.228-.616v.061a4.92 4.92 0 003.946 4.827 4.996 4.996 0 01-2.224.085 4.93 4.93 0 004.604 3.417 9.86 9.86 0 01-6.102 2.104c-.396 0-.79-.023-1.175-.067a13.94 13.94 0 007.557 2.212c9.054 0 14-7.496 14-13.986 0-.21-.005-.423-.015-.633a9.936 9.936 0 002.46-2.548l-.047-.02z"/>
-    </svg>
-  </a>
-</div>
-
-          <div class="footer-credit">
-            &copy; 2025 CYC Automóviles. Diseñado por <a href="mailto:info@cycautos.cl">CYC Team</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </div>
 
   <script>
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
-const body = document.body;
-const slogan = document.querySelector('.slogan');
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
 
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  navMenu.classList.toggle('show');
-  
-  // Bloqueamos scroll cuando menú esté abierto
-  if(navMenu.classList.contains('show')) {
-    body.style.overflow = 'hidden';
-  } else {
-    body.style.overflow = '';
-  }
-});
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+      // Update aria-expanded
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+    });
 
-// Accesibilidad: Abrir menú con Enter o Espacio
-hamburger.addEventListener('keydown', (e) => {
-  if(e.key === 'Enter' || e.key === ' ') {
-    e.preventDefault();
-    hamburger.click();
-  }
-});
+    hamburger.addEventListener('keypress', e => {
+      if (e.key === 'Enter') {
+        navMenu.classList.toggle('show');
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !expanded);
+      }
+    });
 
-// Animación mágica en slogan al hacer scroll
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
-
-  if(scrollY > 50) {
-    slogan.style.opacity = 0.6;
-    slogan.style.transform = 'scale(0.95) translateY(10px)';
-    slogan.style.transition = 'all 0.4s ease';
-  } else {
-    slogan.style.opacity = 1;
-    slogan.style.transform = 'scale(1) translateY(0)';
-  }
-});
-
-// MAGIA: animar auto-cards al entrar en pantalla
-const autoCards = document.querySelectorAll('.auto-card');
-
-const observerOptions = {
-  threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target); // Animar solo una vez
-    }
-  });
-}, observerOptions);
-
-autoCards.forEach(card => {
-  observer.observe(card);
-});
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.auto-card').forEach((card, i) => {
+        setTimeout(() => card.classList.add('visible'), i * 200);
+      });
+    });
   </script>
 </body>
 </html>
