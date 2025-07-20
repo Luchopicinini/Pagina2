@@ -6,395 +6,501 @@
   <title>Automotora CYC - Inicio</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
- /* RESET GENERAL */
-:root {
-    --color-black: #000000;
-    --color-white: #FFFFFF;
-    --color-red: #B22222; /* rojo oscuro firebrick */
-    --color-gray-light: #CCCCCC;
-    --font-main: 'Barlow', sans-serif;
-}
+    /* RESET GENERAL */
+    :root {
+      --color-black: #000000;
+      --color-white: #FFFFFF;
+      --color-red: #B22222; /* rojo oscuro firebrick */
+      --color-gray-light: #CCCCCC;
+      --font-main: 'Barlow', sans-serif;
+    }
 
-* {
-  box-sizing: border-box;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-/* Estilos base del body */
-body {
-  margin: 0;
-  font-family: 'Barlow', sans-serif;
-  background: #ffffff;
-  color: #fff;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background: #ffffff;
+      color: #111;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-/* Contenedor centralizado y responsivo */
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  width: 90%;
-}
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 90%;
+    }
 
-/* ===== HEADER Y NAVEGACIÓN ===== */
-header {
-  width: 100%;
-  background-color: #111;
-  border-bottom: 1px solid #333;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+    /* HEADER */
+    header {
+      width: 100%;
+      background-color: #111;
+      border-bottom: 1px solid #333;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
-  position: relative;
-}
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
 
-.logo {
-  font-size: 2rem;
-  font-weight: 700;
-  font-style: italic;
-  color: var(--color-white);
-  letter-spacing: 2px;
-  user-select: none;
-}
-.logo span.logo-red {
-  color: var(--color-red);
-}
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--color-white);
+      letter-spacing: 2px;
+      user-select: none;
+    }
+    .logo span.logo-red {
+      color: var(--color-red);
+    }
 
-nav ul {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-nav a {
-  color: var(--color-white);
-  font-weight: 600;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  transition: color 0.3s ease;
-}
-nav a:hover,
-nav a:focus {
-  color: var(--color-red);
-  outline: none;
-}
+    nav {
+      display: block;
+    }
 
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: var(--color-red);
-  border-radius: 3px;
-}
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
 
-/* ===== BOTÓN HAMBURGUESA ===== */
-#btn-menu {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: none; /* oculto en desktop */
-  padding: 0;
-  margin-left: auto;
-  flex-shrink: 0;
-}
-#btn-menu svg rect {
-  fill: #fff;
-}
+    nav li {
+      margin: 0;
+    }
 
-/* ===== SECCIÓN HERO ===== */
-.hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 5rem 0 6rem;
-  background: linear-gradient(135deg, #fff 0%, #ddd 100%);
-  border-radius: 12px;
-  color: #111;
-  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
-  margin: 2rem 0;
-}
-.hero h1 {
-  font-size: 3rem;
-  max-width: 700px;
-  padding-left: 20px;
-  margin-bottom: 1rem;
-  line-height: 1.1;
-  letter-spacing: 1px;
-  animation: slideInFromLeft 1s ease forwards;
-  opacity: 0;
-}
-.hero p {
-  font-size: 1.25rem;
-  max-width: 600px;
-  margin-bottom: 2rem;
-  padding-left: 20px;
-  animation: slideInFromLeft 1.3s ease forwards;
-  animation-delay: 0.3s;
-  opacity: 0;
-}
+    nav a {
+      color: var(--color-white);
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      transition: color 0.3s ease;
+      display: block;
+      padding: 0.5rem 0;
+    }
 
-/* ===== CATÁLOGO ===== */
-.catalogo {
-  margin-bottom: 4rem;
-}
-.catalogo h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #fff;
-  text-align: center;
-}
-.catalogo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-}
+    nav a:hover,
+    nav a:focus {
+      color: var(--color-red);
+      outline: none;
+    }
 
-/* Tarjeta de auto */
-.catalogo-card {
-  background: linear-gradient(135deg, #1a1a1a, #111);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.8);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #333;
-}
-.catalogo-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
-  border-color: #777;
-}
-.catalogo-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-bottom: 4px solid #e50914;
-  transition: transform 0.4s ease;
-}
-.catalogo-card:hover img {
-  transform: scale(1.05);
-}
-.catalogo-card-content {
-  padding: 1.5rem 1.5rem 2rem;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.catalogo-card h3 {
-  margin: 0 0 0.4rem;
-  font-weight: 700;
-  font-size: 1.4rem;
-  color: #fff;
-}
-.precio {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #e50914;
-  margin: 0 0 1rem;
-}
-.catalogo-card p {
-  flex-grow: 1;
-  color: #bbb;
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-}
-.catalogo-card a {
-  align-self: flex-start;
-  background-color: #e50914;
-  color: #fff;
-  padding: 0.7rem 1.8rem;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 700;
-  box-shadow: 0 6px 15px rgba(229, 9, 20, 0.6);
-}
-.catalogo-card a:hover {
-  background-color: #b20610;
-  box-shadow: 0 10px 20px rgba(178, 6, 16, 0.8);
-}
+    /* Botón hamburguesa */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--color-red);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
 
-/* ===== BENEFICIOS ===== */
-.beneficios {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-bottom: 4rem;
-}
-.beneficio-card {
-  background: #222;
-  padding: 2rem;
-  border-radius: 12px;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-.beneficio-card:hover {
-  transform: translateY(-10px);
-}
-.beneficio-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
+    /* Hero */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 5rem 0 6rem;
+      background: linear-gradient(135deg, #fff 0%, #ddd 100%);
+      border-radius: 12px;
+      color: #111;
+      box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+      margin: 2rem 0;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      max-width: 700px;
+      padding-left: 20px;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+      letter-spacing: 1px;
+      animation: slideInFromLeft 1s ease forwards;
+      opacity: 0;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+      padding-left: 20px;
+      animation: slideInFromLeft 1.3s ease forwards;
+      animation-delay: 0.3s;
+      opacity: 0;
+    }
 
-/* ===== CONTACTO RÁPIDO ===== */
-.contacto-rapido {
-  background: #fffdfd;
-  padding: 3rem 2rem;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
-  color: #111;
-  margin-bottom: 3rem;
-}
-.contacto-rapido h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-.contacto-rapido p {
-  margin-bottom: 2rem;
-  font-size: 1.2rem;
-}
-.contacto-rapido input[type="email"] {
-  padding: 0.8rem 1rem;
-  border-radius: 30px;
-  border: 1px solid #ccc;
-  width: 300px;
-  max-width: 90%;
-  font-size: 1rem;
-  margin-right: 1rem;
-}
-.contacto-rapido .btn-wsp {
-  background-color: #25D366;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.6);
-}
-.contacto-rapido .btn-wsp:hover {
-  background-color: #1ebd5a;
-}
+    /* Catálogo */
+    .catalogo {
+      margin-bottom: 4rem;
+    }
+    .catalogo h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #111;
+      text-align: center;
+    }
+    .catalogo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
 
-/* ===== FOOTER ===== */
-footer {
-  background-color: #111;
-  text-align: center;
-  padding: 1rem;
-  border-top: 1px solid #333;
-  color: #aaa;
-  font-size: 0.9rem;
-  margin-top: auto;
-}
+    .catalogo-card {
+      background: linear-gradient(135deg, #1a1a1a, #111);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #333;
+      position: relative;
+    }
+    .catalogo-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
+      border-color: #777;
+    }
+    .catalogo-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 4px solid #e50914;
+      transition: transform 0.4s ease;
+    }
+    .catalogo-card:hover img {
+      transform: scale(1.05);
+    }
+    .catalogo-card-content {
+      padding: 1.5rem 1.5rem 2rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .catalogo-card h3 {
+      margin: 0 0 0.4rem;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #fff;
+    }
+    .precio {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #e50914;
+      margin: 0 0 1rem;
+    }
+    .catalogo-card p {
+      flex-grow: 1;
+      color: #bbb;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .catalogo-card a {
+      align-self: flex-start;
+      background-color: #e50914;
+      color: #fff;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 6px 15px rgba(229, 9, 20, 0.6);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .catalogo-card a:hover {
+      background-color: #b20610;
+      box-shadow: 0 10px 20px rgba(178, 6, 16, 0.8);
+    }
 
-/* ===== ANIMACIONES ===== */
-@keyframes slideInFromLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
+    /* Etiquetas */
+    .etiqueta {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 6px 12px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      border-radius: 6px;
+      color: #fff;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      user-select: none;
+    }
+    .etiqueta-nuevo {
+      background-color: #28a745; /* verde */
+    }
+    .etiqueta-vendido {
+      background-color: #dc3545; /* rojo */
+      text-decoration: line-through;
+    }
 
-/* ===== RESPONSIVE: TABLETS Y MOVIL ===== */
-@media (max-width: 768px) {
-  /* Mostrar botón menú hamburguesa */
-  #btn-menu {
-    display: block;
-  }
+    /* Beneficios */
+    .beneficios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    .beneficio-card {
+      background: #222;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      color: #fff;
+    }
+    .beneficio-card:hover {
+      transform: translateY(-10px);
+    }
+    .beneficio-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
 
-  /* Estilo del menú desplegable */
-  nav {
-    position: absolute;
-    top: 60px;
-    right: 1rem;
-    background-color: #111;
-    border-radius: 8px;
-    width: 240px; /* más ancho */
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    z-index: 999;
-  }
+    /* Contacto rápido */
+    .contacto-rapido {
+      background: #fffdfd;
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+      color: #111;
+      margin-bottom: 3rem;
+    }
+    .contacto-rapido h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .contacto-rapido p {
+      margin-bottom: 2rem;
+      font-size: 1.2rem;
+    }
+    /* Formulario - inputs, textarea y botón */
+    .contacto-rapido form {
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .contacto-rapido form input[type="text"],
+    .contacto-rapido form input[type="email"],
+    .contacto-rapido form input[type="tel"],
+    .contacto-rapido form input[type="number"],
+    .contacto-rapido form textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      border: 1px solid var(--color-gray-light);
+      border-radius: 8px;
+      font-family: var(--font-main);
+      transition: border-color 0.3s ease;
+      resize: vertical;
+      color: #111;
+    }
+    .contacto-rapido form input[type="text"]:focus,
+    .contacto-rapido form input[type="email"]:focus,
+    .contacto-rapido form input[type="tel"]:focus,
+    .contacto-rapido form input[type="number"]:focus,
+    .contacto-rapido form textarea:focus {
+      border-color: var(--color-red);
+      outline: none;
+      box-shadow: 0 0 5px var(--color-red);
+    }
+    .contacto-rapido form button.btn-wsp {
+      background-color: #25D366;
+      color: white;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      box-shadow: 0 6px 15px rgba(37, 211, 102, 0.7);
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+    .contacto-rapido form button.btn-wsp:hover {
+      background-color: #1ebd5a;
+    }
+    .contacto-rapido p.whatsapp-contacto {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+    .contacto-rapido a.btn-wsp {
+      display: inline-block;
+      background-color: #25D366;
+      color: white;
+      padding: 0.7rem 1.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+      box-shadow: 0 4px 10px rgba(37, 211, 102, 0.6);
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .contacto-rapido a.btn-wsp:hover,
+    .contacto-rapido a.btn-wsp:focus {
+      background-color: #1ebd5a;
+      outline: none;
+    }
 
-  nav.open {
-    max-height: 500px;
-  }
+    /* Footer */
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 1rem;
+      border-top: 1px solid #333;
+      color: #aaa;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+    .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 90%;
+    }
+    .map-container {
+      margin-bottom: 1rem;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .social-container {
+      display: flex;
+      gap: 1rem;
+    }
+    .social-link svg {
+      fill: #aaa;
+      transition: fill 0.3s ease;
+    }
+    .social-link:hover svg,
+    .social-link:focus svg {
+      fill: var(--color-red);
+      outline: none;
+    }
 
-  nav ul {
-    flex-direction: column;
-    gap: 0;
-    margin: 0;
-    padding: 0.5rem 0;
-    display: flex;
-  }
+    /* Animaciones */
+    @keyframes slideInFromLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
 
-  nav li {
-    border-bottom: 1px solid #333;
-  }
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header .container {
+        padding: 0.5rem 1rem;
+      }
 
-  nav li:last-child {
-    border-bottom: none;
-  }
+      nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 280px;
+        background-color: #111;
+        border-left: 2px solid #333;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+        padding-top: 80px;
+      }
+      nav.open {
+        transform: translateX(0);
+      }
 
-  nav a {
-    display: block;
-    padding: 1rem 1.5rem; /* más padding para el dedo */
-    font-size: 1.1rem;     /* más grande */
-    font-weight: 600;
-  }
+      nav ul {
+        flex-direction: column;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
 
-  .hamburger span {
-    width: 30px;
-    height: 4px;
-  }
-}
+      nav li {
+        border-bottom: 1px solid #333;
+      }
+      nav li:last-child {
+        border-bottom: none;
+      }
 
+      nav a {
+        padding: 1.2rem 2rem;
+        font-size: 1.2rem;
+      }
 
+      .hamburger {
+        display: flex;
+        margin-left: auto;
+      }
+      .hamburger span {
+        width: 35px;
+        height: 5px;
+      }
+
+      /* Formulario responsivo */
+      .contacto-rapido form {
+        width: 100%;
+        max-width: none;
+      }
+    }
   </style>
 </head>
 <body>
 
-<header>
-
-    <nav>
-      <ul id="nav-menu">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="#catalogo">Stock</a></li>
-        <li><a href="#>Vende tu vehículo</a></li>
-        <li><a href="index.html#whychoose">Por qué elegirnos</a></li>
-
-      </ul>
-    </nav>
-    <div
-      class="hamburger"
-      id="hamburger"
-      tabindex="0"
-      role="button"
-      aria-label="Menú de navegación"
-      aria-expanded="false"
-      aria-controls="nav-menu"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
+  <header>
+    <div class="container">
+      <div class="logo" aria-label="Logo de Automotora CYC">
+        CYC Automóviles</span>
+      </div>
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="#catalogo">Stock</a></li>
+          <li><a href="#vendetuvehiculo">Vende tu vehículo</a></li>
+          <li><a href="index.html#whychoose">Por qué elegirnos</a></li>
+        </ul>
+      </nav>
+      <div
+        class="hamburger"
+        id="hamburger"
+        tabindex="0"
+        role="button"
+        aria-label="Menú de navegación"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </header>
 
@@ -409,6 +515,7 @@ footer {
     <h2>Catálogo de Autos</h2>
     <div class="catalogo-grid">
       <article class="catalogo-card">
+        <div class="etiqueta etiqueta-nuevo">Recién llegado</div>
         <img src="images/subarugris1.jpg" alt="BMW Serie 1" />
         <div class="catalogo-card-content">
           <h3>SUBARU IMPREZA 3.0 / AÑO 2016 / 80.000 KM </h3>
@@ -418,6 +525,7 @@ footer {
         </div>
       </article>
       <article class="catalogo-card">
+        <div class="etiqueta etiqueta-vendido">Vendido</div>
         <img src="images/peugeto1.jpg" alt="Byo electrico sq40" />
         <div class="catalogo-card-content">
           <h3>PEUGEOT 3008 / 2023 / 35.000 KM</h3>
@@ -429,13 +537,14 @@ footer {
       <article class="catalogo-card">
         <img src="images/subaruroja1.jpg" alt="Mercedes Clase A" />
         <div class="catalogo-card-content">
-          <h3>SUBARU OUTBACK / AÑO 2022 / 40.000 KM/h3>
+          <h3>SUBARU OUTBACK / AÑO 2022 / 40.000 KM</h3>
           <p class="precio">$28.000.000 CLP</p>
           <p>Confort premium, tecnología avanzada y seguridad garantizada.</p>
           <a href="detalle.html?auto=auto-1">Ver más</a>
         </div>
       </article>
-            <article class="catalogo-card">
+      <article class="catalogo-card">
+        <div class="etiqueta etiqueta-nuevo">Recién llegado</div>
         <img src="images/subarugris1.jpg" alt="BMW Serie 1" />
         <div class="catalogo-card-content">
           <h3>SUBARU IMPREZA 3.0 / AÑO 2016 / 80.000 KM </h3>
@@ -445,51 +554,15 @@ footer {
         </div>
       </article>
       <article class="catalogo-card">
-        <img src="images/peugeto1.jpg" alt="Byo electrico sq40" />
+        <div class="etiqueta etiqueta-nuevo">Recién llegado</div>
+        <img src="images/subarugris1.jpg" alt="BMW Serie 1" />
         <div class="catalogo-card-content">
-          <h3>PEUGEOT 3008 / 2023 / 35.000 KM</h3>
-          <p class="precio">$22.500.000 CLP</p>
-          <p>Diseño moderno y eficiente, ideal para la ciudad y viajes largos.</p>
-          <a href="detalle.html?auto=byo2">Ver más</a>
+          <h3>SUBARU IMPREZA 3.0 / AÑO 2016 / 80.000 KM </h3>
+          <p class="precio">$25.000.000 CLP</p>
+          <p>Elegancia y deportividad con motor turbo y tecnología de punta.</p>
+          <a href="detalle.html?auto=Audi-A1">Ver más</a>
         </div>
       </article>
-      <article class="catalogo-card">
-        <img src="images/subaruroja1.jpg" alt="Mercedes Clase A" />
-        <div class="catalogo-card-content">
-          <h3>SUBARU OUTBACK / AÑO 2022 / 40.000 KM/h3>
-          <p class="precio">$28.000.000 CLP</p>
-          <p>Confort premium, tecnología avanzada y seguridad garantizada.</p>
-          <a href="detalle.html?auto=auto-1">Ver más</a>
-        </div>
-      </article>
-      <article class="catalogo-card">
-        <img src="images/autoporllegar.png" alt="Mercedes Clase A" />
-        <div class="catalogo-card-content">
-          <h3>NO AUTO</h3>
-          <p class="precio"></p>
-          <p></p>
-          <a href="detalle.html?auto=">Ver más</a>
-        </div>
-      </article>
-            <article class="catalogo-card">
-        <img src="images/autoporllegar.png" alt="Mercedes Clase A" />
-        <div class="catalogo-card-content">
-          <h3>NO AUTO</h3>
-          <p class="precio"></p>
-          <p></p>
-          <a href="detalle.html?auto=">Ver más</a>
-        </div>
-      </article>
-            <article class="catalogo-card">
-        <img src="images/autoporllegar.png" alt="Mercedes Clase A" />
-        <div class="catalogo-card-content">
-          <h3>NO AUTO</h3>
-          <p class="precio"></p>
-          <p></p>
-          <a href="detalle.html?auto=">Ver más</a>
-        </div>
-      </article>
-      <!-- Puedes añadir más autos con la misma estructura -->
     </div>
   </section>
 
@@ -509,84 +582,83 @@ footer {
     </article>
   </section>
 
-  <!-- Contacto rápido -->
-<!-- Contacto rápido -->
-<section class="contacto-rapido container" aria-label="Contacto rápido por WhatsApp">
-  <h2>¿Quieres más información? ¡Contáctanos!</h2>
-  <p>Haz clic en el botón y conversa con nosotros directamente por WhatsApp.</p>
-  <a href="https://wa.me/56942540654?text=Hola%2C%20estoy%20interesado%20en%20más%20información%20sobre%20los%20autos" 
-     target="_blank" 
-     class="btn-wsp"
-     aria-label="Contactar por WhatsApp">
-    Contactar por WhatsApp
-  </a>
-</section>
-
+  <section id="vendetuvehiculo" class="contacto-rapido container" aria-label="Formulario para vender tu vehículo o contacto rápido">
+    <h2>¿Quieres vender tu vehículo? Déjanos tus datos y te contactamos</h2>
+    <p>Completa el formulario y uno de nuestros asesores se comunicará contigo.</p>
+    <form action="https://formspree.io/f/xeozeagg" method="POST" aria-label="Formulario para vender vehículo">
+      <input
+        type="text"
+        name="nombre"
+        placeholder="Tu nombre completo"
+        aria-label="Nombre completo"
+        required
+      />
+      <input
+        type="email"
+        name="email"
+        placeholder="Tu correo electrónico"
+        aria-label="Correo electrónico"
+        required
+      />
+      <input
+        type="tel"
+        name="telefono"
+        placeholder="Tu teléfono (opcional)"
+        aria-label="Teléfono"
+      />
+      <input
+        type="text"
+        name="vehiculo"
+        placeholder="Marca y modelo de tu vehículo"
+        aria-label="Marca y modelo del vehículo"
+        required
+      />
+      <input
+        type="number"
+        name="anio"
+        placeholder="Año del vehículo"
+        aria-label="Año del vehículo"
+        min="1900"
+        max="2025"
+        required
+      />
+      <textarea
+        name="comentarios"
+        placeholder="Detalles adicionales"
+        aria-label="Detalles adicionales"
+        rows="3"
+      ></textarea>
+      <button type="submit" class="btn-wsp">Enviar</button>
+    </form>
+    <p class="whatsapp-contacto">O contáctanos rápido por WhatsApp:</p>
+    <a href="https://wa.me/56912345678" target="_blank" rel="noopener" class="btn-wsp" aria-label="Contactar por WhatsApp">
+      Contactar por WhatsApp
+    </a>
+  </section>
 
   <!-- Footer -->
-    <footer>
+  <footer>
     <div class="footer-container">
-      <div class="map-container" aria-label="Ubicación en mapa">
-        <iframe
-          src="https://maps.google.com/maps?q=chicureo&t=&z=13&ie=UTF8&iwloc=&output=embed"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Mapa de ubicación de Automotora CYC"
-        ></iframe>
-      </div>
-      <div class="footer-bottom">
-        <div>© 2025 CYC Automóviles</div>
-        <div class="social-container" role="navigation" aria-label="Redes sociales">
-          <a class="social-link" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 5.005 3.657 9.128 8.438 9.877v-6.987h-2.54v-2.89h2.54v-2.206c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.196 2.238.196v2.462h-1.26c-1.243 0-1.63.772-1.63 1.562v1.876h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 17.005 22 12z"/></svg>
-          </a>
-          <a class="social-link" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 3a1 1 0 110 2 1 1 0 010-2zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg>
-          </a>
-          <a class="social-link" href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14.86A4.48 4.48 0 0022.4.4a9.14 9.14 0 01-2.88 1.1 4.48 4.48 0 00-7.64 4.1 12.9 12.9 0 01-9.37-4.75 4.48 4.48 0 001.39 6 4.4 4.4 0 01-2.03-.56v.06a4.49 4.49 0 003.6 4.4 4.52 4.52 0 01-2.02.08 4.49 4.49 0 004.2 3.12A9 9 0 012 19.54a12.72 12.72 0 006.92 2"/></svg>
-          </a>
-        </div>
-        <div class="footer-credit">
-          Diseño por <a href="https://tusitio.com" target="_blank" rel="noopener">Tu Nombre</a>
-        </div>
-      </div>
+      <p>© 2025 Automotora CYC. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-  <!-- SCRIPT para menú hamburguesa -->
-  <<script>
-    
-  const btnMenu = document.getElementById("btn-menu");
-  const nav = document.querySelector("nav");
-
-  btnMenu.addEventListener("click", () => {
-    nav.classList.toggle("open");
-
-
+  <script>
     const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
+    const nav = document.querySelector('nav');
 
     hamburger.addEventListener('click', () => {
-      navMenu.classList.toggle('show');
-      // Update aria-expanded
-      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      nav.classList.toggle('open');
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
       hamburger.setAttribute('aria-expanded', !expanded);
     });
 
-    hamburger.addEventListener('keypress', e => {
-      if (e.key === 'Enter') {
-        navMenu.classList.toggle('show');
-        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-        hamburger.setAttribute('aria-expanded', !expanded);
+    // También abrir/cerrar con tecla Enter o espacio (accesibilidad)
+    hamburger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        hamburger.click();
       }
-    });
-
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.auto-card').forEach((card, i) => {
-        setTimeout(() => card.classList.add('visible'), i * 200);
-      });
     });
   </script>
 
