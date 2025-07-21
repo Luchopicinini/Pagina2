@@ -1,964 +1,650 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Automotora CYC</title>
+  <meta name="description" content="Automotora CYC: compra y venta de autos usados y nuevos con garantía, asesoría y los mejores precios del mercado." />
+  <title>Automotora CYC - Inicio</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
-
-  <style>
-    /* ESTILOS GENERALES */
-    :root {
-      --color-black: #000000;
-      --color-white: #FFFFFF;
-      --color-red: #B22222;
-      /* rojo oscuro firebrick */
-      --color-gray-light: #CCCCCC;
-      --font-main: 'Barlow', sans-serif;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: var(--font-main);
-      background-color: var(--color-black);
-      color: var(--color-white);
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    header {
-      background-color: #111;
-      color: #fff;
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      border-bottom: 1px solid #333;
-      z-index: 1000;
-    }
-
-    .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    .logo-text .sub {
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    nav {
-      display: flex;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      transition: background 0.3s ease;
-    }
-
-    nav a:hover {
-      background-color: #333;
-    }
-
-    .hero {
-      background-color: #ffffff;
-      height: 50vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 1rem;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      color: #b22222a6;
-
-      margin-bottom: 1.5rem;
-      letter-spacing: 4px;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-
-
-    .btn-primary:hover {
-      background-color: #8b1a1a;
-    }
-
-    .btn-primary {
-      padding: 0.8rem 2.5rem;
-      background: rgb(0, 0, 0);
-      color: #ffffff;
-      border: none;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      user-select: none;
-    }
-
-    .btn-primary:hover,
-    .btn-primary:focus {
-      background: #fff8f8;
-      color: #000000;
-      outline: none;
-      box-shadow: 0 0 25px #ccc6c6;
-    }
-
-    .section-title {
-      margin: 4rem 0 2rem;
-      text-align: center;
-      font-size: 2.6rem;
-      font-weight: 900;
-      letter-spacing: 4px;
-      color: #b22222a6;
-      text-transform: uppercase;
-    }
-
-    .autos-destacados {
-      max-width: 1100px;
-      margin: auto;
-      padding: 0 2rem 4rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-    }
-
-    .auto-card {
-      background: #000000;
-      border-radius: 1rem;
-      box-shadow: 0 5px 25px rgba(178, 34, 34, 0.3);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .auto-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 40px rgba(178, 34, 34, 0.6);
-    }
-
-    .auto-card img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      border-bottom: 3px solid var(--color-red);
-      border-top-left-radius: 1rem;
-      border-top-right-radius: 1rem;
-      transition: transform 0.3s ease;
-    }
-
-    .auto-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .auto-content {
-      padding: 1rem 1.5rem 0.6rem;
-      text-align: center;
-      flex-grow: 1;
-    }
-
-    .auto-content h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--color-white);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-
-    .auto-content p {
-      color: var(--color-gray-light);
-      font-weight: 500;
-      font-size: 1rem;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-    }
-
-    .auto-info {
-      display: flex;
-      justify-content: space-around;
-      background: #d30000;
-      padding: 0.9rem 1rem;
-      color: var(--color-red);
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      gap: 1rem;
-      border-radius: 0 0 1rem 1rem;
-      border-top: 1px solid #333;
-    }
-
-    .primary {
-      display: inline-block;
-      background-color: #B22222;
-      color: #f5f5f5;
-      padding: 0.6em 1.2em;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      font-weight: bold;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .primary:hover {
-      background-color: #8b1a1a;
-    }
-
-    .info-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      flex: 1;
-    }
-
-    .info-label {
-      font-size: 0.75rem;
-      color: black;
-      margin-bottom: 0.15rem;
-      font-weight: 600;
-    }
-
-    .info-value {
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: white;
-    }
-
-    /* Sección Nosotros */
-    #nosotros {
-      max-width: 900px;
-      margin: 4rem auto 4rem auto;
-      padding: 0 2rem;
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: var(--color-gray-light);
-      text-align: center;
-      line-height: 1.7;
-    }
-
-    /* Por qué elegirnos */
-    .why-choose {
-      max-width: 1100px;
-      margin: 0 auto 6rem;
-      background: #121212;
-      padding: 4rem 2rem 5rem;
-      border-radius: 1rem;
-      box-shadow: 0 6px 30px rgba(178, 34, 34, 0.25);
-      text-align: center;
-      color: var(--color-white);
-    }
-
-    .why-choose h2 {
-      font-size: 2.8rem;
-      margin-bottom: 1.2rem;
-      letter-spacing: 4px;
-      font-weight: 900;
-      text-transform: uppercase;
-      color: var(--color-red);
-      text-shadow: 0 0 10px rgba(178, 34, 34, 0.8);
-    }
-
-    .why-choose p.subtitle {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: var(--color-gray-light);
-      margin-bottom: 3rem;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2.5rem;
-    }
-
-    .feature-item {
-      background: #222;
-      padding: 2rem 1.5rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(178, 34, 34, 0.15);
-      transition: transform 0.3s ease;
-      cursor: default;
-    }
-
-    .feature-item:hover,
-    .feature-item:focus {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 30px rgba(178, 34, 34, 0.6);
-      outline: none;
-    }
-
-    .feature-icon {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-      color: var(--color-red);
-      user-select: none;
-    }
-
-    .feature-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: var(--color-white);
-    }
-
-    .feature-desc {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--color-gray-light);
-      line-height: 1.5;
-    }
-
-    footer {
-      background: #111;
-      padding: 2rem;
-      color: var(--color-gray-light);
-      margin-top: 3rem;
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .map-container {
-      flex: 1 1 400px;
-      min-width: 280px;
-    }
-
-    .map-container iframe {
-      width: 100%;
-      height: 300px;
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(178, 34, 34, 0.6);
-      transition: box-shadow 0.3s ease;
-    }
-
-    .map-container iframe:hover {
-      box-shadow: 0 0 30px rgba(178, 34, 34, 0.9);
-    }
-
-    .footer-bottom {
-      flex: 1 1 300px;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      align-items: flex-end;
-      font-size: 0.9rem;
-      user-select: none;
-    }
-
-    .social-container {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .social-link svg {
-      width: 24px;
-      height: 24px;
-      fill: currentColor;
-      transition: transform 0.2s ease;
-      color: #ff0000;
-    }
-
-    .social-link:hover svg {
-      transform: scale(1.2);
-      color: #ffffff;
-      /* verde WhatsApp si quieres distinto color */
-    }
-
-    .footer-credit a {
-      color: var(--color-red);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .footer-credit a:hover,
-    .footer-credit a:focus {
-      text-decoration: underline;
-      outline: none;
-    }
-
-    /* HAMBURGER MENU */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background-color: red;
-      /* menú hamburguesa rojo */
-      border: none;
-      padding: 0.5rem;
-      border-radius: 6px;
-    }
-
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background: white;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-
-    /* RESPONSIVE NAV */
-    /* RESPONSIVE NAV MEJORADO - CENTRADO TOTAL */
-    @media (max-width: 768px) {
-
-      /* Box-sizing para todo */
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-      }
-
-      /* Padding horizontal general con límite de ancho adaptable */
-      .hero,
-      .autos-destacados,
-      #nosotros,
-      #contacto,
-      footer .footer-container,
-      .map-container {
-        padding-left: 1rem;
-        padding-right: 1rem;
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      /* Ajustar max-width para móviles normales */
-      .autos-destacados,
-      #nosotros,
-      #contacto,
-      .map-container {
-        max-width: 320px;
-        /* para que no se extienda mucho en móviles grandes */
-      }
-
-      /* Nav con padding para que no toque bordes */
-      nav {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-      }
-
-      /* Estilos nav y otros que ya tenías */
-      .primary {
-        display: none !important;
-      }
-
-      nav {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh;
-        width: 280px;
-        background-color: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(10px);
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        flex-direction: column;
-        padding-top: 80px;
-        color: #fff;
-        z-index: 1000;
-        border-radius: 0 0 0 20px;
-      }
-
-      nav.open {
-        transform: translateX(0);
-      }
-
-      nav ul {
-        flex-direction: column;
-        gap: 0;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        text-align: center;
-        list-style: none;
-      }
-
-      nav li {
-        border-bottom: 1px solid #444;
-      }
-
-      nav li:last-child {
-        border-bottom: none;
-      }
-
-      nav a {
-        color: #fff;
-        display: block;
-        padding: 1.2rem 0;
-        font-size: 1.2rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        user-select: none;
-      }
-
-      nav a:hover,
-      nav a:focus {
-        background-color: rgba(255, 0, 0, 0.3);
-        outline: none;
-      }
-
-      .hamburger {
-        display: flex;
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background-color: var(--color-red);
-        padding: 0.6rem;
-        border-radius: 8px;
-        box-shadow: 0 0 10px var(--color-red);
-        z-index: 1100;
-      }
-
-      .hero {
-        padding: 0;
-        text-align: center;
-        background-color: rgba(255, 255, 255, 0.984);
-      }
-
-      .hero h1 {
-        font-size: 1rem;
-        letter-spacing: 3px;
-        margin: 0 0 1.2rem 0;
-        color: #000000;
-      }
-
-      h2.section-title {
-        font-size: 1.8rem;
-        margin: 3rem 0 1.5rem 0;
-        text-align: center;
-        letter-spacing: 3px;
-      }
-
-      .autos-destacados {
-        padding: 0;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin: 0 auto 3rem auto;
-      }
-
-      #nosotros,
-      #contacto {
-        margin: 3rem auto 0 auto;
-        padding: 0;
-        font-size: 1rem;
-        text-align: center;
-        color: var(--color-gray-light);
-        line-height: 1.6;
-      }
-
-      footer .footer-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1.5rem;
-        padding: 0;
-      }
-
-      .footer-bottom {
-        align-items: center;
-        font-size: 0.9rem;
-      }
-
-      .map-container {
-        width: 100%;
-        margin: 0 auto;
-      }
-
-      .map-container iframe {
-        height: 250px;
-      }
-    }
-
-    /* Ajustes específicos para iPhone SE y pantallas muy pequeñas (<= 375px) */
-    @media (max-width: 375px) {
-
-      .hero,
-      .autos-destacados,
-      #nosotros,
-      #contacto,
-      footer .footer-container,
-      .map-container {
-        padding-left: 0.8rem;
-        /* menos padding horizontal para aprovechar espacio */
-        padding-right: 0.8rem;
-      }
-
-      .autos-destacados,
-      #nosotros,
-      #contacto,
-      .map-container {
-        max-width: 100%;
-        /* que ocupe todo el ancho posible */
-      }
-
-      nav {
-        width: 240px;
-        /* un poco más pequeño para que no tape tanto */
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-
-      nav a {
-        font-size: 1rem;
-        /* letra un poco más chica para ajustar */
-        padding: 1rem 0;
-      }
-
-      h2.section-title {
-        font-size: 1.5rem;
-        margin: 2rem 0 1rem 0;
-      }
-    }
-
-
-
-
-    /* Chatbot estilo WhatsApp */
-    .chatbot {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: green;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: box-shadow 0.3s ease;
-      z-index: 10001;
-      text-decoration: none;
-    }
-
-    .chatbot:hover {
-      box-shadow: 0 0 30px rgba(178, 34, 34, 0.9);
-    }
-
-    .chatbot svg {
-      fill: #fff;
-      width: 32px;
-      height: 32px;
-      user-select: none;
-    }
-  </style>
+<style>
+:root {
+  --color-black: #000;
+  --color-white: #fff;
+  --color-red: #b22222;
+  --color-red-hover: #a71515;
+  --color-accent: #e50914;
+  --color-gray-light: #ccc;
+  --color-gray-dark: #222;
+  --color-border: #333;
+  --font-main: 'Barlow', sans-serif;
+  --glow-shadow: 0 0 8px var(--color-red), 0 0 15px var(--color-red-hover);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-white);
+  color: #111;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+}
+
+/* Glow efecto pulsante para logo */
+.logo-text .sub {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: var(--color-red);
+  animation: glowPulse 3s ease-in-out infinite alternate;
+  user-select: none;
+}
+
+@keyframes glowPulse {
+  from {
+    text-shadow: 0 0 8px var(--color-red);
+  }
+  to {
+    text-shadow: 0 0 15px var(--color-red-hover), 0 0 20px var(--color-red-hover);
+  }
+}
+
+/* UTILITARIOS */
+.container1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* HEADER */
+header {
+  background-color: #111;
+  color: #fff;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #333;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(178, 34, 34, 0.7);
+  transition: background-color 0.4s ease;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  gap: 2rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+nav a {
+  color: #fff;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 6px;
+  position: relative;
+  font-weight: 600;
+  transition: background-color 0.3s ease, box-shadow 0.4s ease;
+  user-select: none;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 2px;
+  background: var(--color-red);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+nav a:hover, nav a:focus {
+  background-color: var(--color-red-hover);
+  box-shadow: var(--glow-shadow);
+  outline: none;
+}
+nav a:hover::after, nav a:focus::after {
+  width: 70%;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  background: var(--color-red);
+  border: none;
+  padding: 0.6rem;
+  border-radius: 8px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1100;
+  box-shadow: 0 0 12px var(--color-red);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+.hamburger:hover {
+  box-shadow: 0 0 22px var(--color-red-hover);
+}
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media (max-width: 768px) {
+  nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 280px;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    flex-direction: column;
+    padding-top: 80px;
+    color: #fff;
+    z-index: 1000;
+    border-radius: 0 0 0 20px;
+  }
+  nav.open {
+    transform: translateX(0);
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    list-style: none;
+  }
+  nav a {
+    color: #fff;
+    display: block;
+    padding: 1.2rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    user-select: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* FOOTER */
+footer {
+  background: #111;
+  padding: 3rem 1.5rem 2rem;
+  color: var(--color-gray-light);
+  margin-top: 3rem;
+  box-shadow: inset 0 0 40px #b22222aa;
+  border-radius: 12px 12px 0 0;
+  transition: box-shadow 0.5s ease;
+}
+
+footer:hover {
+  box-shadow: inset 0 0 60px #b22222ee;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-info, .footer-contact, .footer-map {
+  flex: 1 1 320px;
+  min-width: 280px;
+  transition: transform 0.4s ease;
+}
+
+.footer-info:hover, .footer-contact:hover, .footer-map:hover {
+  transform: scale(1.02);
+}
+
+.footer-info h3, .footer-contact h3 {
+  color: var(--color-red);
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-shadow: 0 0 8px var(--color-red);
+}
+
+.footer-info p, .footer-contact p {
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+  color: #ccc;
+  font-size: 1rem;
+  user-select: text;
+}
+
+/* Iconos para info contacto */
+.footer-contact p {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.footer-contact svg {
+  fill: var(--color-red);
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 2px var(--color-red));
+  transition: filter 0.3s ease;
+}
+
+.footer-contact p:hover svg {
+  filter: drop-shadow(0 0 5px var(--color-red-hover));
+}
+
+/* Mapa */
+.footer-map iframe {
+  width: 100%;
+  height: 260px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(178, 34, 34, 0.6);
+  transition: box-shadow 0.3s ease;
+  filter: drop-shadow(0 0 8px var(--color-red));
+}
+.footer-map iframe:hover {
+  box-shadow: 0 0 30px rgba(178, 34, 34, 0.9);
+  filter: drop-shadow(0 0 15px var(--color-red-hover));
+}
+
+.footer-bottom {
+  flex-basis: 100%;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #666;
+  user-select: none;
+  letter-spacing: 0.04em;
+  font-style: italic;
+}
+
+/* Social */
+.social-container {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1.4rem;
+  justify-content: center;
+}
+
+.social-link svg {
+  width: 32px;
+  height: 32px;
+  fill: var(--color-red);
+  transition: transform 0.3s ease, fill 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+  filter: drop-shadow(0 0 3px var(--color-red));
+}
+.social-link:hover svg {
+  transform: scale(1.4) rotate(10deg);
+  fill: var(--color-white);
+  filter: drop-shadow(0 0 10px var(--color-red-hover));
+}
+
+/* Animaciones y estados iniciales para fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Tarjetas sección consignación */
+.consignacion-section h2 {
+  color: var(--color-red);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-shadow: 0 0 8px var(--color-red);
+}
+
+.cards-container {
+  display: flex;
+  gap: 1.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #fff;
+  border: 2px solid var(--color-red);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(178, 34, 34, 0.25);
+  padding: 1.8rem 1.5rem;
+  max-width: 320px;
+  flex: 1 1 280px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent, var(--color-red), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 14px;
+  pointer-events: none;
+  filter: drop-shadow(0 0 8px var(--color-red));
+  animation: pulseGlow 3s ease-in-out infinite alternate;
+  z-index: 0;
+}
+.card:hover::before,
+.card:focus-within::before {
+  opacity: 0.25;
+}
+
+@keyframes pulseGlow {
+  from {
+    filter: drop-shadow(0 0 8px var(--color-red));
+  }
+  to {
+    filter: drop-shadow(0 0 15px var(--color-red-hover));
+  }
+}
+
+.card:hover, .card:focus-within {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 28px rgba(178, 34, 34, 0.6);
+  border-color: var(--color-red-hover);
+  z-index: 1;
+}
+
+.card-number {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 1.8rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  user-select: none;
+  box-shadow: 0 0 12px var(--color-red);
+  transition: box-shadow 0.4s ease;
+}
+.card-number:hover {
+  box-shadow: 0 0 22px var(--color-red-hover);
+}
+
+.card h3 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--color-black);
+  text-shadow: 0 0 3px #b22222bb;
+  transition: text-shadow 0.4s ease;
+}
+.card:hover h3 {
+  text-shadow: 0 0 8px var(--color-red-hover);
+}
+
+.card p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+  position: relative;
+  z-index: 1;
+}
+
+/* Ripple Effect en tarjetas */
+.card:active::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background: var(--color-red-hover);
+  opacity: 0.3;
+  animation: rippleEffect 0.6s linear;
+  pointer-events: none;
+  top: var(--ripple-y);
+  left: var(--ripple-x);
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+@keyframes rippleEffect {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.5;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  nav {
+    width: 240px;
+    padding-top: 60px;
+  }
+
+  nav a {
+    font-size: 1rem;
+    padding: 1rem 0;
+  }
+}
+</style>
 </head>
-
 <body>
-  <header>
-  <div class="container">
-    <div class="logo-text">
-      <span class="sub">CYC AUTOMOVILES</span><br />
+
+  <header class="header1">
+    <div class="container1">
+      <div class="logo-text">
+        <span class="sub" aria-label="Logo CYC Automóviles">CYC AUTOMÓVILES</span>
+      </div>
+      <nav id="nav" role="navigation" aria-label="Menú principal">
+        <ul role="menubar">
+          <li role="none"><a role="menuitem" href="/">Inicio</a></li>
+          <li role="none"><a role="menuitem" href="stock.html">Stock</a></li>
+          <li role="none"><a role="menuitem" href="nosotros.html">Nosotros</a></li>
+          <li role="none"><a role="menuitem" href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <button id="hamburger" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </header>
 
-    <!-- Menú de navegación -->
-    <nav id="nav" role="navigation" aria-label="Menú principal">
-      <ul id="nav-menu" role="menubar">
-        <li role="none"><a href="/" role="menuitem" tabindex="0">Inicio</a></li>
-        <li role="none"><a href="stock.html" role="menuitem" tabindex="0">Stock</a></li>
-        <li role="none"><a href="#nosotros" role="menuitem" tabindex="0">Nosotros</a></li>
-        <li role="none"><a href="#contacto" role="menuitem" tabindex="0">Contacto</a></li>
-      </ul>
-    </nav>
-
-    <!-- Botón hamburguesa -->
-    <button id="hamburger" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-</header>
-
-  <section class="hero" role="banner" aria-label="Imagen principal de automotora">
-    <h1>Bienvenidos a CYC Automóviles</h1>
-    <button class="btn-primary" onclick="location.href='stock.html'" aria-label="Ir al catálogo de autos destacados">Ver catálogo</button>
+  <!-- Sección Nosotros -->
+  <section class="container fade-in" style="margin-top:2rem;">
+    <h2>Nosotros</h2>
+    <p>
+      En CYC Automóviles nos dedicamos a ofrecer la mejor experiencia en compra y venta de vehículos nuevos y usados con garantía y asesoría personalizada. Contamos con años de trayectoria en el mercado, entregando confianza y calidad a todos nuestros clientes.
+    </p>
   </section>
 
-  <main>
-    <h2 class="section-title" id="autos">Autos Destacados</h2>
-    <section class="autos-destacados" aria-labelledby="autos">
-      <!-- Ejemplo de auto -->
-      <article class="auto-card" tabindex="0" role="article"
-        aria-label="Auto Peugeot 3008, año 2023, 35.000 kilómetros, precio 22.500.000 pesos">
-        <img src="images/SUBARU/WRX1.png" alt="Peugeot 3008 color gris" />
-        <div class="auto-content">
-          <h3>SUBARU WRX TS / AÑO 2024 / 23.000 KM</h3>
-          <p class="precio">36.790.000 CLP</p>
-        </div>
-        <div class="auto-info">
-          <div class="info-box">
-            <span class="info-label">Transmisión</span>
-            <span class="info-value">Automática</span>
-          </div>
-          <div class="info-box">
-            <span class="info-label">Combustible</span>
-            <span class="info-value">Gasolina</span>
-          </div>
-          <div class="info-box">
-            <span class="info-label">Año</span>
-            <span class="info-value">2024</span>
-          </div>
-          <a href="stock.html" class="primary">VER MÁS</a>
-
-
+  <!-- Sección Cómo vendemos tu auto en consignación -->
+  <section class="container fade-in consignacion-section" style="margin-top:3rem;">
+    <h2>¿Cómo vendemos tu auto en consignación?</h2>
+    <div class="cards-container">
+      <article class="card" tabindex="0">
+        <div class="card-number">1</div>
+        <h3>Contacto inicial</h3>
+        <p>Nos contactas y coordinamos una revisión gratuita de tu vehículo.</p>
       </article>
-      <article class="auto-card" tabindex="0" role="article"
-        aria-label="Auto Peugeot 3008, año 2023, 35.000 kilómetros, precio 22.500.000 pesos">
-        <img src="images/SUBARUBLANCO/1.jpg" alt="Peugeot 3008 color gris" />
-        <div class="auto-content">
-          <h3>SUBARU WRX TS / AÑO 2024 / 15.000 KM</h3>
-          <p class="precio">$36.790.000 CLP</p>
-        </div>
-        <div class="auto-info">
-          <div class="info-box">
-            <span class="info-label">Transmisión</span>
-            <span class="info-value">Automática</span>
-          </div>
-          <div class="info-box">
-            <span class="info-label">Combustible</span>
-            <span class="info-value">Gasolina</span>
-          </div>
-          <div class="info-box">
-            <span class="info-label">Año</span>
-            <span class="info-value">2024</span>
-          </div>
-          <a href="stock.html" class="primary">VER MÁS</a>
-
+      <article class="card" tabindex="0">
+        <div class="card-number">2</div>
+        <h3>Valoración y contrato</h3>
+        <p>Evaluamos el auto y firmamos un contrato de consignación transparente.</p>
       </article>
+      <article class="card" tabindex="0">
+        <div class="card-number">3</div>
+        <h3>Venta y entrega</h3>
+        <p>Publicamos tu auto en nuestro catálogo, gestionamos la venta y te entregamos el pago rápidamente.</p>
+      </article>
+    </div>
+  </section>
 
-      <!-- Aquí puedes agregar más autos -->
-    </section>
-
-    <section id="nosotros" aria-labelledby="titulo-nosotros">
-      <h2 id="titulo-nosotros" class="section-title">Nosotros</h2>
-      <p>
-        Somos una automotora dedicada a ofrecer los mejores vehículos del mercado con la mejor calidad y atención
-        personalizada. ¡Ven y conoce nuestro catálogo!
-      </p>
-    </section>
-
-    <section id="contacto" aria-labelledby="titulo-contacto"
-      style="max-width: 900px; margin: 4rem auto; padding: 0 2rem; color: var(--color-gray-light); text-align: center;">
-      <h2 id="titulo-contacto" class="section-title">Contacto</h2>
-      <p>Dirección: Apoquindo 7935, Las Condes</p>
-      <p>Teléfono: +56 9 1234 5678</p>
-      <p>Email: contacto@cycautomoviles.cl</p>
-    </section>
-  </main>
-
+  <!-- Footer -->
   <footer>
-    <div class="footer-container">
-      <div class="map-container" aria-label="Mapa de ubicación">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.605893935031!2d-70.64968178479913!3d-33.4505598807779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5972c00e2af%3A0x206f3e2f23be437d!2sAv.%20Principal%20123%2C%20Santiago!5e0!3m2!1ses!2scl!4v1624567890123!5m2!1ses!2scl"
-          width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade" title="Ubicación CYC Automóviles"></iframe>
+    <div class="footer-container" id="contacto">
+      <div class="footer-info">
+        <h3>Automotora CYC</h3>
+        <p>Compra y venta de autos usados y nuevos con garantía.</p>
+        <p>Asesoría personalizada y los mejores precios del mercado.</p>
       </div>
-      <div class="footer-bottom">
-        <div>© 2025 CYC Automóviles. Todos los derechos reservados.</div>
-        <div class="social-container" aria-label="Redes sociales">
-          <!-- Facebook -->
-          <a href="https://www.facebook.com/cycautomoviles" class="social-link" target="_blank"
-            rel="noopener noreferrer" aria-label="Facebook">
-            <svg role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-              fill="currentColor">
-              <path
-                d="M22.675 0h-21.35C.592 0 0 .592 0 1.325v21.351C0 23.408.592 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.464.099 2.797.143v3.243h-1.918c-1.505 0-1.796.716-1.796 1.764v2.313h3.59l-.467 3.622h-3.123V24h6.116C23.408 24 24 23.408 24 22.675V1.325C24 .592 23.408 0 22.675 0z" />
-            </svg>
-          </a>
-
-          <!-- Instagram -->
-          <a href="https://www.instagram.com/cycautomoviles" class="social-link" target="_blank"
-            rel="noopener noreferrer" aria-label="Instagram">
-            <svg role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-              fill="currentColor">
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.849.07 1.17.054 1.97.24 2.428.403a4.92 4.92 0 011.675 1.03 4.922 4.922 0 011.03 1.676c.163.458.349 1.258.403 2.427.058 1.265.07 1.645.07 4.849s-.012 3.584-.07 4.849c-.054 1.17-.24 1.97-.403 2.428a4.902 4.902 0 01-1.03 1.675 4.916 4.916 0 01-1.676 1.03c-.458.163-1.258.349-2.427.403-1.265.058-1.645.07-4.849.07s-3.584-.012-4.849-.07c-1.17-.054-1.97-.24-2.428-.403a4.92 4.92 0 01-1.675-1.03 4.92 4.92 0 01-1.03-1.676c-.163-.458-.349-1.258-.403-2.427-.058-1.265-.07-1.645-.07-4.849s.012-3.584.07-4.849c.054-1.17.24-1.97.403-2.428a4.92 4.92 0 011.03-1.675 4.92 4.92 0 011.676-1.03c.458-.163 1.258-.349 2.427-.403 1.265-.058 1.645-.07 4.849-.07zm0-2.163C8.737 0 8.332.013 7.052.072 5.775.131 4.79.31 4.014.61a6.862 6.862 0 00-2.505 1.47 6.859 6.859 0 00-1.471 2.505c-.301.776-.48 1.761-.54 3.038C.012 8.332 0 8.737 0 12c0 3.263.013 3.668.072 4.948.059 1.277.238 2.262.54 3.038a6.875 6.875 0 001.471 2.505 6.867 6.867 0 002.505 1.47c.776.301 1.761.48 3.038.54 1.28.06 1.685.072 4.948.072s3.668-.013 4.948-.072c1.277-.059 2.262-.238 3.038-.54a6.873 6.873 0 002.505-1.47 6.872 6.872 0 001.47-2.505c.301-.776.48-1.761.54-3.038.06-1.28.072-1.685.072-4.948s-.013-3.668-.072-4.948c-.059-1.277-.238-2.262-.54-3.038a6.862 6.862 0 00-1.47-2.505 6.863 6.863 0 00-2.505-1.47c-.776-.301-1.761-.48-3.038-.54C15.668.013 15.263 0 12 0z" />
-            </svg>
-          </a>
-        </div>
-
+      <div class="footer-contact">
+        <h3>Contacto</h3>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M391 304c-15-1-39-12-58-26s-42-32-52-48-17-35-18-49 1-22 12-29 26-10 39-10 38 7 60 18 39 22 52 35 23 27 26 44-2 30-9 43-18 22-30 23zM185 27c-53 0-96 43-96 96 0 14 3 28 8 40 13 38 41 68 78 80 19 7 44 10 68 10 53 0 96-43 96-96 0-18-5-36-14-52-21-41-59-66-104-66zM32 256c0 50 18 96 49 132 9 11 19 22 30 30s20 18 28 30c7 10 10 20 10 33 0 7-1 15-3 21l-2 8c-7 34-31 58-65 65-6 2-14 3-21 3-12 0-23-4-32-10-9-7-19-17-27-26S0 373 0 322c0-49 19-93 49-128 9-12 20-22 31-29s20-13 30-15c6-1 12-1 18-1z"/></svg>
+          Av. Providencia 1234, Santiago, Chile
+        </p>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M349 191c-12 0-22 10-22 22v68c0 12 10 22 22 22s22-10 22-22v-68c0-12-10-22-22-22zm58 109c-13 0-24 11-24 24v40c0 13 11 24 24 24s24-11 24-24v-40c0-13-11-24-24-24zm-118-163c-18 0-32 14-32 32s14 32 32 32 32-14 32-32-14-32-32-32zm131 118h-6v-44h6c7 0 12 5 12 12v20c0 7-5 12-12 12zm-238-7c-12 0-22 10-22 22v53c0 12 10 22 22 22h94c12 0 22-10 22-22v-53c0-12-10-22-22-22zm38 43h-38v-11h38v11zm-37-53h1v44h-1v-44z"/></svg>
+          Teléfono: <a href="tel:+56912345678" style="color: var(--color-red); text-decoration:none;">+56 9 1234 5678</a>
+        </p>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M502.3 190.8l-192-160C299.3 25.6 291.5 24 284.6 24c-6.4 0-12.5 3.7-15.9 9.9L67.1 338.7c-6.7 11.1 3.3 25.3 17.1 21.4l152.9-49.6c8.6-2.8 17.6-4.2 26.6-4.2 42.6 0 77.4 34.7 77.4 77.4 0 7.4-1.2 14.5-3.5 21.1l41.3-36.7c4.8-4.3 7.8-10.4 7.8-17.1 0-7.7-4.5-14.7-11.3-18.4z"/></svg>
+          Email: <a href="mailto:contacto@cycautomoviles.cl" style="color: var(--color-red); text-decoration:none;">contacto@cycautomoviles.cl</a>
+        </p>
+      </div>
+      <div class="footer-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3339.0109239254734!2d-70.6506289848223!3d-33.44888938078086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c6f76f0db05b%3A0x9389d1d979eac4f4!2sAv.%20Providencia%201234%2C%20Santiago%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2scl!4v1689956500000!5m2!1ses!2scl"
+          width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa ubicación CYC Automóviles">
+        </iframe>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Automotora CYC. Todos los derechos reservados.
+      <div class="social-container" style="margin-top: 0.5rem;">
+        <a href="https://www.instagram.com/cycautomoviles" target="_blank" rel="noopener" aria-label="Instagram de CYC Automóviles" class="social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224,202.66A53.34,53.34,0,1,0,277.34,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.84-30.84C288.31,121,224,121,224,121s-64.31,0-93.86,9.87a54,54,0,0,0-30.84,30.84C90,154.69,90,192,90,192s0,37.31,9.3,58.34a54,54,0,0,0,30.84,30.84C159.69,294,224,294,224,294s64.31,0,93.86-9.87a54,54,0,0,0,30.84-30.84C358,229.31,358,192,358,192S358,154.69,348.71,161.66ZM224,338a82,82,0,1,1,82-82A82,82,0,0,1,224,338Zm85.33-148.1a19.2,19.2,0,1,1-19.2-19.2A19.21,19.21,0,0,1,309.33,189.9Z"/></svg>
+        </a>
+        <a href="https://wa.me/56912345678" target="_blank" rel="noopener" aria-label="WhatsApp de CYC Automóviles" class="social-link" style="color:#25D366;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339-12 226.9-9.2 169.4 41.3 111.9 91.7 101.8 168 101.8 168c-.3 36.3 19.5 67 48.3 85.8l-38.3 102.5 105.4-39.2c18 13.6 47.3 18.7 68.7 4.8l.1-.1c10.6-7.1 18.1-15.9 22.3-26.1l.1-.2c1.3-2.9 2-6.2 2-9.6 0-4.3-.9-8.3-2.6-11.8-.4-.8-1-1.6-1.5-2.4-5.3-8.9-17.2-19.8-31.8-28.6-11.6-6.7-20.8-10.1-24.6-11.3-4.5-1.5-8.7-1.2-12.7 1.1-3.7 2-8.2 6.4-12.8 12.8-3.1 4.5-5 8.3-5.6 9.2-.2.4-.2.8-.1 1.2l.3 1.1c.2.9 1.7 6.8 8.2 13.5 7.7 8 17.4 12 26.8 14.5 3.3.8 5.7 1.4 7.7 1.7 3.2.4 6.2.2 9-.4 2.4-.5 6.7-2.6 10.7-5.6l.1-.1c2.4-1.7 4.6-3.7 6.7-5.9l.1-.1c2.8-3.1 4.2-6 4.2-7.6 0-1.5-1-3-2.7-4.4-2-1.7-5.8-2.6-11-2.6-6.6 0-13.6 2.5-19 7.6-4.8 4.6-7.8 10.8-7.8 18.1 0 8.4 3.3 15.6 9.2 21.3 5.4 5.1 12.3 7.8 20.7 7.8 9.6 0 17.5-3.5 23.7-10.3 5.3-5.7 8-13.2 8-22 0-9.8-3.3-18.4-9.8-25.9z"/></svg>
+        </a>
       </div>
     </div>
   </footer>
 
-  <button class="chatbot" aria-label="Abrir chat de WhatsApp">
-    <!-- Icono WhatsApp SVG -->
-    <a href="https://wa.me/56988276054" target="_blank" class="chatbot" aria-label="Abrir chat de WhatsApp">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-        <path fill="#fff"
-          d="M16.002 3C9.372 3 4 8.373 4 15.002c0 2.658.957 5.124 2.543 7.04L4 29l7.193-2.484A11.963 11.963 0 0 0 16 27c6.627 0 12-5.373 12-11.998C28 8.373 22.628 3 16.002 3zm0 21.805a9.77 9.77 0 0 1-5.002-1.381l-.357-.211-4.276 1.478 1.434-4.17-.231-.369a9.745 9.745 0 0 1-1.5-5.15c0-5.386 4.384-9.77 9.77-9.77s9.77 4.384 9.77 9.77c0 5.385-4.384 9.77-9.77 9.77zm5.435-7.33c-.297-.149-1.758-.868-2.03-.967-.272-.1-.47-.148-.668.149-.198.297-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.787-1.48-1.761-1.652-2.058-.173-.297-.018-.457.13-.605.134-.134.297-.347.446-.52.149-.173.198-.297.297-.495.099-.198.05-.372-.025-.521-.074-.149-.668-1.611-.915-2.207-.242-.579-.487-.5-.668-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.017-1.04 2.48 1.065 2.876 1.213 3.075c.149.198 2.095 3.2 5.078 4.49.709.305 1.262.487 1.694.623.712.227 1.36.195 1.872.118.571-.085 1.758-.718 2.007-1.41.248-.692.248-1.286.173-1.41-.074-.124-.272-.198-.57-.347z" />
-      </svg>
-    </a>
-  </button>
-
-  <!-- Agrega GSAP CDN para animaciones -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
+  <script>
+    // Código menú hamburguesa
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('nav');
 
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('open');
-      hamburger.classList.toggle('active');
+    hamburger.addEventListener('click', (e) => {
+      // Ripple effect coordinates
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      hamburger.style.setProperty('--ripple-x', x + 'px');
+      hamburger.style.setProperty('--ripple-y', y + 'px');
 
-      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-      hamburger.setAttribute('aria-expanded', String(!isExpanded));
+      nav.classList.toggle('open');
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!expanded));
+      hamburger.classList.toggle('active');
     });
 
-    // Cierra el menú cuando se hace clic en un enlace
-    const navLinks = document.querySelectorAll('#nav a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
-        hamburger.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
+    // Animación fade-in para secciones al cargar
+    window.addEventListener('load', () => {
+      const fadeEls = document.querySelectorAll('.fade-in');
+      fadeEls.forEach(el => {
+        el.style.opacity = 1;
+        el.style.transform = 'translateY(0)';
       });
     });
-  });
-</script>
 
-  <style>
-    /* Cursor typing blink */
-    @keyframes blink {
+    // Ripple effect on cards on click
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        e.currentTarget.style.setProperty('--ripple-x', x + 'px');
+        e.currentTarget.style.setProperty('--ripple-y', y + 'px');
+      });
+    });
 
-      0%,
-      50%,
-      100% {
-        opacity: 1;
+    // Glow effect loop for logo text
+    const logoText = document.querySelector('.logo-text .sub');
+    let glowOn = true;
+    setInterval(() => {
+      if (glowOn) {
+        logoText.style.textShadow = '0 0 10px var(--color-red), 0 0 20px var(--color-red-hover)';
+      } else {
+        logoText.style.textShadow = 'none';
       }
+      glowOn = !glowOn;
+    }, 2000);
 
-      25%,
-      75% {
-        opacity: 0;
-      }
-    }
-
-    /* Ripple effect */
-    @keyframes ripple {
-      to {
-        transform: scale(4);
-        opacity: 0;
-      }
-    }
-
-    .btn-primary,
-    .primary {
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      transition: box-shadow 0.3s ease;
-      border-radius: 4px;
-    }
-
-    .btn-primary:focus,
-    .primary:focus {
-      outline: none;
-      box-shadow: 0 0 8px #b22222dd;
-    }
-
-    .btn-primary span.ripple,
-    .primary span.ripple {
-      position: absolute;
-      border-radius: 50%;
-      transform: scale(0);
-      animation: ripple 0.6s linear;
-      background: rgba(255, 255, 255, 0.4);
-      pointer-events: none;
-    }
-
-    /* Logo glitch */
-    .logo-text .main.glitch {
-      position: relative;
-      color: #b22222;
-      text-shadow:
-        2px 0 red,
-        -2px 0 cyan;
-      clip-path: polygon(0 2%, 100% 2%, 100% 8%, 0 8%);
-      animation: glitch-anim 0.15s ease-in-out;
-    }
-
-    @keyframes glitch-anim {
-      0% {
-        clip-path: polygon(0 2%, 100% 2%, 100% 8%, 0 8%);
-        transform: translate(0);
-      }
-
-      50% {
-        clip-path: polygon(0 10%, 100% 10%, 100% 14%, 0 14%);
-        transform: translate(-2px, -1px);
-      }
-
-      100% {
-        clip-path: polygon(0 2%, 100% 2%, 100% 8%, 0 8%);
-        transform: translate(0);
-      }
-    }
-
-
-
-    /* Partículas SVG ya animadas con GSAP */
-  </style>
-
+  </script>
 
 </body>
-
 </html>
