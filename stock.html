@@ -36,6 +36,8 @@ body {
   scroll-behavior: smooth;
 }
 
+
+
 .catalogo-card-content {
   padding: 20px;
 }
@@ -101,22 +103,20 @@ body {
   padding: 0 1rem;
 }
 /* HEADER */
-header {
-  background-color: #111;
-  color: var(--color-white);
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid var(--color-border);
-}
+   header {
+      background-color: #111;
+      color: #fff;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      border-bottom: 1px solid #333;
+      z-index: 1000;
+    }
 
-.logo-text .sub {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-white);
-  letter-spacing: 2px;
-}
+    .logo-text .sub {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
 
 /* NAV */
 nav {
@@ -191,33 +191,44 @@ nav a:hover, nav a:focus {
 
 
 @media (max-width: 768px) {
-  nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 280px;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.9);
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 5rem;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-  }
+      nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 280px;
+        background-color: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        flex-direction: column;
+        padding-top: 80px;
+        color: #fff;
+        z-index: 1000;
+        border-radius: 0 0 0 20px;
+      }
   nav.open {
     transform: translateX(0);
   }
   nav ul {
-    flex-direction: column;
-    width: 100%;
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        list-style: none;
   }
-  nav a {
-    font-size: 1.2rem;
-    text-align: center;
-    width: 100%;
-    padding: 1rem;
-  }
+      nav a {
+        color: #fff;
+        display: block;
+        padding: 1.2rem 0;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        user-select: none;
+      }
   .hamburger {
     display: flex;
   }
@@ -359,51 +370,98 @@ nav a:hover, nav a:focus {
 
 /* CONTACTO */
 .contacto-rapido {
-  background: #f9f9f9;
+  background: linear-gradient(135deg, #111111, #1c1c1c);
   padding: 3rem 2rem;
-  border-radius: 16px;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   text-align: center;
   margin-bottom: 4rem;
+  color: #fff;
 }
 .contacto-rapido h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 1rem;
+  color: #ff3b3f;
 }
+.contacto-rapido p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem; /* MÁS ESPACIO AQUÍ */
+  color: #ccc;
+}
+
 .contacto-rapido form {
   max-width: 500px;
   margin: 0 auto;
   text-align: left;
 }
+
 .contacto-rapido input,
 .contacto-rapido textarea {
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1.2rem;
   font-size: 1rem;
-  border: 1px solid var(--color-gray-light);
-  border-radius: 8px;
-  margin-bottom: 1rem;
+  border: 1px solid #444;
+  background-color: #1e1e1e;
+  color: #fff;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
   font-family: var(--font-main);
 }
+
+.contacto-rapido input::placeholder,
+.contacto-rapido textarea::placeholder {
+  color: #999;
+}
+
 .contacto-rapido input:focus,
 .contacto-rapido textarea:focus {
-  border-color: var(--color-red);
-  box-shadow: 0 0 5px var(--color-red);
+  border-color: #ff3b3f;
+  box-shadow: 0 0 8px #ff3b3f;
   outline: none;
 }
+
 .contacto-rapido button {
-  background: var(--color-red);
-  color: white;
-  padding: 0.8rem 2rem;
+  background: #ff3b3f;
+  color: #fff;
+  padding: 0.9rem 2.2rem;
   border: none;
   border-radius: 40px;
   font-weight: 700;
+  font-size: 1rem;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s;
 }
 .contacto-rapido button:hover {
-  background-color: var(--color-red-hover);
+  background-color: #e32f35;
+  transform: scale(1.03);
 }
+
+.botones-formulario {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.btn-wsp {
+  background: #25d366;
+  color: white;
+  padding: 0.9rem 2.2rem;
+  border-radius: 40px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.btn-wsp:hover {
+  background: #1ebc57;
+  transform: scale(1.03);
+}
+
+
+
 
 /* FOOTER */
 footer {
@@ -493,12 +551,82 @@ footer {
     transform: translateX(0);
   }
 }
+@media (max-width: 400px) {
+  /* NAV (ajuste de ancho) */
+  nav {
+    width: 240px;
+    padding-top: 60px;
+  }
+
+  nav a {
+    font-size: 1rem;
+    padding: 1rem 0;
+  }
+
+  /* HERO */
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  /* FORMULARIO */
+  .contacto-rapido {
+    padding: 2rem 1rem;
+  }
+
+  .contacto-rapido h2 {
+    font-size: 1.6rem;
+  }
+
+  .contacto-rapido p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contacto-rapido input,
+  .contacto-rapido textarea {
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .botones-formulario {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .contacto-rapido button,
+  .btn-wsp {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.85rem 0;
+  }
+
+  /* FOOTER */
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    align-items: center;
+  }
+
+  .map-container iframe {
+    height: 200px;
+  }
+}
+
 
 </style>
 </head>
 <body>
 
-  <header>
+  <header class="header1">
     <div class="container1">
       <div class="logo-text">
         <span class="sub">CYC AUTOMÓVILES</span>
@@ -616,23 +744,26 @@ footer {
     </div>
   </section>
 
-  <section id="contacto" class="contacto-rapido container" aria-label="Contacto y venta de vehículo">
-    <h2 class="section-title">¿Quieres vender tu vehículo?</h2>
-    <p>Déjanos tus datos y te contactamos</p>
-    <form action="https://formspree.io/f/xeozeagg" method="POST">
-      <input type="text" name="nombre" placeholder="Tu nombre completo" required />
-      <input type="email" name="email" placeholder="Tu correo electrónico" required />
-      <input type="tel" name="telefono" placeholder="Tu teléfono (opcional)" />
-      <input type="text" name="vehiculo" placeholder="Marca y modelo de tu vehículo" required />
-      <input type="number" name="anio" placeholder="Año del vehículo" min="1900" max="2025" required />
-      <textarea name="comentarios" placeholder="Km, dueños, etc..." rows="3"></textarea>
-      <button type="submit" class="btn-wsp">Enviar</button>
-    </form>
-    <p>O contáctanos rápido por WhatsApp:</p>
-    <a href="https://wa.me/56912345678" target="_blank" rel="noopener" class="btn-wsp">
-      Contactar por WhatsApp
-    </a>
-  </section>
+<section id="contacto" class="contacto-rapido container" aria-label="Contacto y venta de vehículo">
+  <h2 class="section-title">¿Quieres vender tu vehículo?</h2>
+  <p>Déjanos tus datos y te contactamos</p>
+  <form action="https://formspree.io/f/xeozeagg" method="POST">
+    <input type="text" name="nombre" placeholder="Tu nombre completo" required />
+    <input type="email" name="email" placeholder="Tu correo electrónico" required />
+    <input type="tel" name="telefono" placeholder="Tu teléfono (opcional)" />
+    <input type="text" name="vehiculo" placeholder="Marca y modelo de tu vehículo" required />
+    <input type="number" name="anio" placeholder="Año del vehículo" min="1900" max="2025" required />
+    <textarea name="comentarios" placeholder="Km, dueños, etc..." rows="3"></textarea>
+    <p>O si prefieres una atención más directa, contáctanos por WhatsApp haciendo clic en el botón.</p>
+ 
+
+    <div class="botones-formulario">
+      <button type="submit">Enviar</button>
+      <a href="https://wa.me/56912345678" target="_blank" rel="noopener" class="btn-wsp">WhatsApp</a>
+    </div>
+  </form>
+</section>
+
 
   <footer>
     <div class="footer-container">
@@ -670,52 +801,221 @@ footer {
     </div>
   </footer>
 
-<script>
-  // ======= MENÚ HAMBURGUESA =======
-  const hamburger = document.querySelector('.hamburger');
-  const nav = document.querySelector('nav');
+<script>// ===== INYECTAR CSS PARA EFECTOS AVANZADOS =====
+const style = document.createElement('style');
+style.textContent = `
+  /* RIPPLE: ondas múltiples y degradados */
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: scale(0);
+    opacity: 0.8;
+    animation: ripple-effect-adv 0.8s forwards;
+    z-index: 9999;
+  }
+  @keyframes ripple-effect-adv {
+    0% {
+      transform: scale(0);
+      opacity: 0.8;
+      box-shadow: 0 0 10px 2px rgba(255,255,255,0.5);
+    }
+    50% {
+      opacity: 0.5;
+      box-shadow: 0 0 20px 6px rgba(255,59,63,0.7);
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+      box-shadow: 0 0 40px 12px rgba(255,59,63,0);
+    }
+  }
 
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    nav.classList.toggle('open');
-  });
+  /* LINK HOVER: gradiente neón animado */
+  nav a {
+    position: relative;
+    transition: color 0.3s ease;
+    color: #fff;
+  }
+  nav a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(270deg, #ff3b3f, #ff9a9e, #ff3b3f);
+    background-size: 600% 600%;
+    filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 4px;
+    z-index: -1;
+    animation: neonGradient 6s ease infinite;
+  }
+  nav a:hover::before {
+    opacity: 1;
+  }
+  nav a:hover {
+    color: #fff;
+  }
+  @keyframes neonGradient {
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+  }
 
-  // Cierra menú al hacer clic en un enlace
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', () => {
+  /* HEADER sticky: sombra difusa y escala suave */
+  header.scrolled {
+    box-shadow: 0 8px 30px rgba(255, 59, 63, 0.5);
+    transform: scale(1.02);
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+    z-index: 100;
+  }
+`;
+// Insertar CSS en <head>
+document.head.appendChild(style);
+
+// ====== MENÚ HAMBURGUESA ======
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav');
+
+function activarHamburguesa() {
+  hamburger.classList.toggle('active');
+  nav.classList.toggle('open');
+
+  if (hamburger.classList.contains('active')) {
+    // 3D rotación + pulso respiración (infinito)
+    hamburger.style.transition = 'transform 0.5s ease, filter 0.7s ease';
+    hamburger.style.transform = 'rotateY(180deg) scale(1.15)';
+    hamburger.style.filter = 'drop-shadow(0 0 12px #ff3b3f)';
+    // Animación pulso infinita con Web Animations API
+    hamburger.animation = hamburger.animate([
+      { transform: 'rotateY(180deg) scale(1.15)', filter: 'drop-shadow(0 0 12px #ff3b3f)' },
+      { transform: 'rotateY(180deg) scale(1.25)', filter: 'drop-shadow(0 0 20px #ff6a6e)' },
+      { transform: 'rotateY(180deg) scale(1.15)', filter: 'drop-shadow(0 0 12px #ff3b3f)' }
+    ], { duration: 1200, iterations: Infinity });
+  } else {
+    // Resetear estilos y cancelar animación
+    hamburger.style.transform = 'rotateY(0deg) scale(1)';
+    hamburger.style.filter = 'none';
+    if(hamburger.animation) hamburger.animation.cancel();
+  }
+}
+hamburger.addEventListener('click', activarHamburguesa);
+
+// Cerrar menú con fade out suave al click en enlace
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.style.transition = 'opacity 0.4s ease';
+    nav.style.opacity = '0';
+    setTimeout(() => {
       nav.classList.remove('open');
-      hamburger.classList.remove('active');
-    });
+      nav.style.opacity = '1';
+    }, 400);
+    hamburger.classList.remove('active');
+    hamburger.style.transform = 'rotateY(0deg) scale(1)';
+    hamburger.style.filter = 'none';
+    if(hamburger.animation) hamburger.animation.cancel();
   });
+});
 
-  // ======= NAV STICKY CON SOMBRA AL SCROLLEAR =======
-  const header = document.querySelector('header');
+// Auto cierra menú al hacer scroll con fade out
+window.addEventListener('scroll', () => {
+  if (nav.classList.contains('open')) {
+    nav.style.transition = 'opacity 0.4s ease';
+    nav.style.opacity = '0';
+    setTimeout(() => {
+      nav.classList.remove('open');
+      nav.style.opacity = '1';
+    }, 400);
+    hamburger.classList.remove('active');
+    hamburger.style.transform = 'rotateY(0deg) scale(1)';
+    hamburger.style.filter = 'none';
+    if(hamburger.animation) hamburger.animation.cancel();
+  }
+});
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 30) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+// ====== HEADER sticky con sombra y scale =====
+const header = document.querySelector('header');
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 30) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+// ====== FADE-IN AVANZADO =====
+const fadeEls = document.querySelectorAll('.fade-in');
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry, index) => {
+    if(entry.isIntersecting) {
+      setTimeout(() => {
+        const el = entry.target;
+        // efectos: opacidad + escala + rotación ligera + sombra + glow
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s cubic-bezier(0.22,1,0.36,1), box-shadow 1.2s ease, filter 1.2s ease';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+        el.style.boxShadow = '0 0 20px rgba(255,59,63,0.7)';
+        el.style.filter = 'brightness(1.15)';
+        // Después suavizar sombra y brillo para efecto natural
+        setTimeout(() => {
+          el.style.transition = 'box-shadow 1.5s ease, filter 1.5s ease';
+          el.style.boxShadow = 'none';
+          el.style.filter = 'brightness(1)';
+        }, 1200);
+        observer.unobserve(el);
+      }, index * 300);
     }
   });
+}, { threshold: 0.3 });
 
-  // ======= FADE-IN EN SECCIONES AL APARECER EN VIEWPORT =======
-  const fadeEls = document.querySelectorAll('.fade-in');
+fadeEls.forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(60px) scale(0.85) rotate(5deg)';
+  observer.observe(el);
+});
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = 1;
-        entry.target.style.transform = 'translateY(0)';
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
+// ======= RIPPLE AVANZADO =======
+function createRipple(event) {
+  const button = event.currentTarget;
 
-  fadeEls.forEach(el => {
-    observer.observe(el);
-  });
+  if (getComputedStyle(button).position === 'static') {
+    button.style.position = 'relative';
+  }
+  button.style.overflow = 'hidden';
+
+  // Crear varias ondas para efecto mágico
+  for(let i = 0; i < 3; i++) {
+    const circle = document.createElement('span');
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+    circle.style.width = circle.style.height = `${diameter}px`;
+
+    // Desplazamientos escalonados para ondas múltiples
+    circle.style.left = `${event.clientX - button.getBoundingClientRect().left - radius + (i*10)}px`;
+    circle.style.top = `${event.clientY - button.getBoundingClientRect().top - radius + (i*10)}px`;
+    circle.classList.add('ripple');
+
+    // Color dinámico con variación ligera en la opacidad
+    const bgColor = getComputedStyle(button).backgroundColor;
+    circle.style.backgroundColor = bgColor.includes('rgb')
+      ? bgColor.replace('rgb', 'rgba').replace(')', `, ${0.4 - i*0.1})`)
+      : `rgba(255,255,255,${0.4 - i*0.1})`;
+
+    // Eliminar ripple anterior solo en la primera onda
+    if(i === 0) {
+      const ripple = button.getElementsByClassName('ripple')[0];
+      if(ripple) ripple.remove();
+    }
+
+    button.appendChild(circle);
+  }
+}
+document.querySelectorAll('button, a').forEach(el => {
+  el.addEventListener('click', createRipple);
+});
 </script>
+
 
 </body>
 </html>
