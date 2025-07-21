@@ -701,27 +701,29 @@
 
 <body>
   <header>
-    <div class="container">
-      <div class="logo-text">
-        <span class="sub">CYC AUTOMOVILES</span><br />
-      </div>
-
-      <nav id="nav" role="navigation" aria-label="Menú principal">
-        <ul id="nav-menu" role="menubar">
-          <li role="none"><a href="/" role="menuitem" tabindex="0">Inicio</a></li>
-          <li role="none"><a href="stock.html" role="menuitem" tabindex="0">Stock</a></li>
-          <li role="none"><a href="#nosotros" role="menuitem" tabindex="0">Nosotros</a></li>
-          <li role="none"><a href="#contacto" role="menuitem" tabindex="0">Contacto</a></li>
-        </ul>
-      </nav>
-
-      <button id="hamburger" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+  <div class="container">
+    <div class="logo-text">
+      <span class="sub">CYC AUTOMOVILES</span><br />
     </div>
-  </header>
+
+    <!-- Menú de navegación -->
+    <nav id="nav" role="navigation" aria-label="Menú principal">
+      <ul id="nav-menu" role="menubar">
+        <li role="none"><a href="/" role="menuitem" tabindex="0">Inicio</a></li>
+        <li role="none"><a href="stock.html" role="menuitem" tabindex="0">Stock</a></li>
+        <li role="none"><a href="#nosotros" role="menuitem" tabindex="0">Nosotros</a></li>
+        <li role="none"><a href="#contacto" role="menuitem" tabindex="0">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- Botón hamburguesa -->
+    <button id="hamburger" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
 
   <section class="hero" role="banner" aria-label="Imagen principal de automotora">
     <h1>Bienvenidos a CYC Automóviles</h1>
@@ -849,180 +851,30 @@
   <!-- Agrega GSAP CDN para animaciones -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1) Entrada con stagger y bounce para h1, h2, h3 usando GSAP
-      gsap.from("h1, h2, h3", {
-        duration: 1,
-        opacity: 0,
-        y: 50,
-        ease: "bounce.out",
-        stagger: 0.2
-      });
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
 
-      // 2) Typing effect mejorado con cursor parpadeante y loop (solo para .hero h1)
-      const heroTitle = document.querySelector('.hero h1');
-      if (heroTitle) {
-        const text = heroTitle.textContent.trim();
-        heroTitle.textContent = '';
-        const cursor = document.createElement('span');
-        cursor.textContent = '|';
-        cursor.style.opacity = '1';
-        cursor.style.animation = 'blink 1s infinite';
-        heroTitle.appendChild(cursor);
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      hamburger.classList.toggle('active');
 
-        let index = 0;
-        function typeWriter() {
-          if (index < text.length) {
-            heroTitle.textContent = text.slice(0, index + 1);
-            heroTitle.appendChild(cursor);
-            index++;
-            setTimeout(typeWriter, 80);
-          } else {
-            // Opcional: reiniciar el efecto después de un delay
-            setTimeout(() => {
-              index = 0;
-              heroTitle.textContent = '';
-              heroTitle.appendChild(cursor);
-              setTimeout(typeWriter, 800);
-            }, 4000);
-          }
-        }
-        typeWriter();
-      }
-
-      // 3) Botones con glow dinámico + ripple effect on click
-      const buttons = document.querySelectorAll('.btn-primary, .primary');
-      buttons.forEach(btn => {
-        // Glow animado usando GSAP
-        gsap.to(btn, {
-          boxShadow: '0 0 25px #b22222cc',
-          duration: 2,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut'
-        });
-
-        // Ripple effect
-        btn.style.position = 'relative';
-        btn.style.overflow = 'hidden';
-        btn.addEventListener('click', e => {
-          const circle = document.createElement('span');
-          circle.style.position = 'absolute';
-          circle.style.borderRadius = '50%';
-          circle.style.transform = 'scale(0)';
-          circle.style.width = circle.style.height = '100px';
-          circle.style.background = 'rgba(255,255,255,0.4)';
-          circle.style.pointerEvents = 'none';
-          circle.style.left = `${e.clientX - btn.getBoundingClientRect().left - 50}px`;
-          circle.style.top = `${e.clientY - btn.getBoundingClientRect().top - 50}px`;
-          circle.style.animation = 'ripple 0.6s linear';
-          btn.appendChild(circle);
-          circle.addEventListener('animationend', () => circle.remove());
-        });
-      });
-
-      // 4) Imágenes auto-card: zoom + tilt 3D suave con GSAP
-      const images = document.querySelectorAll('.auto-card img');
-      images.forEach(img => {
-        img.style.transformStyle = 'preserve-3d';
-        img.style.transition = 'transform 0.3s ease';
-        img.parentElement.addEventListener('mousemove', e => {
-          const rect = img.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
-          const rotateX = (y / rect.height) * 10;  // rotación eje X
-          const rotateY = (x / rect.width) * -10; // rotación eje Y
-          gsap.to(img, { scale: 1.1, rotationX: rotateX, rotationY: rotateY, transformOrigin: 'center', duration: 0.3, ease: 'power1.out' });
-        });
-        img.parentElement.addEventListener('mouseleave', () => {
-          gsap.to(img, { scale: 1, rotationX: 0, rotationY: 0, duration: 0.5, ease: 'power2.out' });
-        });
-      });
-
-      // 5) Bounce suave en section-title usando GSAP y scroll trigger simplificado
-      const sectionTitles = document.querySelectorAll('.section-title');
-      function bounceIn(el) {
-        gsap.fromTo(el,
-          { y: 30, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: 'bounce.out',
-            overwrite: 'auto'
-          });
-      }
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            bounceIn(entry.target);
-          }
-        });
-      }, { threshold: 0.6 });
-      sectionTitles.forEach(title => {
-        title.style.opacity = 0;
-        observer.observe(title);
-      });
-
-      // 6) Fade in secuencial nav links con GSAP
-      const navLinks = document.querySelectorAll('nav a');
-      gsap.from(navLinks, {
-        opacity: 0,
-        y: 15,
-        stagger: 0.15,
-        duration: 0.6,
-        delay: 0.3,
-        ease: 'power1.out'
-      });
-
-      // 7) Logo glitch moderno usando CSS + JS
-      const logoMain = document.querySelector('.logo-text .main');
-      if (logoMain) {
-        setInterval(() => {
-          logoMain.classList.add('glitch');
-          setTimeout(() => logoMain.classList.remove('glitch'), 150);
-        }, 4000);
-      }
-
-      // 8) Fondo hero animado con gradient animado usando CSS (añadido en CSS)
-
-      // 9) Partículas SVG simples para hero
-      const hero = document.querySelector('.hero');
-      if (hero && !document.querySelector('#particles-svg')) {
-        const ns = "http://www.w3.org/2000/svg";
-        const svg = document.createElementNS(ns, "svg");
-        svg.setAttribute("id", "particles-svg");
-        svg.style.position = "absolute";
-        svg.style.top = "0"; svg.style.left = "0";
-        svg.style.width = "100%"; svg.style.height = "100%";
-        svg.style.pointerEvents = "none";
-        svg.style.zIndex = "0";
-        hero.style.position = "relative";
-        hero.appendChild(svg);
-
-        const numParticles = 30;
-        for (let i = 0; i < numParticles; i++) {
-          const circle = document.createElementNS(ns, "circle");
-          circle.setAttribute("cx", Math.random() * 100 + "%");
-          circle.setAttribute("cy", Math.random() * 100 + "%");
-          circle.setAttribute("r", Math.random() * 3 + 1);
-          circle.setAttribute("fill", "rgba(178,34,34,0.3)");
-          svg.appendChild(circle);
-
-          // Animate particle moving up and down with GSAP
-          gsap.to(circle, {
-            y: "-=20",
-            duration: 3 + Math.random() * 2,
-            yoyo: true,
-            repeat: -1,
-            ease: "sine.inOut",
-            delay: Math.random() * 3
-          });
-        }
-      }
+      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!isExpanded));
     });
-  </script>
+
+    // Cierra el menú cuando se hace clic en un enlace
+    const navLinks = document.querySelectorAll('#nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  });
+</script>
 
   <style>
     /* Cursor typing blink */

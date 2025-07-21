@@ -36,6 +36,52 @@ body {
   scroll-behavior: smooth;
 }
 
+.catalogo-card-content {
+  padding: 20px;
+}
+
+.boton-centro {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.btn-detalle {
+  display: inline-block;
+  background-color: var(--color-red, #b22222);
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  font-family: 'Barlow', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.btn-detalle:hover {
+  background-color: var(--color-red-hover, #a71515);
+}
+
+.btn-wsp {
+  background-color: #25d366; /* Verde WhatsApp */
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 50px; /* redondo */
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  font-family: 'Barlow', sans-serif;
+}
+
+.btn-wsp:hover {
+  background-color: #000000;
+  transform: scale(1.05);
+}
+
+
 /* UTILITARIOS */
 .container1 {
   
@@ -126,6 +172,23 @@ nav a:hover, nav a:focus {
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
+
+.etiqueta.etiqueta-nuevo1 {
+  background-color: #b22222; /* rojo elegante */
+  color: white;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 6px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  font-family: 'Barlow', sans-serif;
+}
+
 
 @media (max-width: 768px) {
   nav {
@@ -344,21 +407,80 @@ nav a:hover, nav a:focus {
 
 /* FOOTER */
 footer {
-  background-color: var(--color-black);
-  color: #ccc;
-  text-align: center;
-  padding: 2rem 1rem;
-  margin-top: auto;
-  font-size: 0.9rem;
-}
-footer a {
-  color: #ccc;
-  margin: 0 0.5rem;
-  text-decoration: none;
-}
-footer a:hover {
-  color: var(--color-red);
-}
+      background: #111;
+      padding: 2rem;
+      color: var(--color-gray-light);
+      margin-top: 3rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .map-container {
+      flex: 1 1 400px;
+      min-width: 280px;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(178, 34, 34, 0.6);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .map-container iframe:hover {
+      box-shadow: 0 0 30px rgba(178, 34, 34, 0.9);
+    }
+
+    .footer-bottom {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-end;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    .social-container {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-link svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+      transition: transform 0.2s ease;
+      color: #ff0000;
+    }
+
+    .social-link:hover svg {
+      transform: scale(1.2);
+      color: #ffffff;
+      /* verde WhatsApp si quieres distinto color */
+    }
+
+    .footer-credit a {
+      color: var(--color-red);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-credit a:hover,
+    .footer-credit a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
 
 /* ANIMACIONES */
 @keyframes slideInFromLeft {
@@ -403,70 +525,83 @@ footer a:hover {
   <section id="catalogo" class="catalogo container" aria-label="Catálogo de autos disponibles">
     <h2 class="section-title">Catálogo de Autos</h2>
     <div class="catalogo-grid">
-      <!-- Repite estos bloques para cada auto -->
+    <article class="catalogo-card">
+      <div class="etiqueta etiqueta-nuevo1">vendido</div>
+      <img src="images/subarugris1.jpg" alt="Subaru Impreza 3.0 2016" loading="lazy" />
+      <div class="catalogo-card-content">
+        <h3>SUBARU IMPREZA 3.0 / AÑO 2016 / 80.000 KM</h3>
+        <p class="precio">$25.000.000 CLP</p>
+        <p>Elegancia y deportividad con motor turbo y tecnología de punta.</p>
+        <div class="boton-centro">
+          <a href="detalle.html?auto=Subaru-Impreza-2016" class="btn-detalle">Ver más</a>
+        </div>
+      </div>
+    </article>
+    <article class="catalogo-card">
+      <div class="etiqueta etiqueta-nuevo1">vendido</div>
+      <img src="images/subarugris1.jpg" alt="Subaru Impreza 3.0 2016" loading="lazy" />
+      <div class="catalogo-card-content">
+        <h3>SUBARU IMPREZA 3.0 / AÑO 2016 / 80.000 KM</h3>
+        <p class="precio">$25.000.000 CLP</p>
+        <p>Elegancia y deportividad con motor turbo y tecnología de punta.</p>
+        <div class="boton-centro">
+          <a href="detalle.html?auto=Subaru-Impreza-2016" class="btn-detalle">Ver más</a>
+        </div>
+      </div>
+    </article>    <article class="catalogo-card">
+      <div class="etiqueta etiqueta-nuevo1">vendido</div>
+      <img src="images/subarugris1.jpg" alt="Subaru Impreza 3.0 2016" loading="lazy" />
+      <div class="catalogo-card-content">
+        <h3>SUBARU IMPREZA 3.0 / AÑO 2016 / 80.000 KM</h3>
+        <p class="precio">$25.000.000 CLP</p>
+        <p>Elegancia y deportividad con motor turbo y tecnología de punta.</p>
+        <div class="boton-centro">
+          <a href="detalle.html?auto=Subaru-Impreza-2016" class="btn-detalle">Ver más</a>
+        </div>
+      </div>
+    </article>
       <article class="catalogo-card">
-        <div class="etiqueta etiqueta-nuevo">Recién llegado</div>
-        <img src="images/subarugris1.jpg" alt="Subaru Impreza 3.0 2016" loading="lazy" />
-        <div class="catalogo-card-content">
-          <h3>SUBARU IMPREZA 3.0 / AÑO 2016 / 80.000 KM</h3>
-          <p class="precio">$25.000.000 CLP</p>
-          <p>Elegancia y deportividad con motor turbo y tecnología de punta.</p>
-          <a href="detalle.html?auto=Subaru-Impreza-2016">Ver más</a>
+      <div class="etiqueta etiqueta-nuevo1">vendido</div>
+      <img src="images/subarugris1.jpg" alt="Subaru Impreza 3.0 2016" loading="lazy" />
+      <div class="catalogo-card-content">
+        <h3>SUBARU IMPREZA 3.0 / AÑO 2016 / 80.000 KM</h3>
+        <p class="precio">$25.000.000 CLP</p>
+        <p>Elegancia y deportividad con motor turbo y tecnología de punta.</p>
+        <div class="boton-centro">
+          <a href="detalle.html?auto=Subaru-Impreza-2016" class="btn-detalle">Ver más</a>
         </div>
-      </article>
+      </div>
+    </article>
       <article class="catalogo-card">
-        <div class="etiqueta etiqueta-nuevo">Recién llegado</div>
-        <img src="images/subarugris1.jpg" alt="Subaru Impreza 3.0 2016" loading="lazy" />
-        <div class="catalogo-card-content">
-          <h3>SUBARU IMPREZA 3.0 / AÑO 2016 / 80.000 KM</h3>
-          <p class="precio">$25.000.000 CLP</p>
-          <p>Elegancia y deportividad con motor turbo y tecnología de punta.</p>
-          <a href="detalle.html?auto=Subaru-Impreza-2016">Ver más</a>
+      <div class="etiqueta etiqueta-nuevo1">vendido</div>
+      <img src="images/subarugris1.jpg" alt="Subaru Impreza 3.0 2016" loading="lazy" />
+      <div class="catalogo-card-content">
+        <h3>SUBARU IMPREZA 3.0 / AÑO 2016 / 80.000 KM</h3>
+        <p class="precio">$25.000.000 CLP</p>
+        <p>Elegancia y deportividad con motor turbo y tecnología de punta.</p>
+        <div class="boton-centro">
+          <a href="detalle.html?auto=Subaru-Impreza-2016" class="btn-detalle">Ver más</a>
         </div>
-      </article>
+      </div>
+    </article>
       <article class="catalogo-card">
-        <div class="etiqueta etiqueta-nuevo">Recién llegado</div>
-        <img src="images/subarugris1.jpg" alt="Subaru Impreza 3.0 2016" loading="lazy" />
-        <div class="catalogo-card-content">
-          <h3>SUBARU IMPREZA 3.0 / AÑO 2016 / 80.000 KM</h3>
-          <p class="precio">$25.000.000 CLP</p>
-          <p>Elegancia y deportividad con motor turbo y tecnología de punta.</p>
-          <a href="detalle.html?auto=Subaru-Impreza-2016">Ver más</a>
+      <div class="etiqueta etiqueta-nuevo1">vendido</div>
+      <img src="images/subarugris1.jpg" alt="Subaru Impreza 3.0 2016" loading="lazy" />
+      <div class="catalogo-card-content">
+        <h3>SUBARU IMPREZA 3.0 / AÑO 2016 / 80.000 KM</h3>
+        <p class="precio">$25.000.000 CLP</p>
+        <p>Elegancia y deportividad con motor turbo y tecnología de punta.</p>
+        <div class="boton-centro">
+          <a href="detalle.html?auto=Subaru-Impreza-2016" class="btn-detalle">Ver más</a>
         </div>
-      </article><article class="catalogo-card">
-        <div class="etiqueta etiqueta-nuevo">Recién llegado</div>
-        <img src="images/subarugris1.jpg" alt="Subaru Impreza 3.0 2016" loading="lazy" />
-        <div class="catalogo-card-content">
-          <h3>SUBARU IMPREZA 3.0 / AÑO 2016 / 80.000 KM</h3>
-          <p class="precio">$25.000.000 CLP</p>
-          <p>Elegancia y deportividad con motor turbo y tecnología de punta.</p>
-          <a href="detalle.html?auto=Subaru-Impreza-2016">Ver más</a>
-        </div>
-      </article><article class="catalogo-card">
-        <div class="etiqueta etiqueta-nuevo">Recién llegado</div>
-        <img src="images/subarugris1.jpg" alt="Subaru Impreza 3.0 2016" loading="lazy" />
-        <div class="catalogo-card-content">
-          <h3>SUBARU IMPREZA 3.0 / AÑO 2016 / 80.000 KM</h3>
-          <p class="precio">$25.000.000 CLP</p>
-          <p>Elegancia y deportividad con motor turbo y tecnología de punta.</p>
-          <a href="detalle.html?auto=Subaru-Impreza-2016">Ver más</a>
-        </div>
-      </article><article class="catalogo-card">
-        <div class="etiqueta etiqueta-nuevo">Recién llegado</div>
-        <img src="images/subarugris1.jpg" alt="Subaru Impreza 3.0 2016" loading="lazy" />
-        <div class="catalogo-card-content">
-          <h3>SUBARU IMPREZA 3.0 / AÑO 2016 / 80.000 KM</h3>
-          <p class="precio">$25.000.000 CLP</p>
-          <p>Elegancia y deportividad con motor turbo y tecnología de punta.</p>
-          <a href="detalle.html?auto=Subaru-Impreza-2016">Ver más</a>
-        </div>
-      </article>
-      <!-- Fin de ejemplo de card -->
-    </div>
+      </div>
+    </article>
+
+      
   </section>
 
   <section class="beneficios container" aria-label="Beneficios">
-    <h2 class="section-title">Beneficios</h2>
+    
     <div class="beneficio-card">
       <h3>Calidad garantizada</h3>
       <p>Todos nuestros autos pasan estrictos controles de calidad para que tengas la tranquilidad que mereces.</p>
@@ -500,15 +635,39 @@ footer a:hover {
   </section>
 
   <footer>
-    <div class="social-container" role="navigation" aria-label="Redes sociales">
-      <a class="social-link" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
-        <!-- SVG Facebook -->
-      </a>
-      <a class="social-link" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
-        <!-- SVG Instagram -->
-      </a>
+    <div class="footer-container">
+      <div class="map-container" aria-label="Mapa de ubicación">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.605893935031!2d-70.64968178479913!3d-33.4505598807779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5972c00e2af%3A0x206f3e2f23be437d!2sAv.%20Principal%20123%2C%20Santiago!5e0!3m2!1ses!2scl!4v1624567890123!5m2!1ses!2scl"
+          width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="Ubicación CYC Automóviles"></iframe>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2025 CYC Automóviles. Todos los derechos reservados.</div>
+        <div class="social-container" aria-label="Redes sociales">
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/cycautomoviles" class="social-link" target="_blank"
+            rel="noopener noreferrer" aria-label="Facebook">
+            <svg role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              fill="currentColor">
+              <path
+                d="M22.675 0h-21.35C.592 0 0 .592 0 1.325v21.351C0 23.408.592 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.464.099 2.797.143v3.243h-1.918c-1.505 0-1.796.716-1.796 1.764v2.313h3.59l-.467 3.622h-3.123V24h6.116C23.408 24 24 23.408 24 22.675V1.325C24 .592 23.408 0 22.675 0z" />
+            </svg>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/cycautomoviles" class="social-link" target="_blank"
+            rel="noopener noreferrer" aria-label="Instagram">
+            <svg role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              fill="currentColor">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.849.07 1.17.054 1.97.24 2.428.403a4.92 4.92 0 011.675 1.03 4.922 4.922 0 011.03 1.676c.163.458.349 1.258.403 2.427.058 1.265.07 1.645.07 4.849s-.012 3.584-.07 4.849c-.054 1.17-.24 1.97-.403 2.428a4.902 4.902 0 01-1.03 1.675 4.916 4.916 0 01-1.676 1.03c-.458.163-1.258.349-2.427.403-1.265.058-1.645.07-4.849.07s-3.584-.012-4.849-.07c-1.17-.054-1.97-.24-2.428-.403a4.92 4.92 0 01-1.675-1.03 4.92 4.92 0 01-1.03-1.676c-.163-.458-.349-1.258-.403-2.427-.058-1.265-.07-1.645-.07-4.849s.012-3.584.07-4.849c.054-1.17.24-1.97.403-2.428a4.92 4.92 0 011.03-1.675 4.92 4.92 0 011.676-1.03c.458-.163 1.258-.349 2.427-.403 1.265-.058 1.645-.07 4.849-.07zm0-2.163C8.737 0 8.332.013 7.052.072 5.775.131 4.79.31 4.014.61a6.862 6.862 0 00-2.505 1.47 6.859 6.859 0 00-1.471 2.505c-.301.776-.48 1.761-.54 3.038C.012 8.332 0 8.737 0 12c0 3.263.013 3.668.072 4.948.059 1.277.238 2.262.54 3.038a6.875 6.875 0 001.471 2.505 6.867 6.867 0 002.505 1.47c.776.301 1.761.48 3.038.54 1.28.06 1.685.072 4.948.072s3.668-.013 4.948-.072c1.277-.059 2.262-.238 3.038-.54a6.873 6.873 0 002.505-1.47 6.872 6.872 0 001.47-2.505c.301-.776.48-1.761.54-3.038.06-1.28.072-1.685.072-4.948s-.013-3.668-.072-4.948c-.059-1.277-.238-2.262-.54-3.038a6.862 6.862 0 00-1.47-2.505 6.863 6.863 0 00-2.505-1.47c-.776-.301-1.761-.48-3.038-.54C15.668.013 15.263 0 12 0z" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
     </div>
-    <div>© 2025 CYC Automóviles</div>
   </footer>
 
 <script>
