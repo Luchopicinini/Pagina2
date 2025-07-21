@@ -248,7 +248,6 @@
           <div class="extras" aria-label="Extras destacados">
             <h4>Extras destacados</h4>
             <ul id="listaExtras" role="list" aria-label="Lista de extras seleccionables"></ul>
-            <!-- No mostramos extras seleccionados aquí -->
           </div>
         </section>
       </div>
@@ -268,32 +267,44 @@
 
   <script>
     const autos = {
-      "audi-a1": {
-        nombre: "Audi A1 quattro, Único dueño",
+      "subaru-wrx-azul": {
+        nombre: "SUBARU WRX TS / AÑO 2024 / 23.000 KM", 
         imagenes: [
-          "images/peugeto1.jpg",
-          "https://via.placeholder.com/600x400?text=Audi+A1+2",
-          "https://via.placeholder.com/600x400?text=Audi+A1+3"
+          "images/SUBARU/wrx1.png",
+          "images/SUBARU/wrx2.png",
+          "images/SUBARU/wrx3.png",
+          "images/SUBARU/wrx4.png",
+          "images/SUBARU/wrx5.png",
+          "images/SUBARU/wrx6.png"
+
         ],
-        descripcion: "Elegancia y deportividad con tecnología avanzada para los amantes de la conducción.",
-        precio: "$25.000.000",
-        kilometros: "12.000 km",
-        año: "2023",
+        descripcion: "Motor 2.4 cvt con traccion AWD",
+        precio: "$36.790.000",
+        kilometros: "23.000 km",
+        año: "2024",
         caja: "Automática",
         combustible: "Bencina",
         extras: [
           "Frenos ABS",
           "Airbags laterales",
           "Cámara de reversa",
-          "Bluetooth"
+          "Bluetooth",
+          "Apple Carplay y Android Auto"
         ]
       },
-      "peugeot-3008": {
+      "subaru-wrx-blanco": {
         nombre: "PEUGEOT 3008 / 2023 / 35.000 KM",
         imagenes: [
-          "images/subarugris1.jpg",
-          "https://via.placeholder.com/600x400?text=Peugeot+3008+2",
-          "https://via.placeholder.com/600x400?text=Peugeot+3008+3"
+          "images/SUBARUBLANCO/1.jpg",
+          "images/SUBARUBLANCO/2.jpg",
+          "images/SUBARUBLANCO/4.jpg",
+          "images/SUBARUBLANCO/5.jpg",
+          "images/SUBARUBLANCO/6.jpg",
+          "images/SUBARUBLANCO/7.jpg",
+          "images/SUBARUBLANCO/8.jpg",
+          "images/SUBARUBLANCO/9.jpg",
+          "images/SUBARUBLANCO/10.jpg",
+          
         ],
         descripcion: "Este Peugeot 3008 2023 combina tecnología, comodidad y seguridad. Con tan solo 35.000 km, ofrece un rendimiento confiable, un diseño moderno y un interior espacioso ideal para la familia o el uso diario.",
         precio: "$22.500.000 CLP",
@@ -312,24 +323,30 @@
           "Modo ECO / Sport"
         ]
       },
-      "subaru-forester": {
-        nombre: "Subaru Forester 2022",
+      "peugeot-3008": {
+        nombre: "SPEUGEOT 3008 GT BLACK PACK",
         imagenes: [
-          "images/subaruroja1.jpg",
-          "https://via.placeholder.com/600x400?text=Subaru+Forester+2",
-          "https://via.placeholder.com/600x400?text=Subaru+Forester+3"
+          "images/Autos/peugeot1.jpg",
+          "images/Autos/peugeot2.jpg",
+          "images/Autos/peugeot3.jpg",
+          "images/Autos/peugeot4.jpg",
+          "images/Autos/peugeot5.jpg",
+          "images/Autos/peugeot6.jpg",
+          "images/Autos/peugeot7.jpg",
+          "images/Autos/peugeot8.jpg",
+          "images/Autos/peugeot9.jpg"
         ],
         descripcion: "SUV confiable con excelente desempeño en todo terreno y un interior cómodo para toda la familia.",
-        precio: "$18.750.000 CLP",
-        kilometros: "45.000 km",
-        año: "2022",
+        precio: "$26.980.000 CLP",
+        kilometros: "37.000 km",
+        año: "2024",
         caja: "Automática",
-        combustible: "Gasolina",
+        combustible: "Diesel",
         extras: [
           "Tracción integral",
           "Sistema de navegación",
           "Asientos calefaccionados",
-          "Bluetooth y USB"
+          "Diesel"
         ]
       }
     };
@@ -337,6 +354,14 @@
     function obtenerParametro(param) {
       const params = new URLSearchParams(window.location.search);
       return params.get(param);
+    }
+
+    // Busca el auto haciendo comparación insensible a mayúsculas/minúsculas
+    function buscarAutoPorIdInsensitive(id) {
+      if (!id) return null;
+      const idLower = id.toLowerCase();
+      const entry = Object.entries(autos).find(([key]) => key.toLowerCase() === idLower);
+      return entry ? { id: entry[0], auto: entry[1] } : null;
     }
 
     function crearBadge(text) {
@@ -373,7 +398,6 @@
 
       // Extras interactivos
       const ulExtras = document.getElementById('listaExtras');
-
       ulExtras.innerHTML = '';
 
       auto.extras.forEach(extra => {
@@ -409,12 +433,12 @@
       `;
     }
 
-    function mostrarAutosSugeridos(actualId) {
+    function mostrarAutosSugeridos(idAutoActual) {
       const contenedor = document.getElementById('contenedorAutosSugeridos');
       contenedor.innerHTML = '';
 
       for (const [id, auto] of Object.entries(autos)) {
-        if (id === actualId) continue;
+        if (id === idAutoActual) continue; // No mostrar el actual
 
         const card = document.createElement('div');
         card.className = 'col-md-6 col-lg-4 mb-4';
@@ -433,10 +457,23 @@
       }
     }
 
-    const idAuto = obtenerParametro('auto')?.toLowerCase() || 'audi-a1';
+    // Obtengo el parámetro 'auto' de la URL
+    const idAutoParam = obtenerParametro('auto');
 
-    mostrarDetalle(autos[idAuto]);
-    mostrarAutosSugeridos(idAuto);
+    // Busco el auto insensible a mayúsculas
+    const resultadoBusqueda = buscarAutoPorIdInsensitive(idAutoParam);
+
+    if (resultadoBusqueda) {
+      mostrarDetalle(resultadoBusqueda.auto);
+      mostrarAutosSugeridos(resultadoBusqueda.id);
+    } else {
+      // Si no existe, muestro un mensaje de error y sugiero catálogo
+      document.body.innerHTML = `
+        <p class="alert alert-warning text-light text-center" style="margin-top:2rem;">
+          Auto no encontrado. <a href="stock.html" class="btn btn-primary mt-3">Volver al catálogo</a>
+        </p>
+      `;
+    }
   </script>
 </body>
 </html>
