@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Detalle Auto - CYC Automóviles</title>
+  <title>Detalle</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -47,6 +47,9 @@
     }
     #badgesAuto {
       margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      display: flex;
     }
     p, ul li {
       color: #ddd;
@@ -138,6 +141,8 @@
       margin-bottom: 1.5rem;
       font-weight: 700;
     }
+    
+    
     .card-auto {
       background-color: #111;
       border-radius: 1rem;
@@ -188,89 +193,99 @@
       text-decoration: none;
     }
 
-    /* Responsive móvil */
-    @media (max-width: 767.98px) {
-      body {
-        padding: 1rem 1rem 3rem 1rem;
-      }
-      .carousel-item img {
-        height: 250px;
-      }
-      .auto-info {
-        padding: 1rem;
-      }
-      .titulo-auto {
-        font-size: 1.5rem;
-      }
-      .precio {
-        font-size: 1.3rem;
-      }
-      #listaExtras li {
-        padding: 0.3rem 0.6rem;
-        font-size: 0.9rem;
-      }
-      /* Ajuste para botones: apilados y separados */
-      .btn-container {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      .btn-principal, .btn-volver {
-        flex: 1 1 100%;
-        max-width: 100%;
-        white-space: normal; /* para que el texto pueda hacer wrap */
-      }
-    }
+    /* ============ RESPONSIVE STYLES ============ */
+@media (max-width: 1024px) {
+  .carousel-item img {
+    height: 400px;
+  }
+}
 
-    /* Ajustes para pantallas muy pequeñas (<480px) */
-    @media (max-width: 479px) {
-      .carousel-item img {
-        height: 180px;
-      }
-      .titulo-auto {
-        font-size: 1.3rem;
-      }
-      .precio {
-        font-size: 1.1rem;
-      }
-      #listaExtras {
-        gap: 0.4rem;
-      }
-      #listaExtras li {
-        padding: 0.25rem 0.5rem;
-        font-size: 0.85rem;
-      }
-      .btn-principal, .btn-volver {
-        font-size: 0.9rem;
-        padding: 0.5rem 1rem;
-      }
-    }
+@media (max-width: 768px) {
+  .carousel-item img {
+    height: 320px;
+  }
 
-    /* Ajustes para pantallas muy muy pequeñas (<360px) */
-    @media (max-width: 359px) {
-      body {
-        padding: 0.8rem 0.8rem 2rem 0.8rem;
-      }
-      .carousel-item img {
-        height: 140px;
-      }
-      .titulo-auto {
-        font-size: 1.1rem;
-      }
-      .precio {
-        font-size: 1rem;
-      }
-      #listaExtras li {
-        padding: 0.2rem 0.4rem;
-        font-size: 0.8rem;
-      }
-      .btn-principal, .btn-volver {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.8rem;
-      }
-      .extras {
-        display: none;
-      }
-    }
+  .titulo-auto {
+    font-size: 1.6rem;
+  }
+
+  .precio {
+    font-size: 1.5rem;
+  }
+
+  .btn-principal,
+  .btn-volver {
+    flex: 1 1 100%;
+    max-width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .card-auto {
+    margin-bottom: 1.5rem;
+  }
+
+  .card-body-auto h5 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-item img {
+    height: 260px;
+  }
+
+  .auto-info {
+    padding: 1.2rem;
+  }
+
+  .titulo-auto {
+    font-size: 1.4rem;
+  }
+
+  .precio {
+    font-size: 1.3rem;
+  }
+
+  .btn-container {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .btn-principal,
+  .btn-volver {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .card-auto img {
+    height: 150px;
+  }
+
+  .card-body-auto h5 {
+    font-size: 0.95rem;
+  }
+
+  .card-body-auto p {
+    font-size: 0.9rem;
+  }
+
+  #listaExtras {
+    flex-direction: column;
+    align-items: start;
+    gap: 0.4rem;
+  }
+
+  #listaExtras li {
+    width: 100%;
+    text-align: left;
+  }
+  #badgesAuto .badge-custom {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+}
+}
+
 </style>
 
 
@@ -338,7 +353,7 @@
 
         ],
         descripcion: "Motor 2.4 cvt con traccion AWD",
-        precio: "$36.790.000",
+        precio: "$36.790.000 CLP",
         kilometros: "23.000 km",
         año: "2024",
         caja: "Automática",
@@ -411,7 +426,7 @@
           "Diesel"
         ] // -------------------------------------
       },
-      // PEUGEOT 3008
+      <!--audi q5-->
       "audiq5": {
         nombre: "AUDI Q5 SPORT 45 TFSI QUATTRO/ AÑO 2023/ 47.500 KM",
         imagenes: [
@@ -439,6 +454,37 @@
           "Sunroof",
           "Conectividad con Apple carplay y android auto"
         ] // -------------------------------------
+      },
+       //SUBARUROJA   
+      "SubaruRoja": {
+        nombre: "SUBARU OUTBACK 2.5 XS AWD/ AÑO 2016/ 130.000 KM",
+        imagenes: [
+          "images/Autos/subaruroja1.jpg",
+          "images/Autos/subaruroja2.jpg",
+          "images/Autos/subaruroja3.jpg",
+          "images/Autos/subaruroja4.jpg",
+          "images/Autos/subaruroja5.jpg",
+          "images/Autos/subaruroja6.jpg",
+          "images/Autos/subaruroja7.jpg",
+          "images/Autos/subaruroja8.jpg",
+          "images/Autos/subaruroja9.jpg",
+          "images/Autos/subaruroja10.jpg",
+          "images/Autos/subaruroja11.jpg",
+          "images/Autos/subaruroja12.jpg",
+          "images/Autos/subaruroja13.jpg",
+          "images/Autos/subaruroja14.jpg",
+          "images/Autos/subaruroja15.jpg"
+        ],
+        descripcion: "El vehículo cuenta con transmisión automática, ha tenido un único dueño, y dispone de puerto USB y entrada auxiliar para mayor comodidad y conectividad.",
+        precio: "$11.990.000 CLP",
+        kilometros: "130.000 km",
+        año: "2016",
+        caja: "Automática",
+        combustible: "Bencina",
+        extras: [
+          "Unico dueño",
+
+        ] 
       }
     };
 
@@ -525,28 +571,35 @@
     }
 
     function mostrarAutosSugeridos(idAutoActual) {
-      const contenedor = document.getElementById('contenedorAutosSugeridos');
-      contenedor.innerHTML = '';
+  const contenedor = document.getElementById('contenedorAutosSugeridos');
+  contenedor.innerHTML = '';
 
-      for (const [id, auto] of Object.entries(autos)) {
-        if (id === idAutoActual) continue; // No mostrar el actual
+  let sugeridosMostrados = 0;
 
-        const card = document.createElement('div');
-        card.className = 'col-md-6 col-lg-4 mb-4';
+  for (const [id, auto] of Object.entries(autos)) {
+    if (id === idAutoActual) continue;
 
-        card.innerHTML = `
-          <div class="card-auto" tabindex="0" role="button" aria-label="Ver detalle de ${auto.nombre}">
-            <img src="${auto.imagenes[0]}" alt="Imagen ${auto.nombre}" />
-            <div class="card-body-auto">
-              <h5>${auto.nombre}</h5>
-              <p class="precio">${auto.precio}</p>
-              <a href="?auto=${id}" class="btn-ver-detalle" aria-label="Ver detalles de ${auto.nombre}">Ver detalles</a>
-            </div>
-          </div>
-        `;
-        contenedor.appendChild(card);
-      }
-    }
+    if (sugeridosMostrados >= 2) break; // Mostrar solo 2
+
+    const card = document.createElement('div');
+    card.className = 'col-md-6 col-lg-4 mb-4';
+
+    card.innerHTML = `
+      <div class="card-auto sugerido-animado" tabindex="0" role="button" aria-label="Ver detalle de ${auto.nombre}">
+        <img src="${auto.imagenes[0]}" alt="Imagen ${auto.nombre}" />
+        <div class="card-body-auto">
+          <h5>${auto.nombre}</h5>
+          <p class="precio">${auto.precio}</p>
+          <a href="?auto=${id}" class="btn-ver-detalle" aria-label="Ver detalles de ${auto.nombre}">Ver detalles</a>
+        </div>
+      </div>
+    `;
+
+    contenedor.appendChild(card);
+    sugeridosMostrados++;
+  }
+}
+
 
     // Obtengo el parámetro 'auto' de la URL
     const idAutoParam = obtenerParametro('auto');
