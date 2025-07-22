@@ -712,7 +712,6 @@
         <li role="none"><a href="/" role="menuitem" tabindex="0">Inicio</a></li>
         <li role="none"><a href="stock.html" role="menuitem" tabindex="0">Stock</a></li>
         <li role="none"><a href="#nosotros" role="menuitem" tabindex="0">Nosotros</a></li>
-        <li role="none"><a href="#contacto" role="menuitem" tabindex="0">Contacto</a></li>
       </ul>
     </nav>
 
@@ -726,13 +725,13 @@
 </header>
 
   <section class="hero" role="banner" aria-label="Imagen principal de automotora">
-    <h1>Bienvenidos a CYC Automóviles</h1>
+    <h1>    a CYC Automóviles</h1>
     <button class="btn-primary" aria-label="Ver catálogo de autos destacados">Ver catálogo</button>
   </section>
 
   <main>
     <h2 class="section-title" id="autos">Autos Destacados</h2>
-    <section class="autos-destacados" aria-labelledby="autos">
+    <section class="autos-destacados" aria-labelledby="aut        os">
       <!-- Ejemplo de auto -->
       <article class="auto-card" tabindex="0" role="article"
         aria-label="Auto Peugeot 3008, año 2023, 35.000 kilómetros, precio 22.500.000 pesos">
@@ -855,27 +854,45 @@
   document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('nav');
+    const overlay = document.getElementById('overlay');
+    const body = document.body;
 
-    hamburger.addEventListener('click', () => {
+    // Función para abrir/cerrar menú
+    const toggleMenu = () => {
       nav.classList.toggle('open');
       hamburger.classList.toggle('active');
+      overlay.classList.toggle('show');
+      body.classList.toggle('no-scroll');
 
       const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
       hamburger.setAttribute('aria-expanded', String(!isExpanded));
-    });
+    };
 
-    // Cierra el menú cuando se hace clic en un enlace
+    // Click en el ícono hamburguesa
+    hamburger.addEventListener('click', toggleMenu);
+
+    // Cierra el menú al hacer clic en cualquier enlace
     const navLinks = document.querySelectorAll('#nav a');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         nav.classList.remove('open');
         hamburger.classList.remove('active');
+        overlay.classList.remove('show');
+        body.classList.remove('no-scroll');
         hamburger.setAttribute('aria-expanded', 'false');
       });
     });
+
+    // Cierra el menú si se hace clic en el fondo oscuro
+    overlay.addEventListener('click', () => {
+      nav.classList.remove('open');
+      hamburger.classList.remove('active');
+      overlay.classList.remove('show');
+      body.classList.remove('no-scroll');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
   });
 </script>
-
   <style>
     /* Cursor typing blink */
     @keyframes blink {

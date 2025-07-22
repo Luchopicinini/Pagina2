@@ -634,6 +634,119 @@ footer {
   }
 }
 
+/* Responsive extra para móviles muy pequeños (menos de 320px) */
+@media (max-width: 320px) {
+  nav {
+    width: 200px !important; /* Ajuste más pequeño para menú lateral */
+    padding-top: 50px !important;
+  }
+
+  nav a {
+    font-size: 0.9rem !important;
+    padding: 0.8rem 0 !important;
+  }
+
+  .hamburger {
+    top: 15px !important;
+    right: 15px !important;
+    padding: 0.5rem !important;
+  }
+
+  .hero {
+    padding: 3rem 1rem !important;
+    border-radius: 12px !important;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem !important;
+  }
+
+  .hero p {
+    font-size: 0.9rem !important;
+    max-width: 100% !important;
+  }
+
+  .catalogo-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .catalogo-card {
+    border-radius: 12px !important;
+  }
+
+  .catalogo-card img {
+    height: 140px !important;
+  }
+
+  .catalogo-card-content {
+    padding: 1rem !important;
+  }
+
+  .btn-detalle,
+  .btn-wsp,
+  .contacto-rapido button {
+    padding: 0.7rem 1.2rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .contacto-rapido input,
+  .contacto-rapido textarea {
+    font-size: 0.85rem !important;
+    padding: 0.6rem 1rem !important;
+  }
+
+  .footer-container {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .footer-bottom {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .map-container iframe {
+    height: 150px !important;
+  }
+}
+
+/* Ajustes para dispositivos entre 321px y 400px (smartphones pequeños) */
+@media (min-width: 321px) and (max-width: 400px) {
+  nav {
+    width: 220px !important;
+  }
+
+  nav a {
+    font-size: 1rem !important;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .hero p {
+    font-size: 1rem !important;
+  }
+}
+
+/* Ajuste para mejorar botones y inputs en general */
+.btn-detalle,
+.btn-wsp,
+.contacto-rapido button {
+  white-space: nowrap; /* evitar que el texto se corte */
+  word-break: normal;
+}
+
+/* Mejorar texto en etiquetas en móviles pequeños */
+.etiqueta,
+.etiqueta-nuevo,
+.etiqueta-vendido,
+.etiqueta-nuevo2 {
+  font-size: 0.65rem !important;
+  padding: 4px 8px !important;
+}
+
 
 </style>
 </head>
@@ -665,7 +778,7 @@ footer {
   <section id="catalogo" class="catalogo container" aria-label="Catálogo de autos disponibles">
     <h2 class="section-title">Catálogo de Autos</h2>
     <div class="catalogo-grid">
-    <article class="catalogo-card">
+    <article class="catalogo-card"> <!--//SUBARU AZUL -->
       <div class="etiqueta etiqueta-nuevo2">Recien llegado</div>
       <img src="images/SUBARU/WRX1.png" alt="Subaru Impreza 3.0 2016" loading="lazy" />
       <div class="catalogo-card-content">
@@ -678,7 +791,7 @@ footer {
       </div>
 
 
-    </article>
+    </article>  <!--//SUBARU BLANCO -->
     <article class="catalogo-card">
       <div class="etiqueta etiqueta-nuevo">Disponible</div>
       <img src="images/SUBARUBLANCO/1.jpg" alt="Subaru Impreza 3.0 2016" loading="lazy" />
@@ -691,7 +804,7 @@ footer {
         </div>
       </div>
 
-          </article>
+          </article>  <!--//PEUGEOT 3008 -->
     <article class="catalogo-card">
       <div class="etiqueta etiqueta-nuevo">Disponible</div>
       <img src="images/Autos/peugeot1.jpg" alt="Subaru Impreza 3.0 2016" loading="lazy" />
@@ -701,6 +814,19 @@ footer {
         <p>Motor 1.5  blueHDI diesel...</p>
         <div class="boton-centro">
          <a href="detalle.html?auto=peugeot-3008" class="btn-detalle">Ver más</a>
+        </div>
+      </div>
+
+       </article>  <!--//AUDI Q5 -->
+    <article class="catalogo-card">
+      <div class="etiqueta etiqueta-nuevo">Disponible</div>
+      <img src="images/Autos/audi1.jpg" alt="Subaru Impreza 3.0 2016" loading="lazy" />
+      <div class="catalogo-card-content">
+        <h3>AUDI Q5 SPORT 45 TFSI QUATTRO/ AÑO 2023/ 47.500 KM</h3>
+        <p class="precio">$39.990.000 CLP</p>
+        <p>Motor 2.0 AWD...</p>
+        <div class="boton-centro">
+         <a href="detalle.html?auto=audiq5" class="btn-detalle">Ver más</a>
         </div>
       </div>
     
