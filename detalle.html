@@ -12,11 +12,110 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
 
 <style>
+    :root {
+      --color-black: #000000;
+      --color-white: #FFFFFF;
+      --color-red: #B22222;
+      /* rojo oscuro firebrick */
+      --color-gray-light: #CCCCCC;
+      --font-main: 'Barlow', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Barlow', sans-serif;
-      background-color: #000;
+      font-family: var(--font-main);
+      background-color: var(--color-black);
+      color: var(--color-white);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    header {
+      background-color: #111;
       color: #fff;
-      padding: 2rem 0;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      border-bottom: 1px solid #333;
+      z-index: 1000;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .logo-text .sub {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    nav {
+      display: flex;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      transition: background 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #333;
+    }
+
+
+/* HAMBURGER MENU */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background-color: red;
+      /* menú hamburguesa rojo */
+      border: none;
+      padding: 0.5rem;
+      border-radius: 6px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
     }
     .auto-info {
       background-color: #111;
@@ -228,6 +327,78 @@
   .card-body-auto h5 {
     font-size: 1rem;
   }
+nav {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+ nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 280px;
+        background-color: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        flex-direction: column;
+        padding-top: 80px;
+        color: #fff;
+        z-index: 1000;
+        border-radius: 0 0 0 20px;
+      }
+
+      nav.open {
+        transform: translateX(0);
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        list-style: none;
+      }
+
+      nav li {
+        border-bottom: 1px solid #444;
+      }
+
+      nav li:last-child {
+        border-bottom: none;
+      }
+
+      nav a {
+        color: #fff;
+        display: block;
+        padding: 1.2rem 0;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        user-select: none;
+      }
+
+      nav a:hover,
+      nav a:focus {
+        background-color: rgba(255, 0, 0, 0.3);
+        outline: none;
+      }
+
+      .hamburger {
+        display: flex;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: var(--color-red);
+        padding: 0.6rem;
+        border-radius: 8px;
+        box-shadow: 0 0 10px var(--color-red);
+        z-index: 1100;
+      }
 }
 
 @media (max-width: 480px) {
@@ -290,6 +461,30 @@
 
 
 </head>
+<!-- HTML: Menú de navegación y botón hamburguesa -->
+ <header>
+  <div class="container">
+    <div class="logo-text">
+      <span class="sub">CYC AUTOMOVILES</span><br />
+    </div>
+
+    <!-- Menú de navegación -->
+    <nav id="nav" role="navigation" aria-label="Menú principal">
+      <ul id="nav-menu" role="menubar">
+        <li role="none"><a href="index.html" role="menuitem" tabindex="0">Inicio</a></li>
+        <li role="none"><a href="stock.html" role="menuitem" tabindex="0">Stock</a></li>
+        <li role="none"><a href="nosotros.html" role="menuitem" tabindex="0">Nosotros</a></li>
+      </ul>
+    </nav>
+
+    <!-- Botón hamburguesa -->
+    <button id="hamburger" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
 <body>
 
   <div class="container">
@@ -618,6 +813,48 @@
         </p>
       `;
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+    const overlay = document.getElementById('overlay');
+    const body = document.body;
+
+    // Función para abrir/cerrar menú
+    const toggleMenu = () => {
+      nav.classList.toggle('open');
+      hamburger.classList.toggle('active');
+      overlay.classList.toggle('show');
+      body.classList.toggle('no-scroll');
+
+      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!isExpanded));
+    };
+
+    // Click en el ícono hamburguesa
+    hamburger.addEventListener('click', toggleMenu);
+
+    // Cierra el menú al hacer clic en cualquier enlace
+    const navLinks = document.querySelectorAll('#nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        hamburger.classList.remove('active');
+        overlay.classList.remove('show');
+        body.classList.remove('no-scroll');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Cierra el menú si se hace clic en el fondo oscuro
+    overlay.addEventListener('click', () => {
+      nav.classList.remove('open');
+      hamburger.classList.remove('active');
+      overlay.classList.remove('show');
+      body.classList.remove('no-scroll');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
   </script>
 </body>
 </html>

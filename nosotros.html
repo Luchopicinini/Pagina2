@@ -8,210 +8,193 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
 <style>
 :root {
-  --color-black: #000;
-  --color-white: #fff;
-  --color-red: #b22222;
-  --color-red-hover: #a71515;
-  --color-accent: #e50914;
-  --color-gray-light: #ccc;
-  --color-gray-dark: #222;
-  --color-border: #333;
-  --font-main: 'Barlow', sans-serif;
-}
+      --color-black: #000000;
+      --color-white: #FFFFFF;
+      --color-red: #B22222;
+      /* rojo oscuro firebrick */
+      --color-gray-light: #CCCCCC;
+      --font-main: 'Barlow', sans-serif;
+    }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: var(--font-main);
-  background-color: var(--color-white);
-  color: #111;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  scroll-behavior: smooth;
-  padding-bottom: 4rem;
-}
+    body {
+      font-family: var(--font-main);
+      background-color: var(--color-black);
+      color: var(--color-white);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-.container1 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
+    header {
+      background-color: #111;
+      color: #fff;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      border-bottom: 1px solid #333;
+      z-index: 1000;
+    }
 
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
 
-/* HEADER */
-header {
-  background-color: #111;
-  color: #fff;
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  border-bottom: 1px solid #333;
-  z-index: 1000;
-}
+    .logo-text .sub {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
 
-.logo-text .sub {
-  font-weight: bold;
-  font-size: 1.2rem;
-}
+    nav {
+      display: flex;
+    }
 
-/* NAV */
-nav {
-  display: flex;
-  gap: 2rem;
-}
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
 
-nav ul {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-}
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      transition: background 0.3s ease;
+    }
 
-nav a {
-  color: #fff;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
-}
-nav a:hover, nav a:focus {
-  background-color: #333;
-}
+    nav a:hover {
+      background-color: #333;
+    }
 
-.hamburger {
-  display: none;
-  flex-direction: column;
-  background: var(--color-red);
-  border: none;
-  padding: 0.6rem;
-  border-radius: 8px;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1100;
-  box-shadow: 0 0 10px var(--color-red);
-  cursor: pointer;
-}
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: #fff;
-  border-radius: 2px;
-  transition: 0.3s ease;
-}
 
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
+/* HAMBURGER MENU */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background-color: red;
+      /* menú hamburguesa rojo */
+      border: none;
+      padding: 0.5rem;
+      border-radius: 6px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
 
 @media (max-width: 768px) {
-  nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 280px;
-    background-color: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(10px);
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    flex-direction: column;
-    padding-top: 80px;
-    color: #fff;
-    z-index: 1000;
-    border-radius: 0 0 0 20px;
-  }
-  nav.open {
-    transform: translateX(0);
-  }
-  nav ul {
-    flex-direction: column;
-    gap: 0;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    text-align: center;
-    list-style: none;
-  }
-  nav a {
-    color: #fff;
-    display: block;
-    padding: 1.2rem 0;
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    user-select: none;
-  }
-  .hamburger {
-    display: flex;
-  }
-}
 
-/* ANIMACIONES */
-@keyframes slideInFromLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-60px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-@media (max-width: 400px) {
-  nav {
-    width: 240px;
-    padding-top: 60px;
-  }
-  nav a {
-    font-size: 1rem;
-    padding: 1rem 0;
-  }
-}
-@media (max-width: 320px) {
-  nav {
-    width: 200px !important;
-    padding-top: 50px !important;
-  }
-  nav a {
-    font-size: 0.9rem !important;
-    padding: 0.8rem 0 !important;
-  }
-  .hamburger {
-    top: 15px !important;
-    right: 15px !important;
-    padding: 0.5rem !important;
-  }
-}
-@media (min-width: 321px) and (max-width: 400px) {
-  nav {
-    width: 220px !important;
-  }
-  nav a {
-    font-size: 1rem !important;
-  }
-}
+      /* Box-sizing para todo */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
 
+ nav {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+ nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 280px;
+        background-color: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        flex-direction: column;
+        padding-top: 80px;
+        color: #fff;
+        z-index: 1000;
+        border-radius: 0 0 0 20px;
+      }
+
+      nav.open {
+        transform: translateX(0);
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        list-style: none;
+      }
+
+      nav li {
+        border-bottom: 1px solid #444;
+      }
+
+      nav li:last-child {
+        border-bottom: none;
+      }
+
+      nav a {
+        color: #fff;
+        display: block;
+        padding: 1.2rem 0;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        user-select: none;
+      }
+
+      nav a:hover,
+      nav a:focus {
+        background-color: rgba(255, 0, 0, 0.3);
+        outline: none;
+      }
+
+      .hamburger {
+        display: flex;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: var(--color-red);
+        padding: 0.6rem;
+        border-radius: 8px;
+        box-shadow: 0 0 10px var(--color-red);
+        z-index: 1100;
+      }
+}
 /* Sección Por qué vender con nosotros (con tarjetas) */
 #por-que-vender-con-nosotros {
   max-width: 1200px;
@@ -334,23 +317,30 @@ nav a:hover, nav a:focus {
 </head>
 <body>
 
-  <header class="header1">
-    <div class="container1">
-      <div class="logo-text">
-        <span class="sub">CYC AUTOMÓVILES</span>
-      </div>
-      <nav id="nav" role="navigation" aria-label="Menú principal">
-        <ul role="menubar">
-          <li role="none"><a role="menuitem" href="/">Inicio</a></li>
-          <li role="none"><a role="menuitem" href="stock.html">Stock</a></li>
-          <li role="none"><a role="menuitem" href="nosotros.html">Nosotros</a></li>
-        </ul>
-      </nav>
-      <button id="hamburger" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
-        <span></span><span></span><span></span>
-      </button>
+<!-- HTML: Menú de navegación y botón hamburguesa -->
+ <header>
+  <div class="container">
+    <div class="logo-text">
+      <span class="sub">CYC AUTOMOVILES</span><br />
     </div>
-  </header>
+
+    <!-- Menú de navegación -->
+    <nav id="nav" role="navigation" aria-label="Menú principal">
+      <ul id="nav-menu" role="menubar">
+        <li role="none"><a href="index.html" role="menuitem" tabindex="0">Inicio</a></li>
+        <li role="none"><a href="stock.html" role="menuitem" tabindex="0">Stock</a></li>
+        <li role="none"><a href="nosotros.html" role="menuitem" tabindex="0">Nosotros</a></li>
+      </ul>
+    </nav>
+
+    <!-- Botón hamburguesa -->
+    <button id="hamburger" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
 
   <main class="container">
 
@@ -424,164 +414,48 @@ nav a:hover, nav a:focus {
 
   </main>
 
-  <script>
-  // ===== INYECTAR CSS PARA EFECTOS AVANZADOS =====
-  const style = document.createElement('style');
-  style.textContent = `
-    /* RIPPLE: ondas múltiples y degradados */
-    .ripple {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-      transform: scale(0);
-      opacity: 0.8;
-      animation: ripple-effect-adv 0.8s forwards;
-      z-index: 9999;
-    }
-    @keyframes ripple-effect-adv {
-      0% {
-        transform: scale(0);
-        opacity: 0.8;
-        box-shadow: 0 0 10px 2px rgba(255,255,255,0.5);
-      }
-      50% {
-        opacity: 0.5;
-        box-shadow: 0 0 20px 6px rgba(255,59,63,0.7);
-      }
-      100% {
-        transform: scale(4);
-        opacity: 0;
-        box-shadow: 0 0 40px 12px rgba(255,59,63,0);
-      }
-    }
-  `;
-  document.head.appendChild(style);
+<script>// ===== INYECTAR CSS PARA EFECTOS AVANZADOS =====
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+    const overlay = document.getElementById('overlay');
+    const body = document.body;
 
-  // ====== MENÚ HAMBURGUESA ======
-  const hamburger = document.querySelector('.hamburger');
-  const nav = document.querySelector('nav');
+    // Función para abrir/cerrar menú
+    const toggleMenu = () => {
+      nav.classList.toggle('open');
+      hamburger.classList.toggle('active');
+      overlay.classList.toggle('show');
+      body.classList.toggle('no-scroll');
 
-  function activarHamburguesa() {
-    hamburger.classList.toggle('active');
-    nav.classList.toggle('open');
+      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!isExpanded));
+    };
 
-    if (hamburger.classList.contains('active')) {
-      hamburger.style.transition = 'transform 0.5s ease, filter 0.7s ease';
-      hamburger.style.transform = 'rotateY(180deg) scale(1.15)';
-      hamburger.style.filter = 'drop-shadow(0 0 12px #ff3b3f)';
-      hamburger.animation = hamburger.animate([
-        { transform: 'rotateY(180deg) scale(1.15)', filter: 'drop-shadow(0 0 12px #ff3b3f)' },
-        { transform: 'rotateY(180deg) scale(1.25)', filter: 'drop-shadow(0 0 20px #ff6a6e)' },
-        { transform: 'rotateY(180deg) scale(1.15)', filter: 'drop-shadow(0 0 12px #ff3b3f)' }
-      ], { duration: 1200, iterations: Infinity });
-    } else {
-      hamburger.style.transform = 'rotateY(0deg) scale(1)';
-      hamburger.style.filter = 'none';
-      if(hamburger.animation) hamburger.animation.cancel();
-    }
-  }
-  hamburger.addEventListener('click', activarHamburguesa);
+    // Click en el ícono hamburguesa
+    hamburger.addEventListener('click', toggleMenu);
 
-  // Cerrar menú con fade out suave al click en enlace
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.style.transition = 'opacity 0.4s ease';
-      nav.style.opacity = '0';
-      setTimeout(() => {
+    // Cierra el menú al hacer clic en cualquier enlace
+    const navLinks = document.querySelectorAll('#nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
         nav.classList.remove('open');
-        nav.style.opacity = '1';
-      }, 400);
+        hamburger.classList.remove('active');
+        overlay.classList.remove('show');
+        body.classList.remove('no-scroll');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Cierra el menú si se hace clic en el fondo oscuro
+    overlay.addEventListener('click', () => {
+      nav.classList.remove('open');
       hamburger.classList.remove('active');
-      hamburger.style.transform = 'rotateY(0deg) scale(1)';
-      hamburger.style.filter = 'none';
-      if(hamburger.animation) hamburger.animation.cancel();
+      overlay.classList.remove('show');
+      body.classList.remove('no-scroll');
+      hamburger.setAttribute('aria-expanded', 'false');
     });
   });
-
-  // Auto cierra menú al hacer scroll con fade out
-  window.addEventListener('scroll', () => {
-    if (nav.classList.contains('open')) {
-      nav.style.transition = 'opacity 0.4s ease';
-      nav.style.opacity = '0';
-      setTimeout(() => {
-        nav.classList.remove('open');
-        nav.style.opacity = '1';
-      }, 400);
-      hamburger.classList.remove('active');
-      hamburger.style.transform = 'rotateY(0deg) scale(1)';
-      hamburger.style.filter = 'none';
-      if(hamburger.animation) hamburger.animation.cancel();
-    }
-  });
-
-  // ====== HEADER sticky con sombra y scale =====
-  const header = document.querySelector('header');
-  window.addEventListener('scroll', () => {
-    if(window.scrollY > 30) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
-
-  // ====== FADE-IN AVANZADO =====
-  const fadeEls = document.querySelectorAll('.fade-in');
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry, index) => {
-      if(entry.isIntersecting) {
-        setTimeout(() => {
-          const el = entry.target;
-          el.style.transition = 'opacity 0.8s ease, transform 0.8s cubic-bezier(0.22,1,0.36,1), box-shadow 1.2s ease, filter 1.2s ease';
-          el.style.opacity = '1';
-          el.style.transform = 'translateY(0) scale(1) rotate(0deg)';
-          el.style.boxShadow = '0 0 20px rgba(255,59,63,0.7)';
-          el.style.filter = 'brightness(1.15)';
-          setTimeout(() => {
-            el.style.transition = 'box-shadow 1.5s ease, filter 1.5s ease';
-            el.style.boxShadow = 'none';
-            el.style.filter = 'brightness(1)';
-          }, 1200);
-          observer.unobserve(el);
-        }, index * 300);
-      }
-    });
-  }, { threshold: 0.3 });
-  fadeEls.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(60px) scale(0.85) rotate(5deg)';
-    observer.observe(el);
-  });
-
-  // ======= RIPPLE AVANZADO =======
-  function createRipple(event) {
-    const button = event.currentTarget;
-    if (getComputedStyle(button).position === 'static') {
-      button.style.position = 'relative';
-    }
-    button.style.overflow = 'hidden';
-
-    for(let i = 0; i < 3; i++) {
-      const circle = document.createElement('span');
-      const diameter = Math.max(button.clientWidth, button.clientHeight);
-      const radius = diameter / 2;
-      circle.style.width = circle.style.height = `${diameter}px`;
-      circle.style.left = `${event.clientX - button.getBoundingClientRect().left - radius + (i*10)}px`;
-      circle.style.top = `${event.clientY - button.getBoundingClientRect().top - radius + (i*10)}px`;
-      circle.classList.add('ripple');
-      const bgColor = getComputedStyle(button).backgroundColor;
-      circle.style.backgroundColor = bgColor.includes('rgb')
-        ? bgColor.replace('rgb', 'rgba').replace(')', `, ${0.4 - i*0.1})`)
-        : `rgba(255,255,255,${0.4 - i*0.1})`;
-      if(i === 0) {
-        const ripple = button.getElementsByClassName('ripple')[0];
-        if(ripple) ripple.remove();
-      }
-      button.appendChild(circle);
-    }
-  }
-  document.querySelectorAll('button, a').forEach(el => {
-    el.addEventListener('click', createRipple);
-  });
-  </script>
+</script>
 </body>
 </html>
