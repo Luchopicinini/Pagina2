@@ -479,78 +479,77 @@ p, ul li {
   .card-body-auto h5 {
     font-size: 1rem;
   }
-nav {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-      }
-
  nav {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh;
-        width: 280px;
-        background-color: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(10px);
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        flex-direction: column;
-        padding-top: 80px;
-        color: #fff;
-        z-index: 1000;
-        border-radius: 0 0 0 20px;
-      }
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 
-      nav.open {
-        transform: translateX(0);
-      }
+    /* Menú lateral */
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 280px;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    flex-direction: column;
+    padding-top: 80px;
+    color: #fff;
+    z-index: 1000;
+    border-radius: 0 0 0 20px;
+  }
 
-      nav ul {
-        flex-direction: column;
-        gap: 0;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        text-align: center;
-        list-style: none;
-      }
+  nav.open {
+    transform: translateX(0);
+  }
 
-      nav li {
-        border-bottom: 1px solid #444;
-      }
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    list-style: none;
+  }
 
-      nav li:last-child {
-        border-bottom: none;
-      }
+  nav li {
+    border-bottom: 1px solid #444;
+  }
 
-      nav a {
-        color: #fff;
-        display: block;
-        padding: 1.2rem 0;
-        font-size: 1.2rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        user-select: none;
-      }
+  nav li:last-child {
+    border-bottom: none;
+  }
 
-      nav a:hover,
-      nav a:focus {
-        background-color: rgba(255, 0, 0, 0.3);
-        outline: none;
-      }
+  nav a {
+    color: #fff;
+    display: block;
+    padding: 1.2rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    user-select: none;
+  }
 
-      .hamburger {
-        display: flex;
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background-color: var(--color-red);
-        padding: 0.6rem;
-        border-radius: 8px;
-        box-shadow: 0 0 10px var(--color-red);
-        z-index: 1100;
-      }
+  nav a:hover,
+  nav a:focus {
+    background-color: rgba(255, 0, 0, 0.3);
+    outline: none;
+  }
+
+  .hamburger {
+    display: flex;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #d32f2f; /* rojo vivo */
+    padding: 0.6rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #d32f2f;
+    z-index: 1100;
+  }
        .carousel-item img {
     height: 320px;
   }
@@ -930,7 +929,6 @@ nav {
         </p>
       `;
     }
-
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('nav');
@@ -970,6 +968,76 @@ document.addEventListener('DOMContentLoaded', () => {
       overlay.classList.remove('show');
       body.classList.remove('no-scroll');
       hamburger.setAttribute('aria-expanded', 'false');
+    });
+
+    // ===== NUEVO: Typewriter Effect =====
+    const texts = [
+      "Encuentra el auto de tus sueños",
+      "Con CYC Automóviles",
+      "Precios insuperables y atención personalizada"
+    ];
+
+    let currentTextIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 100;
+    const pauseBetween = 1500; // pausa al terminar palabra
+
+    const typewriterElement = document.querySelector(".hero-container h1");
+
+    function type() {
+      const fullText = texts[currentTextIndex];
+      if (!isDeleting) {
+        typewriterElement.textContent = fullText.substring(0, currentCharIndex + 1);
+        currentCharIndex++;
+        if (currentCharIndex === fullText.length) {
+          isDeleting = true;
+          setTimeout(type, pauseBetween);
+          return;
+        }
+      } else {
+        typewriterElement.textContent = fullText.substring(0, currentCharIndex - 1);
+        currentCharIndex--;
+        if (currentCharIndex === 0) {
+          isDeleting = false;
+          currentTextIndex = (currentTextIndex + 1) % texts.length;
+        }
+      }
+      setTimeout(type, isDeleting ? typingSpeed / 2 : typingSpeed);
+    }
+
+    if (typewriterElement) type();
+
+    // ===== NUEVO: Efecto 3D + Escala en tarjetas .catalogo-card =====
+    document.querySelectorAll('.catalogo-card').forEach(card => {
+      card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left; // posición X dentro de la tarjeta
+        const y = e.clientY - rect.top;  // posición Y dentro de la tarjeta
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        // Calcular diferencia normalizada -1 a 1
+        const deltaX = (x - centerX) / centerX;
+        const deltaY = (y - centerY) / centerY;
+
+        const rotateMax = 10; // grados máximo rotación
+
+        const rotateX = (-deltaY * rotateMax).toFixed(2);
+        const rotateY = (deltaX * rotateMax).toFixed(2);
+
+        card.style.transform = `perspective(600px) scale(1.05) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        card.style.boxShadow = '0 20px 40px rgba(0,0,0,0.25)';
+        card.style.zIndex = '10';
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'none';
+        card.style.boxShadow = '0 6px 18px rgba(0,0,0,0.1)';
+        card.style.zIndex = '1';
+      });
     });
   });
   </script>
