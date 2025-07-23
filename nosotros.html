@@ -113,206 +113,248 @@
       transform: rotate(-45deg) translate(5px, -5px);
     }
 
-@media (max-width: 768px) {
-
-      /* Box-sizing para todo */
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-      }
-
- nav {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-      }
-
- nav {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh;
-        width: 280px;
-        background-color: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(10px);
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        flex-direction: column;
-        padding-top: 80px;
-        color: #fff;
-        z-index: 1000;
-        border-radius: 0 0 0 20px;
-      }
-
-      nav.open {
-        transform: translateX(0);
-      }
-
-      nav ul {
-        flex-direction: column;
-        gap: 0;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        text-align: center;
-        list-style: none;
-      }
-
-      nav li {
-        border-bottom: 1px solid #444;
-      }
-
-      nav li:last-child {
-        border-bottom: none;
-      }
-
-      nav a {
-        color: #fff;
-        display: block;
-        padding: 1.2rem 0;
-        font-size: 1.2rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        user-select: none;
-      }
-
-      nav a:hover,
-      nav a:focus {
-        background-color: rgba(255, 0, 0, 0.3);
-        outline: none;
-      }
-
-      .hamburger {
-        display: flex;
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background-color: var(--color-red);
-        padding: 0.6rem;
-        border-radius: 8px;
-        box-shadow: 0 0 10px var(--color-red);
-        z-index: 1100;
-      }
-}
-/* Sección Por qué vender con nosotros (con tarjetas) */
-#por-que-vender-con-nosotros {
+    #por-que-vender-con-nosotros {
+  padding: 3rem 1rem;
   max-width: 1200px;
-  margin: 3rem auto 6rem;
-  padding: 0 1rem;
-  text-align: center;
+  margin: 0 auto;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
 }
+
 #por-que-vender-con-nosotros h2 {
+  text-align: center;
   font-size: 2rem;
-  color: var(--color-red);
-  margin-bottom: 0.5rem;
-  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #b30000;
 }
+
 #por-que-vender-con-nosotros p {
-  font-size: 1rem;
-  color: var(--color-gray-dark);
+  text-align: center;
   margin-bottom: 2rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.5;
+  font-size: 1.1rem;
 }
+
 .tarjetas-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.6rem;
+  gap: 1rem;
   justify-content: center;
+  margin-bottom: 2rem;
 }
+
 .tarjeta {
-  background: #fff;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  border-radius: 8px;
-  padding: 1.3rem 1.6rem;
   flex: 1 1 280px;
-  max-width: 320px;
-  transition: box-shadow 0.3s ease;
-  text-align: left;
+  background-color: #f8f8f8;
+  border-left: 4px solid #b30000;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out;
 }
+
 .tarjeta:hover {
-  box-shadow: 0 5px 15px rgba(178, 34, 34, 0.3);
+  transform: translateY(-5px);
 }
+
 .tarjeta h3 {
-  font-weight: 700;
-  color: var(--color-red);
-  margin-bottom: 0.6rem;
+  color: #b30000;
+  margin-bottom: 0.5rem;
+}
+
+.conocenos {
+  background-color: #fff8f0;
+  border: 1px solid #f3e2d2;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-top: 2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.conocenos h3 {
+  font-size: 1.5rem;
+  color: #b30000;
+  margin-bottom: 1rem;
+}
+
+.conocenos h4 {
   font-size: 1.2rem;
+  margin-top: 1.5rem;
+  color: #333;
 }
-.tarjeta p {
-  font-weight: 400;
-  color: var(--color-gray-dark);
-  line-height: 1.4;
+
+.conocenos ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-@media (max-width: 600px) {
-  .tarjetas-container {
-    justify-content: center;
+
+.conocenos ul li {
+  padding: 0.3rem 0;
+  font-size: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+
+
+    footer {
+  background-color: #111; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 300px;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.664); /* Sombra roja suave */
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #333;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: #ece5e5;
+}
+
+.footer-bottom > div:first-child {
+  flex: 1 1 300px;
+}
+
+.social-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link svg {
+  width: 28px;
+  height: 28px;
+  fill: #ece5e5; /* rojo vibrante */
+  transition: fill 0.3s ease;
+  cursor: pointer;
+}
+
+.social-link:hover svg {
+  fill: #1713d8; /* rojo más oscuro al pasar el mouse */
+}
+
+@media (max-width: 768px) {
+
+  /* Box-sizing para todo */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
-  .tarjeta {
-    max-width: 100%;
-    flex: 1 1 100%;
+
+  nav {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 280px;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    flex-direction: column;
+    padding-top: 80px;
+    color: #fff;
+    z-index: 1000;
+    border-radius: 0 0 0 20px;
+  }
+
+  nav.open {
+    transform: translateX(0);
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    list-style: none;
+  }
+
+  nav li {
+    border-bottom: 1px solid #444;
+  }
+
+  nav li:last-child {
+    border-bottom: none;
+  }
+
+  nav a {
+    color: #fff;
+    display: block;
+    padding: 1.2rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    user-select: none;
+  }
+
+  nav a:hover,
+  nav a:focus {
+    background-color: rgba(255, 0, 0, 0.3);
+    outline: none;
+  }
+
+  .hamburger {
+    display: flex;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--color-red);
+    padding: 0.6rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--color-red);
+    z-index: 1100;
+  }
+
+  /* === FOOTER RESPONSIVE === */
+ /* Footer: centrar texto y ajustar social */
+  footer {
+    padding: 1rem 0.5rem;  /* menos padding arriba y abajo */
+    font-size: 0.85rem;    /* texto un poco más pequeño */
+  }
+
+  .footer-container {
+    padding: 0 0.5rem;     /* menos padding lateral */
+  }
+
+  .footer-bottom {
+    gap: 0.5rem;           /* menos espacio entre elementos */
+  }
+
+  .social-container svg {
+    width: 20px;           /* íconos sociales más pequeños */
+    height: 20px;
   }
 }
 
-/* Sección Instagram Reel + Contacto */
-#instagram-reel-contacto {
-  max-width: 1200px;
-  margin: 3rem auto 6rem;
-  padding: 0 1rem;
-  text-align: center;
-}
-#instagram-reel-contacto h2 {
-  font-size: 2rem;
-  color: var(--color-red);
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-#instagram-reel-contacto .reel-wrapper {
-  max-width: 400px;
-  margin: 0 auto 2rem;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-}
-#instagram-reel-contacto iframe,
-#instagram-reel-contacto .reel-thumb {
-  width: 100%;
-  border: none;
-  display: block;
-}
-#instagram-reel-contacto .info-contacto {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: left;
-  color: var(--color-gray-dark);
-  font-size: 1rem;
-  line-height: 1.5;
-}
-#instagram-reel-contacto .info-contacto h3 {
-  color: var(--color-red);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-#instagram-reel-contacto .info-contacto p {
-  margin-bottom: 0.8rem;
-}
-#instagram-reel-contacto .mapa {
-  margin-top: 2rem;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-  height: 300px;
-  width: 100%;
-}
-@media (max-width: 600px) {
-  #instagram-reel-contacto .info-contacto {
-    text-align: center;
-  }
-}
+
 </style>
 </head>
 <body>
@@ -344,75 +386,86 @@
 
   <main class="container">
 
-    <!-- Sección ¿Por qué vender tu vehículo con CYC Automóviles? -->
-    <section id="por-que-vender-con-nosotros" aria-label="Por qué vender tu vehículo con CYC Automóviles">
-      <h2>¿Por qué vender tu vehículo con Automoviles Cyc?</h2>
-      <p>Vender tu auto con nosotros es sencillo y seguro. A continuación te explicamos cómo trabajamos paso a paso:</p>
-      <div class="tarjetas-container">
-        <article class="tarjeta">
-          <h3>1. Contacto</h3>
-          <p>Te comunicas con nosotros para contarnos sobre tu vehículo.</p>
-        </article>
-        <article class="tarjeta">
-          <h3>2. Evaluación</h3>
-          <p>Realizamos una revisión gratuita y una tasación justa y transparente.</p>
-        </article>
-        <article class="tarjeta">
-          <h3>3. Oferta</h3>
-          <p>Te presentamos una propuesta clara y competitiva acorde al valor real del mercado.</p>
-        </article>
-        <article class="tarjeta">
-          <h3>4. Trámites</h3>
-          <p>Nos encargamos de gestionar toda la documentación necesaria para la venta.</p>
-        </article>
-        <article class="tarjeta">
-          <h3>5. Pago</h3>
-          <p>Recibes el pago de forma rápida y segura, sin complicaciones.</p>
-        </article>
-        <article class="tarjeta">
-          <h3>6. Entrega</h3>
-          <p>Coordinamos la entrega del vehículo en el lugar y momento que te resulte conveniente.</p>
-        </article>
-      </div>
-      <p>Confía en CYC Automóviles para vender tu vehículo con profesionalismo, rapidez y sin sorpresas.</p>
-    </section>
+<section id="por-que-vender-con-nosotros" aria-label="Por qué vender tu vehículo con CYC Automóviles">
+  <h2>¿Por qué vender tu vehículo con Automóviles CYC?</h2>
+  <p>Vender tu auto con nosotros es sencillo y seguro. A continuación te explicamos cómo trabajamos paso a paso:</p>
 
-    <!-- Sección Instagram Reel + Contacto -->
-    <section id="instagram-reel-contacto" aria-label="Instagram Reel y Contacto">
-      <h2>Conócenos Mejor</h2>
-      <div class="reel-wrapper" aria-label="Reel de Instagram">
-        <!-- Instagram no permite embed directo de reels, usamos un enlace con miniatura -->
-        <a href=https://www.instagram.com/reel/DKHwrhtxwFU/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-describedby="descReel">
-          <img src="https://www.instagram.com/reel/DKHwrhtxwFU/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" alt="Reel de Instagram CYC Automóviles" style="width:100%; border-radius:8px;"/>
-        </a>
-        <p id="descReel" style="margin-top:0.5rem; color:#444; font-size:0.9rem;">
-          Mira nuestro último reel en Instagram y descubre por qué somos la mejor opción para vender tu vehículo.
-        </p>
-      </div>
+  <div class="tarjetas-container">
+    <article class="tarjeta">
+      <h3>1. Contacto</h3>
+      <p>Te comunicas con nosotros para contarnos sobre tu vehículo.</p>
+    </article>
+    <article class="tarjeta">
+      <h3>2. Evaluación</h3>
+      <p>Realizamos una revisión gratuita y una tasación justa y transparente.</p>
+    </article>
+    <article class="tarjeta">
+      <h3>3. Oferta</h3>
+      <p>Te presentamos una propuesta clara y competitiva acorde al valor real del mercado.</p>
+    </article>
+    <article class="tarjeta">
+      <h3>4. Trámites</h3>
+      <p>Nos encargamos de gestionar toda la documentación necesaria para la venta.</p>
+    </article>
+    <article class="tarjeta">
+      <h3>5. Pago</h3>
+      <p>Recibes el pago de forma rápida y segura, sin complicaciones.</p>
+    </article>
+    <article class="tarjeta">
+      <h3>6. Entrega</h3>
+      <p>Coordinamos la entrega del vehículo en el lugar y momento que te resulte conveniente.</p>
+    </article>
+  </div>
 
-      <div class="info-contacto">
-        <h3>Información de Contacto</h3>
-        <p><strong>Dirección:</strong> Av. Principal 1234, Santiago, Chile</p>
-        <p><strong>Teléfono:</strong> +56 9 1234 5678</p>
-        <p><strong>Email:</strong> contacto@cycautomoviles.cl</p>
-        <p><strong>Horario:</strong> Lunes a Viernes 9:00 - 18:00</p>
+  <p>Confía en CYC Automóviles para vender tu vehículo con profesionalismo, rapidez y sin sorpresas.</p>
 
-        <div class="mapa" aria-label="Mapa de ubicación de CYC Automóviles">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.317913275333!2d-70.64826968479736!3d-33.44888938078302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c59d841a65f3%3A0xf6bfb6c3fa29d0b6!2sAv.%20Libertador%20Bernardo%20O’Higgins%201299%2C%20Santiago%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1689989891456!5m2!1ses!2scl" 
-            width="100%" 
-            height="300" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Mapa ubicación CYC Automóviles"
-          ></iframe>
-        </div>
-      </div>
-    </section>
+  <div class="conocenos">
+    <h3>Conócenos Mejor</h3>
+    <p><strong>Reel de Instagram CYC Automóviles</strong><br>
+    Mira nuestro último reel en Instagram y descubre por qué somos la mejor opción para vender tu vehículo.</p>
+
+    <h4>Información de Contacto</h4>
+    <ul>
+      <li><strong>Dirección:</strong> Av. Principal 1234, Santiago, Chile</li>
+      <li><strong>Teléfono:</strong> +56 9 1234 5678</li>
+      <li><strong>Email:</strong> contacto@cycautomoviles.cl</li>
+      <li><strong>Horario:</strong> Lunes a Viernes 9:00 - 18:00</li>
+    </ul>
+  </div>
+</section>
 
   </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="map-container" aria-label="Mapa de ubicación">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.5573962933827!2d-70.55133392352948!3d-33.40870959537717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2sus!4v1753289390461!5m2!1ses!2sus"
+          width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="Ubicación CYC Automóviles"></iframe>
+      </div>
+      <div class="footer-bottom">
+        <div>
+          © 2025 CYC Automóviles. All rights reserved. <br>
+          Built & secured by <a href="mailto:picininiluciano@gmail.com" style="color: #cc0404; text-decoration: none;">Luciano</a>.
+        </div>
+        <div class="social-container" aria-label="Redes sociales">
+          <!-- Facebook -->
+        <a href="https://www.facebook.com/automoviles.cyc.2025" class="social-link" target="_blank"
+          rel="noopener noreferrer" aria-label="Facebook">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+              alt="Facebook" width="32" height="32" style="border-radius: 4px;" />
+        </a>
+          <!-- Instagram -->
+         <a href="https://www.instagram.com/cycautomoviles_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank"
+          rel="noopener noreferrer" aria-label="Instagram">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
+              alt="Instagram" width="32" height="32" style="border-radius: 8px;" />
+        </a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 <script>// ===== INYECTAR CSS PARA EFECTOS AVANZADOS =====
 document.addEventListener('DOMContentLoaded', () => {
