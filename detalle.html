@@ -12,30 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
 
 <style>
-    :root {
-      --color-black: #000000;
-      --color-white: #FFFFFF;
-      --color-red: #B22222;
-      /* rojo oscuro firebrick */
-      --color-gray-light: #CCCCCC;
-      --font-main: 'Barlow', sans-serif;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: var(--font-main);
-      background-color: var(--color-black);
-      color: var(--color-white);
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
 
     header {
       background-color: #111;
@@ -117,180 +93,356 @@
     .hamburger.active span:nth-child(3) {
       transform: rotate(-45deg) translate(5px, -5px);
     }
-    .auto-info {
-      background-color: #111;
-      border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: 0 0 10px #d50000;
-      color: #fff;
-      margin-bottom: 2rem;
-    }
-    .titulo-auto {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #d50000;
-      margin-bottom: 1rem;
-    }
-    .precio {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #d50000;
-    }
-    .badge-custom {
-      background-color: #d50000;
-      color: #fff;
-      font-size: 0.9rem;
-      margin-right: 0.5rem;
-      padding: 0.4em 0.8em;
-      border-radius: 0.5rem;
-    }
-    #badgesAuto {
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      display: flex;
-    }
-    p, ul li {
-      color: #ddd;
-    }
-    /* Extras interactivos */
-    .extras {
-      margin-top: 1.5rem;
-    }
-    .extras h4 {
-      color: #d50000;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-    #listaExtras {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-    }
-    #listaExtras li {
-      background-color: #333;
-      color: #fff;
-      padding: 0.4rem 0.8rem;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      user-select: none;
-      transition: background-color 0.3s, color 0.3s;
-      outline-offset: 2px;
-    }
-    #listaExtras li:hover,
-    #listaExtras li:focus-visible {
-      background-color: #d50000;
-      color: #fff;
-      outline: none;
-    }
-    #listaExtras li.selected {
-      background-color: #d50000;
-      color: #fff;
-      box-shadow: 0 0 8px #ff1744;
-    }
+ 
 
-    /* Botones responsive */
-    .btn-container {
-      margin-top: 1.5rem;
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .btn-principal, .btn-volver {
-      flex: 1 1 150px;
-      max-width: 250px;
-      background-color: #fff;
-      color: #000;
-      border: 2px solid #d50000;
-      font-weight: 600;
-      padding: 0.6rem 1.2rem;
-      border-radius: 0.5rem;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      box-shadow: 0 0 8px #d50000;
-      text-decoration: none;
-      text-align: center;
-      display: inline-block;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-    .btn-principal:hover, .btn-volver:hover {
-      background-color: #d50000;
-      color: #000;
-      box-shadow: 0 0 14px #ff1744;
-      cursor: pointer;
-      text-decoration: none;
-    }
+  :root {
+  --color-black: #0a0a0a; /* un negro muy oscuro pero no totalmente puro */
+  --color-white: #f5f5f5; /* blanco suave para no cansar la vista */
+  --color-red: #b22222; /* rojo oscuro firebrick */
+  --color-red-bright: #e03e3e; /* rojo vibrante más profesional */
+  --color-gray-dark: #222; /* gris oscuro para fondos */
+  --color-gray-medium: #555; /* gris medio para textos secundarios */
+  --color-gray-light: #ccc; /* gris claro */
+  --font-main: 'Barlow', sans-serif;
+  --shadow-soft: 0 4px 12px rgba(224, 62, 62, 0.3);
+  --shadow-focus: 0 0 12px rgba(224, 62, 62, 0.7);
+  --transition-speed: 0.3s;
+}
 
-    .carousel-item img {
-      object-fit: cover;
-      height: 450px;
-      border-radius: 1rem;
-      box-shadow: 0 0 20px #d50000;
-    }
-    /* Estilo para la sección de autos sugeridos */
-    #autosSugeridos {
-      margin-top: 3rem;
-    }
-    #autosSugeridos h3 {
-      color: #d50000;
-      margin-bottom: 1.5rem;
-      font-weight: 700;
-    }
-    
-    
-    .card-auto {
-      background-color: #111;
-      border-radius: 1rem;
-      box-shadow: 0 0 10px #d50000;
-      color: #fff;
-      transition: transform 0.2s ease;
-      cursor: pointer;
-    }
-    .card-auto:hover {
-      transform: scale(1.05);
-    }
-    .card-auto img {
-      border-top-left-radius: 1rem;
-      border-top-right-radius: 1rem;
-      height: 180px;
-      object-fit: cover;
-      width: 100%;
-    }
-    .card-body-auto {
-      padding: 1rem;
-    }
-    .card-body-auto h5 {
-      color: #d50000;
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-    .card-body-auto p {
-      color: #ddd;
-      font-weight: 600;
-      margin-bottom: 0.8rem;
-    }
-    .btn-ver-detalle {
-      background-color: #fff;
-      color: #000;
-      border: 2px solid #d50000;
-      font-weight: 600;
-      padding: 0.4rem 1rem;
-      border-radius: 0.5rem;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn-ver-detalle:hover {
-      background-color: #d50000;
-      color: #000;
-      box-shadow: 0 0 10px #ff1744;
-      cursor: pointer;
-      text-decoration: none;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  line-height: 1.65;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+}
+
+/* ===== Auto info box ===== */
+.auto-info {
+  background-color: var(--color-gray-dark);
+  border-radius: 1rem;
+  padding: 2.5rem 3rem;
+  box-shadow: var(--shadow-soft);
+  color: var(--color-white);
+  margin-bottom: 3rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: box-shadow var(--transition-speed) ease;
+}
+.auto-info:hover,
+.auto-info:focus-within {
+  box-shadow: var(--shadow-focus);
+}
+
+.col-lg-6 {
+  margin-top: 6rem; /* o el espacio que prefieras */
+}
+
+/* Title and price */
+.titulo-auto {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-red-bright);
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 5px rgba(224, 62, 62, 0.7);
+}
+
+.precio {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-red-bright);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.03em;
+}
+
+/* Badge styles */
+.badge-custom {
+  background-color: var(--color-red-bright);
+  color: var(--color-white);
+  font-size: 1rem;
+  margin-right: 0.6rem;
+  padding: 0.5em 1em;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(224, 62, 62, 0.6);
+  user-select: none;
+  transition: background-color var(--transition-speed) ease;
+}
+
+#badgesAuto {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Text color for paragraphs and list items */
+p, ul li {
+  color: var(--color-gray-light);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+/* Extras section */
+.extras {
+  margin-top: 2rem;
+}
+
+.extras h4 {
+  color: var(--color-red-bright);
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+}
+
+/* Extras list */
+#listaExtras {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+#listaExtras li {
+  background-color: var(--color-gray-medium);
+  color: var(--color-white);
+  padding: 0.55rem 1.1rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  outline-offset: 3px;
+}
+
+#listaExtras li:hover,
+#listaExtras li:focus-visible {
+  background-color: var(--color-red-bright);
+  color: var(--color-white);
+  box-shadow: 0 0 15px rgba(224, 62, 62, 0.8);
+  outline: none;
+}
+
+#listaExtras li.selected {
+  background-color: var(--color-red-bright);
+  color: var(--color-white);
+  box-shadow: 0 0 18px rgba(255, 23, 68, 0.9);
+}
+
+/* Buttons container */
+.btn-container {
+  margin-top: 2.2rem;
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Button base */
+.btn-principal,
+.btn-volver {
+  flex: 1 1 180px;
+  max-width: 280px;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border: 3px solid var(--color-red-bright);
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  box-shadow: 0 4px 14px rgba(224, 62, 62, 0.45);
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  user-select: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.btn-principal:hover,
+.btn-volver:hover,
+.btn-principal:focus-visible,
+.btn-volver:focus-visible {
+  background-color: var(--color-red-bright);
+  color: var(--color-black);
+  box-shadow: 0 0 22px rgba(255, 23, 68, 0.95);
+  cursor: pointer;
+  outline: none;
+}
+
+/* Carousel image */
+.carousel-item img {
+  object-fit: cover;
+  height: 450px;
+  border-radius: 1rem;
+  box-shadow: 0 6px 28px rgba(224, 62, 62, 0.75);
+  transition: transform 0.3s ease;
+}
+
+.carousel-item img:hover {
+  transform: scale(1.02);
+}
+
+/* Card autos */
+.card-auto {
+  background-color: var(--color-gray-dark);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+  color: var(--color-white);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+}
+
+.card-auto:hover,
+.card-auto:focus-within {
+  transform: scale(1.06);
+  box-shadow: var(--shadow-focus);
+  outline: none;
+}
+
+.card-auto img {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  height: 180px;
+  object-fit: cover;
+  width: 100%;
+  user-select: none;
+}
+
+.card-body-auto {
+  padding: 1.25rem 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-body-auto h5 {
+  color: var(--color-red-bright);
+  font-weight: 800;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.04em;
+}
+
+.card-body-auto p {
+  color: var(--color-gray-light);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+/* Button "ver detalle" en cards */
+.btn-ver-detalle {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border: 3px solid var(--color-red-bright);
+  font-weight: 700;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  user-select: none;
+  box-shadow: 0 3px 10px rgba(224, 62, 62, 0.6);
+}
+
+.btn-ver-detalle:hover,
+.btn-ver-detalle:focus-visible {
+  background-color: var(--color-red-bright);
+  color: var(--color-black);
+  box-shadow: 0 0 18px rgba(255, 23, 68, 0.95);
+  cursor: pointer;
+  outline: none;
+}
+
+
+
+    footer {
+  background-color: #111; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 300px;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.664); /* Sombra roja suave */
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #333;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: #ece5e5;
+}
+
+.footer-bottom > div:first-child {
+  flex: 1 1 300px;
+}
+
+.social-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link svg {
+  width: 28px;
+  height: 28px;
+  fill: #ece5e5; /* rojo vibrante */
+  transition: fill 0.3s ease;
+  cursor: pointer;
+}
+
+.social-link:hover svg {
+  fill: #1713d8; /* rojo más oscuro al pasar el mouse */
+}
 
     /* ============ RESPONSIVE STYLES ============ */
 @media (max-width: 1024px) {
@@ -399,64 +551,35 @@ nav {
         box-shadow: 0 0 10px var(--color-red);
         z-index: 1100;
       }
-}
-
-@media (max-width: 480px) {
-  .carousel-item img {
-    height: 260px;
-  }
-
-  .auto-info {
-    padding: 1.2rem;
+       .carousel-item img {
+    height: 320px;
   }
 
   .titulo-auto {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 
   .precio {
-    font-size: 1.3rem;
-  }
-
-  .btn-container {
-    flex-direction: column;
-    gap: 0.8rem;
+    font-size: 1.5rem;
   }
 
   .btn-principal,
   .btn-volver {
-    font-size: 0.95rem;
-    padding: 0.5rem 0.8rem;
+    flex: 1 1 100%;
+    max-width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
   }
 
-  .card-auto img {
-    height: 150px;
+  .card-auto {
+    margin-bottom: 1.5rem;
   }
 
   .card-body-auto h5 {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
-  .card-body-auto p {
-    font-size: 0.9rem;
-  }
-
-  #listaExtras {
-    flex-direction: column;
-    align-items: start;
-    gap: 0.4rem;
-  }
-
-  #listaExtras li {
-    width: 100%;
-    text-align: left;
-  }
-  #badgesAuto .badge-custom {
-  font-size: 0.8rem;
-  padding: 0.3rem 0.6rem;
 }
-}
-
 </style>
 
 
@@ -465,7 +588,7 @@ nav {
  <header>
   <div class="container">
     <div class="logo-text">
-      <span class="sub">CYC AUTOMOVILES</span><br />
+      <span class="sub">Automoviles Cyc</span><br />
     </div>
 
     <!-- Menú de navegación -->
@@ -521,12 +644,6 @@ nav {
       </div>
     </div>
 
-    <section id="autosSugeridos" aria-label="Autos sugeridos">
-      <h3>Autos sugeridos para ti</h3>
-      <div class="row" id="contenedorAutosSugeridos">
-        <!-- tarjetas autos por JS -->
-      </div>
-    </section>
 
   </div>
 
@@ -814,7 +931,7 @@ nav {
       `;
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('nav');
     const overlay = document.getElementById('overlay');
@@ -856,5 +973,36 @@ nav {
     });
   });
   </script>
+
+    <footer>
+    <div class="footer-container">
+      <div class="map-container" aria-label="Mapa de ubicación">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.5573962933827!2d-70.55133392352948!3d-33.40870959537717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2sus!4v1753289390461!5m2!1ses!2sus"
+          width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="Ubicación CYC Automóviles"></iframe>
+      </div>
+      <div class="footer-bottom">
+        <div>
+          © 2025 CYC Automóviles. All rights reserved. <br>
+          Built & secured by <a href="mailto:picininiluciano@gmail.com" style="color: #cc0404; text-decoration: none;">Luciano</a>.
+        </div>
+        <div class="social-container" aria-label="Redes sociales">
+          <!-- Facebook -->
+        <a href="https://www.facebook.com/automoviles.cyc.2025" class="social-link" target="_blank"
+          rel="noopener noreferrer" aria-label="Facebook">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+              alt="Facebook" width="32" height="32" style="border-radius: 4px;" />
+        </a>
+          <!-- Instagram -->
+         <a href="https://www.instagram.com/cycautomoviles_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank"
+          rel="noopener noreferrer" aria-label="Instagram">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
+              alt="Instagram" width="32" height="32" style="border-radius: 8px;" />
+        </a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
