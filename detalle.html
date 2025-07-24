@@ -23,7 +23,7 @@
       z-index: 1000;
     }
 
-    .container {
+.container {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -479,7 +479,14 @@ p, ul li {
   .card-body-auto h5 {
     font-size: 1rem;
   }
- nav {
+ /* Box-sizing para todo */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  nav {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 
@@ -929,6 +936,10 @@ p, ul li {
         </p>
       `;
     }
+
+</script>
+<script>
+// ===== INYECTAR CSS PARA EFECTOS AVANZADOS =====
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('nav');
@@ -970,77 +981,48 @@ document.addEventListener('DOMContentLoaded', () => {
       hamburger.setAttribute('aria-expanded', 'false');
     });
 
-    // ===== NUEVO: Typewriter Effect =====
+    // ===== EFECTO TYPEWRITER =====
     const texts = [
       "Encuentra el auto de tus sueños",
       "Con CYC Automóviles",
       "Precios insuperables y atención personalizada"
     ];
 
-    let currentTextIndex = 0;
-    let currentCharIndex = 0;
-    let isDeleting = false;
+    let index = 0;
+    let charIndex = 0;
+    let deleting = false;
     const typingSpeed = 100;
-    const pauseBetween = 1500; // pausa al terminar palabra
+    const pause = 1500;
 
-    const typewriterElement = document.querySelector(".hero-container h1");
+    const el = document.querySelector('.hero-container h1');
 
     function type() {
-      const fullText = texts[currentTextIndex];
-      if (!isDeleting) {
-        typewriterElement.textContent = fullText.substring(0, currentCharIndex + 1);
-        currentCharIndex++;
-        if (currentCharIndex === fullText.length) {
-          isDeleting = true;
-          setTimeout(type, pauseBetween);
+      const currentText = texts[index];
+      
+      if (!deleting) {
+        el.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === currentText.length) {
+          deleting = true;
+          setTimeout(type, pause);
           return;
         }
       } else {
-        typewriterElement.textContent = fullText.substring(0, currentCharIndex - 1);
-        currentCharIndex--;
-        if (currentCharIndex === 0) {
-          isDeleting = false;
-          currentTextIndex = (currentTextIndex + 1) % texts.length;
+        el.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          deleting = false;
+          index = (index + 1) % texts.length;
         }
       }
-      setTimeout(type, isDeleting ? typingSpeed / 2 : typingSpeed);
+      setTimeout(type, deleting ? typingSpeed / 2 : typingSpeed);
     }
 
-    if (typewriterElement) type();
+    if(el) type();
 
-    // ===== NUEVO: Efecto 3D + Escala en tarjetas .catalogo-card =====
-    document.querySelectorAll('.catalogo-card').forEach(card => {
-      card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+});
+</script>
 
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left; // posición X dentro de la tarjeta
-        const y = e.clientY - rect.top;  // posición Y dentro de la tarjeta
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        // Calcular diferencia normalizada -1 a 1
-        const deltaX = (x - centerX) / centerX;
-        const deltaY = (y - centerY) / centerY;
-
-        const rotateMax = 10; // grados máximo rotación
-
-        const rotateX = (-deltaY * rotateMax).toFixed(2);
-        const rotateY = (deltaX * rotateMax).toFixed(2);
-
-        card.style.transform = `perspective(600px) scale(1.05) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        card.style.boxShadow = '0 20px 40px rgba(0,0,0,0.25)';
-        card.style.zIndex = '10';
-      });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'none';
-        card.style.boxShadow = '0 6px 18px rgba(0,0,0,0.1)';
-        card.style.zIndex = '1';
-      });
-    });
-  });
-  </script>
 
     <footer>
     <div class="footer-container">
