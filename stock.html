@@ -6,8 +6,294 @@
   <meta name="description" content="Automotora CYC: compra y venta de autos usados y nuevos con garantía, asesoría y los mejores precios del mercado." />
   <title>Stock</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-<style>
+</head>
+<body>
+
+<!-- HTML: Menú de navegación y botón hamburguesa -->
+ <header>
+  <div class="container">
+    <div class="logo-text">
+      <span class="sub">Automoviles Cyc</span><br />
+    </div>
+
+    <!-- Menú de navegación -->
+    <nav id="nav" role="navigation" aria-label="Menú principal">
+      <ul id="nav-menu" role="menubar">
+        <li role="none"><a href="index.html" role="menuitem" tabindex="0">Inicio</a></li>
+        <li role="none"><a href="stock.html" role="menuitem" tabindex="0">Stock</a></li>
+        <li role="none"><a href="vender.html" role="menuitem" tabindex="0">Vende tu vehiculo</a></li>
+        <li role="none"><a href="nosotros.html" role="menuitem" tabindex="0">Nosotros</a></li>
+      </ul>
+    </nav>
+
+    <!-- Botón hamburguesa -->
+    <button id="hamburger" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<section class="hero-container" role="banner" aria-label="Presentación principal">
+  <div class="hero-content">
+    <h1>Encuentra el auto de tus sueños<br> con <span>Automóviles Cyc</span></h1>
+    <p>Explora nuestra selección de vehículos con garantía, precios insuperables y atención personalizada.</p>
+    <a href="#catalogo" class="cta-button">Ver catálogo</a>
+  </div>
+</section>
+
+
+
+<section id="filtros" class="filtros container" aria-label="Filtros de búsqueda de autos">
+  <div class="filtros-wrapper">
+    <div class="logo-filtros">
+      <img src="images/Autos/27229.svg" alt="Logo Automotora" />
+    </div>
+    <form id="formFiltros">
+      <div class="filtro">
+        <label for="marca">Marca:</label>
+        <select id="marca" name="marca">
+          <option value="">Todas</option>
+        </select>
+      </div>
+
+      <div class="filtro">
+        <label for="anio">Año:</label>
+        <select id="anio" name="anio">
+          <option value="">Todos</option>
+        </select>
+      </div>
+
+      <div class="filtro">
+        <label for="precio">Precio hasta:</label>
+        <select id="precio" name="precio">
+          <option value="">Sin límite</option>
+        </select>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+
+<section id="catalogo" class="catalogo container" aria-label="Catálogo de autos disponibles">
+
+  <div class="catalogo-grid">
+    <article class="catalogo-card" data-aos="fade-up" data-marca="subaru" data-anio="2024" data-precio="36790000">
+      <div class="etiqueta etiqueta-nuevo2">Recien llegado</div>
+      <img src="images/SUBARU/WRX1.png" alt="Subaru Impreza 3.0 2016" loading="lazy" />
+      <div class="catalogo-card-content">
+        <h3>SUBARU WRX TS / AÑO 2024 / 23.000 KM</h3>
+        <p class="precio">$36.790.000 CLP</p>
+        <p>Motor 2.4 cvt con traccion AWD...</p>
+        <div class="boton-centro">
+          <a href="detalle.html?auto=subaru-wrx-azul" class="btn-detalle">Ver más</a>
+        </div>
+      </div>
+    </article>  
+
+    <article class="catalogo-card" data-aos="fade-up" data-marca="subaru" data-anio="2024" data-precio="36790000">
+      <div class="etiqueta etiqueta-nuevo">Disponible</div>
+      <img src="images/SUBARUBLANCO/1.jpg" alt="Subaru Impreza 3.0 2016" loading="lazy" />
+      <div class="catalogo-card-content">
+        <h3>SUBARU WRX TS / AÑO 2024 / 15.000 KM</h3>
+        <p class="precio">$36.790.000 CLP</p>
+        <p>Motor 2.4 litros con traccion AWD....</p>
+        <div class="boton-centro">
+         <a href="detalle.html?auto=subaru-wrx-blanco" class="btn-detalle">Ver más</a>
+        </div>
+      </div>
+    </article>  
+
+    <article class="catalogo-card" data-aos="fade-up" data-marca="peugeot" data-anio="2024" data-precio="26980000">
+      <div class="etiqueta etiqueta-nuevo1">Vendido</div>
+      <img src="images/Autos/peugeot1.jpg" alt="Peugeot 3008 GT" loading="lazy" />
+      <div class="catalogo-card-content">
+        <h3>PEUGEOT 3008 GT BLACK PACK / AÑO 2024 / 37.00 KM</h3>
+        <p class="precio">$26.980.000 CLP</p>
+        <p>Motor 1.5 blueHDI diesel...</p>
+        <div class="boton-centro">
+         <a href="detalle.html?auto=peugeot-3008" class="btn-detalle">Ver más</a>
+        </div>
+      </div>
+    </article>  
+
+    <article class="catalogo-card" data-aos="fade-up" data-marca="audi" data-anio="2023" data-precio="39990000">
+      <div class="etiqueta etiqueta-nuevo">Disponible</div>
+      <img src="images/Autos/audi1.jpg" alt="Audi Q5 Sport" loading="lazy" />
+      <div class="catalogo-card-content">
+        <h3>AUDI Q5 SPORT 45 TFSI QUATTRO/ AÑO 2023/ 47.500 KM</h3>
+        <p class="precio">$39.990.000 CLP</p>
+        <p>Motor 2.0 AWD...</p>
+        <div class="boton-centro">
+         <a href="detalle.html?auto=audiq5" class="btn-detalle">Ver más</a>
+        </div>
+      </div>
+    </article>
+
+    
+    <article class="catalogo-card" data-aos="fade-up" data-marca="Nissan" data-anio="2023" data-precio="11990000">
+      <div class="etiqueta etiqueta-nuevo">Disponible</div>
+      <img src="images/Autos/nissan.jpg" alt="Nissan" loading="lazy" />
+      <div class="catalogo-card-content">
+        <h3>NISSAN KICK XS AWD/ AÑO 2023/ 130.000 KM</h3>
+        <p class="precio">$11.990.000 CLP</p>
+        <p>Único dueño...</p>
+        <div class="boton-centro">
+          <a href="detalle.html?auto=SubaruRoja" class="btn-detalle">Ver más</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="catalogo-card" data-aos="fade-up" data-marca="subaru" data-anio="2016" data-precio="11990000">
+      <div class="etiqueta etiqueta-nuevo">Disponible</div>
+      <img src="images/Autos/subaruroja1.jpg" alt="Subaru Outback Roja" loading="lazy" />
+      <div class="catalogo-card-content">
+        <h3>SUBARU OUTBACK 2.5 XS AWD/ AÑO 2016/ 130.000 KM</h3>
+        <p class="precio">$11.990.000 CLP</p>
+        <p>Único dueño...</p>
+        <div class="boton-centro">
+          <a href="detalle.html?auto=SubaruRoja" class="btn-detalle">Ver más</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const autos = document.querySelectorAll('.catalogo-card');
+  const selectMarca = document.getElementById('marca');
+  const selectAnio = document.getElementById('anio');
+  const selectPrecio = document.getElementById('precio');
+
+  // Función para llenar select con opciones únicas
+  function llenarFiltro(selectElement, valores, capitalizar = true) {
+    selectElement.querySelectorAll('option:not(:first-child)').forEach(opt => opt.remove());
+    const valoresOrdenados = Array.from(valores).sort((a, b) => {
+      return !isNaN(a) && !isNaN(b) ? a - b : a.localeCompare(b);
+    });
+    valoresOrdenados.forEach(val => {
+      const opcion = document.createElement('option');
+      opcion.value = val;
+      opcion.textContent = capitalizar ? val.charAt(0).toUpperCase() + val.slice(1) : val;
+      selectElement.appendChild(opcion);
+    });
+  }
+
+  // Recolectar marcas y años únicos
+  const marcas = new Set();
+  const anios = new Set();
+  const precios = [];
+
+  autos.forEach(auto => {
+    marcas.add(auto.getAttribute('data-marca'));
+    anios.add(auto.getAttribute('data-anio'));
+    precios.push(parseInt(auto.getAttribute('data-precio'), 10));
+  });
+
+  llenarFiltro(selectMarca, marcas);
+  llenarFiltro(selectAnio, anios);
+
+  // Crear rangos de precio fijos o dinámicos según los precios que hay
+  // Ejemplo: calculamos el precio máximo y dividimos en rangos de 10M
+  const maxPrecio = Math.max(...precios);
+  const rango = 10000000; // 10 millones por rango
+  const rangosPrecio = new Set();
+
+  rangosPrecio.add(''); // opción sin límite
+  for(let i = rango; i <= maxPrecio + rango; i += rango) {
+    rangosPrecio.add(i.toString());
+  }
+
+  // Función para mostrar texto amigable en el select precio
+  function textoPrecio(valor) {
+    if (!valor) return 'Sin límite';
+    return `Hasta $${Number(valor).toLocaleString('es-CL')}`;
+  }
+
+  // Llenar select precio con texto amigable
+  selectPrecio.querySelectorAll('option:not(:first-child)').forEach(opt => opt.remove());
+  Array.from(rangosPrecio).forEach(val => {
+    if(val === '') return; // ya está la opción sin límite
+    const opcion = document.createElement('option');
+    opcion.value = val;
+    opcion.textContent = textoPrecio(val);
+    selectPrecio.appendChild(opcion);
+  });
+
+  // Función para filtrar autos
+  function filtrarAutos() {
+    const marcaSeleccionada = selectMarca.value;
+    const anioSeleccionado = selectAnio.value;
+    const precioSeleccionado = selectPrecio.value;
+
+    autos.forEach(auto => {
+      const marcaAuto = auto.getAttribute('data-marca');
+      const anioAuto = auto.getAttribute('data-anio');
+      const precioAuto = parseInt(auto.getAttribute('data-precio'), 10);
+
+      const cumpleMarca = !marcaSeleccionada || marcaAuto === marcaSeleccionada;
+      const cumpleAnio = !anioSeleccionado || anioAuto === anioSeleccionado;
+      const cumplePrecio = !precioSeleccionado || precioAuto <= parseInt(precioSeleccionado, 10);
+
+      if (cumpleMarca && cumpleAnio && cumplePrecio) {
+        auto.style.display = 'block';
+      } else {
+        auto.style.display = 'none';
+      }
+    });
+  }
+
+  // Eventos para filtrar al cambiar cualquier select
+  selectMarca.addEventListener('change', filtrarAutos);
+  selectAnio.addEventListener('change', filtrarAutos);
+  selectPrecio.addEventListener('change', filtrarAutos);
+
+  // Filtrar al cargar
+  filtrarAutos();
+});
+
+</script>
+
+
+
+
+  
+<footer>
+    <div class="footer-container">
+      <div class="map-container" aria-label="Mapa de ubicación">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.5573962933827!2d-70.55133392352948!3d-33.40870959537717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2sus!4v1753289390461!5m2!1ses!2sus"
+          width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="Ubicación CYC Automóviles"></iframe>
+      </div>
+      <div class="footer-bottom">
+        <div>
+          © 2025 CYC Automóviles. All rights reserved. <br>
+          Built & secured by <a href="mailto:picininiluciano@gmail.com" style="color: #cc0404; text-decoration: none;">Luciano</a>.
+        </div>
+        <div class="social-container" aria-label="Redes sociales">
+          <!-- Facebook -->
+        <a href="https://www.facebook.com/automoviles.cyc.2025" class="social-link" target="_blank"
+          rel="noopener noreferrer" aria-label="Facebook">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+              alt="Facebook" width="32" height="32" style="border-radius: 4px;" />
+        </a>
+          <!-- Instagram -->
+         <a href="https://www.instagram.com/cycautomoviles_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank"
+          rel="noopener noreferrer" aria-label="Instagram">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
+              alt="Instagram" width="32" height="32" style="border-radius: 8px;" />
+        </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <style>
 :root {
       --color-black: #000000;
       --color-white: #FFFFFF;
@@ -116,21 +402,39 @@
 
     
 .hero-container {
-  color: #222; /* texto negro oscuro */
+  color: #222;
   text-align: center;
   padding: 4rem 1.5rem;
-  background: linear-gradient(180deg, #ffffff 0%, #fefefe 100%);
+  background: linear-gradient(180deg, #f9f9f9 0%, #ffffff 100%);
   border-radius: 1rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+
+  opacity: 0;
+  transform: translateX(-60px);
+  animation: slideInSmooth 2.8s ease forwards;
 }
 
 .hero-container:hover {
-  transform: scale(1.01);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  transform: scale(1.02);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
 }
+
+@keyframes slideInSmooth {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.04);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  }
+}
+
 
 /* Título principal */
 .hero-container h1 {
@@ -202,11 +506,115 @@
   }
 }
 
+.filtros-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
 
+.logo-filtros img {
+  max-width: 80px;
+  height: auto;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.25));
+}
+
+/* Contenedor principal filtros */
+.filtros.container {
+  max-width: 1200px;
+  margin: 2rem auto 3rem;
+  background: #ffffff; /* negro muy oscuro */
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 25px rgba(255, 0, 0, 0.3); /* sombra roja */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: box-shadow 0.3s ease;
+  color: white;
+}
+
+.filtros.container:hover {
+  box-shadow: 0 18px 40px rgba(255, 0, 0, 0.5);
+}
+
+/* Formulario con flex para alinear horizontal en desktop */
+#formFiltros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.8rem;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+/* Cada filtro */
+.filtro {
+  flex: 1 1 220px; /* flexible pero con base mínima */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.filtro:hover {
+  transform: translateY(-4px);
+}
+
+/* Etiquetas */
+.filtro label {
+  font-weight: 700;
+  color: #000000; /* rojo brillante */
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  user-select: none;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Select estilizado */
+.filtro select {
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  border: 2px solid #ff2e2e; /* borde rojo */
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  background: #222222; /* gris oscuro para contraste */
+  box-shadow: inset 0 2px 5px rgba(255, 46, 46, 0.2);
+  font-weight: 600;
+  color: white;
+}
+
+.filtro select:hover,
+.filtro select:focus {
+  border-color: #ff0000;
+  box-shadow: 0 0 12px #ff0000aa;
+  outline: none;
+}
+
+/* Botón de filtrar */
+#btnFiltrar {
+  background: linear-gradient(135deg, #b30000, #ff0000);
+  color: white;
+  padding: 0.7rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 800;
+  box-shadow: 0 6px 15px rgba(255, 0, 0, 0.7);
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.2s ease;
+  align-self: stretch;
+  max-height: 48px;
+  user-select: none;
+  text-transform: uppercase;
+}
+
+#btnFiltrar:hover {
+  background: linear-gradient(135deg, #ff1a1a, #ff4d4d);
+  box-shadow: 0 9px 25px rgba(255, 77, 77, 0.9);
+  transform: translateY(-2px);
+}
 
 /* --- Catálogo General --- */
 .catalogo {
-  background-color: #000;
+  background-color: #ffffff00;
   padding: 4rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -308,54 +716,79 @@
   }
 }
 
-/* Estilo base común */
+/* Estilos base para etiquetas */
 .etiqueta-nuevo,
 .etiqueta-nuevo1,
 .etiqueta-nuevo2 {
   position: absolute;
   top: 10px;
   left: 0;
-  padding: 0.4rem 1rem;
-  font-size: 0.75rem;
-  font-weight: 600;
+  padding: 0.45rem 1.2rem;
+  font-size: 0.8rem;
+  font-weight: 700;
   font-family: 'Barlow', sans-serif;
-  border-radius: 0 0.75rem 0.75rem 0;
+  border-radius: 0 0.8rem 0.8rem 0;
   animation: fadeSlideIn 0.6s ease-out forwards;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 2;
-  letter-spacing: 0.6px;
-  backdrop-filter: blur(2px);
+  letter-spacing: 0.7px;
+  backdrop-filter: blur(4px);
+  cursor: default;
+  user-select: none;
+  text-transform: uppercase;
 }
 
-/* Hover mágico */
+/* Hover efecto suave */
 .etiqueta-nuevo:hover,
 .etiqueta-nuevo1:hover,
 .etiqueta-nuevo2:hover {
-  transform: scale(1.05) translateX(3px);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  transform: scale(1.1) translateX(5px);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.35);
 }
 
-/* Verde magia */
+/* Verde menta moderno y sofisticado */
 .etiqueta-nuevo {
-  background: linear-gradient(90deg, #111d0c, #3fd322);
-  color: white;
-  text-shadow: 0 0 6px #8cff8c;
+  background: linear-gradient(90deg, #34d399, #059669);
+  color: #ffffff;
+  text-shadow: 0 0 6px rgba(5, 150, 105, 0.8);
+  border: 1.5px solid #059669;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.4);
+  backdrop-filter: saturate(180%) blur(8px);
 }
 
-/* Rojo fuego */
+/* Rojo melocotón vibrante y elegante */
 .etiqueta-nuevo1 {
-  background: linear-gradient(90deg,#111d0c, #ff4d4d);
-  color: white;
-  text-shadow: 0 0 6px #ff6666;
+  background: linear-gradient(90deg, #f87171, #dc2626);
+  color: #ffffff;
+  text-shadow: 0 0 6px rgba(220, 38, 38, 0.85);
+  border: 1.5px solid #dc2626;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+  backdrop-filter: saturate(180%) blur(8px);
 }
 
-/* Blanco elegante */
+/* Azul acero elegante y profundo */
 .etiqueta-nuevo2 {
-  background: linear-gradient(90deg, #883d12, #e6e6e6);
-  color: #fcefef;
-  text-shadow: 0 0 3px #ccc;
+  background: linear-gradient(90deg, #60a5fa, #1e40af);
+  color: #f0f9ff;
+  text-shadow: 0 0 6px rgba(30, 64, 175, 0.85);
+  border: 1.5px solid #1e40af;
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
+  backdrop-filter: saturate(180%) blur(8px);
 }
+
+/* Animación para entrada suave */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 
 .beneficios {
   padding: 3rem 1rem;
@@ -784,154 +1217,9 @@ nav a:focus::before {
     text-shadow: 0 0 10px #ff6b6b, 0 0 20px #b22222, 0 0 30px #ff6b6b;
   }
 }
+
+
 </style>
-</head>
-<body>
-
-<!-- HTML: Menú de navegación y botón hamburguesa -->
- <header>
-  <div class="container">
-    <div class="logo-text">
-      <span class="sub">Automoviles Cyc</span><br />
-    </div>
-
-    <!-- Menú de navegación -->
-    <nav id="nav" role="navigation" aria-label="Menú principal">
-      <ul id="nav-menu" role="menubar">
-        <li role="none"><a href="index.html" role="menuitem" tabindex="0">Inicio</a></li>
-        <li role="none"><a href="stock.html" role="menuitem" tabindex="0">Stock</a></li>
-        <li role="none"><a href="vender.html" role="menuitem" tabindex="0">Vende tu vehiculo</a></li>
-        <li role="none"><a href="nosotros.html" role="menuitem" tabindex="0">Nosotros</a></li>
-      </ul>
-    </nav>
-
-    <!-- Botón hamburguesa -->
-    <button id="hamburger" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-</header>
-
-
-
-<section class="hero-container" role="banner" aria-label="Presentación principal">
-  <div class="hero-content">
-    <h1>Encuentra el auto de tus sueños<br> con <span>Automóviles Cyc</span></h1>
-    <p>Explora nuestra selección de vehículos con garantía, precios insuperables y atención personalizada.</p>
-    <a href="#catalogo" class="cta-button">Ver catálogo</a>
-  </div>
-</section>
-
-
-  <section id="catalogo" class="catalogo container" aria-label="Catálogo de autos disponibles">
-   
-    <div class="catalogo-grid">
-    <article class="catalogo-card"> <!--//SUBARU AZUL -->
-      <div class="etiqueta etiqueta-nuevo2">Recien llegado</div>
-      <img src="images/SUBARU/WRX1.png" alt="Subaru Impreza 3.0 2016" loading="lazy" />
-      <div class="catalogo-card-content">
-        <h3>SUBARU WRX TS / AÑO 2024 / 23.000 KM</h3>
-        <p class="precio">$36.790.000 CLP</p>
-        <p>Motor 2.4 cvt con traccion AWD...</p>
-        <div class="boton-centro">
-          <a href="detalle.html?auto=subaru-wrx-azul" class="btn-detalle">Ver más</a>
-        </div>
-      </div>
-
-
-    </article>  <!--//SUBARU BLANCO -->
-    <article class="catalogo-card">
-      <div class="etiqueta etiqueta-nuevo">Disponible</div>
-      <img src="images/SUBARUBLANCO/1.jpg" alt="Subaru Impreza 3.0 2016" loading="lazy" />
-      <div class="catalogo-card-content">
-        <h3>SUBARU WRX TS / AÑO 2024 / 15.000 KM</h3>
-        <p class="precio">$36.790.000 CLP</p>
-        <p>Motor 2.4 litros con traccion AWD....</p>
-        <div class="boton-centro">
-         <a href="detalle.html?auto=subaru-wrx-blanco" class="btn-detalle">Ver más</a>
-        </div>
-      </div>
-
-          </article>  <!--//PEUGEOT 3008 -->
-    <article class="catalogo-card">
-      <div class="etiqueta etiqueta-nuevo1">Vendido</div>
-      <img src="images/Autos/peugeot1.jpg" alt="Subaru Impreza 3.0 2016" loading="lazy" />
-      <div class="catalogo-card-content">
-        <h3>PEUGEOT 3008 GT BLACK PACK / AÑO 2024 / 37.00 KM</h3>
-        <p class="precio">$26.980.000 CLP</p>
-        <p>Motor 1.5  blueHDI diesel...</p>
-        <div class="boton-centro">
-         <a href="detalle.html?auto=peugeot-3008" class="btn-detalle">Ver más</a>
-        </div>
-      </div>
-    </article>  <!--//AUDI Q5 -->
-
-    <article class="catalogo-card">
-      <div class="etiqueta etiqueta-nuevo">Disponible</div>
-      <img src="images/Autos/audi1.jpg" alt="Subaru Impreza 3.0 2016" loading="lazy" />
-      <div class="catalogo-card-content">
-        <h3>AUDI Q5 SPORT 45 TFSI QUATTRO/ AÑO 2023/ 47.500 KM</h3>
-        <p class="precio">$39.990.000 CLP</p>
-        <p>Motor 2.0 AWD...</p>
-        <div class="boton-centro">
-         <a href="detalle.html?auto=audiq5" class="btn-detalle">Ver más</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="catalogo-card"> <!--SUBARU ROJA-->
-      <div class="etiqueta etiqueta-nuevo">Disponible</div>
-      <img src="images/Autos/subaruroja1.jpg" alt="Audi Q5 Sport 45 TFSI Quattro 2023 con 47.500 km" loading="lazy" />
-      <div class="catalogo-card-content">
-        <h3>SUBARU OUTBACK 2.5 XS AWD/ AÑO 2016/ 130.000 KM</h3>
-        <p class="precio">$11.990.000 CLP</p>
-        <p>Único dueño...</p>
-        <div class="boton-centro">
-          <a href="detalle.html?auto=SubaruRoja" class="btn-detalle">Ver más</a>
-        </div>
-      </div>
-    </article>
-
-
-      
-  </section>
-
-
-
-
-  
-<footer>
-    <div class="footer-container">
-      <div class="map-container" aria-label="Mapa de ubicación">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.5573962933827!2d-70.55133392352948!3d-33.40870959537717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2sus!4v1753289390461!5m2!1ses!2sus"
-          width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade" title="Ubicación CYC Automóviles"></iframe>
-      </div>
-      <div class="footer-bottom">
-        <div>
-          © 2025 CYC Automóviles. All rights reserved. <br>
-          Built & secured by <a href="mailto:picininiluciano@gmail.com" style="color: #cc0404; text-decoration: none;">Luciano</a>.
-        </div>
-        <div class="social-container" aria-label="Redes sociales">
-          <!-- Facebook -->
-        <a href="https://www.facebook.com/automoviles.cyc.2025" class="social-link" target="_blank"
-          rel="noopener noreferrer" aria-label="Facebook">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-              alt="Facebook" width="32" height="32" style="border-radius: 4px;" />
-        </a>
-          <!-- Instagram -->
-         <a href="https://www.instagram.com/cycautomoviles_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank"
-          rel="noopener noreferrer" aria-label="Instagram">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
-              alt="Instagram" width="32" height="32" style="border-radius: 8px;" />
-        </a>
-        </div>
-      </div>
-    </div>
-  </footer>
 
 <script>
 // ===== INYECTAR CSS PARA EFECTOS AVANZADOS =====
@@ -1048,9 +1336,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 </script>
-
-
-
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,   // duración de la animación en milisegundos
+    easing: 'ease-in-out', // tipo de animación suave
+    once: true        // anima solo la primera vez que aparece el elemento
+  });
+</script>
 
 </body>
 </html>

@@ -61,8 +61,7 @@
             <span class="info-label">Año</span>
             <span class="info-value">2024</span>
           </div>
-          <a href="stock.html" class="primary">VER MÁS</a>
-
+          <a href="stock.html" class="primary1">VER MÁS</a>
       </article>
       <article class="auto-card" tabindex="0" role="article"
         aria-label="Auto Peugeot 3008, año 2023, 35.000 kilómetros, precio 22.500.000 pesos">
@@ -84,7 +83,7 @@
             <span class="info-label">Año</span>
             <span class="info-value">2024</span>
           </div>
-          <a href="stock.html" class="primary">VER MÁS</a>
+          <a href="stock.html" class="primary1">VER MÁS</a>
       </article>
     </section>
 
@@ -274,7 +273,7 @@
   font-size: 3rem;
   font-weight: 900;
   letter-spacing: 5px;
-  background: linear-gradient(90deg, #db030342, #ff000036, #d30c0cde);
+  background: linear-gradient(90deg, #79303042, #ff000036, #d30c0cde);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -378,24 +377,35 @@
     border-top: 1px solid #333;
   }
 
-  .primary {
-    display: inline-block;
-    background-color: #000000;
-    color: #f5f5f5;
-    padding: 0.6em 1.2em;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+.primary1 {
+  display: inline-block;
+  background: linear-gradient(45deg, #000000, #000000);
+  color: white;
+  padding: 0.7em 1.6em;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(211, 12, 12, 0.6);
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.2s ease;
+  cursor: pointer;
+  user-select: none;
+}
 
-  .primary:hover {
-    background-color: #000000;
-    color: #B22222;
-  }
+.primary1:hover {
+  background: linear-gradient(45deg, #ffffff, #facdcd);
+  box-shadow: 0 6px 20px rgba(255, 59, 59, 0.8);
+  transform: translateY(-3px);
+  color: #000000;
+}
+
+.primary1:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(211, 12, 12, 0.5);
+}
+
 
   .info-box {
     display: flex;
@@ -630,10 +640,7 @@
       padding-right: 1.5rem;
     }
 
-    /* Estilos nav y otros que ya tenías */
-    .primary {
-      display: none !important;
-    }
+
 
     nav {
       position: fixed;
@@ -759,6 +766,9 @@
       width: 20px;           /* íconos sociales más pequeños */
       height: 20px;
     }
+      .primary1 {
+    display: none;
+  }
   }
 
 
