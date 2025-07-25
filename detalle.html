@@ -586,6 +586,48 @@ p, ul li {
   }
 
 }
+
+/* Efecto mágico en enlaces del nav */
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: #B22222; /* rojo firebrick */
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #ff6b6b;
+  animation: navGlow 1s infinite alternate;
+}
+
+nav a:hover::before,
+nav a:focus::before {
+  width: 100%;
+}
+
+/* Brillo suave animado */
+@keyframes navGlow {
+  0% {
+    text-shadow: 0 0 5px #ff6b6b, 0 0 10px #b22222, 0 0 15px #ff6b6b;
+  }
+  100% {
+    text-shadow: 0 0 10px #ff6b6b, 0 0 20px #b22222, 0 0 30px #ff6b6b;
+  }
+}
 </style>
 
 

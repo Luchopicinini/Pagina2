@@ -21,16 +21,23 @@
       padding: 0;
       box-sizing: border-box;
     }
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-    body {
-      font-family: var(--font-main);
-      background-color: var(--color-black);
-      color: var(--color-white);
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                    url('images/Autos/autoMuestra.jpg'); /* O reemplaza con tu URL externa */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 
     header {
       background-color: #111;
@@ -463,6 +470,15 @@ button:hover {
 .social-link:hover svg {
   fill: #1713d8; /* rojo más oscuro al pasar el mouse */
 }
+.formulario-wrapper {
+  background-color: rgba(0, 0, 0, 0.7); /* Negro semitransparente */
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 700px;
+  margin: 2rem auto;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
 
 @media (max-width: 768px) {
 
@@ -472,6 +488,7 @@ button:hover {
   *::after {
     box-sizing: border-box;
   }
+  
 
   nav {
     padding-left: 1.5rem;
@@ -564,6 +581,48 @@ button:hover {
   .social-container svg {
     width: 20px;           /* íconos sociales más pequeños */
     height: 20px;
+  }
+}
+
+/* Efecto mágico en enlaces del nav */
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: #B22222; /* rojo firebrick */
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #ff6b6b;
+  animation: navGlow 1s infinite alternate;
+}
+
+nav a:hover::before,
+nav a:focus::before {
+  width: 100%;
+}
+
+/* Brillo suave animado */
+@keyframes navGlow {
+  0% {
+    text-shadow: 0 0 5px #ff6b6b, 0 0 10px #b22222, 0 0 15px #ff6b6b;
+  }
+  100% {
+    text-shadow: 0 0 10px #ff6b6b, 0 0 20px #b22222, 0 0 30px #ff6b6b;
   }
 }
 
@@ -833,6 +892,23 @@ document.addEventListener('DOMContentLoaded', () => {
       hamburger.setAttribute('aria-expanded', 'false');
     });
   });
+</script>
+<script>
+    document.getElementById('miFormulario').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  // Simular envío
+  setTimeout(() => {
+    const mensaje = document.getElementById('mensaje-envio');
+    mensaje.classList.add('mostrar');
+
+    // Opcional: ocultarlo luego de 5 segundos
+    setTimeout(() => {
+      mensaje.classList.remove('mostrar');
+    }, 5000);
+  }, 1000);
+});
+
 </script>
 </body>
 </html>
