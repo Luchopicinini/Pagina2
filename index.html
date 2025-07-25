@@ -4,8 +4,145 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Automoviles Cyc - Inicio</title>
+  <title>Inicio</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+  <div class="container">
+    <div class="logo-text">
+      <span class="sub">Automoviles Cyc</span><br />
+    </div>
+    <nav id="nav" role="navigation" aria-label="Menú principal">
+      <ul id="nav-menu" role="menubar">
+        <li role="none"><a href="index.html" role="menuitem" tabindex="0">Inicio</a></li>
+        <li role="none"><a href="stock.html" role="menuitem" tabindex="0">Stock</a></li>
+        <li role="none"><a href="vender.html" role="menuitem" tabindex="0">Vende tu vehiculo</a></li>
+        <li role="none"><a href="nosotros.html" role="menuitem" tabindex="0">Nosotros</a></li>
+      </ul>
+    </nav>
+    <button id="hamburger" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+      <span></span>
+      <span></span>
+      <span></span> 
+    </button>
+  </div>
+</header>
+<div id="overlay" style="display:none;"></div>
+
+<section class="hero fade-on-scroll" role="banner" aria-label="Imagen principal de automotora">
+  <h1>Bienvenido a Automoviles Cyc.</h1>
+  <button class="btn-primary" aria-label="Ver catálogo de autos destacados" onclick="location.href='stock.html'">Ver stock</button>
+</section>
+
+
+  <main>
+    <h2 class="section-title" id="autos">Autos Destacados</h2>
+    <section class="autos-destacados" aria-labelledby="autos">
+
+      <!-- Ejemplo de auto -->
+      <article class="auto-card" tabindex="0" role="article"
+        aria-label="Auto Peugeot 3008, año 2023, 35.000 kilómetros, precio 22.500.000 pesos">
+        <img src="images/SUBARU/WRX1.png" alt="Peugeot 3008 color gris" />
+        <div class="auto-content">
+          <h3>SUBARU WRX TS / AÑO 2024 / 23.000 KM</h3>
+          <p class="precio">36.790.000 CLP</p>
+        </div>
+        <div class="auto-info">
+          <div class="info-box">
+            <span class="info-label">Transmisión</span>
+            <span class="info-value">Automática</span>
+          </div>
+          <div class="info-box">
+            <span class="info-label">Combustible</span>
+            <span class="info-value">Gasolina</span>
+          </div>
+          <div class="info-box">
+            <span class="info-label">Año</span>
+            <span class="info-value">2024</span>
+          </div>
+          <a href="stock.html" class="primary">VER MÁS</a>
+
+      </article>
+      <article class="auto-card" tabindex="0" role="article"
+        aria-label="Auto Peugeot 3008, año 2023, 35.000 kilómetros, precio 22.500.000 pesos">
+        <img src="images/SUBARUBLANCO/1.jpg" alt="Peugeot 3008 color gris" />
+        <div class="auto-content">
+          <h3>SUBARU WRX TS / AÑO 2024 / 15.000 KM</h3>
+          <p class="precio">$36.790.000 CLP</p>
+        </div>
+        <div class="auto-info">
+          <div class="info-box">
+            <span class="info-label">Transmisión</span>
+            <span class="info-value">Automática</span>
+          </div>
+          <div class="info-box">
+            <span class="info-label">Combustible</span>
+            <span class="info-value">Gasolina</span>
+          </div>
+          <div class="info-box">
+            <span class="info-label">Año</span>
+            <span class="info-value">2024</span>
+          </div>
+          <a href="stock.html" class="primary">VER MÁS</a>
+      </article>
+    </section>
+
+    <section id="nosotros" aria-labelledby="titulo-nosotros">
+      <h2 id="titulo-nosotros" class="section-title">Nosotros</h2>
+      <p>
+        Somos una automotora dedicada a ofrecer los mejores vehículos del mercado con la mejor calidad y atención
+        personalizada. ¡Ven y conoce nuestro catálogo!
+      </p>
+    </section>
+
+    <section id="contacto" aria-labelledby="titulo-contacto"
+      style="max-width: 900px; margin: 4rem auto; padding: 0 2rem; color: var(--color-gray-light); text-align: center;">
+      <h2 id="titulo-contacto" class="section-title">Contacto</h2>
+      <p>Dirección: Apoquindo 7935, Las Condes</p>
+      <p>Teléfono: +56 9 8827 6054</p>
+      <p>Email: Automotriz.camposav@gmail.com</p>
+    </section>
+  </main>
+
+<footer>
+    <div class="footer-container">
+      <div class="map-container" aria-label="Mapa de ubicación">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.5573962933827!2d-70.55133392352948!3d-33.40870959537717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2sus!4v1753289390461!5m2!1ses!2sus"
+          width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="Ubicación CYC Automóviles"></iframe>
+      </div>
+      <div class="footer-bottom">
+        <div>
+          © 2025 CYC Automóviles. All rights reserved. <br>
+          Built & secured by <a href="mailto:picininiluciano@gmail.com" style="color: #cc0404; text-decoration: none;">Luciano</a>.
+        </div>
+        <div class="social-container" aria-label="Redes sociales">
+          <!-- Facebook -->
+        <a href="https://www.facebook.com/automoviles.cyc.2025" class="social-link" target="_blank"
+          rel="noopener noreferrer" aria-label="Facebook">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+              alt="Facebook" width="32" height="32" style="border-radius: 4px;" />
+        </a>
+          <!-- Instagram -->
+         <a href="https://www.instagram.com/cycautomoviles_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank"
+          rel="noopener noreferrer" aria-label="Instagram">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
+              alt="Instagram" width="32" height="32" style="border-radius: 8px;" />
+        </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<a class="chatbot" href="https://wa.me/56988276054?text=Hola%2C%20me%20interesa%20obtener%20m%C3%A1s%20informaci%C3%B3n" target="_blank" aria-label="Habla por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="#25D366">
+    <path d="M16 .396C7.164.396 0 7.56 0 16.396c0 2.883.742 5.636 2.148 8.08L.05 31.95l7.646-2.048a15.938 15.938 0 0 0 8.3 2.292c8.836 0 16-7.164 16-16S24.836.396 16 .396zm0 29.167a13.09 13.09 0 0 1-6.676-1.79l-.478-.285-4.544 1.215 1.215-4.426-.308-.455a13.08 13.08 0 0 1-2.014-7.022c0-7.238 5.885-13.122 13.122-13.122 7.238 0 13.123 5.884 13.123 13.122 0 7.237-5.885 13.121-13.123 13.121zm7.423-9.57c-.406-.204-2.4-1.184-2.772-1.318-.372-.136-.643-.204-.914.204-.27.407-1.05 1.317-1.288 1.59-.237.27-.475.305-.88.102-.406-.204-1.715-.632-3.266-2.016-1.207-1.078-2.02-2.408-2.258-2.814-.237-.407-.025-.627.18-.83.184-.182.406-.475.61-.712.204-.237.27-.407.406-.678.136-.27.068-.508-.034-.712-.102-.204-.914-2.21-1.25-3.017-.33-.792-.666-.682-.914-.694l-.78-.014c-.27 0-.712.102-1.085.475-.372.373-1.421 1.387-1.421 3.38 0 1.994 1.454 3.917 1.656 4.187.203.27 2.86 4.365 6.937 6.114.97.418 1.728.667 2.318.854.974.31 1.86.267 2.56.162.78-.116 2.4-.978 2.738-1.922.338-.95.338-1.767.237-1.922-.102-.153-.37-.27-.777-.475z"/>
+  </svg>
+</a>
+
+
 <style>
   /* ESTILOS GENERALES */
   :root {
@@ -99,6 +236,11 @@
     font-weight: 900;
     text-transform: uppercase;
   }
+  .fade-on-scroll {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
 
   .btn-primary:hover {
     background-color: #8b1a1a;
@@ -126,55 +268,78 @@
     outline: none;
     box-shadow: 0 0 25px #ccc6c6;
   }
+.section-title {
+  margin: 4rem 0 2rem;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  background: linear-gradient(90deg, #db030342, #ff000036, #d30c0cde);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Para Firefox */
+  background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 8px rgba(255, 254, 254, 0.25);
+  animation: gradientShift 4s ease infinite;
+  user-select: none;
+}
 
-  .section-title {
-    margin: 4rem 0 2rem;
-    text-align: center;
-    font-size: 2.6rem;
-    font-weight: 900;
-    letter-spacing: 4px;
-    color: #b22222a6;
-    text-transform: uppercase;
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
   }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
-  .autos-destacados {
-    max-width: 1100px;
-    margin: auto;
-    padding: 0 2rem 4rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-  }
 
-  .auto-card {
-    background: #000000;
-    border-radius: 1rem;
-    box-shadow: 0 5px 25px rgba(178, 34, 34, 0.3);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+.autos-destacados {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 2rem 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
 
-  .auto-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(178, 34, 34, 0.6);
-  }
+.auto-card {
+  background: #000000;
+  border-radius: 1rem;
+  box-shadow: 0 5px 25px rgba(178, 34, 34, 0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  .auto-card img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    border-bottom: 3px solid var(--color-red);
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    transition: transform 0.3s ease;
-  }
+.auto-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(178, 34, 34, 0.6);
+}
 
-  .auto-card:hover img {
-    transform: scale(1.05);
-  }
+.auto-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-bottom: 3px solid var(--color-red);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.auto-card:hover img {
+  transform: scale(1.05);
+  filter: blur(3px);
+}
+
 
   .auto-content {
     padding: 1rem 1.5rem 0.6rem;
@@ -215,7 +380,7 @@
 
   .primary {
     display: inline-block;
-    background-color: #B22222;
+    background-color: #000000;
     color: #f5f5f5;
     padding: 0.6em 1.2em;
     border: none;
@@ -228,7 +393,8 @@
   }
 
   .primary:hover {
-    background-color: #8b1a1a;
+    background-color: #000000;
+    color: #B22222;
   }
 
   .info-box {
@@ -425,7 +591,6 @@
     transform: rotate(-45deg) translate(5px, -5px);
   }
 
-  /* RESPONSIVE NAV */
   /* RESPONSIVE NAV MEJORADO - CENTRADO TOTAL */
   @media (max-width: 768px) {
 
@@ -666,17 +831,17 @@
     overflow: hidden;
   }
 
-  .section-title::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--color-red), #ff4949);
-    transform: translateX(-100%);
-    animation: slideIn 1.5s forwards;
-  }
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-red), #d3d0d0);
+  transform: translateX(-100%);
+  animation: slideIn 4s forwards; /* más lento que 1.5s */
+}
 
   @keyframes slideIn {
     to {
@@ -690,6 +855,7 @@
     box-shadow: 0 0 12px #25D366 !important;
     animation: pulse 2.5s infinite !important;
   }
+
 
   @keyframes pulse {
     0% {
@@ -715,10 +881,6 @@
       0 12px 40px rgba(178, 34, 34, 0.6),
       0 0 20px 5px rgba(178, 34, 34, 0.3);
   }
-
-  /* 6. Animación con GSAP (JS) para autos al cargar (pon en tu script):
-  gsap.from(".auto-card", { duration: 1, y: 30, opacity: 0, stagger: 0.3, ease: "power3.out" });
-  */
 
   /* Opcional: Añadir cursor pointer en .auto-card para reforzar interactividad */
   .auto-card {
@@ -748,8 +910,6 @@
   height: 28px;
   fill: white;
 }
-
-
 
 /* Efecto mágico en enlaces del nav */
 nav a {
@@ -792,159 +952,11 @@ nav a:focus::before {
     text-shadow: 0 0 10px #ff6b6b, 0 0 20px #b22222, 0 0 30px #ff6b6b;
   }
 }
+</style>      
 
-
-</style>
-
-</head>
-
-<body>
-  <header>
-  <div class="container">
-    <div class="logo-text">
-      <span class="sub">Automoviles Cyc</span><br />
-    </div>
-    <nav id="nav" role="navigation" aria-label="Menú principal">
-      <ul id="nav-menu" role="menubar">
-        <li role="none"><a href="index.html" role="menuitem" tabindex="0">Inicio</a></li>
-        <li role="none"><a href="stock.html" role="menuitem" tabindex="0">Stock</a></li>
-        <li role="none"><a href="vender.html" role="menuitem" tabindex="0">Vende tu vehiculo</a></li>
-        <li role="none"><a href="nosotros.html" role="menuitem" tabindex="0">Nosotros</a></li>
-      </ul>
-    </nav>
-    <button id="hamburger" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
-      <span></span>
-      <span></span>
-      <span></span> 
-    </button>
-  </div>
-</header>
-<div id="overlay" style="display:none;"></div>
-
-<section class="hero" role="banner" aria-label="Imagen principal de automotora">
-  <h1>Bienenido a Automoviles Cyc</h1>
-  <button class="btn-primary" aria-label="Ver catálogo de autos destacados" onclick="location.href='stock.html'">Ver catálogo</button>
-</section>
-
-
-  <main>
-    <h2 class="section-title" id="autos">Autos Destacados</h2>
-    <section class="autos-destacados" aria-labelledby="aut        os">
-      <!-- Ejemplo de auto -->
-      <article class="auto-card" tabindex="0" role="article"
-        aria-label="Auto Peugeot 3008, año 2023, 35.000 kilómetros, precio 22.500.000 pesos">
-        <img src="images/SUBARU/WRX1.png" alt="Peugeot 3008 color gris" />
-        <div class="auto-content">
-          <h3>SUBARU WRX TS / AÑO 2024 / 23.000 KM</h3>
-          <p class="precio">36.790.000 CLP</p>
-        </div>
-        <div class="auto-info">
-          <div class="info-box">
-            <span class="info-label">Transmisión</span>
-            <span class="info-value">Automática</span>
-          </div>
-          <div class="info-box">
-            <span class="info-label">Combustible</span>
-            <span class="info-value">Gasolina</span>
-          </div>
-          <div class="info-box">
-            <span class="info-label">Año</span>
-            <span class="info-value">2024</span>
-          </div>
-          <a href="stock.html" class="primary">VER MÁS</a>
-
-
-      </article>
-      <article class="auto-card" tabindex="0" role="article"
-        aria-label="Auto Peugeot 3008, año 2023, 35.000 kilómetros, precio 22.500.000 pesos">
-        <img src="images/SUBARUBLANCO/1.jpg" alt="Peugeot 3008 color gris" />
-        <div class="auto-content">
-          <h3>SUBARU WRX TS / AÑO 2024 / 15.000 KM</h3>
-          <p class="precio">$36.790.000 CLP</p>
-        </div>
-        <div class="auto-info">
-          <div class="info-box">
-            <span class="info-label">Transmisión</span>
-            <span class="info-value">Automática</span>
-          </div>
-          <div class="info-box">
-            <span class="info-label">Combustible</span>
-            <span class="info-value">Gasolina</span>
-          </div>
-          <div class="info-box">
-            <span class="info-label">Año</span>
-            <span class="info-value">2024</span>
-          </div>
-          <a href="stock.html" class="primary">VER MÁS</a>
-
-      </article>
-
-      <!-- Aquí puedes agregar más autos -->
-    </section>
-
-    <section id="nosotros" aria-labelledby="titulo-nosotros">
-      <h2 id="titulo-nosotros" class="section-title">Nosotros</h2>
-      <p>
-        Somos una automotora dedicada a ofrecer los mejores vehículos del mercado con la mejor calidad y atención
-        personalizada. ¡Ven y conoce nuestro catálogo!
-      </p>
-    </section>
-
-
-
-    <section id="contacto" aria-labelledby="titulo-contacto"
-      style="max-width: 900px; margin: 4rem auto; padding: 0 2rem; color: var(--color-gray-light); text-align: center;">
-      <h2 id="titulo-contacto" class="section-title">Contacto</h2>
-      <p>Dirección: Apoquindo 7935, Las Condes</p>
-      <p>Teléfono: +56 9 1234 5678</p>
-      <p>Email: contacto@cycautomoviles.cl</p>
-    </section>
-  </main>
-
-<footer>
-    <div class="footer-container">
-      <div class="map-container" aria-label="Mapa de ubicación">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.5573962933827!2d-70.55133392352948!3d-33.40870959537717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2sus!4v1753289390461!5m2!1ses!2sus"
-          width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade" title="Ubicación CYC Automóviles"></iframe>
-      </div>
-      <div class="footer-bottom">
-        <div>
-          © 2025 CYC Automóviles. All rights reserved. <br>
-          Built & secured by <a href="mailto:picininiluciano@gmail.com" style="color: #cc0404; text-decoration: none;">Luciano</a>.
-        </div>
-        <div class="social-container" aria-label="Redes sociales">
-          <!-- Facebook -->
-        <a href="https://www.facebook.com/automoviles.cyc.2025" class="social-link" target="_blank"
-          rel="noopener noreferrer" aria-label="Facebook">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-              alt="Facebook" width="32" height="32" style="border-radius: 4px;" />
-        </a>
-          <!-- Instagram -->
-         <a href="https://www.instagram.com/cycautomoviles_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank"
-          rel="noopener noreferrer" aria-label="Instagram">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
-              alt="Instagram" width="32" height="32" style="border-radius: 8px;" />
-        </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-
-<a class="chatbot" href="https://wa.me/56912345678" target="_blank" aria-label="Habla por WhatsApp">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="#25D366">
-    <path d="M16 .396C7.164.396 0 7.56 0 16.396c0 2.883.742 5.636 2.148 8.08L.05 31.95l7.646-2.048a15.938 15.938 0 0 0 8.3 2.292c8.836 0 16-7.164 16-16S24.836.396 16 .396zm0 29.167a13.09 13.09 0 0 1-6.676-1.79l-.478-.285-4.544 1.215 1.215-4.426-.308-.455a13.08 13.08 0 0 1-2.014-7.022c0-7.238 5.885-13.122 13.122-13.122 7.238 0 13.123 5.884 13.123 13.122 0 7.237-5.885 13.121-13.123 13.121zm7.423-9.57c-.406-.204-2.4-1.184-2.772-1.318-.372-.136-.643-.204-.914.204-.27.407-1.05 1.317-1.288 1.59-.237.27-.475.305-.88.102-.406-.204-1.715-.632-3.266-2.016-1.207-1.078-2.02-2.408-2.258-2.814-.237-.407-.025-.627.18-.83.184-.182.406-.475.61-.712.204-.237.27-.407.406-.678.136-.27.068-.508-.034-.712-.102-.204-.914-2.21-1.25-3.017-.33-.792-.666-.682-.914-.694l-.78-.014c-.27 0-.712.102-1.085.475-.372.373-1.421 1.387-1.421 3.38 0 1.994 1.454 3.917 1.656 4.187.203.27 2.86 4.365 6.937 6.114.97.418 1.728.667 2.318.854.974.31 1.86.267 2.56.162.78-.116 2.4-.978 2.738-1.922.338-.95.338-1.767.237-1.922-.102-.153-.37-.27-.777-.475z"/>
-  </svg>
-</a>
-
-
-  <!-- Agrega GSAP CDN para animaciones -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 <script>
-
   gsap.from(".auto-card", {
   duration: 1,
   y: 30,
@@ -995,6 +1007,26 @@ nav a:focus::before {
     });
   });
 </script>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const fadeElements = document.querySelectorAll('.fade-on-scroll');
+    fadeElements.forEach(el => {
+      const scrollY = window.scrollY;
+      const elementTop = el.offsetTop;
+      const elementHeight = el.offsetHeight;
+
+      if (scrollY < elementTop + elementHeight) {
+        const progress = scrollY / (elementHeight * 1.2);
+        el.style.opacity = 1 - progress;
+        el.style.transform = `translateY(${progress * 40}px)`;
+      } else {
+        el.style.opacity = 0;
+      }
+    });
+  });
+</script>
+
   <style>
     /* Cursor typing blink */
     @keyframes blink {
@@ -1071,13 +1103,6 @@ nav a:focus::before {
         transform: translate(0);
       }
     }
-
-
-
-    /* Partículas SVG ya animadas con GSAP */
   </style>
-
-
 </body>
-
 </html>
