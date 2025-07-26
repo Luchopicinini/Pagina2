@@ -7,428 +7,390 @@
   <title>Nosotros</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
 <style>
+/* ========== VARIABLES GENERALES ========== */
 :root {
-      --color-black: #000000;
-      --color-white: #FFFFFF;
-      --color-red: #B22222;
-      /* rojo oscuro firebrick */
-      --color-gray-light: #CCCCCC;
-      --font-main: 'Barlow', sans-serif;
-    }
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-red: #B22222; /* rojo oscuro firebrick */
+  --color-gray-light: #CCCCCC;
+  --font-main: 'Barlow', sans-serif;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+/* ========== RESET GLOBAL ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: var(--font-main);
-  background-color: var(--color-black);
-  color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-black);
   line-height: 1.6;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                    url('images/Autos/autoMuestra.jpg'); /* O reemplaza con tu URL externa */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
-
-    header {
-      background-color: #111;
-      color: #fff;
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      border-bottom: 1px solid #333;
-      z-index: 1000;
-    }
-
-    .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    .logo-text .sub {
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    nav {
-      display: flex;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      transition: background 0.3s ease;
-    }
-
-    nav a:hover {
-      background-color: #333;
-    }
-
-
-/* HAMBURGER MENU */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background-color: red;
-      /* menú hamburguesa rojo */
-      border: none;
-      padding: 0.5rem;
-      border-radius: 6px;
-    }
-
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background: white;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-
-    #contacto {
-  max-width: 650px;
-  margin: 3rem auto;
-  padding: 2.5rem 2rem;
-  background: linear-gradient(145deg, #1a1a1a, #111);
-  border-radius: 16px;
-  box-shadow: 0 0 30px rgba(255, 0, 0, 0.15), inset 0 0 10px rgba(255, 0, 0, 0.05);
-  box-sizing: border-box;
-  animation: fadeIn 1s ease forwards;
-  border: 1px solid #ff000025;
-}
-
-/* ==== TITULOS ==== */
-#contacto h2,
-#contacto h3 {
-  text-align: center;
-  color: #ff4d4d;
-  margin-bottom: 1rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  font-family: 'Barlow', sans-serif;
-  text-shadow: 0 0 10px #ff4d4d33;
-  animation: glowTitle 2s ease-in-out infinite alternate;
-}
-
-@keyframes glowTitle {
-  from { text-shadow: 0 0 5px #ff4d4d44; }
-  to { text-shadow: 0 0 20px #ff4d4d; }
-}
-
-#contacto p {
-  color: #ffffffcc;
-  text-align: center;
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-  font-style: italic;
-  animation: fadeIn 1.5s ease forwards;
-}
-
-/* ==== FORMULARIO ==== */
-.form-group {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-input, select, textarea {
-  flex: 1 1 48%;
-  padding: 0.8rem 1rem;
-  font-size: 1rem;
-  border-radius: 10px;
-  border: 2px solid #500b0b;
-  background: #121212;
+/* ========== HEADER ========== */
+header {
+  background-color: #111;
   color: #fff;
-  transition: border 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.05);
-  font-family: 'Barlow', sans-serif;
-  animation: fadeUp 0.6s ease-in-out both;
-}
-
-input:focus, select:focus, textarea:focus {
-  border-color: #ff3c00;
-  background: #1f1f1f;
-  outline: none;
-  box-shadow: 0 0 10px rgba(255, 60, 0, 0.3);
-}
-
-textarea {
-  flex-basis: 100%;
-  resize: vertical;
-  min-height: 120px;
-}
-
-label {
-  flex-basis: 100%;
-  margin-bottom: 0.3rem;
-  color: #ccc;
-  font-size: 0.95rem;
-}
-
-/* ==== BOTONES ==== */
-.botones-formulario {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-}
-
-button {
-  background: #B22222;
-  color: white;
-  border: none;
-  padding: 0.65rem 1.8rem;
-  border-radius: 30px;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 1rem;
-  font-family: 'Barlow', sans-serif;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-button::after {
-  content: "";
-  position: absolute;
+  padding: 1rem 0;
+  position: sticky;
   top: 0;
-  left: -75%;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.1), transparent);
-  transform: skewX(-20deg);
-  transition: left 0.5s ease;
+  border-bottom: 1px solid #333;
+  z-index: 1000;
 }
 
-button:hover::after {
-  left: 100%;
-}
-
-button:hover {
-  background: #a11d1d;
-  transform: scale(1.05);
-}
-
-/* WhatsApp */
-.btn-wsp {
-  background: #25D366;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1.2rem;
-  border-radius: 30px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  font-family: 'Barlow', sans-serif;
-  display: inline-flex;
+.container {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
-  box-shadow: 0 0 15px rgba(40, 167, 69, 0.3);
-  transition: all 0.3s ease;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.logo-text .sub {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+nav {
+  display: flex;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: #fff;
   text-decoration: none;
-  position: relative;
-  overflow: hidden;
+  padding: 0.5rem 1rem;
+  transition: background 0.3s ease;
 }
 
-.btn-wsp:hover {
-  background-color: #1DA851;
-  transform: scale(1.05);
+nav a:hover {
+  background-color: #333;
 }
 
-.btn-wsp:active {
-  transform: scale(0.95);
-}
-
-/* ==== MENSAJE DE ENVÍO ==== */
-#mensaje-envio {
+/* ========== MENÚ HAMBURGUESA ========== */
+.hamburger {
   display: none;
-  margin-top: 2rem;
-  background: #2b0000;
-  padding: 1.2rem;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  text-align: center;
-  color: #ffc6c6;
-  font-weight: 600;
-  box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
-  animation: fadeIn 1s ease forwards;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background-color: red;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 6px;
 }
 
-/* ==== TESTIMONIOS ==== */
-.testimonios {
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ========== SECCIÓN: ¿POR QUÉ VENDER CON NOSOTROS? ========== */
+#por-que-vender-con-nosotros {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #333;
+  background-color: #f9f9f9;
+  border-radius: 1rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out both;
+  text-align: center;
+}
+
+#por-que-vender-con-nosotros h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1.2rem;
+  color: #B22222; /* rojo oscuro elegante */
+  text-shadow: 1px 1px 0 #fff;
+  animation: fadeUp 1s ease-in-out both;
+}
+
+#por-que-vender-con-nosotros p {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
   max-width: 900px;
-  margin: 4rem auto;
-  background: #111;
-  padding: 2.5rem;
-  border-radius: 16px;
-  box-shadow: 0 0 25px rgba(178, 34, 34, 0.7);
-  animation: fadeIn 1.2s ease;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.testimonios h2 {
-  color: #ff4d4d;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-  text-shadow: 0 0 10px rgba(255,77,77,0.4);
-}
-
-.testimonio {
-  margin-bottom: 1.5rem;
-  font-style: italic;
-  border-left: 4px solid #B22222;
-  padding-left: 1rem;
-  color: #ddd;
-  position: relative;
-}
-
-.testimonio::before {
-  content: "❝";
-  font-size: 2rem;
-  position: absolute;
-  left: -1.5rem;
-  top: -0.5rem;
-  color: #B22222;
-}
-
-.testimonio:last-child {
-  margin-bottom: 0;
-}
-
-.testimonio strong {
-  display: block;
-  margin-top: 0.5rem;
-  font-style: normal;
-  color: #f5c6cb;
-  font-weight: 700;
-  text-align: right;
-}
-
-/* ==== ANIMACIONES ==== */
+/* Animaciones */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeUp {
-  0% { opacity: 0; transform: translateY(15px); }
+  0% { opacity: 0; transform: translateY(30px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
+/* ========== TARJETAS ========== */
+.tarjetas-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.tarjeta {
+  flex: 1 1 280px;
+  background: linear-gradient(145deg, #1c1c1c, #111);
+  border-left: 5px solid #ff4d4d;
+  padding: 1.8rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(255, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  color: #fff;
+  animation: fadeUp 0.8s ease-out both;
+}
+
+.tarjeta:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 14px 32px rgba(255, 0, 0, 0.35);
+}
+
+.tarjeta h3 {
+  color: #ff6b6b;
+  margin-bottom: 0.6rem;
+  font-size: 1.5rem;
+}
+
+.tarjeta p {
+  color: #ddd;
+  font-size: 1.05rem;
+}
+
+/* ========== TESTIMONIOS ========== */
+.testimonios {
+  background-color: #f9f9f9;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.testimonios h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.testimonio {
+  background-color: #fff;
+  max-width: 600px;
+  margin: 1rem auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonio:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.testimonio strong {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #555;
+}
+
+/* ========== CONÓCENOS ========== */
+.conocenos {
+  padding: 4rem 1rem;
+  background-color: #f9f9f9;
+  text-align: center;
+  color: #222;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.conocenos h3 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #B22222;
+  position: relative;
+  display: inline-block;
+}
+
+.conocenos h3::after {
+  content: '';
+  display: block;
+  width: 60%;
+  height: 3px;
+  background-color: #B22222;
+  margin: 0.5rem auto 0;
+  border-radius: 4px;
+}
+
+.instagram-widget {
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.instagram-widget iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 0;
+}
 
 
-    footer {
-      background-color: #111; /* Fondo oscuro */
-      color: #e0e0e0; /* Texto claro */
-      padding: 2rem 1rem;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+/* ========== FORMULARIO DE CONTACTO ========== */
+.formulario-wrapper {
+  max-width: 700px;
+  margin: 3rem auto;
+  background-color:#000000;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+  color: #fffdfd;
+}
 
-    .footer-container {
-      max-width: 500px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
+.formulario-wrapper h2,
+.formulario-wrapper h3 {
+  margin-bottom: 1rem;
+  color: #fff;
+}
 
-    .map-container iframe {
-      width: 100%;
-      height: 300px;
-      border: 0;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(255, 0, 0, 0.664); /* Sombra roja suave */
-    }
+.formulario-wrapper p {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: #bbb;
+}
 
-    .footer-bottom {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid #333;
-      padding-top: 1rem;
-      font-size: 0.9rem;
-      color: #ece5e5;
-    }
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
 
-    .footer-bottom > div:first-child {
-      flex: 1 1 300px;
-    }
+.form-group input,
+.form-group select,
+textarea {
+  flex: 1 1 45%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
 
-    .social-container {
-      display: flex;
-      gap: 1rem;
-    }
+textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 100px;
+  margin-top: 0.5rem;
+}
 
-    .social-link svg {
-      width: 28px;
-      height: 28px;
-      fill: #ece5e5; /* rojo vibrante */
-      transition: fill 0.3s ease;
-      cursor: pointer;
-    }
+.form-group input:focus,
+.form-group select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
 
-    .social-link:hover svg {
-      fill: #1713d8; /* rojo más oscuro al pasar el mouse */
-    }
+.botones-formulario button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease;
+  margin-top: 1rem;
+}
 
+.botones-formulario button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
 
-/* ======== NUEVOS ESTILOS ======== */
+.btn-wsp {
+  display: inline-block;
+  margin-top: 0.8rem;
+  text-decoration: underline;
+  color: #007bff !important;
+  transition: color 0.3s;
+}
 
+.btn-wsp:hover {
+  color: #0056b3 !important;
+}
 
+/* ========== ANIMACIONES ========== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-
-    footer {
-  background-color: #111; /* Fondo oscuro */
-  color: #e0e0e0; /* Texto claro */
+/* ========== FOOTER ========== */
+footer {
+  background-color: #111;
+  color: #e0e0e0;
   padding: 2rem 1rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .footer-container {
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  align-items: center;
 }
 
 .map-container iframe {
@@ -436,18 +398,41 @@ button:hover {
   height: 300px;
   border: 0;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.664); /* Sombra roja suave */
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+  transition: transform 0.3s ease;
 }
 
-.footer-bottom {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid #333;
-  padding-top: 1rem;
-  font-size: 0.9rem;
-  color: #ece5e5;
+.map-container iframe:hover {
+  transform: scale(1.01);
+}
+
+.botones-mapas {
+  text-align: center;
+}
+
+.btn-mapa {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-mapa:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.google-maps {
+  background-color: #4285F4;
+}
+
+.waze {
+  background-color: #33CCFF;
 }
 
 .footer-bottom > div:first-child {
@@ -462,23 +447,57 @@ button:hover {
 .social-link svg {
   width: 28px;
   height: 28px;
-  fill: #ece5e5; /* rojo vibrante */
+  fill: #ece5e5;
   transition: fill 0.3s ease;
   cursor: pointer;
 }
 
 .social-link:hover svg {
-  fill: #1713d8; /* rojo más oscuro al pasar el mouse */
-}
-.formulario-wrapper {
-  background-color: rgba(0, 0, 0, 0.7); /* Negro semitransparente */
-  padding: 2rem;
-  border-radius: 16px;
-  max-width: 700px;
-  margin: 2rem auto;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  fill: #1713d8;
 }
 
+
+/* Efecto mágico en enlaces del nav */
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: #B22222; /* rojo firebrick */
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #ff6b6b;
+  animation: navGlow 1s infinite alternate;
+}
+
+nav a:hover::before,
+nav a:focus::before {
+  width: 100%;
+}
+
+/* Brillo suave animado */
+@keyframes navGlow {
+  0% {
+    text-shadow: 0 0 5px #ff6b6b, 0 0 10px #b22222, 0 0 15px #ff6b6b;
+  }
+  100% {
+    text-shadow: 0 0 10px #ff6b6b, 0 0 20px #b22222, 0 0 30px #ff6b6b;
+  }
+}
 
 @media (max-width: 768px) {
 
@@ -563,69 +582,79 @@ button:hover {
     z-index: 1100;
   }
 
-  /* === FOOTER RESPONSIVE === */
- /* Footer: centrar texto y ajustar social */
-  footer {
-    padding: 1rem 0.5rem;  /* menos padding arriba y abajo */
-    font-size: 0.85rem;    /* texto un poco más pequeño */
+  #por-que-vender-con-nosotros h2 {
+    font-size: 2rem;
   }
 
-  .footer-container {
-    padding: 0 0.5rem;     /* menos padding lateral */
+  .testimonios h2 {
+    font-size: 1.8rem;
   }
 
-  .footer-bottom {
-    gap: 0.5rem;           /* menos espacio entre elementos */
+  .conocenos h3 {
+    font-size: 1.8rem;
   }
 
-  .social-container svg {
-    width: 20px;           /* íconos sociales más pequeños */
-    height: 20px;
+  .formulario-wrapper {
+    padding: 1.5rem 1.2rem;
   }
-}
 
-/* Efecto mágico en enlaces del nav */
-nav a {
-  color: #fff;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-nav a::before {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background: #B22222; /* rojo firebrick */
-  transition: width 0.3s ease;
-  border-radius: 2px;
-}
-
-nav a:hover,
-nav a:focus {
-  color: #ff6b6b;
-  animation: navGlow 1s infinite alternate;
-}
-
-nav a:hover::before,
-nav a:focus::before {
-  width: 100%;
-}
-
-/* Brillo suave animado */
-@keyframes navGlow {
-  0% {
-    text-shadow: 0 0 5px #ff6b6b, 0 0 10px #b22222, 0 0 15px #ff6b6b;
-  }
-  100% {
-    text-shadow: 0 0 10px #ff6b6b, 0 0 20px #b22222, 0 0 30px #ff6b6b;
+  .map-container iframe {
+    height: 250px;
   }
 }
 
+@media (max-width: 480px) {
+  header {
+    padding: 0.8rem 0;
+  }
+
+  .logo-text .sub {
+    font-size: 1rem;
+  }
+
+  #por-que-vender-con-nosotros h2 {
+    font-size: 1.6rem;
+  }
+
+  #por-que-vender-con-nosotros p {
+    font-size: 1rem;
+  }
+
+  .tarjeta h3 {
+    font-size: 1.3rem;
+  }
+
+  .tarjeta p {
+    font-size: 1rem;
+  }
+
+  .testimonios h2,
+  .conocenos h3 {
+    font-size: 1.6rem;
+  }
+
+  .testimonio {
+    padding: 1.2rem;
+  }
+
+  .formulario-wrapper {
+    padding: 1rem;
+  }
+
+  .btn-mapa {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+
+  .social-link svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .instagram-widget iframe {
+    height: 400px;
+  }
+}
 
 </style>
 </head>
@@ -657,13 +686,44 @@ nav a:focus::before {
   </div>
 </header>
 
+<section id="por-que-vender-con-nosotros" data-animado>
+
+  <h2>¿Por qué vender tu vehículo con Automóviles CYC?</h2>
+  <p>Vender tu auto con nosotros es sencillo y seguro. A continuación te explicamos cómo trabajamos paso a paso:</p>
+
+  <div class="tarjetas-container">
+    <article class="tarjeta">
+      <h3>1. Contacto</h3>
+      <p>Te comunicas con nosotros para contarnos sobre tu vehículo.</p>
+    </article>
+    <article class="tarjeta">
+      <h3>2. Evaluación</h3>
+      <p>Realizamos una revisión gratuita y una tasación justa y transparente.</p>
+    </article>
+    <article class="tarjeta">
+      <h3>3. Oferta</h3>
+      <p>Te presentamos una propuesta clara y competitiva acorde al valor real del mercado.</p>
+    </article>
+    <article class="tarjeta">
+      <h3>4. Trámites</h3>
+      <p>Nos encargamos de gestionar toda la documentación necesaria para la venta.</p>
+    </article>
+    <article class="tarjeta">
+      <h3>5. Pago</h3>
+      <p>Recibes el pago de forma rápida y segura, sin complicaciones.</p>
+    </article>
+    <article class="tarjeta">
+      <h3>6. Entrega</h3>
+      <p>Coordinamos la entrega del vehículo en el lugar y momento que te resulte conveniente.</p>
+    </article>
+  </div>
+
+  <p>Confía en CYC Automóviles para vender tu vehículo con profesionalismo, rapidez y sin sorpresas.</p>
 
 
-
-
-<div class="formulario-wrapper">
+  <div>
+    <div class="formulario-wrapper">
   <form id="miFormulario">
-
  <main class="container1"
     <section id="contacto" aria-label="Formulario para vender vehículo">
       <h2>¿Quieres vender tu vehículo?</h2>
@@ -721,9 +781,26 @@ nav a:focus::before {
       </form>
 
       <div id="mensaje-envio"></div>
+  </div>
+<div class="conocenos">
+  <h3>Conócenos Mejor</h3>
+
+  <!-- Aquí va el widget de Instagram LightWidget -->
+  <div style="max-width: 600px; margin: 1rem auto;">
+    <!-- LightWidget WIDGET -->
+    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+    <iframe src="//lightwidget.com/widgets/bad20f2895975fc2bfffef6365b959c0.html" scrolling="no" 
+      allowtransparency="true" class="lightwidget-widget" 
+      style="width:100%; border:none; overflow:hidden; height: 500px; border-radius: 12px;">
+    </iframe>
+  </div>
     </section>
 
-    <!-- NUEVO: Testimonios -->
+    <!-- todo tu formulario aquí -->
+  </form>
+</div>
+<div>
+      <!-- NUEVO: Testimonios -->
     <section class="testimonios" aria-label="Testimonios de clientes">
       <h2>Qué dicen nuestros clientes</h2>
       <div class="testimonio">
@@ -739,20 +816,26 @@ nav a:focus::before {
         <strong>- Carlos M.</strong>
       </div>
     </section>
-    <!-- todo tu formulario aquí -->
-  </form>
 </div>
   </main>
 
 
 
-  <footer>
+<footer>
     <div class="footer-container">
       <div class="map-container" aria-label="Mapa de ubicación">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.5573962933827!2d-70.55133392352948!3d-33.40870959537717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2sus!4v1753289390461!5m2!1ses!2sus"
-          width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade" title="Ubicación CYC Automóviles"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1459.8017511327735!2d-70.54969373163439!3d-33.409008159664644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e1!3m2!1ses!2sus!4v1753484768412!5m2!1ses!2sus" 
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="botones-mapas">
+  <p>¿Cómo llegar?</p>
+  <a href="https://www.google.com/maps?q=Av.+Apoquindo+7935,+Las+Condes,+Chile" target="_blank" class="btn-mapa google-maps">
+    Abrir en Google Maps
+  </a>
+  <a href="https://waze.com/ul?ll=-33.4090082,-70.5496937&navigate=yes" target="_blank" class="btn-mapa waze">
+    Abrir en Waze
+  </a>
+</div>
+
       </div>
       <div class="footer-bottom">
         <div>

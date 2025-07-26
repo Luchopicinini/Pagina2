@@ -387,9 +387,8 @@ p, ul li {
   outline: none;
 }
 
-
-
-    footer {
+/* FOOTER */
+footer {
   background-color: #111; /* Fondo oscuro */
   color: #e0e0e0; /* Texto claro */
   padding: 2rem 1rem;
@@ -397,11 +396,12 @@ p, ul li {
 }
 
 .footer-container {
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  align-items: center;
 }
 
 .map-container iframe {
@@ -409,19 +409,43 @@ p, ul li {
   height: 300px;
   border: 0;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.664); /* Sombra roja suave */
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4); /* Sombra roja suave */
+  transition: transform 0.3s ease;
+}
+.map-container iframe:hover {
+  transform: scale(1.01);
 }
 
-.footer-bottom {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid #333;
-  padding-top: 1rem;
-  font-size: 0.9rem;
-  color: #ece5e5;
+/* BOTONES DE MAPAS */
+.botones-mapas {
+  text-align: center;
 }
+
+.btn-mapa {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-mapa:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.google-maps {
+  background-color: #4285F4;
+}
+
+.waze {
+  background-color: #33CCFF;
+}
+
 
 .footer-bottom > div:first-child {
   flex: 1 1 300px;
@@ -846,7 +870,44 @@ nav a:focus::before {
           "Unico dueño",
 
         ] 
-      }
+      },
+             //nissankick  
+      "nissankicks": {
+        nombre: "NISSAN KICKS ADVANCE 1.6/ AÑO 2019/ 62.381 KM",
+        imagenes: [
+          "images/Autos/nissan.png"
+        ],
+        descripcion: "",
+        precio: "$11.990.000 CLP",
+        kilometros: "130.000 km",
+        año: "2016",
+        caja: "Automática",
+        combustible: "Bencina",
+        extras: [
+          "Sensores delanteros",
+          " Bluetooth",
+          "Acceso confort con botón encendido"
+        ] 
+      },
+                   //mazdacx3sssss 
+      "mazdacx3": {
+        nombre: "MAZDA CX-30 V 2.0 AT/ AÑO 2022/ 58.000 KM",
+        imagenes: [
+          "images/Autos/mazda.png"
+        ],
+        descripcion: "",
+        precio: "$18.690.000 CLP",
+        kilometros: "58.000 km",
+        año: "2022",
+        caja: "Automática",
+        combustible: "Bencina",
+        extras: [
+          "Conectividad USB",
+          " Bluetooth",
+          "Sistema de infoentretenimiento"
+        ] 
+      } 
+
     };
 
     function obtenerParametro(param) {
@@ -1067,13 +1128,21 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 
-    <footer>
+<footer>
     <div class="footer-container">
       <div class="map-container" aria-label="Mapa de ubicación">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.5573962933827!2d-70.55133392352948!3d-33.40870959537717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2sus!4v1753289390461!5m2!1ses!2sus"
-          width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade" title="Ubicación CYC Automóviles"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1459.8017511327735!2d-70.54969373163439!3d-33.409008159664644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e1!3m2!1ses!2sus!4v1753484768412!5m2!1ses!2sus" 
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="botones-mapas">
+  <p>¿Cómo llegar?</p>
+  <a href="https://www.google.com/maps?q=Av.+Apoquindo+7935,+Las+Condes,+Chile" target="_blank" class="btn-mapa google-maps">
+    Abrir en Google Maps
+  </a>
+  <a href="https://waze.com/ul?ll=-33.4090082,-70.5496937&navigate=yes" target="_blank" class="btn-mapa waze">
+    Abrir en Waze
+  </a>
+</div>
+
       </div>
       <div class="footer-bottom">
         <div>
