@@ -258,7 +258,8 @@
   }
 }
 
-    footer {
+/* FOOTER */
+footer {
   background-color: #111; /* Fondo oscuro */
   color: #e0e0e0; /* Texto claro */
   padding: 2rem 1rem;
@@ -266,11 +267,12 @@
 }
 
 .footer-container {
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  align-items: center;
 }
 
 .map-container iframe {
@@ -278,8 +280,43 @@
   height: 300px;
   border: 0;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.664); /* Sombra roja suave */
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4); /* Sombra roja suave */
+  transition: transform 0.3s ease;
 }
+.map-container iframe:hover {
+  transform: scale(1.01);
+}
+
+/* BOTONES DE MAPAS */
+.botones-mapas {
+  text-align: center;
+}
+
+.btn-mapa {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-mapa:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.google-maps {
+  background-color: #4285F4;
+}
+
+.waze {
+  background-color: #33CCFF;
+}
+
 
 .footer-bottom {
   display: flex;
@@ -308,7 +345,6 @@
   transition: fill 0.3s ease;
   cursor: pointer;
 }
-
 
 .social-link:hover svg {
   fill: #1713d8; /* rojo más oscuro al pasar el mouse */
@@ -412,6 +448,7 @@ nav a:focus::before {
     box-sizing: border-box;
   }
 
+
   nav {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -507,54 +544,161 @@ nav a:focus::before {
   .contenedor-financiamiento {
     flex-direction: column;
     gap: 30px;
-    padding: 0 10px;
+    padding: 0 15px;
+    animation: fadeInUp 0.8s ease forwards;
   }
 
   .columna {
     max-width: 100%;
-    padding: 20px;
+    padding: 25px 20px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(178, 34, 34, 0.15);
+    background: linear-gradient(135deg, #f0f0f0 0%, #c2b5b5 100%);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+  }
+
+  .columna:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 40px rgba(178, 34, 34, 0.25);
   }
 
   #form-financiamiento {
     max-width: 100%;
-    padding: 20px;
+    padding: 25px 20px;
     margin: 20px 10px;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(178, 34, 34, 0.2);
+    background: linear-gradient(145deg, #fdf0f0, #fff9f9);
+    animation: fadeInUp 1s ease forwards;
   }
 
   #form-financiamiento input,
   #form-financiamiento select,
   #form-financiamiento button {
-    font-size: 1rem;
-    padding: 12px;
+    font-size: 1.1rem;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1.5px solid #b22222;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  #form-financiamiento input:focus,
+  #form-financiamiento select:focus {
+    outline: none;
+    border-color: #e03c3c;
+    box-shadow: 0 0 12px rgba(224, 60, 60, 0.6);
+  }
+
+  #form-financiamiento button {
+    background-color: #b22222;
+    box-shadow: 0 8px 20px rgba(178, 34, 34, 0.4);
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 1.1px;
+    transition: background-color 0.3s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  #form-financiamiento button:hover {
+    background-color: #8b1a1a;
+    transform: scale(1.07);
+    box-shadow: 0 12px 30px rgba(139, 26, 26, 0.6);
   }
 
   .financiamiento h2 {
     font-size: 2rem;
+    text-align: center;
+    color: #aa0202;
   }
 
   .financiamiento p {
     font-size: 1rem;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #000000af;
+    font-weight: 500;
+    letter-spacing: 0.03em;
   }
 
   .alerta-importante {
     max-width: 100%;
-    margin: 20px 10px;
-    padding: 15px;
+    margin: 25px 10px;
+    padding: 20px;
+    border-radius: 16px;
+    font-weight: 600;
+    background: #fff5cc;
+    border-left: 8px solid #ff8f44;
+    box-shadow: 0 10px 25px rgba(255, 218, 68, 0.25);
+    color: #000000;
+    animation: fadeIn 1s ease forwards;
   }
 
   .cinta-pagos {
-    padding: 10px 0;
+    padding: 15px 0;
+    background: linear-gradient(90deg, #fff 0%, #f9e5e5 100%);
+    box-shadow: inset 0 0 15px rgba(178, 34, 34, 0.15);
   }
 
   .cinta-track {
-    gap: 20px;
+    gap: 25px;
   }
 
   .cinta-track img {
-    height: 30px;
+    height: 35px;
+    filter: drop-shadow(0 2px 2px rgba(178, 34, 34, 0.3));
+    transition: transform 0.4s ease, filter 0.4s ease;
   }
+
+  .cinta-track img:hover {
+    transform: scale(1.2) rotate(5deg);
+    filter: drop-shadow(0 4px 6px rgba(178, 34, 34, 0.5));
+  }
+
+  /* Animación máquina de escribir */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
 }
 
+@keyframes blinkCaret {
+  0%, 100% { border-color: transparent }
+  50% { border-color: #aa0202 }
+}
+
+/* Aplicar al título y párrafos que quieras animar */
+.financiamiento h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #aa0202;
+  overflow: hidden;           /* Oculta texto desbordado */
+  white-space: nowrap;        /* No rompe línea */
+  border-right: 3px solid #aa0202; /* Cursor */
+  width: 0;                   /* Inicialmente sin ancho */
+  animation:
+    typing 3s steps(30, end) forwards,
+    blinkCaret 0.75s step-end infinite;
+  margin: 0 auto 20px auto;
+  max-width: 20ch;            /* Para controlar la longitud visible */
+}
+
+.financiamiento p.animated-text {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #000000af;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #aa0202;
+  width: 0;
+  animation:
+    typing 4s steps(50, end) forwards,
+    blinkCaret 0.75s step-end infinite;
+  max-width: 40ch;
+  margin: 0 auto 25px auto;
+}
+
+}
 
 </style>
 </head>

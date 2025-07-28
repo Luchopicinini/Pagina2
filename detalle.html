@@ -95,20 +95,22 @@
     }
  
 
-  :root {
-  --color-black: #0a0a0a; /* un negro muy oscuro pero no totalmente puro */
-  --color-white: #f5f5f5; /* blanco suave para no cansar la vista */
-  --color-red: #b22222; /* rojo oscuro firebrick */
-  --color-red-bright: #e03e3e; /* rojo vibrante más profesional */
-  --color-gray-dark: #222; /* gris oscuro para fondos */
-  --color-gray-medium: #555; /* gris medio para textos secundarios */
-  --color-gray-light: #ccc; /* gris claro */
+:root {
+  --color-black: #0a0a0a; /* fondo muy oscuro */
+  --color-white: #f5f5f5; /* blanco suave */
+  --color-red: #b22222; /* rojo firebrick */
+  --color-red-bright: #e03e3e; /* rojo vibrante */
+  --color-gray-dark: #222;
+  --color-gray-medium: #555;
+  --color-gray-light: #ccc;
   --font-main: 'Barlow', sans-serif;
-  --shadow-soft: 0 4px 12px rgba(224, 62, 62, 0.3);
-  --shadow-focus: 0 0 12px rgba(224, 62, 62, 0.7);
-  --transition-speed: 0.3s;
+  --font-alt: 'Poppins', sans-serif;
+  --shadow-soft: 0 8px 24px rgba(178, 34, 34, 0.2);
+  --shadow-hover: 0 10px 30px rgba(224, 62, 62, 0.4);
+  --transition-speed: 0.35s;
 }
 
+/* Reset y base */
 * {
   margin: 0;
   padding: 0;
@@ -119,273 +121,231 @@ body {
   font-family: var(--font-main);
   background-color: var(--color-black);
   color: var(--color-white);
-  line-height: 1.65;
+  line-height: 1.6;
+  font-size: 16px;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
+  -webkit-font-feature-settings: 'liga', 'clig', 'calt';
 }
 
-/* ===== Auto info box ===== */
-.auto-info {
-  background-color: var(--color-gray-dark);
-  border-radius: 1rem;
-  padding: 2.5rem 3rem;
-  box-shadow: var(--shadow-soft);
-  color: var(--color-white);
-  margin-bottom: 3rem;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-  transition: box-shadow var(--transition-speed) ease;
-}
-.auto-info:hover,
-.auto-info:focus-within {
-  box-shadow: var(--shadow-focus);
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.col-lg-6 {
-  margin-top: 6rem; /* o el espacio que prefieras */
+/* Contenedor principal */
+.contenedor-principal {
+  display: flex;
+  max-width: 1100px;
+  margin: 40px auto;
+  gap: 30px;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #181818;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  user-select: none;
+  overflow: hidden;
+  animation: fadeIn 0.6s ease-in-out;
 }
 
-/* Title and price */
-.titulo-auto {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--color-red-bright);
-  margin-bottom: 1.25rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  text-shadow: 0 2px 5px rgba(224, 62, 62, 0.7);
+/* Zona imágenes */
+.img {
+  flex: 1;
+  max-width: 60%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.img:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+}
+
+#carouselExampleControlsNoTouching {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#carouselExampleControlsNoTouching .carousel-inner {
+  height: 420px;
+}
+
+#carouselExampleControlsNoTouching .carousel-item img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+#carouselExampleControlsNoTouching .carousel-item img:hover {
+  transform: scale(1.04);
+}
+
+#carouselExampleControlsNoTouching .carousel-control-prev-icon,
+#carouselExampleControlsNoTouching .carousel-control-next-icon {
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.8));
+  width: 40px;
+  height: 40px;
+}
+
+#carouselExampleControlsNoTouching .carousel-control-prev,
+#carouselExampleControlsNoTouching .carousel-control-next {
+  width: 7%;
+}
+
+/* Contenido lateral */
+.contenido-lateral {
+  flex: 1;
+  max-width: 40%;
+  font-family: 'Segoe UI', sans-serif;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.contenido-lateral h1#tituloAuto {
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: #f0f0f0;
+  letter-spacing: 0.02em;
+}
+
+.badges-container {
+  margin: 10px 0;
+}
+
+.badge-custom {
+  background: #292929;
+  color: #e0e0e0;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  margin-right: 6px;
+  font-weight: 500;
+  box-shadow: none;
+  border: 1px solid #3a3a3a;
+}
+
+.badge-custom:hover {
+  background-color: #333;
 }
 
 .precio {
-  font-size: 2rem;
   font-weight: 700;
-  color: var(--color-red-bright);
-  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #ff4e4e;
   letter-spacing: 0.03em;
+  margin: 10px 0 15px 0;
 }
 
-/* Badge styles */
-.badge-custom {
-  background-color: var(--color-red-bright);
-  color: var(--color-white);
-  font-size: 1rem;
-  margin-right: 0.6rem;
-  padding: 0.5em 1em;
-  border-radius: 0.75rem;
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(224, 62, 62, 0.6);
-  user-select: none;
-  transition: background-color var(--transition-speed) ease;
-}
-
-#badgesAuto {
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-/* Text color for paragraphs and list items */
-p, ul li {
-  color: var(--color-gray-light);
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.6;
-  letter-spacing: 0.02em;
-}
-
-/* Extras section */
-.extras {
-  margin-top: 2rem;
-}
-
-.extras h4 {
-  color: var(--color-red-bright);
-  font-weight: 700;
-  margin-bottom: 1.25rem;
-  font-size: 1.25rem;
-  letter-spacing: 0.04em;
-}
-
-/* Extras list */
-#listaExtras {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-}
-
-#listaExtras li {
-  background-color: var(--color-gray-medium);
-  color: var(--color-white);
-  padding: 0.55rem 1.1rem;
-  border-radius: 0.75rem;
-  cursor: pointer;
-  user-select: none;
-  font-weight: 600;
+.descripcion {
   font-size: 0.95rem;
-  transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  outline-offset: 3px;
-}
-
-#listaExtras li:hover,
-#listaExtras li:focus-visible {
-  background-color: var(--color-red-bright);
-  color: var(--color-white);
-  box-shadow: 0 0 15px rgba(224, 62, 62, 0.8);
-  outline: none;
-}
-
-#listaExtras li.selected {
-  background-color: var(--color-red-bright);
-  color: var(--color-white);
-  box-shadow: 0 0 18px rgba(255, 23, 68, 0.9);
-}
-
-/* Buttons container */
-.btn-container {
-  margin-top: 2.2rem;
-  display: flex;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* Button base */
-.btn-principal,
-.btn-volver {
-  flex: 1 1 180px;
-  max-width: 280px;
-  background-color: var(--color-white);
-  color: var(--color-black);
-  border: 3px solid var(--color-red-bright);
-  font-weight: 700;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
-  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-  box-shadow: 0 4px 14px rgba(224, 62, 62, 0.45);
-  text-decoration: none;
-  text-align: center;
-  font-size: 1.1rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  user-select: none;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.btn-principal:hover,
-.btn-volver:hover,
-.btn-principal:focus-visible,
-.btn-volver:focus-visible {
-  background-color: var(--color-red-bright);
-  color: var(--color-black);
-  box-shadow: 0 0 22px rgba(255, 23, 68, 0.95);
-  cursor: pointer;
-  outline: none;
-}
-
-/* Carousel image */
-.carousel-item img {
-  object-fit: cover;
-  height: 450px;
-  border-radius: 1rem;
-  box-shadow: 0 6px 28px rgba(224, 62, 62, 0.75);
-  transition: transform 0.3s ease;
-}
-
-.carousel-item img:hover {
-  transform: scale(1.02);
-}
-
-/* Card autos */
-.card-auto {
-  background-color: var(--color-gray-dark);
-  border-radius: 1rem;
-  box-shadow: var(--shadow-soft);
-  color: var(--color-white);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  user-select: none;
-}
-
-.card-auto:hover,
-.card-auto:focus-within {
-  transform: scale(1.06);
-  box-shadow: var(--shadow-focus);
-  outline: none;
-}
-
-.card-auto img {
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  height: 180px;
-  object-fit: cover;
-  width: 100%;
-  user-select: none;
-}
-
-.card-body-auto {
-  padding: 1.25rem 1.5rem;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.card-body-auto h5 {
-  color: var(--color-red-bright);
-  font-weight: 800;
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.04em;
-}
-
-.card-body-auto p {
-  color: var(--color-gray-light);
-  font-weight: 600;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  flex-grow: 1;
+  color: #ccc;
   line-height: 1.5;
-  letter-spacing: 0.02em;
+  max-height: 130px;
+  overflow-y: auto;
+  padding-right: 10px;
 }
 
-/* Button "ver detalle" en cards */
-.btn-ver-detalle {
-  background-color: var(--color-white);
-  color: var(--color-black);
-  border: 3px solid var(--color-red-bright);
-  font-weight: 700;
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.75rem;
-  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  user-select: none;
-  box-shadow: 0 3px 10px rgba(224, 62, 62, 0.6);
+.descripcion::-webkit-scrollbar {
+  width: 6px;
+}
+.descripcion::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 10px;
 }
 
-.btn-ver-detalle:hover,
-.btn-ver-detalle:focus-visible {
-  background-color: var(--color-red-bright);
-  color: var(--color-black);
-  box-shadow: 0 0 18px rgba(255, 23, 68, 0.95);
+/* Lista de extras */
+.extras-list {
+  list-style: disc inside;
+  margin: 15px 0 30px 0;
+  color: #bbb;
+  max-width: 100%;
+}
+
+.extras-list li {
   cursor: pointer;
-  outline: none;
+  padding: 6px 0;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  transition: color 0.3s ease;
 }
+
+.extras-list li:hover {
+  color: #ff4e4e;
+}
+
+.extras-list li.selected {
+  font-weight: 700;
+  color: #ff4e4e;
+  background-color: rgba(255, 78, 78, 0.1);
+  border-radius: 6px;
+}
+
+/* Botones */
+.botones-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.botones-container a.btn {
+  padding: 10px 18px;
+  background-color: #ff4e4e;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(255, 78, 78, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.botones-container a.btn:hover {
+  background-color: #ff6666;
+  box-shadow: 0 8px 20px rgba(255, 78, 78, 0.4);
+}
+
+.botones-container a.btn.btn-volver {
+  background-color: #444;
+  box-shadow: 0 3px 8px rgba(100, 100, 100, 0.4);
+}
+
+.botones-container a.btn.btn-volver:hover {
+  background-color: #666;
+  box-shadow: 0 5px 12px rgba(136, 136, 136, 0.5);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contenedor-principal {
+    flex-direction: column;
+    max-width: 95%;
+    margin: 20px auto;
+    padding: 0 10px;
+  }
+  .img, .contenido-lateral {
+    max-width: 100%;
+    flex: none;
+  }
+  #carouselExampleControlsNoTouching .carousel-inner {
+    height: 280px;
+  }
+  .contenido-lateral h1#tituloAuto {
+    font-size: 1.4rem;
+  }
+  .precio {
+    font-size: 1.3rem;
+  }
+}
+
+
 
 /* FOOTER */
 footer {
@@ -466,13 +426,6 @@ footer {
 
 .social-link:hover svg {
   fill: #1713d8; /* rojo más oscuro al pasar el mouse */
-}
-
-    /* ============ RESPONSIVE STYLES ============ */
-@media (max-width: 1024px) {
-  .carousel-item img {
-    height: 400px;
-  }
 }
 
 @media (max-width: 768px) {
@@ -581,33 +534,8 @@ footer {
     box-shadow: 0 0 10px #d32f2f;
     z-index: 1100;
   }
-       .carousel-item img {
-    height: 320px;
-  }
 
-  .titulo-auto {
-    font-size: 1.6rem;
-  }
 
-  .precio {
-    font-size: 1.5rem;
-  }
-
-  .btn-principal,
-  .btn-volver {
-    flex: 1 1 100%;
-    max-width: 100%;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-  }
-
-  .card-auto {
-    margin-bottom: 1.5rem;
-  }
-
-  .card-body-auto h5 {
-    font-size: 1rem;
-  }
 
 }
 
@@ -685,42 +613,44 @@ nav a:focus::before {
 </header>
 <body>
 
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-lg-6">
-        <div id="carouselAuto" class="carousel slide" data-bs-ride="carousel" aria-label="Galería de imágenes del auto">
-          <div class="carousel-inner rounded-3 shadow-sm">
-            <!-- imágenes se cargan por JS -->
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselAuto" data-bs-slide="prev" aria-label="Anterior">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselAuto" data-bs-slide="next" aria-label="Siguiente">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          </button>
-        </div>
 
-        <div class="btn-container mt-3" id="botonesDebajoImagen">
-          <!-- botones por JS -->
-        </div>
-      </div>
 
-      <div class="col-lg-6">
-        <section class="auto-info" aria-labelledby="titulo-auto">
-          <h1 class="titulo-auto" id="tituloAuto"></h1>
-          <div id="badgesAuto" aria-label="Características del auto"></div>
-          <p class="precio" id="precioAuto"></p>
-          <p id="descripcionAuto"></p>
-          <div class="extras" aria-label="Extras destacados">
-            <h4>Extras destacados</h4>
-            <ul id="listaExtras" role="list" aria-label="Lista de extras seleccionables"></ul>
-          </div>
-        </section>
+<div class="contenedor-principal">
+  <section class="img">
+    <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
+      <div class="carousel-inner">
+        <!-- Items del carrusel -->
       </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
+    <!-- Extras debajo del carrusel -->
+    <ul class="extras-list" id="listaExtras"></ul>
+  </section>
+
+  <section class="contenido-lateral">
+    <h1 id="tituloAuto"></h1>
+    <div class="badges-container" id="badgesAuto"></div>
+    <div class="precio" id="precioAuto"></div>
+    <div class="descripcion" id="descripcionAuto"></div>
+    <div class="botones-container" id="botonesDebajoImagen"></div>
+  </section>
+</div>
 
 
-  </div>
+
+
+
+
+
+  
+
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -1128,6 +1058,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 </script>
+
 
 
 <footer>

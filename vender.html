@@ -108,256 +108,234 @@ nav a:hover {
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
-
-/* ========== SECCIÓN: ¿POR QUÉ VENDER CON NOSOTROS? ========== */
 #por-que-vender-con-nosotros {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  color: #333;
-  background-color: #f9f9f9;
-  border-radius: 1rem;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 1s ease-in-out both;
-  text-align: center;
+  max-width: 80%;
+  margin: 3rem auto;
+  padding: 2.5rem 2rem 3rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  background-color: #121212;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(178, 34, 34, 0.3);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
 }
 
 #por-que-vender-con-nosotros h2 {
   font-size: 2.8rem;
-  margin-bottom: 1.2rem;
-  color: #B22222; /* rojo oscuro elegante */
-  text-shadow: 1px 1px 0 #fff;
-  animation: fadeUp 1s ease-in-out both;
+  color: #e0e0e0;
+  text-align: center;
+  margin-bottom: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  animation: fadeInDown 1s ease forwards;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
 }
 
-#por-que-vender-con-nosotros p {
-  font-size: 1.25rem;
-  color: #555;
-  margin-bottom: 2.5rem;
-  line-height: 1.8;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Animaciones */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeUp {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-/* ========== TARJETAS ========== */
+#por-que-vender-con-nosotros > p:first-of-type,
+#por-que-vender-con-nosotros > p:last-of-type,
 .tarjetas-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-fill-mode: forwards;
 }
+
+#por-que-vender-con-nosotros > p:first-of-type { animation-delay: 0.5s; max-width: 750px; margin: 0 auto 3rem; font-size: 1.2rem; color: #ccc; text-align: center; line-height: 1.6; }
+#por-que-vender-con-nosotros > p:last-of-type  { animation-delay: 1s; margin-top: 3rem; font-size: 1.2rem; color: #ddd; text-align: center; font-weight: 600; letter-spacing: 0.02em; line-height: 1.6; }
+.tarjetas-container { animation-delay: 0.7s; display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
 
 .tarjeta {
-  flex: 1 1 280px;
-  background: linear-gradient(145deg, #1c1c1c, #111);
-  border-left: 5px solid #ff4d4d;
-  padding: 1.8rem;
+  background: #b30000f1;
+  border: 2px solid #5c5a5a;
   border-radius: 14px;
-  box-shadow: 0 6px 16px rgba(255, 0, 0, 0.2);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  color: #fff;
-  animation: fadeUp 0.8s ease-out both;
+  padding: 1.8rem 2rem;
+  flex: 1 1 280px;
+  color: #000;
+  box-shadow: 0 4px 10px rgba(178, 34, 34, 0.15);
+  cursor: default;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .tarjeta:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 14px 32px rgba(255, 0, 0, 0.35);
+  border-color: #ff4d4d;
+  box-shadow: 0 8px 20px rgba(255, 77, 77, 0.4);
+  transform: translateY(-6px);
 }
 
 .tarjeta h3 {
-  color: #ff6b6b;
-  margin-bottom: 0.6rem;
   font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+  color: #000;
 }
 
 .tarjeta p {
-  color: #ddd;
   font-size: 1.05rem;
+  line-height: 1.5;
+  color: #333;
 }
 
-/* ========== TESTIMONIOS ========== */
-.testimonios {
-  background-color: #f9f9f9;
-  padding: 4rem 2rem;
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInDown { to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { to { opacity: 1; } }
+
+
+
+main.container1 {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  animation: fadeIn 1s ease-in-out;
+  border-radius: 15rem;
+  border-color: #000;
+}
+
+/* Sección de formulario */
+#contacto {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  animation: slideUp 0.8s ease-in-out;
+}
+
+#contacto h2, #contacto h3 {
+  color: #B22222;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
+#contacto p {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.formulario .form-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+  flex: 1 1 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fdfdfd;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+  border-color: #B22222;
+  box-shadow: 0 0 5px rgba(178, 34, 34, 0.3);
+  outline: none;
+}
+
+.formulario select {
+  appearance: none;
+}
+
+.formulario textarea {
+  resize: vertical;
+}
+
+.botones-formulario {
+  text-align: center;
+  margin-top: 1rem;
+  animation: fadeUp 1s ease forwards;
+}
+
+.botones-formulario button {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #B22222;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.botones-formulario button:hover {
+  background-color: #8b1a1a;
+  transform: scale(1.05);
+}
+
+/* WhatsApp link */
+.btn-wsp {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  background-color: #25d366;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn-wsp:hover {
+  background-color: #1da851;
+  transform: scale(1.05);
+}
+
+/* Testimonios */
+.testimonios {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 1s ease-in;
+}
+
 .testimonios h2 {
-  font-size: 2.2rem;
-  margin-bottom: 2rem;
   color: #333;
-  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
 .testimonio {
-  background-color: #fff;
-  max-width: 600px;
-  margin: 1rem auto;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.testimonio:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  margin-bottom: 1.25rem;
+  font-style: italic;
+  border-left: 4px solid #B22222;
+  padding-left: 1rem;
+  color: #444;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.3s;
 }
 
 .testimonio strong {
   display: block;
-  margin-top: 1rem;
-  font-weight: bold;
-  color: #555;
-}
-
-/* ========== CONÓCENOS ========== */
-.conocenos {
-  padding: 4rem 1rem;
-  background-color: #f9f9f9;
-  text-align: center;
-  color: #222;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.conocenos h3 {
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
-  color: #B22222;
-  position: relative;
-  display: inline-block;
-}
-
-.conocenos h3::after {
-  content: '';
-  display: block;
-  width: 60%;
-  height: 3px;
-  background-color: #B22222;
-  margin: 0.5rem auto 0;
-  border-radius: 4px;
-}
-
-.instagram-widget {
-  max-width: 600px;
-  margin: 0 auto;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.instagram-widget iframe {
-  width: 100%;
-  height: 500px;
-  border: none;
-  border-radius: 0;
-}
-
-
-/* ========== FORMULARIO DE CONTACTO ========== */
-.formulario-wrapper {
-  max-width: 700px;
-  margin: 3rem auto;
-  background-color:#000000;
-  padding: 2rem 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  font-family: 'Segoe UI', sans-serif;
-  color: #fffdfd;
-}
-
-.formulario-wrapper h2,
-.formulario-wrapper h3 {
-  margin-bottom: 1rem;
-  color: #fff;
-}
-
-.formulario-wrapper p {
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
-  color: #bbb;
-}
-
-.form-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1.2rem;
-}
-
-.form-group input,
-.form-group select,
-textarea {
-  flex: 1 1 45%;
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-textarea {
-  width: 100%;
-  resize: vertical;
-  min-height: 100px;
   margin-top: 0.5rem;
+  font-style: normal;
+  color: #B22222;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-textarea:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
-}
-
-.botones-formulario button {
-  background-color: #007bff;
-  color: white;
-  padding: 0.9rem 2rem;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s ease;
-  margin-top: 1rem;
-}
-
-.botones-formulario button:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px);
-}
-
-.btn-wsp {
-  display: inline-block;
-  margin-top: 0.8rem;
-  text-decoration: underline;
-  color: #007bff !important;
-  transition: color 0.3s;
-}
-
-.btn-wsp:hover {
-  color: #0056b3 !important;
-}
-
-/* ========== ANIMACIONES ========== */
+/* Animaciones */
 @keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -366,15 +344,103 @@ textarea:focus {
 }
 
 @keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
+/* Sección Instagram */
+.instagram-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.instagram-section h3 {
+  font-size: 1.8rem;
+  color: #B22222;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+  animation: fadeUp 0.8s ease-in-out;
+}
+
+.instagram-section h3::after {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 3px;
+  background-color: #B22222;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+.instagram-widget {
+  max-width: 600px;
+  margin: 1rem auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  animation: slideUp 1s ease-in-out;
+}
+
+.instagram-widget iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 12px;
+}
+
+/* Ocultamos inicialmente */
+#por-que-vender-con-nosotros,
+#por-que-vender-con-nosotros h2,
+#por-que-vender-con-nosotros p,
+#por-que-vender-con-nosotros .tarjeta {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+/* Clase mágica: cuando se hace visible */
+#por-que-vender-con-nosotros.visible,
+#por-que-vender-con-nosotros.visible h2,
+#por-que-vender-con-nosotros p.visible,
+#por-que-vender-con-nosotros .tarjeta.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Estado inicial: oculto y desplazado */
+#formulario-contacto,
+#conocenos,
+#formulario-contacto input,
+#formulario-contacto textarea,
+#formulario-contacto button,
+#conocenos h2,
+#conocenos p,
+#conocenos div {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+/* Estado visible */
+#formulario-contacto.visible,
+#formulario-contacto input.visible,
+#formulario-contacto textarea.visible,
+#formulario-contacto button.visible,
+#conocenos.visible,
+#conocenos h2.visible,
+#conocenos p.visible,
+#conocenos div.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
 
 /* ========== FOOTER ========== */
 footer {
@@ -721,146 +787,143 @@ nav a:focus::before {
   </div>
 
   <p>Confía en CYC Automóviles para vender tu vehículo con profesionalismo, rapidez y sin sorpresas.</p>
+  
+</section>
 
+<main class="container1">
 
-  <div>
-    <div class="formulario-wrapper">
-  <form id="miFormulario">
- <main class="container1"
-    <section id="contacto" aria-label="Formulario para vender vehículo">
-      <h2>¿Quieres vender tu vehículo?</h2>
-      <p>Déjanos tus datos y te contactaremos.</p>
+  <section id="contacto" aria-label="Formulario para vender vehículo">
+    <h2>¿Quieres vender tu vehículo?</h2>
+    <p>Déjanos tus datos y te contactaremos.</p>
 
-      <form id="formulario" class="formulario" novalidate>
-        <!-- DATOS PERSONALES -->
-        <div class="form-group">
-          <input type="text" name="nombre" id="nombre" placeholder="Nombre" required />
-          <input type="text" name="apellido" placeholder="Apellido" required />
-        </div>
-        <div class="form-group">
-          <input type="email" name="email" placeholder="Correo electrónico" required />
-        </div>
-        <div class="form-group">
-          <input type="tel" name="telefono" placeholder="Teléfono" required />
-        </div>
+    <form id="miFormulario" class="formulario" novalidate>
+      <!-- DATOS PERSONALES -->
+      <div class="form-group">
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre" required />
+        <input type="text" name="apellido" placeholder="Apellido" required />
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Correo electrónico" required />
+      </div>
+      <div class="form-group">
+        <input type="tel" name="telefono" placeholder="Teléfono" required />
+      </div>
 
-        <!-- DATOS DEL VEHÍCULO -->
-        <h3>Información del vehículo</h3>
-        <div class="form-group">
-          <input type="text" name="marca" id="marca" placeholder="Marca" required />
-          <input type="text" name="modelo" placeholder="Modelo" required />
-        </div>
+      <!-- DATOS DEL VEHÍCULO -->
+      <h3>Información del vehículo</h3>
+      <div class="form-group">
+        <input type="text" name="marca" id="marca" placeholder="Marca" required />
+        <input type="text" name="modelo" placeholder="Modelo" required />
+      </div>
 
-        <div class="form-group">
-          <label for="anio">Año del vehículo</label>
-          <select id="anio" name="anio" required></select>
-        </div>
+      <div class="form-group">
+        <label for="anio">Año del vehículo</label>
+        <select id="anio" name="anio" required></select>
+      </div>
 
-        <div class="form-group">
-          <select name="combustible" required>
-            <option value="" disabled selected>Tipo de combustible</option>
-            <option value="Gasolina">Gasolina</option>
-            <option value="Diésel">Diésel</option>
-            <option value="Eléctrico">Eléctrico</option>
-            <option value="Híbrido">Híbrido</option>
-          </select>
+      <div class="form-group">
+        <select name="combustible" required>
+          <option value="" disabled selected>Tipo de combustible</option>
+          <option value="Gasolina">Gasolina</option>
+          <option value="Diésel">Diésel</option>
+          <option value="Eléctrico">Eléctrico</option>
+          <option value="Híbrido">Híbrido</option>
+        </select>
 
-          <select name="transmision" required>
-            <option value="" disabled selected>Tipo de transmisión</option>
-            <option value="Manual">Manual</option>
-            <option value="Automática">Automática</option>
-            <option value="CVT">CVT</option>
-          </select>
-        </div>
+        <select name="transmision" required>
+          <option value="" disabled selected>Tipo de transmisión</option>
+          <option value="Manual">Manual</option>
+          <option value="Automática">Automática</option>
+          <option value="CVT">CVT</option>
+        </select>
+      </div>
 
-        <textarea name="comentarios" placeholder="Información adicional..." rows="4"></textarea>
+      <textarea name="comentarios" placeholder="Información adicional..." rows="4"></textarea>
 
-        <p>¿Prefieres atención directa? <a class="btn-wsp" href="https://wa.me/56912345678" target="_blank" rel="noopener" style="color:#ffffff;">Contáctanos por WhatsApp</a></p>
+      <p>¿Prefieres atención directa? 
+        <a class="btn-wsp" href="https://wa.me/56912345678" target="_blank" rel="noopener" style="color:#ffffff;">Contáctanos por WhatsApp</a>
+      </p>
 
-        <div class="botones-formulario">
-          <button type="submit">Enviar</button>
-        </div>
-      </form>
+      <div class="botones-formulario">
+        <button type="submit">Enviar</button>
+      </div>
+    </form>
 
-      <div id="mensaje-envio"></div>
-  </div>
-<div class="conocenos">
+    <div id="mensaje-envio"></div>
+  </section>
+
+  <section class="testimonios" aria-label="Testimonios de clientes">
+    <h2>Qué dicen nuestros clientes</h2>
+    <div class="testimonio">
+      "Excelente atención y asesoría en la compra de mi auto. Muy recomendable."
+      <strong>- Juan P.</strong>
+    </div>
+    <div class="testimonio">
+      "Me ayudaron a vender mi vehículo rápido y con un buen precio. Gracias equipo CYC!"
+      <strong>- María L.</strong>
+    </div>
+    <div class="testimonio">
+      "Gran variedad de autos y precios competitivos. Siempre vuelvo por mi próximo vehículo."
+      <strong>- Carlos M.</strong>
+    </div>
+  </section>
+
+</main>
+
+<section class="instagram-section">
   <h3>Conócenos Mejor</h3>
 
-  <!-- Aquí va el widget de Instagram LightWidget -->
-  <div style="max-width: 600px; margin: 1rem auto;">
-    <!-- LightWidget WIDGET -->
+  <!-- Widget Instagram LightWidget -->
+  <div class="instagram-widget">
     <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
-    <iframe src="//lightwidget.com/widgets/bad20f2895975fc2bfffef6365b959c0.html" scrolling="no" 
-      allowtransparency="true" class="lightwidget-widget" 
-      style="width:100%; border:none; overflow:hidden; height: 500px; border-radius: 12px;">
+    <iframe 
+      src="//lightwidget.com/widgets/bad20f2895975fc2bfffef6365b959c0.html"
+      scrolling="no"
+      allowtransparency="true"
+      class="lightwidget-widget">
     </iframe>
   </div>
-    </section>
-
-    <!-- todo tu formulario aquí -->
-  </form>
-</div>
-<div>
-      <!-- NUEVO: Testimonios -->
-    <section class="testimonios" aria-label="Testimonios de clientes">
-      <h2>Qué dicen nuestros clientes</h2>
-      <div class="testimonio">
-        "Excelente atención y asesoría en la compra de mi auto. Muy recomendable."
-        <strong>- Juan P.</strong>
-      </div>
-      <div class="testimonio">
-        "Me ayudaron a vender mi vehículo rápido y con un buen precio. Gracias equipo CYC!"
-        <strong>- María L.</strong>
-      </div>
-      <div class="testimonio">
-        "Gran variedad de autos y precios competitivos. Siempre vuelvo por mi próximo vehículo."
-        <strong>- Carlos M.</strong>
-      </div>
-    </section>
-</div>
-  </main>
-
+</section>
 
 
 <footer>
-    <div class="footer-container">
-      <div class="map-container" aria-label="Mapa de ubicación">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1459.8017511327735!2d-70.54969373163439!3d-33.409008159664644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e1!3m2!1ses!2sus!4v1753484768412!5m2!1ses!2sus" 
+  <div class="footer-container">
+    <div class="map-container" aria-label="Mapa de ubicación">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1459.8017511327735!2d-70.54969373163439!3d-33.409008159664644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e1!3m2!1ses!2sus!4v1753484768412!5m2!1ses!2sus" 
         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="botones-mapas">
-  <p>¿Cómo llegar?</p>
-  <a href="https://www.google.com/maps?q=Av.+Apoquindo+7935,+Las+Condes,+Chile" target="_blank" class="btn-mapa google-maps">
-    Abrir en Google Maps
-  </a>
-  <a href="https://waze.com/ul?ll=-33.4090082,-70.5496937&navigate=yes" target="_blank" class="btn-mapa waze">
-    Abrir en Waze
-  </a>
-</div>
-
+      <div class="botones-mapas">
+        <p>¿Cómo llegar?</p>
+        <a href="https://www.google.com/maps?q=Av.+Apoquindo+7935,+Las+Condes,+Chile" target="_blank" class="btn-mapa google-maps">
+          Abrir en Google Maps
+        </a>
+        <a href="https://waze.com/ul?ll=-33.4090082,-70.5496937&navigate=yes" target="_blank" class="btn-mapa waze">
+          Abrir en Waze
+        </a>
       </div>
-      <div class="footer-bottom">
-        <div>
-          © 2025 CYC Automóviles. All rights reserved. <br>
-          Built & secured by <a href="mailto:picininiluciano@gmail.com" style="color: #cc0404; text-decoration: none;">Luciano</a>.
-        </div>
-        <div class="social-container" aria-label="Redes sociales">
-          <!-- Facebook -->
+    </div>
+    <div class="footer-bottom">
+      <div>
+        © 2025 CYC Automóviles. All rights reserved. <br />
+        Built & secured by <a href="mailto:picininiluciano@gmail.com" style="color: #cc0404; text-decoration: none;">Luciano</a>.
+      </div>
+      <div class="social-container" aria-label="Redes sociales">
+        <!-- Facebook -->
         <a href="https://www.facebook.com/automoviles.cyc.2025" class="social-link" target="_blank"
           rel="noopener noreferrer" aria-label="Facebook">
           <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-              alt="Facebook" width="32" height="32" style="border-radius: 4px;" />
+            alt="Facebook" width="32" height="32" style="border-radius: 4px;" />
         </a>
-          <!-- Instagram -->
-         <a href="https://www.instagram.com/cycautomoviles_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank"
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/cycautomoviles_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank"
           rel="noopener noreferrer" aria-label="Instagram">
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
-              alt="Instagram" width="32" height="32" style="border-radius: 8px;" />
+            alt="Instagram" width="32" height="32" style="border-radius: 8px;" />
         </a>
-        </div>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
+
 <script>
     // Rellenar select años del vehículo
     const anioSelect = document.getElementById("anio");
@@ -995,5 +1058,81 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 </script>
+
+<script>
+  // Detecta elementos visibles al hacer scroll
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top <= window.innerHeight * 0.85 &&
+      rect.bottom >= 0
+    );
+  }
+
+  function revealOnScroll() {
+    const section = document.querySelector('#por-que-vender-con-nosotros');
+    const tarjetas = document.querySelectorAll('.tarjeta');
+    const parrafos = section.querySelectorAll('p');
+    const h2 = section.querySelector('h2');
+
+    if (section && isInViewport(section)) {
+      section.classList.add('visible');
+      h2.classList.add('visible');
+
+      // Revela cada párrafo con delay
+      parrafos.forEach((p, i) => {
+        setTimeout(() => {
+          p.classList.add('visible');
+        }, 300 + i * 300);
+      });
+
+      // Revela cada tarjeta con efecto "staggered"
+      tarjetas.forEach((card, i) => {
+        setTimeout(() => {
+          card.classList.add('visible');
+        }, 800 + i * 200);
+      });
+
+      // Solo una vez
+      window.removeEventListener('scroll', revealOnScroll);
+    }
+  }
+
+  // Espera al cargar el DOM
+  document.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // Por si ya está visible
+  });
+</script>
+<script>
+  function revealSection(selector, delay = 0) {
+    const section = document.querySelector(selector);
+    if (!section || section.classList.contains('visible')) return;
+
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= window.innerHeight * 0.85 && rect.bottom >= 0) {
+      section.classList.add('visible');
+
+      // Si contiene hijos como campos del formulario, animarlos también
+      const children = section.querySelectorAll('input, textarea, button, h2, p, div');
+      children.forEach((el, i) => {
+        setTimeout(() => {
+          el.classList.add('visible');
+        }, delay + i * 150);
+      });
+    }
+  }
+
+  function handleScrollReveal() {
+    revealSection('#formulario-contacto');
+    revealSection('#conocenos', 300);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('scroll', handleScrollReveal);
+    handleScrollReveal();
+  });
+</script>
+
 </body>
 </html>
