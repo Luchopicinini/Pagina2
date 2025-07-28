@@ -322,31 +322,6 @@ body {
 }
 
 
-/* Responsive */
-@media (max-width: 768px) {
-  .contenedor-principal {
-    flex-direction: column;
-    max-width: 95%;
-    margin: 20px auto;
-    padding: 0 10px;
-  }
-  .img, .contenido-lateral {
-    max-width: 100%;
-    flex: none;
-  }
-  #carouselExampleControlsNoTouching .carousel-inner {
-    height: 280px;
-  }
-  .contenido-lateral h1#tituloAuto {
-    font-size: 1.4rem;
-  }
-  .precio {
-    font-size: 1.3rem;
-  }
-}
-
-
-
 /* FOOTER */
 footer {
   background-color: #111; /* Fondo oscuro */
@@ -429,33 +404,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .carousel-item img {
-    height: 320px;
-  }
-
-  .titulo-auto {
-    font-size: 1.6rem;
-  }
-
-  .precio {
-    font-size: 1.5rem;
-  }
-
-  .btn-principal,
-  .btn-volver {
-    flex: 1 1 100%;
-    max-width: 100%;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-  }
-
-  .card-auto {
-    margin-bottom: 1.5rem;
-  }
-
-  .card-body-auto h5 {
-    font-size: 1rem;
-  }
  /* Box-sizing para todo */
   *,
   *::before,
@@ -534,6 +482,50 @@ footer {
     box-shadow: 0 0 10px #d32f2f;
     z-index: 1100;
   }
+
+   .contenedor-principal {
+    flex-direction: column;
+    max-width: 95%;
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .img {
+    max-width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  }
+
+  .contenido-lateral {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .precio {
+    font-size: 1.3rem;
+  }
+
+  .contenido-lateral h1#tituloAuto {
+    font-size: 1.5rem;
+  }
+
+  /* Ajustar botones para que ocupen todo el ancho en móvil */
+  .botones-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .botones-container a.btn {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 1rem;
+  }
+
+  /* Scrollbar un poco más grande para facilidad en móvil */
+  .descripcion::-webkit-scrollbar {
+    width: 8px;
+  }
+}
 
 
 
