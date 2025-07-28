@@ -115,6 +115,99 @@
 
 
 
+    /* Estilos generales para la sección */
+.financiamiento {
+  background-color: #f4f4f4;
+  padding: 4rem 2rem;
+  text-align: center;
+  font-family: 'Barlow', sans-serif;
+  color: #222;
+}
+
+.financiamiento-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.financiamiento-container:hover {
+  transform: translateY(-5px);
+}
+
+/* Títulos */
+.financiamiento h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #b22222;
+}
+
+.financiamiento p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+/* Formulario */
+#form-financiamiento input,
+#form-financiamiento select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+#form-financiamiento input:focus,
+#form-financiamiento select:focus {
+  border-color: #b22222;
+  box-shadow: 0 0 5px rgba(178, 34, 34, 0.3);
+  outline: none;
+}
+
+/* Botón */
+#form-financiamiento button {
+  background-color: #b22222;
+  color: white;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#form-financiamiento button:hover {
+  background-color: #8a1a1a;
+  transform: scale(1.03);
+}
+
+/* Mensaje de respuesta */
+#mensaje-respuesta {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: green;
+}
+
+.financiamiento-container {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
     footer {
   background-color: #111; /* Fondo oscuro */
   color: #e0e0e0; /* Texto claro */
@@ -166,9 +259,19 @@
   cursor: pointer;
 }
 
+
 .social-link:hover svg {
   fill: #1713d8; /* rojo más oscuro al pasar el mouse */
 }
+
+.webpay-container {
+  display: flex;
+  align-items: flex-end;
+}
+.webpay {
+  height: 500px;
+}
+
 
 @media (max-width: 768px) {
 
@@ -305,125 +408,7 @@ nav a:focus::before {
   width: 100%;
 }
 
-/* Brillo suave animado */
-@keyframes navGlow {
-  0% {
-    text-shadow: 0 0 5px #ff6b6b, 0 0 10px #b22222, 0 0 15px #ff6b6b;
-  }
-  100% {
-    text-shadow: 0 0 10px #ff6b6b, 0 0 20px #b22222, 0 0 30px #ff6b6b;
-  }
-}
 
-[data-animado] {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-[data-animado].activo {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#por-que-vender-con-nosotros {
-  padding: 3rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  color: #f8f8f8;
-  animation: fadeIn 1s ease;
-}
-
-#por-que-vender-con-nosotros h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  color: #ff4d4d;
-  text-shadow: 0 0 12px rgba(255, 0, 0, 0.3);
-  animation: fadeUp 0.8s ease-out both;
-}
-
-#por-que-vender-con-nosotros p {
-  text-align: center;
-  margin-bottom: 2.5rem;
-  font-size: 1.2rem;
-  color: #ddd;
-}
-
-/* Contenedor de tarjetas */
-.tarjetas-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-/* Estilo de cada tarjeta */
-.tarjeta {
-  flex: 1 1 280px;
-  background: linear-gradient(145deg, #1c1c1c, #111);
-  border-left: 5px solid #ff4d4d;
-  padding: 1.8rem;
-  border-radius: 14px;
-  box-shadow: 0 6px 16px rgba(255, 0, 0, 0.2);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  color: #fff;
-  animation: fadeUp 0.8s ease-out both;
-}
-
-.tarjeta:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 14px 32px rgba(255, 0, 0, 0.35);
-}
-
-.tarjeta h3 {
-  color: #ff6b6b;
-  margin-bottom: 0.6rem;
-  font-size: 1.5rem;
-}
-
-.tarjeta p {
-  color: #ddd;
-  font-size: 1.05rem;
-}
-
-/* Conócenos */
-.conocenos {
-  background: #1e1e1e;
-  border: 1px solid #444;
-  border-radius: 12px;
-  padding: 2rem;
-  margin-top: 2rem;
-  box-shadow: 0 4px 20px rgba(255, 0, 0, 0.05);
-  animation: fadeUp 1s ease-out both;
-}
-
-.conocenos h3 {
-  font-size: 1.7rem;
-  color: #ff4d4d;
-  margin-bottom: 1rem;
-  text-shadow: 0 0 8px #ff000050;
-}
-
-.conocenos h4 {
-  font-size: 1.2rem;
-  margin-top: 1.5rem;
-  color: #e3e3e3;
-}
-
-.conocenos ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.conocenos ul li {
-  padding: 0.3rem 0;
-  font-size: 1rem;
-  border-bottom: 1px solid #555;
-  color: #d0d0d0;
-}
 
 /* Animaciones */
 @keyframes fadeUp {
@@ -446,6 +431,42 @@ nav a:focus::before {
   }
 }
 
+
+.cinta-pagos {
+  width: 100%;
+  overflow: hidden;
+  background-color: #ffffff;
+  padding: 10px 0;
+  margin-top: 40px;
+}
+
+.cinta-track {
+  display: flex;
+  width: max-content;
+  animation: deslizar 25s linear infinite;
+  gap: 40px;
+  align-items: center;
+}
+
+.cinta-track img {
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.cinta-track img:hover {
+  transform: scale(1.1);
+}
+
+@keyframes deslizar {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 </style>
 </head>
 <body>
@@ -453,8 +474,9 @@ nav a:focus::before {
 <!-- HTML: Menú de navegación y botón hamburguesa -->
  <header>
   <div class="container">
-    <div class="logo-text">
-      <span class="sub">Automoviles Cyc</span><br />
+    <div class="logo-text" style="display: flex; align-items: center; gap: 10px;">
+      <img src="images/Autos/Logo.png" alt="Logo CC Autos" style="height: 40px;" />
+      <span class="sub" style="font-size: 18px;">Cc Autos</span><br />
     </div>
 
     <!-- Menú de navegación -->
@@ -463,9 +485,11 @@ nav a:focus::before {
         <li role="none"><a href="index.html" role="menuitem" tabindex="0">Inicio</a></li>
         <li role="none"><a href="stock.html" role="menuitem" tabindex="0">Stock</a></li>
         <li role="none"><a href="vender.html" role="menuitem" tabindex="0">Vende tu vehiculo</a></li>
-        <li role="none"><a href="nosotros.html" role="menuitem" tabindex="0">Nosotros</a></li>
+        <li role="none"><a href="nosotros.html" role="menuitem" tabindex="0">Financiamiento</a></li>
       </ul>
     </nav>
+
+    
 
     <!-- Botón hamburguesa -->
     <button id="hamburger" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
@@ -476,58 +500,141 @@ nav a:focus::before {
   </div>
 </header>
 
+<main>
+
+  <!-- SECCIÓN FINANCIAMIENTO -->
+       <div class="cinta-pagos">
+      <div class="cinta-track">
+        <img src="images/carrusel/Logoredcompra.webp" alt="WebPay" />
+        <img src="images/carrusel/mercadopago.svg" alt="Visa" />
+        <img src="images/carrusel/visa.png" alt="MasterCard" />
+        <img src="images/carrusel/Logoredcompra.webp" alt="WebPay" />
+        <img src="images/carrusel/mercadopago.svg" alt="Visa" />
+        <img src="images/carrusel/visa.png" alt="MasterCard" />
+                <img src="images/carrusel/Logoredcompra.webp" alt="WebPay" />
+        <img src="images/carrusel/mercadopago.svg" alt="Visa" />
+        <img src="images/carrusel/visa.png" alt="MasterCard" />
+      </div>
+    </div>
+  <section class="financiamiento" id="financiamiento">
+    <div class="financiamiento-container">
+      
+      <h2>Simula tu Financiamiento</h2>
+      <p>Completa los datos y evalúa tu crédito de forma rápida y sin compromiso</p>
+
+      <form id="form-financiamiento">
+        <input type="text" name="nombre" placeholder="Nombre completo" required />
+        <input type="text" name="rut" placeholder="RUT" required />
+        <input type="email" name="email" placeholder="Correo electrónico" required />
+        <input type="number" name="ingreso" placeholder="Ingreso mensual" required />
+        <input type="number" name="monto" placeholder="Monto del vehículo" required />
+        <input type="number" name="pie" placeholder="Monto del pie" required />
+        <select name="cuotas" required>
+          <option value="">Seleccione cuotas</option>
+          <option value="12">12 cuotas</option>
+          <option value="24">24 cuotas</option>
+          <option value="36">36 cuotas</option>
+        </select>
+
+        <!-- Campo oculto para la fecha y hora -->
+        <input type="hidden" name="time" id="time" />
+
+        <button type="submit">Enviar solicitud</button>
+      </form>
+
+      <div id="mensaje-respuesta"></div>
+    </div>
+
+
+      <!-- Cinta de logos de pago (fuera del footer) -->
+    <div class="cinta-pagos">
+      <div class="cinta-track">
+        <img src="images/carrusel/Logoredcompra.webp" alt="WebPay" />
+        <img src="images/carrusel/mercadopago.svg" alt="Visa" />
+        <img src="images/carrusel/visa.png" alt="MasterCard" />
+        <img src="images/carrusel/Logoredcompra.webp" alt="WebPay" />
+        <img src="images/carrusel/mercadopago.svg" alt="Visa" />
+        <img src="images/carrusel/visa.png" alt="MasterCard" />
+                <img src="images/carrusel/Logoredcompra.webp" alt="WebPay" />
+        <img src="images/carrusel/mercadopago.svg" alt="Visa" />
+        <img src="images/carrusel/visa.png" alt="MasterCard" />
+      </div>
+    </div>
+  </section>
 
 
 
-  <h4>Información de Contacto</h4>
-  <ul>
-    <li><strong>Dirección:</strong> Av. Principal 1234, Santiago, Chile</li>
-    <li><strong>Teléfono:</strong> +56 9 1234 5678</li>
-    <li><strong>Email:</strong> contacto@cycautomoviles.cl</li>
-    <li><strong>Horario:</strong> Lunes a Viernes 9:00 - 18:00</li>
-  </ul>
-</div>
+</main>
 
 
-  </main>
 <footer>
     <div class="footer-container">
       <div class="map-container" aria-label="Mapa de ubicación">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1459.8017511327735!2d-70.54969373163439!3d-33.409008159664644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e1!3m2!1ses!2sus!4v1753484768412!5m2!1ses!2sus" 
-        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1459.8017511327735!2d-70.54969373163439!3d-33.409008159664644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e1!3m2!1ses!2sus!4v1753484768412!5m2!1ses!2sus" 
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
         <div class="botones-mapas">
-  <p>¿Cómo llegar?</p>
-  <a href="https://www.google.com/maps?q=Av.+Apoquindo+7935,+Las+Condes,+Chile" target="_blank" class="btn-mapa google-maps">
-    Abrir en Google Maps
-  </a>
-  <a href="https://waze.com/ul?ll=-33.4090082,-70.5496937&navigate=yes" target="_blank" class="btn-mapa waze">
-    Abrir en Waze
-  </a>
-</div>
-
+          <p>¿Cómo llegar?</p>
+          <a href="https://www.google.com/maps?q=Av.+Apoquindo+7935,+Las+Condes,+Chile" target="_blank" class="btn-mapa google-maps">
+            Abrir en Google Maps
+          </a>
+          <a href="https://waze.com/ul?ll=-33.4090082,-70.5496937&navigate=yes" target="_blank" class="btn-mapa waze">
+            Abrir en Waze
+          </a>
+        </div>
       </div>
+
       <div class="footer-bottom">
         <div>
-          © 2025 CYC Automóviles. All rights reserved. <br>
-          Built & secured by <a href="mailto:picininiluciano@gmail.com" style="color: #cc0404; text-decoration: none;">Luciano</a>.
+          © 2025 CYC Automóviles. All rights reserved. <br />
+          Built & secured by 
+          <a href="mailto:picininiluciano@gmail.com" style="color: #cc0404; text-decoration: none;">Luciano</a>.
         </div>
         <div class="social-container" aria-label="Redes sociales">
-          <!-- Facebook -->
-        <a href="https://www.facebook.com/automoviles.cyc.2025" class="social-link" target="_blank"
-          rel="noopener noreferrer" aria-label="Facebook">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-              alt="Facebook" width="32" height="32" style="border-radius: 4px;" />
-        </a>
-          <!-- Instagram -->
-         <a href="https://www.instagram.com/cycautomoviles_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank"
-          rel="noopener noreferrer" aria-label="Instagram">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
-              alt="Instagram" width="32" height="32" style="border-radius: 8px;" />
-        </a>
+          <a href="https://www.facebook.com/automoviles.cyc.2025" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="32" height="32" style="border-radius: 4px;" />
+          </a>
+          <a href="https://www.instagram.com/cycautomoviles_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="32" height="32" style="border-radius: 8px;" />
+          </a>
         </div>
       </div>
     </div>
-  </footer>
+</footer>
+
+
+  <!-- EmailJS SDK -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("g_3sUjPGhjaYGyqxG"); // Reemplaza con tu PUBLIC KEY si es diferente
+  })();
+</script>
+
+<script>
+  const form = document.getElementById('form-financiamiento');
+  const mensajeRespuesta = document.getElementById('mensaje-respuesta');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Agrega la fecha/hora actual al campo oculto
+    document.getElementById('time').value = new Date().toLocaleString();
+
+    emailjs.sendForm('service_cs30t1l', 'template_xsnp61h', this)
+      .then(function(response) {
+        console.log('EmailJS enviado:', response.status, response.text);
+        mensajeRespuesta.style.color = 'green';
+        mensajeRespuesta.textContent = '¡Formulario enviado con éxito! Gracias por contactarnos.';
+        form.reset();
+      }, function(error) {
+        console.error('Error EmailJS:', error);
+        mensajeRespuesta.style.color = 'red';
+        mensajeRespuesta.textContent = 'Error al enviar el formulario. Intenta de nuevo.';
+      });
+  });
+</script>
 <script>
   const animados = document.querySelectorAll('[data-animado]');
   const mostrarAnimado = () => {
