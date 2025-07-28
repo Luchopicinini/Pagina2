@@ -134,7 +134,6 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Contenedor principal */
 .contenedor-principal {
   display: flex;
   max-width: 1100px;
@@ -149,8 +148,6 @@ body {
   overflow: hidden;
   animation: fadeIn 0.6s ease-in-out;
 }
-
-/* Zona imágenes */
 .img {
   flex: 1;
   max-width: 60%;
@@ -159,6 +156,12 @@ body {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.3s ease;
 }
+.contenido-lateral {
+  flex: 1;
+  max-width: 40%;
+  /* ... */
+}
+
 
 .img:hover {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
@@ -197,16 +200,7 @@ body {
 }
 
 /* Contenido lateral */
-.contenido-lateral {
-  flex: 1;
-  max-width: 40%;
-  font-family: 'Segoe UI', sans-serif;
-  color: #eee;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 10px 0;
-}
+
 
 .contenido-lateral h1#tituloAuto {
   font-weight: 700;
