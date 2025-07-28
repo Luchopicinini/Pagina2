@@ -113,100 +113,150 @@
       transform: rotate(-45deg) translate(5px, -5px);
     }
 
-
-
-    /* Estilos generales para la sección */
-.financiamiento {
-  background-color: #f4f4f4;
-  padding: 4rem 2rem;
-  text-align: center;
+    .financiamiento {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
   font-family: 'Barlow', sans-serif;
-  color: #222;
 }
 
-.financiamiento-container {
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 2.5rem;
-  border-radius: 15px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.financiamiento-container:hover {
-  transform: translateY(-5px);
-}
-
-/* Títulos */
 .financiamiento h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #b22222;
+  font-size: 2.5rem;
+  color: #B22222;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease forwards;
 }
 
 .financiamiento p {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  color: #555;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #444;
+  font-size: 1.1rem;
 }
 
-/* Formulario */
+.contenedor-financiamiento {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.columna {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.columna:hover {
+  transform: translateY(-5px);
+}
+
+.columna h3 {
+  color: #B22222;
+  margin-bottom: 15px;
+}
+
+.columna ul {
+  list-style: none;
+  padding-left: 0;
+  color: #333;
+}
+
+.columna ul li {
+  margin-bottom: 10px;
+  padding-left: 0.5em;
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.alerta-importante {
+  background-color: #fffbe6;
+  color: #8a6d3b;
+  border-left: 6px solid #ffeb3b;
+  padding: 15px 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+#form-financiamiento {
+  max-width: 700px;
+  margin: 30px auto;
+  display: grid;
+  gap: 15px;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease forwards;
+}
+
 #form-financiamiento input,
 #form-financiamiento select {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  padding: 12px;
   font-size: 1rem;
-  transition: border 0.3s, box-shadow 0.3s;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
 }
 
 #form-financiamiento input:focus,
 #form-financiamiento select:focus {
-  border-color: #b22222;
-  box-shadow: 0 0 5px rgba(178, 34, 34, 0.3);
   outline: none;
+  border-color: #B22222;
 }
 
-/* Botón */
 #form-financiamiento button {
-  background-color: #b22222;
-  color: white;
-  padding: 0.9rem 1.5rem;
+  background-color: #B22222;
+  color: #fff;
+  padding: 14px;
   border: none;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #form-financiamiento button:hover {
-  background-color: #8a1a1a;
+  background-color: #8b1a1a;
   transform: scale(1.03);
 }
 
-/* Mensaje de respuesta */
 #mensaje-respuesta {
-  margin-top: 1rem;
+  text-align: center;
+  margin-top: 20px;
   font-size: 1rem;
-  color: green;
+  color: #B22222;
 }
 
-.financiamiento-container {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-@keyframes fadeInUp {
+/* ANIMACIONES */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
     footer {
   background-color: #111; /* Fondo oscuro */
@@ -264,14 +314,94 @@
   fill: #1713d8; /* rojo más oscuro al pasar el mouse */
 }
 
-.webpay-container {
-  display: flex;
-  align-items: flex-end;
-}
-.webpay {
-  height: 500px;
+/* Efecto mágico en enlaces del nav */
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
+nav a::before {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: #B22222; /* rojo firebrick */
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #ff6b6b;
+  animation: navGlow 1s infinite alternate;
+}
+
+nav a:hover::before,
+nav a:focus::before {
+  width: 100%;
+}
+
+
+/* Animaciones */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.cinta-pagos {
+  width: 100%;
+  overflow: hidden;
+  background-color: #ffffff;
+  padding: 10px 0;
+  margin-top: 40px;
+}
+
+.cinta-track {
+  display: flex;
+  width: max-content;
+  animation: deslizar 10s linear infinite;
+  gap: 40px;
+  align-items: center;
+}
+
+.cinta-track img {
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.cinta-track img:hover {
+  transform: scale(1.1);
+}
+
+@keyframes deslizar {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
 @media (max-width: 768px) {
 
@@ -374,98 +504,57 @@
     width: 20px;           /* íconos sociales más pequeños */
     height: 20px;
   }
-}
-
-/* Efecto mágico en enlaces del nav */
-nav a {
-  color: #fff;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-nav a::before {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background: #B22222; /* rojo firebrick */
-  transition: width 0.3s ease;
-  border-radius: 2px;
-}
-
-nav a:hover,
-nav a:focus {
-  color: #ff6b6b;
-  animation: navGlow 1s infinite alternate;
-}
-
-nav a:hover::before,
-nav a:focus::before {
-  width: 100%;
-}
-
-
-
-/* Animaciones */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+  .contenedor-financiamiento {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 10px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+  .columna {
+    max-width: 100%;
+    padding: 20px;
   }
-  to {
-    opacity: 1;
+
+  #form-financiamiento {
+    max-width: 100%;
+    padding: 20px;
+    margin: 20px 10px;
+  }
+
+  #form-financiamiento input,
+  #form-financiamiento select,
+  #form-financiamiento button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .financiamiento h2 {
+    font-size: 2rem;
+  }
+
+  .financiamiento p {
+    font-size: 1rem;
+  }
+
+  .alerta-importante {
+    max-width: 100%;
+    margin: 20px 10px;
+    padding: 15px;
+  }
+
+  .cinta-pagos {
+    padding: 10px 0;
+  }
+
+  .cinta-track {
+    gap: 20px;
+  }
+
+  .cinta-track img {
+    height: 30px;
   }
 }
 
-
-.cinta-pagos {
-  width: 100%;
-  overflow: hidden;
-  background-color: #ffffff;
-  padding: 10px 0;
-  margin-top: 40px;
-}
-
-.cinta-track {
-  display: flex;
-  width: max-content;
-  animation: deslizar 25s linear infinite;
-  gap: 40px;
-  align-items: center;
-}
-
-.cinta-track img {
-  height: 40px;
-  object-fit: contain;
-  transition: transform 0.3s;
-}
-
-.cinta-track img:hover {
-  transform: scale(1.1);
-}
-
-@keyframes deslizar {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
 
 </style>
 </head>
@@ -503,47 +592,67 @@ nav a:focus::before {
 <main>
 
   <!-- SECCIÓN FINANCIAMIENTO -->
-       <div class="cinta-pagos">
-      <div class="cinta-track">
-        <img src="images/carrusel/Logoredcompra.webp" alt="WebPay" />
-        <img src="images/carrusel/mercadopago.svg" alt="Visa" />
-        <img src="images/carrusel/visa.png" alt="MasterCard" />
-        <img src="images/carrusel/Logoredcompra.webp" alt="WebPay" />
-        <img src="images/carrusel/mercadopago.svg" alt="Visa" />
-        <img src="images/carrusel/visa.png" alt="MasterCard" />
-                <img src="images/carrusel/Logoredcompra.webp" alt="WebPay" />
-        <img src="images/carrusel/mercadopago.svg" alt="Visa" />
-        <img src="images/carrusel/visa.png" alt="MasterCard" />
-      </div>
-    </div>
+
   <section class="financiamiento" id="financiamiento">
-    <div class="financiamiento-container">
-      
-      <h2>Simula tu Financiamiento</h2>
-      <p>Completa los datos y evalúa tu crédito de forma rápida y sin compromiso</p>
+  <div class="financiamiento-container">
+      <h2>Financiamiento</h2>
+  <p>Trabajamos con distintas entidades financieras para ofrecerte las mejores opciones según tu perfil.</p>
 
-      <form id="form-financiamiento">
-        <input type="text" name="nombre" placeholder="Nombre completo" required />
-        <input type="text" name="rut" placeholder="RUT" required />
-        <input type="email" name="email" placeholder="Correo electrónico" required />
-        <input type="number" name="ingreso" placeholder="Ingreso mensual" required />
-        <input type="number" name="monto" placeholder="Monto del vehículo" required />
-        <input type="number" name="pie" placeholder="Monto del pie" required />
-        <select name="cuotas" required>
-          <option value="">Seleccione cuotas</option>
-          <option value="12">12 cuotas</option>
-          <option value="24">24 cuotas</option>
-          <option value="36">36 cuotas</option>
-        </select>
-
-        <!-- Campo oculto para la fecha y hora -->
-        <input type="hidden" name="time" id="time" />
-
-        <button type="submit">Enviar solicitud</button>
-      </form>
-
-      <div id="mensaje-respuesta"></div>
+  <div class="contenedor-financiamiento">
+    
+    <div class="columna">
+      <h3>¿Cómo funciona?</h3>
+      <ul>
+        <li>📋 Completa el formulario con tus datos.</li>
+        <li>📞 Un asesor te contactará directamente.</li>
+        <li>🏦 Evaluamos con varias financieras.</li>
+        <li>💬 Te presentamos la mejor propuesta.</li>
+        <li>🚗 ¡Compra tu auto sin complicaciones!</li>
+      </ul>
     </div>
+
+    <div class="columna">
+      <h3>Requisitos comunes</h3>
+      <ul>
+        <li>✅ Cédula de identidad vigente.</li>
+        <li>✅ Contrato o boletas de ingreso.</li>
+        <li>✅ Antigüedad laboral mínima (3-6 meses).</li>
+        <li>✅ Comportamiento financiero responsable.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="alerta-importante">
+    💡 <strong>Importante:</strong> Las tasas, condiciones y montos dependen de la entidad financiera y tu perfil. Nosotros te ayudamos a conseguir la mejor alternativa.
+  </div>
+    
+    <h2>Simula tu Financiamiento</h2>
+    <p>Completa los datos y evalúa tu crédito de forma rápida y sin compromiso</p>
+
+    <form id="form-financiamiento">
+      <input type="text" name="nombre" placeholder="Nombre completo" required />
+      <input type="text" name="rut" placeholder="RUT" required />
+      <input type="email" name="email" placeholder="Correo electrónico" required />
+      <input type="text" name="ingreso" id="ingreso" placeholder="Ingreso mensual" required />
+      <input type="text" name="monto" id="monto" placeholder="Monto del vehículo" required />
+      <input type="text" name="pie" id="pie" placeholder="Monto del pie" required />
+      
+      <select name="cuotas" required>
+        <option value="">Seleccione cuotas</option>
+        <option value="12">12 cuotas</option>
+        <option value="24">24 cuotas</option>
+        <option value="36">36 cuotas</option>
+      </select>
+
+      <!-- Campo oculto para la fecha y hora -->
+      <input type="hidden" name="time" id="time" />
+
+      <button type="submit">Enviar solicitud</button>
+    </form>
+
+    <div id="mensaje-respuesta"></div>
+  </div>
+
 
 
       <!-- Cinta de logos de pago (fuera del footer) -->
@@ -608,25 +717,47 @@ nav a:focus::before {
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
   (function() {
-    emailjs.init("g_3sUjPGhjaYGyqxG"); // Reemplaza con tu PUBLIC KEY si es diferente
+    emailjs.init("g_3sUjPGhjaYGyqxG"); // Tu Public Key
   })();
 </script>
 
 <script>
+  // Formateo de campos en pesos con puntos y $
+  function formatearPesos(input) {
+    let valor = input.value.replace(/\D/g, ''); // elimina todo lo que no sea número
+    if (valor === '') {
+      input.value = '';
+      return;
+    }
+    input.value = '$' + valor.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  }
+
+  ['ingreso', 'monto', 'pie'].forEach(id => {
+    const input = document.getElementById(id);
+    input.addEventListener('input', () => formatearPesos(input));
+  });
+
+  // Envío del formulario con limpieza de formato
   const form = document.getElementById('form-financiamiento');
   const mensajeRespuesta = document.getElementById('mensaje-respuesta');
 
   form.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // Agrega la fecha/hora actual al campo oculto
+    // Agrega la fecha/hora actual
     document.getElementById('time').value = new Date().toLocaleString();
+
+    // Limpiar $ y puntos antes de enviar
+    ['ingreso', 'monto', 'pie'].forEach(id => {
+      const input = document.getElementById(id);
+      input.value = input.value.replace(/\./g, '').replace(/\$/g, '');
+    });
 
     emailjs.sendForm('service_cs30t1l', 'template_xsnp61h', this)
       .then(function(response) {
         console.log('EmailJS enviado:', response.status, response.text);
         mensajeRespuesta.style.color = 'green';
-        mensajeRespuesta.textContent = '¡Formulario enviado con éxito! Gracias por contactarnos.';
+        mensajeRespuesta.textContent = '¡Formulario enviado con éxito! En breve, un asesor se pondrá en contacto contigo para ayudarte con tu financiamiento.';
         form.reset();
       }, function(error) {
         console.error('Error EmailJS:', error);
