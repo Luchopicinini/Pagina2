@@ -108,133 +108,71 @@ nav a:hover {
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
-#por-que-vender-con-nosotros {
-  max-width: 80%;
-  margin: 3rem auto;
-  padding: 2.5rem 2rem 3rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #fff;
-  background-color: #121212;
-  border-radius: 16px;
-  box-shadow: 0 0 20px rgba(178, 34, 34, 0.3);
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1s ease forwards;
-}
 
-#por-que-vender-con-nosotros h2 {
-  font-size: 2.8rem;
-  color: #e0e0e0;
-  text-align: center;
-  margin-bottom: 1.8rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-  animation: fadeInDown 1s ease forwards;
-  opacity: 0;
-  transform: translateY(-20px);
-  animation-delay: 0.3s;
-  animation-fill-mode: forwards;
-}
-
-#por-que-vender-con-nosotros > p:first-of-type,
-#por-que-vender-con-nosotros > p:last-of-type,
-.tarjetas-container {
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
-  animation-fill-mode: forwards;
-}
-
-#por-que-vender-con-nosotros > p:first-of-type { animation-delay: 0.5s; max-width: 750px; margin: 0 auto 3rem; font-size: 1.2rem; color: #ccc; text-align: center; line-height: 1.6; }
-#por-que-vender-con-nosotros > p:last-of-type  { animation-delay: 1s; margin-top: 3rem; font-size: 1.2rem; color: #ddd; text-align: center; font-weight: 600; letter-spacing: 0.02em; line-height: 1.6; }
-.tarjetas-container { animation-delay: 0.7s; display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
-
-.tarjeta {
-  background: #b30000f1;
-  border: 2px solid #5c5a5a;
-  border-radius: 14px;
-  padding: 1.8rem 2rem;
-  flex: 1 1 280px;
-  color: #000;
-  box-shadow: 0 4px 10px rgba(178, 34, 34, 0.15);
-  cursor: default;
-  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-}
-
-.tarjeta:hover {
-  border-color: #ff4d4d;
-  box-shadow: 0 8px 20px rgba(255, 77, 77, 0.4);
-  transform: translateY(-6px);
-}
-
-.tarjeta h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.6rem;
-  font-weight: 700;
-  color: #000;
-}
-
-.tarjeta p {
-  font-size: 1.05rem;
-  line-height: 1.5;
-  color: #333;
-}
-
-@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeInDown { to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeIn { to { opacity: 1; } }
-
-
-
-main.container1 {
-  max-width: 800px;
+/* === CONTENEDOR PRINCIPAL === */
+.container1 {
+  max-width: 860px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem 1.5rem;
   animation: fadeIn 1s ease-in-out;
-  border-radius: 15rem;
-  border-color: #000;
 }
 
-/* Sección de formulario */
+/* === SECCIÓN FORMULARIO === */
 #contacto {
   background-color: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-  margin-bottom: 2rem;
-  animation: slideUp 0.8s ease-in-out;
+  padding: 2.5rem 2rem;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  animation: slideUp 1s ease-in-out;
+  transition: transform 0.3s ease;
 }
 
+#contacto:hover {
+  transform: scale(1.01);
+}
+
+/* === TÍTULOS === */
 #contacto h2, #contacto h3 {
+  text-align: center;
   color: #B22222;
   margin-bottom: 1rem;
-  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 #contacto p {
   text-align: center;
-  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 2rem;
 }
 
+/* === GRUPOS DE FORMULARIO === */
 .formulario .form-group {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeUp 0.6s ease forwards;
+  animation: fadeUp 0.8s ease forwards;
 }
 
+.formulario .form-group:nth-child(1) { animation-delay: 0.2s; }
+.formulario .form-group:nth-child(2) { animation-delay: 0.4s; }
+.formulario .form-group:nth-child(3) { animation-delay: 0.6s; }
+.formulario .form-group:nth-child(5) { animation-delay: 0.8s; }
+
+/* === CAMPOS === */
 .formulario input,
 .formulario select,
 .formulario textarea {
   flex: 1 1 100%;
-  padding: 0.75rem;
+  padding: 0.8rem 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 1rem;
-  background-color: #fdfdfd;
+  background-color: #fafafa;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -242,33 +180,33 @@ main.container1 {
 .formulario select:focus,
 .formulario textarea:focus {
   border-color: #B22222;
-  box-shadow: 0 0 5px rgba(178, 34, 34, 0.3);
+  box-shadow: 0 0 6px rgba(178, 34, 34, 0.3);
   outline: none;
 }
 
-.formulario select {
-  appearance: none;
-}
-
-.formulario textarea {
+/* === TEXTAREA === */
+textarea {
   resize: vertical;
+  min-height: 120px;
 }
 
+/* === BOTÓN ENVIAR === */
 .botones-formulario {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   animation: fadeUp 1s ease forwards;
+  animation-delay: 1s;
 }
 
 .botones-formulario button {
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  border: none;
   background-color: #B22222;
   color: #fff;
-  border-radius: 8px;
+  font-size: 1rem;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .botones-formulario button:hover {
@@ -276,14 +214,14 @@ main.container1 {
   transform: scale(1.05);
 }
 
-/* WhatsApp link */
+/* === WHATSAPP BOTÓN === */
 .btn-wsp {
   display: inline-block;
-  margin-top: 0.5rem;
+  background-color: #25D366;
+  color: #fff;
   font-weight: bold;
-  background-color: #25d366;
   padding: 0.5rem 1rem;
-  border-radius: 6px;
+  border-radius: 8px;
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.2s;
 }
@@ -293,40 +231,7 @@ main.container1 {
   transform: scale(1.05);
 }
 
-/* Testimonios */
-.testimonios {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
-  animation: fadeIn 1s ease-in;
-}
-
-.testimonios h2 {
-  color: #333;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.testimonio {
-  margin-bottom: 1.25rem;
-  font-style: italic;
-  border-left: 4px solid #B22222;
-  padding-left: 1rem;
-  color: #444;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-  animation-delay: 0.3s;
-}
-
-.testimonio strong {
-  display: block;
-  margin-top: 0.5rem;
-  font-style: normal;
-  color: #B22222;
-}
-
-/* Animaciones */
+/* === ANIMACIONES KEYFRAMES === */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -335,7 +240,7 @@ main.container1 {
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -350,97 +255,72 @@ main.container1 {
   }
 }
 
-/* Sección Instagram */
-.instagram-section {
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+  .formulario .form-group {
+    flex-direction: column;
+  }
+
+  #contacto {
+    padding: 2rem 1rem;
+  }
+
+  .botones-formulario button {
+    width: 100%;
+  }
+}
+.faq-section {
+  background-color: #181818;
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 60px auto;
+  box-shadow: var(--shadow-soft);
+}
+
+.faq-section h2 {
   text-align: center;
-  margin-bottom: 3rem;
-  animation: fadeIn 1s ease-in-out;
+  font-size: 2rem;
+  margin-bottom: 30px;
 }
 
-.instagram-section h3 {
-  font-size: 1.8rem;
-  color: #B22222;
-  margin-bottom: 1rem;
-  position: relative;
-  display: inline-block;
-  animation: fadeUp 0.8s ease-in-out;
+.faq-item {
+  border-bottom: 1px solid #444;
+  margin-bottom: 10px;
 }
 
-.instagram-section h3::after {
-  content: '';
-  display: block;
-  width: 50%;
-  height: 3px;
-  background-color: #B22222;
-  margin: 0.5rem auto 0;
-  border-radius: 2px;
-}
-
-.instagram-widget {
-  max-width: 600px;
-  margin: 1rem auto;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-  animation: slideUp 1s ease-in-out;
-}
-
-.instagram-widget iframe {
+.faq-question {
+  background: none;
+  color: #ffffff;
   width: 100%;
-  height: 500px;
+  text-align: left;
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
   border: none;
-  border-radius: 12px;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-/* Ocultamos inicialmente */
-#por-que-vender-con-nosotros,
-#por-que-vender-con-nosotros h2,
-#por-que-vender-con-nosotros p,
-#por-que-vender-con-nosotros .tarjeta {
+.faq-question:hover {
+  background-color: #262626;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease-out;
+  padding: 0 15px;
 }
 
-/* Clase mágica: cuando se hace visible */
-#por-que-vender-con-nosotros.visible,
-#por-que-vender-con-nosotros.visible h2,
-#por-que-vender-con-nosotros p.visible,
-#por-que-vender-con-nosotros .tarjeta.visible {
+.faq-answer.open {
+  max-height: 500px;
   opacity: 1;
-  transform: translateY(0);
+  padding: 15px;
 }
-
-
-/* Estado inicial: oculto y desplazado */
-#formulario-contacto,
-#conocenos,
-#formulario-contacto input,
-#formulario-contacto textarea,
-#formulario-contacto button,
-#conocenos h2,
-#conocenos p,
-#conocenos div {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease-out;
-}
-
-/* Estado visible */
-#formulario-contacto.visible,
-#formulario-contacto input.visible,
-#formulario-contacto textarea.visible,
-#formulario-contacto button.visible,
-#conocenos.visible,
-#conocenos h2.visible,
-#conocenos p.visible,
-#conocenos div.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-
 
 /* ========== FOOTER ========== */
 footer {
@@ -669,58 +549,8 @@ nav a:focus::before {
   }
 }
 
-@media (max-width: 480px) {
-  header {
-    padding: 0.8rem 0;
-  }
 
-  .logo-text .sub {
-    font-size: 1rem;
-  }
 
-  #por-que-vender-con-nosotros h2 {
-    font-size: 1.6rem;
-  }
-
-  #por-que-vender-con-nosotros p {
-    font-size: 1rem;
-  }
-
-  .tarjeta h3 {
-    font-size: 1.3rem;
-  }
-
-  .tarjeta p {
-    font-size: 1rem;
-  }
-
-  .testimonios h2,
-  .conocenos h3 {
-    font-size: 1.6rem;
-  }
-
-  .testimonio {
-    padding: 1.2rem;
-  }
-
-  .formulario-wrapper {
-    padding: 1rem;
-  }
-
-  .btn-mapa {
-    font-size: 0.9rem;
-    padding: 10px 16px;
-  }
-
-  .social-link svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  .instagram-widget iframe {
-    height: 400px;
-  }
-}
 
 </style>
 </head>
@@ -730,8 +560,8 @@ nav a:focus::before {
  <header>
   <div class="container">
     <div class="logo-text" style="display: flex; align-items: center; gap: 10px;">
-      <img src="images/Autos/Logo.png" alt="Logo CC Autos" style="height: 40px;" />
-      <span class="sub" style="font-size: 18px;">Cc Autos</span><br />
+     <img src="images/Autos/Logo.png" alt="Logo CC Autos" style="height: 70px;" />
+    
     </div>
 
     <!-- Menú de navegación -->
@@ -754,41 +584,6 @@ nav a:focus::before {
   </div>
 </header>
 
-<section id="por-que-vender-con-nosotros" data-animado>
-
-  <h2>¿Por qué vender tu vehículo con Automóviles CYC?</h2>
-  <p>Vender tu auto con nosotros es sencillo y seguro. A continuación te explicamos cómo trabajamos paso a paso:</p>
-
-  <div class="tarjetas-container">
-    <article class="tarjeta">
-      <h3>1. Contacto</h3>
-      <p>Te comunicas con nosotros para contarnos sobre tu vehículo.</p>
-    </article>
-    <article class="tarjeta">
-      <h3>2. Evaluación</h3>
-      <p>Realizamos una revisión gratuita y una tasación justa y transparente.</p>
-    </article>
-    <article class="tarjeta">
-      <h3>3. Oferta</h3>
-      <p>Te presentamos una propuesta clara y competitiva acorde al valor real del mercado.</p>
-    </article>
-    <article class="tarjeta">
-      <h3>4. Trámites</h3>
-      <p>Nos encargamos de gestionar toda la documentación necesaria para la venta.</p>
-    </article>
-    <article class="tarjeta">
-      <h3>5. Pago</h3>
-      <p>Recibes el pago de forma rápida y segura, sin complicaciones.</p>
-    </article>
-    <article class="tarjeta">
-      <h3>6. Entrega</h3>
-      <p>Coordinamos la entrega del vehículo en el lugar y momento que te resulte conveniente.</p>
-    </article>
-  </div>
-
-  <p>Confía en CYC Automóviles para vender tu vehículo con profesionalismo, rapidez y sin sorpresas.</p>
-  
-</section>
 
 <main class="container1">
 
@@ -803,10 +598,10 @@ nav a:focus::before {
         <input type="text" name="apellido" placeholder="Apellido" required />
       </div>
       <div class="form-group">
-        <input type="email" name="email" placeholder="Correo electrónico" required />
+        <input type="email" name="email" placeholder="ejemplo@gmail.com" required />
       </div>
       <div class="form-group">
-        <input type="tel" name="telefono" placeholder="Teléfono" required />
+        <input type="tel" name="telefono" placeholder="+56 9 1234 6987" required />
       </div>
 
       <!-- DATOS DEL VEHÍCULO -->
@@ -852,38 +647,68 @@ nav a:focus::before {
     <div id="mensaje-envio"></div>
   </section>
 
-  <section class="testimonios" aria-label="Testimonios de clientes">
-    <h2>Qué dicen nuestros clientes</h2>
-    <div class="testimonio">
-      "Excelente atención y asesoría en la compra de mi auto. Muy recomendable."
-      <strong>- Juan P.</strong>
+  
+<section id="faq" class="faq-section" aria-label="Preguntas frecuentes de venta">
+  <h2>Preguntas frecuentes</h2>
+
+  <div class="faq-item">
+    <button class="faq-question">¿CC Autos compra mi auto directamente?</button>
+    <div class="faq-answer">
+      <p>No siempre. Evaluamos cada caso según el estado, marca y demanda del vehículo. En algunos casos podemos comprar directamente, y en otros, trabajamos bajo modalidad de consignación (física o virtual) para ayudarte a vender al mejor precio posible.</p>
     </div>
-    <div class="testimonio">
-      "Me ayudaron a vender mi vehículo rápido y con un buen precio. Gracias equipo CYC!"
-      <strong>- María L.</strong>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">¿Qué es la venta en consignación?</button>
+    <div class="faq-answer">
+      <p>La consignación es una opción donde tu vehículo queda exhibido (en nuestra oficina o de forma virtual) para su venta. Una vez se concreta la venta, te transferimos el monto acordado. Esta modalidad te permite alcanzar un mejor precio de mercado.</p>
     </div>
-    <div class="testimonio">
-      "Gran variedad de autos y precios competitivos. Siempre vuelvo por mi próximo vehículo."
-      <strong>- Carlos M.</strong>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">¿Puedo elegir entre consignación física o virtual?</button>
+    <div class="faq-answer">
+      <p>Sí. Puedes traer el vehículo a nuestra oficina (consignación física) o enviarnos fotos y documentos para publicarlo en nuestras plataformas (consignación virtual). Tú eliges según tu comodidad.</p>
     </div>
-  </section>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">¿Cómo se hace la transferencia del auto?</button>
+    <div class="faq-answer">
+      <p>Utilizamos la plataforma <strong>Autofact</strong> para realizar transferencias seguras y legales. Una vez concretada la venta y finalizado el proceso, realizamos el depósito del dinero en un plazo máximo de <strong>24 horas hábiles</strong>. Todo es transparente y respaldado legalmente.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">¿Qué documentos necesito para vender?</button>
+    <div class="faq-answer">
+      <p>Solo necesitas:</p>
+      <ul>
+        <li>Padrón del vehículo</li>
+        <li>Permiso de circulación vigente</li>
+        <li>Revisión técnica al día</li>
+        <li>Tu cédula de identidad</li>
+      </ul>
+      <p>Nosotros nos encargamos del resto del proceso por ti.</p>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  const questions = document.querySelectorAll('.faq-question');
+
+  questions.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const answer = btn.nextElementSibling;
+      answer.classList.toggle('open');
+    });
+  });
+</script>
+
 
 </main>
 
-<section class="instagram-section">
-  <h3>Conócenos Mejor</h3>
-
-  <!-- Widget Instagram LightWidget -->
-  <div class="instagram-widget">
-    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
-    <iframe 
-      src="//lightwidget.com/widgets/bad20f2895975fc2bfffef6365b959c0.html"
-      scrolling="no"
-      allowtransparency="true"
-      class="lightwidget-widget">
-    </iframe>
-  </div>
-</section>
 
 
 <footer>
@@ -903,7 +728,7 @@ nav a:focus::before {
     </div>
     <div class="footer-bottom">
       <div>
-        © 2025 CYC Automóviles. All rights reserved. <br />
+        © 2025 CC Autos. All rights reserved. <br />
         Built & secured by <a href="mailto:picininiluciano@gmail.com" style="color: #cc0404; text-decoration: none;">Luciano</a>.
       </div>
       <div class="social-container" aria-label="Redes sociales">

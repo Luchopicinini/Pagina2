@@ -6,6 +6,8 @@
   <meta name="description" content="Automotora CYC: compra y venta de autos usados y nuevos con garantía, asesoría y los mejores precios del mercado." />
   <title>Nosotros</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet" />
+
 <style>
 :root {
       --color-black: #000000;
@@ -24,7 +26,7 @@
 
     body {
       font-family: var(--font-main);
-      background-color: var(--color-black);
+      background-color: var(--color-white);
       color: var(--color-white);
       line-height: 1.6;
       scroll-behavior: smooth;
@@ -113,150 +115,66 @@
       transform: rotate(-45deg) translate(5px, -5px);
     }
 
-    .financiamiento {
-  background-color: #f9f9f9;
-  padding: 60px 20px;
+  .financiamiento {
+  padding: 40px 20px;
+  background-color: #1b1b1b;
+  color: #f1f1f1;
   font-family: 'Barlow', sans-serif;
 }
 
+.financiamiento-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .financiamiento h2 {
-  font-size: 2.5rem;
-  color: #B22222;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #ffffff;
   text-align: center;
-  margin-bottom: 20px;
-  animation: fadeInDown 1s ease forwards;
 }
 
 .financiamiento p {
+  font-size: 1rem;
   text-align: center;
   margin-bottom: 30px;
-  color: #444;
-  font-size: 1.1rem;
+  color: #cccccc;
 }
 
-.contenedor-financiamiento {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  margin-bottom: 40px;
-}
-
-.columna {
-  background-color: #ffffff;
-  border-radius: 12px;
-  padding: 30px;
-  max-width: 400px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.columna:hover {
-  transform: translateY(-5px);
-}
-
-.columna h3 {
-  color: #B22222;
+.faq-style-financiamiento details {
+  background-color: #2a2a2a;
+  border-radius: 8px;
   margin-bottom: 15px;
-}
-
-.columna ul {
-  list-style: none;
-  padding-left: 0;
-  color: #333;
-}
-
-.columna ul li {
-  margin-bottom: 10px;
-  padding-left: 0.5em;
-  position: relative;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.alerta-importante {
-  background-color: #fffbe6;
-  color: #8a6d3b;
-  border-left: 6px solid #ffeb3b;
   padding: 15px 20px;
-  margin: 20px auto;
-  max-width: 800px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s;
 }
 
-#form-financiamiento {
-  max-width: 700px;
-  margin: 30px auto;
-  display: grid;
-  gap: 15px;
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  animation: fadeInUp 1s ease forwards;
+.faq-style-financiamiento details:hover {
+  background-color: #333333;
 }
 
-#form-financiamiento input,
-#form-financiamiento select {
-  padding: 12px;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  transition: border-color 0.3s ease;
-}
-
-#form-financiamiento input:focus,
-#form-financiamiento select:focus {
-  outline: none;
-  border-color: #B22222;
-}
-
-#form-financiamiento button {
-  background-color: #B22222;
-  color: #fff;
-  padding: 14px;
-  border: none;
-  border-radius: 8px;
+.faq-style-financiamiento summary {
+  font-weight: bold;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  color: #ffffff;
 }
 
-#form-financiamiento button:hover {
-  background-color: #8b1a1a;
-  transform: scale(1.03);
+.faq-style-financiamiento ul {
+  margin-top: 10px;
+  padding-left: 20px;
 }
 
-#mensaje-respuesta {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 1rem;
-  color: #B22222;
+.faq-style-financiamiento li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  color: #dddddd;
 }
 
-/* ANIMACIONES */
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+
+
 
 /* FOOTER */
 footer {
@@ -439,6 +357,114 @@ nav a:focus::before {
   }
 }
 
+#form-financiamiento-container {
+  max-width: 560px;  /* Más ancho */
+  margin: 40px auto;
+  padding: 30px 40px; /* Menos padding vertical, más compacto */
+  background: linear-gradient(135deg, #ffffff, #fbe7e9);
+  border-radius: 18px;
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.08),
+    0 0 35px rgba(220, 20, 60, 0.15);
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  color: #3a3a3a;
+}
+
+/* Título */
+#form-financiamiento-container h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: 1.1px;
+  color: #b33a3a;
+  text-shadow: 0 1px 3px rgba(179, 58, 58, 0.3);
+}
+
+/* Subtítulo */
+#form-financiamiento-container p {
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin-bottom: 28px;
+  color: #555;
+  letter-spacing: 0.02em;
+}
+
+/* Formulario */
+#form-financiamiento {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Inputs y select */
+#form-financiamiento input[type="text"],
+#form-financiamiento input[type="email"],
+#form-financiamiento select {
+  padding: 14px 20px; /* Menos alto */
+  font-size: 1.05rem;
+  border-radius: 14px;
+  border: 1.6px solid #ddd;
+  background-color: #fff;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.04);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+  color: #444;
+  font-weight: 500;
+}
+
+/* Placeholder */
+#form-financiamiento input::placeholder,
+#form-financiamiento select option:first-child {
+  color: #b88;
+  font-style: italic;
+}
+
+/* Focus */
+#form-financiamiento input[type="text"]:focus,
+#form-financiamiento input[type="email"]:focus,
+#form-financiamiento select:focus {
+  outline: none;
+  border-color: #b33a3a;
+  box-shadow: 0 0 10px rgba(179, 58, 58, 0.4);
+  transform: scale(1.02);
+}
+
+/* Botón */
+#form-financiamiento button {
+  padding: 16px 0; /* Más compacto verticalmente */
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(45deg, #b33a3a, #7d1e1e);
+  box-shadow: 0 10px 25px rgba(179, 58, 58, 0.6);
+  cursor: pointer;
+  letter-spacing: 1.2px;
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.2s ease;
+  user-select: none;
+}
+
+#form-financiamiento button:hover {
+  background: linear-gradient(45deg, #7d1e1e, #b33a3a);
+  box-shadow: 0 14px 35px rgba(125, 30, 30, 0.8);
+  transform: scale(1.05);
+}
+
+/* Mensaje respuesta */
+#mensaje-respuesta {
+  margin-top: 26px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #b33a3a;
+  min-height: 26px;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 2px rgba(179, 58, 58, 0.25);
+}
+
 @media (max-width: 768px) {
 
   /* Box-sizing para todo */
@@ -541,162 +567,48 @@ nav a:focus::before {
     width: 20px;           /* íconos sociales más pequeños */
     height: 20px;
   }
-  .contenedor-financiamiento {
-    flex-direction: column;
-    gap: 30px;
-    padding: 0 15px;
-    animation: fadeInUp 0.8s ease forwards;
+
+  .financiamiento {
+    padding: 30px 15px;
+  }
+  .financiamiento-container {
+    max-width: 95%;
+    padding: 0 10px;
+  }
+  .financiamiento h2 {
+    font-size: 1.6rem;
+  }
+  .financiamiento p {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+  .faq-style-financiamiento details {
+    padding: 12px 15px;
+    font-size: 0.9rem;
   }
 
-  .columna {
-    max-width: 100%;
+   #form-financiamiento-container {
+    max-width: 90%;
     padding: 25px 20px;
-    border-radius: 16px;
-    box-shadow: 0 12px 30px rgba(178, 34, 34, 0.15);
-    background: linear-gradient(135deg, #f0f0f0 0%, #c2b5b5 100%);
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
   }
-
-  .columna:hover {
-    transform: scale(1.03);
-    box-shadow: 0 20px 40px rgba(178, 34, 34, 0.25);
+  #form-financiamiento-container h2 {
+    font-size: 1.6rem;
   }
-
-  #form-financiamiento {
-    max-width: 100%;
-    padding: 25px 20px;
-    margin: 20px 10px;
-    border-radius: 16px;
-    box-shadow: 0 15px 35px rgba(178, 34, 34, 0.2);
-    background: linear-gradient(145deg, #fdf0f0, #fff9f9);
-    animation: fadeInUp 1s ease forwards;
+  #form-financiamiento-container p {
+    font-size: 1rem;
+    margin-bottom: 20px;
   }
-
-  #form-financiamiento input,
-  #form-financiamiento select,
+  #form-financiamiento input[type="text"],
+  #form-financiamiento input[type="email"],
+  #form-financiamiento select {
+    font-size: 1rem;
+    padding: 12px 16px;
+  }
   #form-financiamiento button {
     font-size: 1.1rem;
-    padding: 14px 16px;
-    border-radius: 10px;
-    border: 1.5px solid #b22222;
-    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    padding: 14px 0;
   }
 
-  #form-financiamiento input:focus,
-  #form-financiamiento select:focus {
-    outline: none;
-    border-color: #e03c3c;
-    box-shadow: 0 0 12px rgba(224, 60, 60, 0.6);
-  }
-
-  #form-financiamiento button {
-    background-color: #b22222;
-    box-shadow: 0 8px 20px rgba(178, 34, 34, 0.4);
-    cursor: pointer;
-    font-weight: 600;
-    letter-spacing: 1.1px;
-    transition: background-color 0.3s ease, transform 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  #form-financiamiento button:hover {
-    background-color: #8b1a1a;
-    transform: scale(1.07);
-    box-shadow: 0 12px 30px rgba(139, 26, 26, 0.6);
-  }
-
-  .financiamiento h2 {
-    font-size: 2rem;
-    text-align: center;
-    color: #aa0202;
-  }
-
-  .financiamiento p {
-    font-size: 1rem;
-    text-align: center;
-    margin-bottom: 25px;
-    color: #000000af;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-  }
-
-  .alerta-importante {
-    max-width: 100%;
-    margin: 25px 10px;
-    padding: 20px;
-    border-radius: 16px;
-    font-weight: 600;
-    background: #fff5cc;
-    border-left: 8px solid #ff8f44;
-    box-shadow: 0 10px 25px rgba(255, 218, 68, 0.25);
-    color: #000000;
-    animation: fadeIn 1s ease forwards;
-  }
-
-  .cinta-pagos {
-    padding: 15px 0;
-    background: linear-gradient(90deg, #fff 0%, #f9e5e5 100%);
-    box-shadow: inset 0 0 15px rgba(178, 34, 34, 0.15);
-  }
-
-  .cinta-track {
-    gap: 25px;
-  }
-
-  .cinta-track img {
-    height: 35px;
-    filter: drop-shadow(0 2px 2px rgba(178, 34, 34, 0.3));
-    transition: transform 0.4s ease, filter 0.4s ease;
-  }
-
-  .cinta-track img:hover {
-    transform: scale(1.2) rotate(5deg);
-    filter: drop-shadow(0 4px 6px rgba(178, 34, 34, 0.5));
-  }
-
-  /* Animación máquina de escribir */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blinkCaret {
-  0%, 100% { border-color: transparent }
-  50% { border-color: #aa0202 }
-}
-
-/* Aplicar al título y párrafos que quieras animar */
-.financiamiento h2 {
-  font-size: 2rem;
-  text-align: center;
-  color: #aa0202;
-  overflow: hidden;           /* Oculta texto desbordado */
-  white-space: nowrap;        /* No rompe línea */
-  border-right: 3px solid #aa0202; /* Cursor */
-  width: 0;                   /* Inicialmente sin ancho */
-  animation:
-    typing 3s steps(30, end) forwards,
-    blinkCaret 0.75s step-end infinite;
-  margin: 0 auto 20px auto;
-  max-width: 20ch;            /* Para controlar la longitud visible */
-}
-
-.financiamiento p.animated-text {
-  font-size: 1rem;
-  text-align: center;
-  margin-bottom: 25px;
-  color: #000000af;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 2px solid #aa0202;
-  width: 0;
-  animation:
-    typing 4s steps(50, end) forwards,
-    blinkCaret 0.75s step-end infinite;
-  max-width: 40ch;
-  margin: 0 auto 25px auto;
-}
 
 }
 
@@ -708,8 +620,8 @@ nav a:focus::before {
  <header>
   <div class="container">
     <div class="logo-text" style="display: flex; align-items: center; gap: 10px;">
-      <img src="images/Autos/Logo.png" alt="Logo CC Autos" style="height: 40px;" />
-      <span class="sub" style="font-size: 18px;">Cc Autos</span><br />
+      <img src="images/Autos/Logo.png" alt="Logo CC Autos" style="height: 70px;" />
+     
     </div>
 
     <!-- Menú de navegación -->
@@ -737,80 +649,81 @@ nav a:focus::before {
 
   <!-- SECCIÓN FINANCIAMIENTO -->
 
-  <section class="financiamiento" id="financiamiento">
+<section class="financiamiento" id="financiamiento">
   <div class="financiamiento-container">
-      <h2>Financiamiento</h2>
-  <p>Trabajamos con distintas entidades financieras para ofrecerte las mejores opciones según tu perfil.</p>
+    <h2>Financiamiento</h2>
+    <p>Trabajamos con distintas entidades financieras para ofrecerte las mejores opciones según tu perfil.</p>
 
-  <div class="contenedor-financiamiento">
-    
-    <div class="columna">
-      <h3>¿Cómo funciona?</h3>
-      <ul>
-        <li>📋 Completa el formulario con tus datos.</li>
-        <li>📞 Un asesor te contactará directamente.</li>
-        <li>🏦 Evaluamos con varias financieras.</li>
-        <li>💬 Te presentamos la mejor propuesta.</li>
-        <li>🚗 ¡Compra tu auto sin complicaciones!</li>
-      </ul>
+    <div class="faq-style-financiamiento">
+      <details>
+        <summary>¿Cómo funciona?</summary>
+        <ul>
+          <li>📋 Completa el formulario con tus datos.</li>
+          <li>📞 Un asesor te contactará directamente.</li>
+          <li>🏦 Evaluamos con varias financieras.</li>
+          <li>💬 Te presentamos la mejor propuesta.</li>
+          <li>🚗 ¡Compra tu auto sin complicaciones!</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Requisitos comunes</summary>
+        <ul>
+          <li>✅ Cédula de identidad vigente.</li>
+          <li>✅ Contrato o boletas de ingreso.</li>
+          <li>✅ Antigüedad laboral mínima (3-6 meses).</li>
+          <li>✅ Comportamiento financiero responsable.</li>
+        </ul>
+      </details>
     </div>
-
-    <div class="columna">
-      <h3>Requisitos comunes</h3>
-      <ul>
-        <li>✅ Cédula de identidad vigente.</li>
-        <li>✅ Contrato o boletas de ingreso.</li>
-        <li>✅ Antigüedad laboral mínima (3-6 meses).</li>
-        <li>✅ Comportamiento financiero responsable.</li>
-      </ul>
-    </div>
   </div>
+</section>
 
-  <div class="alerta-importante">
-    💡 <strong>Importante:</strong> Las tasas, condiciones y montos dependen de la entidad financiera y tu perfil. Nosotros te ayudamos a conseguir la mejor alternativa.
-  </div>
-    
-    <h2>Simula tu Financiamiento</h2>
-    <p>Completa los datos y evalúa tu crédito de forma rápida y sin compromiso</p>
+<div id="form-financiamiento-container">
+  <h2>Simula tu Financiamiento</h2>
+  <p>Completa los datos y evalúa tu crédito de forma rápida y sin compromiso</p>
 
-    <form id="form-financiamiento">
-      <input type="text" name="nombre" placeholder="Nombre completo" required />
-      <input type="text" name="rut" placeholder="RUT" required />
-      <input type="email" name="email" placeholder="Correo electrónico" required />
-      <input type="text" name="ingreso" id="ingreso" placeholder="Ingreso mensual" required />
-      <input type="text" name="monto" id="monto" placeholder="Monto del vehículo" required />
-      <input type="text" name="pie" id="pie" placeholder="Monto del pie" required />
-      
-      <select name="cuotas" required>
-        <option value="">Seleccione cuotas</option>
-        <option value="12">12 cuotas</option>
-        <option value="24">24 cuotas</option>
-        <option value="36">36 cuotas</option>
-      </select>
+  <form id="form-financiamiento">
+    <input type="text" name="nombre" placeholder="Nombre completo" required />
+    <input type="text" name="rut" placeholder="RUT" required />
+    <input type="email" name="email" placeholder="Correo electrónico" required />
+    <input type="text" name="ingreso" id="ingreso" placeholder="Ingreso mensual" required />
+    <input type="text" name="monto" id="monto" placeholder="Monto del vehículo" required />
+    <input type="text" name="pie" id="pie" placeholder="Monto del pie" required />
 
-      <!-- Campo oculto para la fecha y hora -->
-      <input type="hidden" name="time" id="time" />
+    <select name="cuotas" required>
+      <option value="">Seleccione cuotas</option>
+      <option value="12">12 cuotas</option>
+      <option value="24">24 cuotas</option>
+      <option value="36">36 cuotas</option>
+    </select>
 
-      <button type="submit">Enviar solicitud</button>
-    </form>
+    <input type="hidden" name="time" id="time" />
 
-    <div id="mensaje-respuesta"></div>
-  </div>
+    <button type="submit">Enviar solicitud</button>
+  </form>
 
-
+  <div id="mensaje-respuesta"></div>
+</div>
 
       <!-- Cinta de logos de pago (fuera del footer) -->
     <div class="cinta-pagos">
       <div class="cinta-track">
         <img src="images/carrusel/Logoredcompra.webp" alt="WebPay" />
-        <img src="images/carrusel/mercadopago.svg" alt="Visa" />
-        <img src="images/carrusel/visa.png" alt="MasterCard" />
-        <img src="images/carrusel/Logoredcompra.webp" alt="WebPay" />
-        <img src="images/carrusel/mercadopago.svg" alt="Visa" />
-        <img src="images/carrusel/visa.png" alt="MasterCard" />
+        <img src="images/carrusel/bci.jpg" alt="bci" />
+        <img src="images/carrusel/chile.png" alt="chile" />
+        <img src="images/carrusel/santander.png" alt="santander" />
+        <img src="images/carrusel/visa.png" alt="visa" />
+              <img src="images/carrusel/Logoredcompra.webp" alt="WebPay" />
+        <img src="images/carrusel/bci.jpg" alt="bci" />
+        <img src="images/carrusel/chile.png" alt="chile" />
+        <img src="images/carrusel/santander.png" alt="santander" />
+        <img src="images/carrusel/visa.png" alt="visa" />
                 <img src="images/carrusel/Logoredcompra.webp" alt="WebPay" />
-        <img src="images/carrusel/mercadopago.svg" alt="Visa" />
-        <img src="images/carrusel/visa.png" alt="MasterCard" />
+        <img src="images/carrusel/bci.jpg" alt="bci" />
+        <img src="images/carrusel/chile.png" alt="chile" />
+        <img src="images/carrusel/santander.png" alt="santander" />
+        <img src="images/carrusel/visa.png" alt="visa" />
       </div>
     </div>
   </section>
@@ -840,7 +753,7 @@ nav a:focus::before {
 
       <div class="footer-bottom">
         <div>
-          © 2025 CYC Automóviles. All rights reserved. <br />
+          © 2025 CC Autos. All rights reserved. <br />
           Built & secured by 
           <a href="mailto:picininiluciano@gmail.com" style="color: #cc0404; text-decoration: none;">Luciano</a>.
         </div>
