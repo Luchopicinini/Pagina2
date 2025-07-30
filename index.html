@@ -347,10 +347,7 @@
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.auto-card:hover img {
-  transform: scale(1.05);
-  filter: blur(3px);
-}
+
 
 
   .auto-content {
@@ -584,26 +581,39 @@ footer {
 .waze {
   background-color: #33CCFF;
 }
-  .footer-bottom > div:first-child {
-    flex: 1 1 300px;
-  }
 
-  .social-container {
-    display: flex;
-    gap: 1rem;
-  }
 
-  .social-link svg {
-    width: 28px;
-    height: 28px;
-    fill: #ece5e5; /* rojo vibrante */
-    transition: fill 0.3s ease;
-    cursor: pointer;
-  }
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #333;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: #ece5e5;
+}
 
-  .social-link:hover svg {
-    fill: #1713d8; /* rojo más oscuro al pasar el mouse */
-  }
+.footer-bottom > div:first-child {
+  flex: 1 1 300px;
+}
+
+.social-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link svg {
+  width: 28px;
+  height: 28px;
+  fill: #ece5e5; /* rojo vibrante */
+  transition: fill 0.3s ease;
+  cursor: pointer;
+}
+
+.social-link:hover svg {
+  fill: #1713d8; /* rojo más oscuro al pasar el mouse */
+}
 
   /* HAMBURGER MENU */
   .hamburger {
@@ -1004,13 +1014,7 @@ nav a:focus::before {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 <script>
-  gsap.from(".auto-card", {
-  duration: 1,
-  y: 30,
-  opacity: 0,
-  stagger: 0.3,
-  ease: "power3.out"
-});
+
 
   document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');

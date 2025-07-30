@@ -323,9 +323,10 @@ textarea {
 }
 
 /* ========== FOOTER ========== */
+/* FOOTER */
 footer {
-  background-color: #111;
-  color: #e0e0e0;
+  background-color: #111; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
   padding: 2rem 1rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -344,14 +345,14 @@ footer {
   height: 300px;
   border: 0;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4); /* Sombra roja suave */
   transition: transform 0.3s ease;
 }
-
 .map-container iframe:hover {
   transform: scale(1.01);
 }
 
+/* BOTONES DE MAPAS */
 .botones-mapas {
   text-align: center;
 }
@@ -365,12 +366,12 @@ footer {
   color: white;
   font-weight: bold;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .btn-mapa:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
 }
 
 .google-maps {
@@ -379,6 +380,18 @@ footer {
 
 .waze {
   background-color: #33CCFF;
+}
+
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #333;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: #ece5e5;
 }
 
 .footer-bottom > div:first-child {
@@ -393,14 +406,15 @@ footer {
 .social-link svg {
   width: 28px;
   height: 28px;
-  fill: #ece5e5;
+  fill: #ece5e5; /* rojo vibrante */
   transition: fill 0.3s ease;
   cursor: pointer;
 }
 
 .social-link:hover svg {
-  fill: #1713d8;
+  fill: #1713d8; /* rojo más oscuro al pasar el mouse */
 }
+
 
 
 /* Efecto mágico en enlaces del nav */
