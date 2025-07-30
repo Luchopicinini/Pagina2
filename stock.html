@@ -82,9 +82,11 @@
     <div id="catalogo" class="catalogo">
       <div class="catalogo-grid">
         <!-- TARJETA DE AUTO -->
-        <div class="card-auto" data-aos="fade-up" data-marca="subaru" data-anio="2024" data-precio="17500000">
+        <div class="card-auto" data-aos="fade-up" data-marca="subaru" data-anio="2024" data-precio="20000000">
           <div class="card-image">
+          
             <img src="images/SUBARU/WRX1.png" alt="Subaru WRX TS 2024" loading="lazy" />
+            <div class="etiqueta-nuevo1">VENDIDO</div>
             <a href="detalle.html?auto=subaru-wrx-azul" class="view-more">Ver más</a>
           </div>
           <div class="specs">
@@ -107,7 +109,96 @@
             </div>
           </div>
         </div>
+
+
+
         <!-- Más tarjetas aquí -->
+         <div class="card-auto" data-aos="fade-up" data-marca="Peugeot" data-anio="2024" data-precio="30000000">
+          <div class="card-image">
+          
+            <img src="images/Autos/peugeot1.jpg" alt="Subaru WRX TS 2024" loading="lazy" />
+            <div class="etiqueta-nuevo">Disponible</div>
+            <a href="detalle.html?auto=peugeot-3008" class="view-more">Ver más</a>
+          </div>
+          <div class="specs">
+            <span>2024</span>
+            <span>Automática</span>
+            <span>37.000Km</span>
+          </div>
+          <div class="card-info">
+            <h4 class="model">Peugeot 3008 gt black pack</h4>
+            <p class="version">Motor 2.4 CVT con tracción AWD...</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-link" aria-label="Contacto WhatsApp">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon" />
+              WhatsApp
+            </a>
+            <div class="price">
+              Precio lista<br />
+              <strong>$26.980.0000</strong>
+            </div>
+          </div>
+        </div>
+
+                <!-- Más tarjetas aquí -->
+         <div class="card-auto" data-aos="fade-up" data-marca="Audi" data-anio="2023" data-precio="40000000">
+          <div class="card-image">
+          
+            <img src="images/Autos/audi1.jpg" alt="Subaru WRX TS 2024" loading="lazy" />
+            <div class="etiqueta-nuevo">Disponible</div>
+            <a href="detalle.html?auto=audiq5" class="view-more">Ver más</a>
+          </div>
+          <div class="specs">
+            <span>2023</span>
+            <span>Automática</span>
+            <span>47.500</span>
+          </div>
+          <div class="card-info">
+            <h4 class="model">Audi q5 sport 45 tfsi quattrp</h4>
+            <p class="version">Motor 2.4 CVT con tracción AWD...</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-link" aria-label="Contacto WhatsApp">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon" />
+              WhatsApp
+            </a>
+            <div class="price">
+              Precio lista<br />
+              <strong>$39.990.000</strong>
+            </div>
+          </div>
+        </div>
+
+
+                <!-- Más tarjetas aquí -->
+         <div class="card-auto" data-aos="fade-up" data-marca="Peugeot" data-anio="2024" data-precio="30000000">
+          <div class="card-image">
+          
+            <img src="images/Autos/peugeot1.jpg" alt="Subaru WRX TS 2024" loading="lazy" />
+            <div class="etiqueta-nuevo">Disponible</div>
+            <a href="detalle.html?auto=peugeot-3008" class="view-more">Ver más</a>
+          </div>
+          <div class="specs">
+            <span>2024</span>
+            <span>Automática</span>
+            <span>37.000Km</span>
+          </div>
+          <div class="card-info">
+            <h4 class="model">Peugeot 3008 gt black pack</h4>
+            <p class="version">Motor 2.4 CVT con tracción AWD...</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-link" aria-label="Contacto WhatsApp">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon" />
+              WhatsApp
+            </a>
+            <div class="price">
+              Precio lista<br />
+              <strong>$26.980.0000</strong>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -416,35 +507,59 @@
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+  border: 2.5px solid rgba(0, 0, 0, 0.12); /* borde más grueso y sutil */
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  transition: box-shadow 0.35s ease, transform 0.3s ease;
+  transition: box-shadow 0.35s ease, transform 0.3s ease, border-color 0.3s ease;
 }
 
 .card-auto:hover {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 30px rgba(12, 11, 11, 0.966);
   transform: translateY(-6px);
 }
 
 .card-image {
   position: relative;
   overflow: hidden;
+  height: 220px; /* o el alto que quieras */
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
 }
 
-.card-image .view-more {
+
+/* Estilo base: botón centrado en escritorio */
+.view-more {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   opacity: 0;
-  transition: opacity 0.3s ease;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.65);
   color: #fff;
-  padding: 8px 12px;
-  border-radius: 6px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   text-decoration: none;
-  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+  z-index: 10;
+  user-select: none;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+.card-auto:hover .view-more {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
 
 /* Hover solo para escritorio */
 @media (hover: hover) and (pointer: fine) {
@@ -459,25 +574,30 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
   transition: transform 0.35s ease;
 }
-
-.card-auto:hover .card-image img {
-  transform: scale(1.06);
-}
-
-
 
 .specs {
   display: flex;
   justify-content: space-around;
-  background-color: #222;
-  color: #eee;
+  background-color: #000000;
+  color: #ffffff;
   font-size: 0.9rem;
   padding: 0.6rem 0;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
+
+.specs span {
+  padding: 0 0.8rem;
+}
+
+.specs span:not(:first-child) {
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
 
 .card-info {
   padding: 1.3rem 1.5rem;
@@ -485,9 +605,9 @@
 }
 
 .model {
-  font-size: 1.35rem;
+  font-size: 1.7rem;
   margin: 0 0 0.35rem 0;
-  color: #111;
+  color: #000000;
   font-weight: 700;
   letter-spacing: 0.04em;
 }
@@ -503,39 +623,66 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.3rem 1.5rem;
-  border-top: 1px solid #eee;
+  padding: 1.5rem 1.75rem;
+  border-top: 1px solid #000000;
+  background-color: #8583831a;
+  border-radius: 0 0 18px 18px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .whatsapp-link {
   display: flex;
   align-items: center;
-  text-decoration: none;
-  color: #25d366;
+  gap: 14px;
   font-weight: 700;
-  gap: 8px;
   font-size: 1.1rem;
-  transition: color 0.3s ease;
-}
-
-.whatsapp-link:hover {
-  color: #1ebe5b;
+  color: #25d366;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  margin-left: 0;
+  padding-left: 0;
+  margin-right: 20px; /* espacio extra al lado derecho */
 }
 
 .whatsapp-icon {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-link:hover,
+.whatsapp-link:focus {
+  color: #1ebe5b;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 15px;
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(30, 190, 91, 0.6);
+  outline: none;
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-link:hover .whatsapp-icon {
+  transform: rotate(15deg);
 }
 
 .price {
   text-align: right;
-  color: #222;
-  font-size: 1.18rem;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  /* margin-left: 20px;  alternativa si prefieres aquí */
 }
 
 .price strong {
-  font-size: 1.55rem;
-  color: #0057b7;
+  display: block;
+  font-size: 1rem;
+  color: #d32f2f;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1;
 }
 
 
@@ -792,6 +939,262 @@ footer {
   fill: #1713d8; /* rojo más oscuro al pasar el mouse */
 }
 
+@media (max-width: 1024px) {
+
+  /* Box-sizing para todo */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  nav {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    /* Menú lateral */
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 280px;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    flex-direction: column;
+    padding-top: 80px;
+    color: #fff;
+    z-index: 1000;
+    border-radius: 0 0 0 20px;
+
+    /* Centrar contenido del nav */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav.open {
+    transform: translateX(0);
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    list-style: none;
+  }
+
+  nav li {
+    border-bottom: 1px solid #444;
+  }
+
+  nav li:last-child {
+    border-bottom: none;
+  }
+
+  nav a {
+    color: #fff;
+    display: block;
+    padding: 1.2rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    user-select: none;
+  }
+
+  nav a:hover,
+  nav a:focus {
+    background-color: rgba(255, 0, 0, 0.3);
+    outline: none;
+  }
+
+  .hamburger {
+    display: flex;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #d32f2f; /* rojo vivo */
+    padding: 0.6rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #d32f2f;
+    z-index: 1100;
+  }
+
+  /* Layout principal: columna para filtro y catálogo, centrado horizontal */
+  .layout-principal {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+    max-width: 900px;   /* limita ancho máximo */
+    margin: 0 auto;     /* centrado horizontal */
+    width: 100%;
+  }
+
+  /* Contenedor filtro: ancho 100% pero con max-width y centrado */
+  .contenedor-fitro {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  /* Filtros: altura automática y padding reducido para mejor ajuste */
+  .filtros {
+    height: auto;
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    overflow-y: visible; /* quitar scroll */
+    max-width: 100%;
+  }
+
+  /* Contenedor catálogo: ancho completo con max-width y centrado */
+  .contenedor-principal {
+    flex-wrap: nowrap;
+    padding: 0;
+    gap: 1rem;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Catalogo grid: una columna para cards verticales */
+  .catalogo-grid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem 0;
+  }
+
+  /* Cards Auto: ancho completo, borde más pequeño, altura flexible */
+  .card-auto {
+    max-width: 100%;
+    border-radius: 14px;
+    border: 1.8px solid rgba(0, 0, 0, 0.12);
+  }
+
+  /* Imagen card: altura menor para pantallas chicas */
+  .card-image {
+    height: 180px;
+    border-radius: 14px 14px 0 0;
+  }
+
+  /* Texto dentro de specs: más pequeño y centrado */
+  .specs {
+    font-size: 0.85rem;
+    padding: 0.45rem 0;
+    text-align: center; /* centrado */
+  }
+
+  /* Ajustar gaps en specs */
+  .specs span {
+    padding: 0 0.5rem;
+  }
+
+  /* Modelo y versión: tamaño más pequeño para mejor ajuste y centrado */
+  .model {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .version {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  /* Footer cards: padding reducido y font-size menor */
+  .card-footer {
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+    border-radius: 0 0 14px 14px;
+  }
+
+  /* WhatsApp link: tamaño de texto más pequeño y menos gap */
+  .whatsapp-link {
+    gap: 10px;
+    font-size: 1rem;
+    margin-right: 12px;
+  }
+
+  .whatsapp-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+  }
+
+  /* Precio: tamaño más compacto */
+  .price {
+    font-size: 0.9rem;
+  }
+
+  .price strong {
+    font-size: 0.95rem;
+  }
+
+  /* Footer: centrar texto y ajustar social */
+  footer {
+    padding: 1rem 0.5rem;
+    font-size: 0.85rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .footer-container {
+    padding: 0 0.5rem;
+  }
+
+  .footer-bottom {
+    gap: 0.5rem;
+    justify-content: center; /* centrar social y textos */
+    flex-wrap: wrap;
+  }
+
+  .social-container {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .social-container svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .card-image {
+    position: relative; /* necesario para el absolute del botón */
+  }
+
+  .view-more {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    opacity: 1 !important;
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 6px 14px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+  }
+
+  .view-more:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+
+}
+
+
+
+
 
 @media (max-width: 768px) {
 
@@ -873,84 +1276,106 @@ footer {
     box-shadow: 0 0 10px #d32f2f;
     z-index: 1100;
   }
-
-   .layout-principal {
+   /* Layout principal: columna para filtro y catálogo */
+  .layout-principal {
     flex-direction: column;
-    padding: 1.5rem;
-  }
-
-  .contenedor-fitro {
-    flex: 1 1 100%;
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
     max-width: 100%;
-    height: auto;
-    margin-bottom: 2rem;
   }
 
+  /* Contenedor filtro: igual ancho que las cards (100%) y altura automática */
+  .contenedor-fitro {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Filtros: altura automática y padding reducido para mejor ajuste */
   .filtros {
-    padding: 1.5rem;
-    border-radius: 14px;
     height: auto;
-    overflow: visible;
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    overflow-y: visible; /* quitar scroll */
   }
 
-  #formFiltros {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1.2rem;
-  }
-
-  .filtro {
-    flex: 1 1 auto;
-  }
-
+  /* Contenedor catálogo: ancho completo y sin padding horizontal excesivo */
   .contenedor-principal {
+    flex-wrap: nowrap;
     padding: 0;
-    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
   }
 
+  /* Catalogo grid: una columna para cards verticales */
   .catalogo-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.8rem 0;
   }
 
-  .hero-container h1 {
-    font-size: 2rem;
+  /* Cards Auto: ancho completo, borde más pequeño, altura flexible */
+  .card-auto {
+    max-width: 100%;
+    border-radius: 14px;
+    border: 1.8px solid rgba(0, 0, 0, 0.12);
   }
 
-  .hero-container p {
-    font-size: 1.1rem;
-  }
-
-  .cta-button {
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-  }
-
+  /* Imagen card: altura menor para pantallas chicas */
   .card-image {
-    height: 200px;
+    height: 180px;
+    border-radius: 14px 14px 0 0;
   }
 
-  .card-info {
-    padding: 1rem 1.2rem;
+  /* Texto dentro de specs: más pequeño y centrado */
+  .specs {
+    font-size: 0.85rem;
+    padding: 0.45rem 0;
   }
 
+  /* Ajustar gaps en specs */
+  .specs span {
+    padding: 0 0.5rem;
+  }
+
+  /* Modelo y versión: tamaño más pequeño para mejor ajuste */
+  .model {
+    font-size: 1.3rem;
+  }
+
+  .version {
+    font-size: 0.9rem;
+  }
+
+  /* Footer cards: padding reducido y font-size menor */
   .card-footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+    border-radius: 0 0 14px 14px;
   }
 
+  /* WhatsApp link: tamaño de texto más pequeño y menos gap */
+  .whatsapp-link {
+    gap: 10px;
+    font-size: 1rem;
+    margin-right: 12px;
+  }
+
+  .whatsapp-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+  }
+
+  /* Precio: tamaño más compacto */
   .price {
-    text-align: left;
+    font-size: 0.9rem;
   }
 
-  .etiqueta-nuevo,
-  .etiqueta-nuevo1,
-  .etiqueta-nuevo2 {
-    font-size: 0.75rem;
-    padding: 0.4rem 1rem;
+  .price strong {
+    font-size: 0.95rem;
   }
-
   /* Footer: centrar texto y ajustar social */
   footer {
     padding: 1rem 0.5rem;  /* menos padding arriba y abajo */
@@ -970,18 +1395,30 @@ footer {
     height: 20px;
   }
 
- .view-more {
-    opacity: 0;
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    transition: opacity 0.3s ease;
+  .card-image {
+    position: relative; /* necesario para el absolute del botón */
   }
 
-  .card-image.show-button .view-more {
-    opacity: 1;
+  .view-more {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    opacity: 1 !important;
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 6px 14px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease;
+    display: inline-block;
   }
 
+  .view-more:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
 }
 
 
@@ -1154,7 +1591,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 </script>
 
-//filtrarAuto
 <script>
  document.addEventListener("DOMContentLoaded", () => {
   const autos = Array.from(document.querySelectorAll(".card-auto"));
