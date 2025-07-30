@@ -952,7 +952,6 @@ footer {
     font-size: 0.75rem;
     padding: 0.4rem 1rem;
   }
-}
 
   /* Footer: centrar texto y ajustar social */
   footer {
@@ -972,6 +971,13 @@ footer {
     width: 20px;           /* íconos sociales más pequeños */
     height: 20px;
   }
+
+  .card .ver-mas-btn {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+}
+
 
 /* Efecto mágico en enlaces del nav */
 nav a {
@@ -1210,7 +1216,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </script>
+<script>
+  document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('click', () => {
+    // Ocultar los botones de otras cards
+    document.querySelectorAll('.card .ver-mas-btn').forEach(btn => {
+      btn.style.opacity = '0';
+    });
 
+    // Mostrar el botón de la card tocada
+    const boton = card.querySelector('.ver-mas-btn');
+    boton.style.opacity = '1';
+  });
+});
+
+</script>
 
 
 </body>
