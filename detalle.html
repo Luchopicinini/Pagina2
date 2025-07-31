@@ -119,7 +119,7 @@
 
 body {
   font-family: var(--font-main);
-  background-color: var(--color-black);
+  background-color: #181818;
   color: var(--color-white);
   line-height: 1.6;
   font-size: 16px;
@@ -405,6 +405,49 @@ body {
   color: #ff6b6b;
 }
 
+  .cinta-pagos {
+  width: 100%;
+  overflow: hidden;
+  padding: 15px 0;
+  user-select: none;
+  border-radius: 12px;
+  background-color: #181818;
+  /* No background para que sea transparente */
+}
+
+.cinta-track {
+  display: flex;
+  width: max-content; /* ancho según contenido */
+  animation: deslizar 30s linear infinite;
+  gap: 40px;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.cinta-track img {
+  height: 60px;
+  filter: grayscale(80%);
+  opacity: 0.6;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  flex-shrink: 0; /* para que no se reduzcan */
+}
+
+.cinta-track img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+@keyframes deslizar {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 @media (max-width: 768px) {
  /* Box-sizing para todo */
   *,
@@ -659,6 +702,46 @@ nav a:focus::before {
     <div class="botones-container" id="botonesDebajoImagen"></div>
   </section>
 </div>
+
+<div class="cinta-pagos">
+  <div class="cinta-track">
+    <img src="images/carrusel/Volkswagen_628.png" alt="Volkswagen" />
+    <img src="images/carrusel/ford.png" alt="Ford" />
+    <img src="images/carrusel/hyundai.png" alt="Hyundai" />
+    <img src="images/carrusel/kia.png" alt="Kia" />
+    <img src="images/carrusel/nissan.png" alt="Nissan" />
+    <img src="images/carrusel/peugeot.png" alt="peugeot" />
+    <img src="images/carrusel/subaru.png" alt="Subaru" />
+
+      <img src="images/carrusel/Volkswagen_628.png" alt="Volkswagen" />
+    <img src="images/carrusel/ford.png" alt="Ford" />
+    <img src="images/carrusel/hyundai.png" alt="Hyundai" />
+    <img src="images/carrusel/kia.png" alt="Kia" />
+    <img src="images/carrusel/nissan.png" alt="Nissan" />
+    <img src="images/carrusel/peugeot.png" alt="peugeot" />
+    <img src="images/carrusel/subaru.png" alt="Subaru" />
+
+        <img src="images/carrusel/Volkswagen_628.png" alt="Volkswagen" />
+    <img src="images/carrusel/ford.png" alt="Ford" />
+    <img src="images/carrusel/hyundai.png" alt="Hyundai" />
+    <img src="images/carrusel/kia.png" alt="Kia" />
+    <img src="images/carrusel/nissan.png" alt="Nissan" />
+    <img src="images/carrusel/peugeot.png" alt="peugeot" />
+    <img src="images/carrusel/subaru.png" alt="Subaru" />
+
+        <img src="images/carrusel/Volkswagen_628.png" alt="Volkswagen" />
+    <img src="images/carrusel/ford.png" alt="Ford" />
+    <img src="images/carrusel/hyundai.png" alt="Hyundai" />
+    <img src="images/carrusel/kia.png" alt="Kia" />
+    <img src="images/carrusel/nissan.png" alt="Nissan" />
+    <img src="images/carrusel/peugeot.png" alt="peugeot" />
+    <img src="images/carrusel/subaru.png" alt="Subaru" />
+
+  </div>
+</div>
+
+
+
 <footer class="footer">
   <div class="footer-top">
     <hr class="linea-superior" />
@@ -707,14 +790,6 @@ nav a:focus::before {
 </div>
 
 </footer>
-
-
-
-
-
-
-  
-
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

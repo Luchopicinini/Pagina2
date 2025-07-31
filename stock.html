@@ -302,9 +302,7 @@
 
     // ===== NUEVO: Typewriter Effect =====
     const texts = [
-      "Encuentra el auto de tus sueños",
-      "Con CYC Automóviles",
-      "Precios insuperables y atención personalizada"
+      "Encuentra el auto de tus sueños con Cc Autos"
     ];
 
     let currentTextIndex = 0;
@@ -472,25 +470,25 @@ document.addEventListener('DOMContentLoaded', () => {
       /* rojo oscuro firebrick */
       --color-gray-light: #CCCCCC;
       --font-main: 'Barlow', sans-serif;
-    }
+}
 
-    * {
+* {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
+}
 
-    body {
+body {
       font-family: var(--font-main);
-  
+      
       color: var(--color-white);
       line-height: 1.6;
       scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-    }
+}
 
-    header {
+header {
   background-color: #111;
   color: #fff;
   padding: 1rem 0;
@@ -1003,10 +1001,6 @@ nav a:hover {
   box-shadow: 0 9px 25px rgba(255, 77, 77, 0.9);
   transform: translateY(-2px);
 }
-
-
-
-
 /* Estilos base para etiquetas */
 .etiqueta-nuevo,
 .etiqueta-nuevo1,
@@ -1193,265 +1187,6 @@ nav a:hover {
   color: #ff6b6b;
 }
 
-@media (max-width: 1024px) {
-
-  /* Box-sizing para todo */
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
-  nav {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 280px;
-    background-color: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(10px);
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    flex-direction: column;
-    padding-top: 80px;
-    color: #fff;
-    z-index: 1000;
-    border-radius: 0 0 0 20px;
-
-  }
-
-  nav.open {
-    transform: translateX(0);
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 0;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    text-align: center;
-    list-style: none;
-  }
-
-  nav li {
-    border-bottom: 1px solid #444;
-  }
-
-  nav li:last-child {
-    border-bottom: none;
-  }
-
-  nav a {
-    color: #fff;
-    display: block;
-    padding: 1.2rem 0;
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    user-select: none;
-  }
-
-  nav a:hover,
-  nav a:focus {
-    background-color: rgba(255, 0, 0, 0.3);
-    outline: none;
-  }
-
-  .hamburger {
-    display: flex;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #d32f2f; /* rojo vivo */
-    padding: 0.6rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px #d32f2f;
-    z-index: 1100;
-  }
-
-  /* Layout principal: columna para filtro y catálogo, centrado horizontal */
-  .layout-principal {
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem 1rem;
-    gap: 1.5rem;
-    max-width: 900px;   /* limita ancho máximo */
-    margin: 0 auto;     /* centrado horizontal */
-    width: 100%;
-  }
-
-  /* Contenedor filtro: ancho 100% pero con max-width y centrado */
-  .contenedor-fitro {
-    flex: none;
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-  }
-
-  /* Filtros: altura automática y padding reducido para mejor ajuste */
-  .filtros {
-    height: auto;
-    padding: 1.5rem 1rem;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    overflow-y: visible; /* quitar scroll */
-    max-width: 100%;
-  }
-
-  /* Contenedor catálogo: ancho completo con max-width y centrado */
-  .contenedor-principal {
-    flex-wrap: nowrap;
-    padding: 0;
-    gap: 1rem;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  /* Catalogo grid: una columna para cards verticales */
-  .catalogo-grid {
-    grid-template-columns: 1fr;
-    gap: 1.8rem 0;
-  }
-
-  /* Cards Auto: ancho completo, borde más pequeño, altura flexible */
-  .card-auto {
-    max-width: 100%;
-    border-radius: 14px;
-    border: 1.8px solid rgba(0, 0, 0, 0.12);
-  }
-
-  /* Imagen card: altura menor para pantallas chicas */
-  .card-image {
-    height: 180px;
-    border-radius: 14px 14px 0 0;
-  }
-
-  /* Texto dentro de specs: más pequeño y centrado */
-  .specs {
-    font-size: 0.85rem;
-    padding: 0.45rem 0;
-    text-align: center; /* centrado */
-  }
-
-  /* Ajustar gaps en specs */
-  .specs span {
-    padding: 0 0.5rem;
-  }
-
-  /* Modelo y versión: tamaño más pequeño para mejor ajuste y centrado */
-  .model {
-    font-size: 1.3rem;
-    text-align: center;
-  }
-
-  .version {
-    font-size: 0.9rem;
-    text-align: center;
-  }
-
-  /* Footer cards: padding reducido y font-size menor */
-  .card-footer {
-    padding: 1rem 1.25rem;
-    font-size: 0.9rem;
-    border-radius: 0 0 14px 14px;
-  }
-
-  /* WhatsApp link: tamaño de texto más pequeño y menos gap */
-  .whatsapp-link {
-    gap: 10px;
-    font-size: 1rem;
-    margin-right: 12px;
-  }
-
-  .whatsapp-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 6px;
-  }
-
-  /* Precio: tamaño más compacto */
-  .price {
-    font-size: 0.9rem;
-  }
-
-  .price strong {
-    font-size: 0.95rem;
-  }
-
-  .footer-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .footer-redes .redes-iconos {
-    justify-content: center;
-    margin-top: 10px;
-  }
-
-  .footer-botones .botones {
-    justify-content: center;
-  }
-
-  .footer-mapa iframe {
-    height: 200px;
-  }
-
-  .footer-titulo {
-    margin-top: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .btn-mapa,
-  .btn-waze {
-    width: 100%;
-    text-align: center;
-  }
-
-  .footer-redes img {
-    width: 24px;
-  }
-
-  .footer-creditos {
-    font-size: 0.75rem;
-    padding: 0 10px;
-  }
-
-  .card-image {
-    position: relative; /* necesario para el absolute del botón */
-  }
-
-  .view-more {
-    position: absolute !important;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) !important;
-    opacity: 1 !important;
-
-    padding: 6px 14px;
-    font-size: 0.9rem;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgb(240, 0, 0);
-    cursor: pointer;
-    user-select: none;
-    transition: background-color 0.3s ease;
-    display: inline-block;
-  }
-
-  .view-more:hover {
-    background-color: rgba(0, 0, 0, 0.9);
-  }
-
-  .etiqueta-nuevo, .etiqueta-nuevo1, .etiqueta-nuevo2{
-    display: none;
-  }
-}
 
 @media (max-width: 768px) {
 
@@ -1461,7 +1196,7 @@ nav a:hover {
   *::after {
     box-sizing: border-box;
   }
-  
+
 
   nav {
     padding-left: 1.5rem;
@@ -1786,4 +1521,3 @@ nav a:focus::before {
 </style>
 </body>
 </html>
-|
