@@ -933,39 +933,87 @@ nav a:focus::before {
     margin-top: 20px;
   }
 
-  .container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .cc-elegir-grid,
-  .features-grid,
-  .footer-content {
-    grid-template-columns: 1fr !important;
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: center;
-  }
-
-  .cc-elegir-card,
-  .feature-item {
-    max-width: 100%;
-    padding: 1.5rem 1rem;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-    text-align: center;
-  }
-
+  /* Ajustes generales */
   .section-title {
     font-size: 2rem;
     letter-spacing: 2px;
+    margin: 2rem 0 1.5rem;
+    text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.2);
+  }
+
+  /* Sección: ¿Por qué elegirnos? */
+  .cc-elegir-section {
+    padding: 0 1rem;
+    margin: 2rem 0;
+  }
+
+  .cc-elegir-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .cc-elegir-card {
+    max-width: 100%;
+    padding: 1.5rem 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .cc-elegir-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .cc-elegir-card p {
+    font-size: 1rem;
+  }
+
+  /* Sección nosotros */
+  #nosotros {
+    font-size: 1rem;
+    padding: 0 1rem;
+    margin: 3rem auto;
+  }
+
+  /* Por qué elegirnos */
+  .why-choose {
+    padding: 2.5rem 1rem 3rem;
+    margin-bottom: 4rem;
+    box-shadow: 0 4px 20px rgba(178, 34, 34, 0.2);
   }
 
   .why-choose h2 {
     font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .why-choose p.subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Características */
+  .features-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .feature-item {
+    padding: 1.5rem 1.2rem;
+    box-shadow: 0 4px 10px rgba(178, 34, 34, 0.2);
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .feature-title {
+    font-size: 1.3rem;
+  }
+
+  .feature-desc {
+    font-size: 0.95rem;
   }
 
 
