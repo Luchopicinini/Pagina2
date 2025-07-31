@@ -39,6 +39,7 @@
     </button>
   </div>
 </header>
+<div id="overlay"></div>
 
 <section class="hero-container" role="banner" aria-label="Presentación principal">
   <div class="hero-content">
@@ -202,41 +203,59 @@
 </div>
 
 
-<footer>
-  <div class="footer-container">
-    <div class="map-container" aria-label="Mapa de ubicación">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1459.8017511327735!2d-70.54969373163439!3d-33.409008159664644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e1!3m2!1ses!2sus!4v1753484768412!5m2!1ses!2sus" 
-      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      <div class="botones-mapas">
-        <p>¿Cómo llegar?</p>
-        <a href="https://www.google.com/maps?q=Av.+Apoquindo+7935,+Las+Condes,+Chile" target="_blank" class="btn-mapa google-maps">
-          Abrir en Google Maps
-        </a>
-        <a href="https://waze.com/ul?ll=-33.4090082,-70.5496937&navigate=yes" target="_blank" class="btn-mapa waze">
-          Abrir en Waze
-        </a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div>
-        © 2025 CC Autos. All rights reserved. <br />
-        Built & secured by <a href="mailto:picininiluciano@gmail.com" style="color: #cc0404; text-decoration: none;">Luciano</a>.
-      </div>
-      <div class="social-container" aria-label="Redes sociales">
-        <a href="https://www.facebook.com/automoviles.cyc.2025" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="32" height="32" style="border-radius: 4px;" />
-        </a>
-        <a href="https://www.instagram.com/cycautomoviles_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="32" height="32" style="border-radius: 8px;" />
-        </a>
-      </div>
-    </div>
+
+<footer class="footer">
+  <div class="footer-top">
+    <hr class="linea-superior" />
+    <div class="footer-content">
+      <!-- Redes sociales -->
+<div class="footer-redes">
+  <p class="footer-titulo">Síguenos</p>
+  <div class="redes-iconos">
+    <a href="https://www.instagram.com/ccautos.cl" target="_blank" aria-label="Instagram">
+      <img src="images/icons/instagram.svg" alt="Instagram" />
+    </a>
+    <a href="https://www.facebook.com/ccautos.cl" target="_blank" aria-label="Facebook">
+      <img src="images/icons/facebook.svg" alt="Facebook" />
+    </a>
+    <a href="https://wa.me/56988276054" target="_blank" aria-label="WhatsApp">
+      <img src="images/icons/whatsapp.svg" alt="WhatsApp" />
+    </a>
   </div>
+</div>
+      <!-- Mapa -->
+      <div class="footer-mapa">
+        <p class="footer-titulo">¿Cómo llegar?</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2005.704283806157!2d-70.54977287795657!3d-33.4088170678863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e1!3m2!1ses!2snl!4v1753989873260!5m2!1ses!2snl" 
+                width="100%" height="160" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+
+      <!-- Botones -->
+      <div class="footer-botones">
+        <p class="footer-titulo">Ubicación rápida</p>
+        <div class="botones">
+          <a class="btn-mapa" href="https://www.google.com/maps?q=Av.+Apoquindo+7935,+Las+Condes,+Chile" target="_blank">Google Maps</a>
+          <a class="btn-waze" href="https://waze.com/ul?ll=-33.4090082,-70.5496937&navigate=yes" target="_blank">Waze</a>
+        </div>
+      </div>
+    </div>
+    <hr class="linea-inferior" />
+  </div>
+
+<!-- Créditos -->
+<div class="footer-creditos">
+  <p>
+    &copy; 2025 <strong>CC Autos</strong>. Todos los derechos reservados. <br>
+    Diseñado y protegido por 
+    <a href="mailto:picininiluciano@gmail.com">Luciano</a>.
+  </p>
+</div>
+
 </footer>
 
 <script>
-// ===== INYECTAR CSS PARA EFECTOS AVANZADOS =====
-document.addEventListener('DOMContentLoaded', () => {
+ 
+  document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('nav');
     const overlay = document.getElementById('overlay');
@@ -256,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Click en el ícono hamburguesa
     hamburger.addEventListener('click', toggleMenu);
 
-    // Cierra el menú al hacer clic en cualquier enlace
+    // Cierra el menú al hacer clic en cualquier enlace del menú
     const navLinks = document.querySelectorAll('#nav a');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
@@ -276,6 +295,10 @@ document.addEventListener('DOMContentLoaded', () => {
       body.classList.remove('no-scroll');
       hamburger.setAttribute('aria-expanded', 'false');
     });
+  });
+</script>
+
+<script>
 
     // ===== NUEVO: Typewriter Effect =====
     const texts = [
@@ -346,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.zIndex = '1';
       });
     });
-});
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
@@ -900,11 +923,6 @@ nav a:hover {
   line-height: 1;
 }
 
-
-
-
-
-
 .filtros.container:hover {
   box-shadow: 0 18px 40px rgba(255, 0, 0, 0.5);
 }
@@ -1062,99 +1080,117 @@ nav a:hover {
   }
 }
 
-
-
- 
-/* FOOTER */
-footer {
-  background-color: #111; /* Fondo oscuro */
-  color: #e0e0e0; /* Texto claro */
-  padding: 2rem 1rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.footer {
+  font-family: 'Barlow', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 40px 20px 20px;
 }
 
-.footer-container {
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+.footer-top {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.linea-superior,
+.linea-inferior {
+  border: none;
+  border-top: 1px solid #dcdcdc;
+  margin: 20px 0;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
+  gap: 20px;
 }
 
-.map-container iframe {
-  width: 100%;
-  height: 300px;
-  border: 0;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4); /* Sombra roja suave */
+.footer-titulo {
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+}
+
+.footer-redes .redes-iconos {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-redes img {
+  width: 28px;
   transition: transform 0.3s ease;
 }
-.map-container iframe:hover {
-  transform: scale(1.01);
+
+.footer-redes img:hover {
+  transform: scale(1.2);
 }
 
-/* BOTONES DE MAPAS */
-.botones-mapas {
-  text-align: center;
+.footer-mapa iframe {
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
-.btn-mapa {
-  display: inline-block;
-  padding: 12px 24px;
-  margin: 10px;
-  border-radius: 8px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.btn-mapa:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-}
-
-.google-maps {
-  background-color: #4285F4;
-}
-
-.waze {
-  background-color: #33CCFF;
-}
-
-
-.footer-bottom {
+.footer-botones .botones {
   display: flex;
+  gap: 12px;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid #333;
-  padding-top: 1rem;
+}
+
+.btn-mapa,
+.btn-waze {
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
   font-size: 0.9rem;
-  color: #ece5e5;
-}
-
-.footer-bottom > div:first-child {
-  flex: 1 1 300px;
-}
-
-.social-container {
-  display: flex;
-  gap: 1rem;
-}
-
-.social-link svg {
-  width: 28px;
-  height: 28px;
-  fill: #ece5e5; /* rojo vibrante */
-  transition: fill 0.3s ease;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   cursor: pointer;
 }
 
-.social-link:hover svg {
-  fill: #1713d8; /* rojo más oscuro al pasar el mouse */
+.btn-mapa {
+  background: #e8e8e8;
+  color: #2c3e50;
+}
+
+.btn-waze {
+  background: #d0e8ff;
+  color: #034a8f;
+}
+
+.btn-mapa:hover {
+  background: #ff4c4c;
+  color: #fff;
+  border-color: #ff4c4c;
+}
+
+.btn-waze:hover {
+  background: #0277bd;
+  color: #fff;
+  border-color: #0277bd;
+}
+
+.footer-creditos {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 20px;
+}
+.footer-creditos a {
+  color: #e74c3c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-creditos a:hover {
+  text-decoration: underline;
+  color: #ff6b6b;
 }
 
 @media (max-width: 1024px) {
@@ -1348,33 +1384,43 @@ footer {
     font-size: 0.95rem;
   }
 
-  /* Footer: centrar texto y ajustar social */
-  footer {
-    padding: 1rem 0.5rem;
-    font-size: 0.85rem;
-    max-width: 900px;
-    margin: 0 auto;
+  .footer-content {
+    grid-template-columns: 1fr;
     text-align: center;
   }
 
-  .footer-container {
-    padding: 0 0.5rem;
-  }
-
-  .footer-bottom {
-    gap: 0.5rem;
-    justify-content: center; /* centrar social y textos */
-    flex-wrap: wrap;
-  }
-
-  .social-container {
+  .footer-redes .redes-iconos {
     justify-content: center;
-    width: 100%;
+    margin-top: 10px;
   }
 
-  .social-container svg {
-    width: 20px;
-    height: 20px;
+  .footer-botones .botones {
+    justify-content: center;
+  }
+
+  .footer-mapa iframe {
+    height: 200px;
+  }
+
+  .footer-titulo {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-mapa,
+  .btn-waze {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-redes img {
+    width: 24px;
+  }
+
+  .footer-creditos {
+    font-size: 0.75rem;
+    padding: 0 10px;
   }
 
   .card-image {
@@ -1406,10 +1452,6 @@ footer {
     display: none;
   }
 }
-
-
-
-
 
 @media (max-width: 768px) {
 
@@ -1595,47 +1637,29 @@ footer {
     font-size: 0.95rem;
   }
   /* Footer: centrar texto y ajustar social */
-  footer {
-    padding: 1rem 0.5rem;  /* menos padding arriba y abajo */
-    font-size: 0.85rem;    /* texto un poco más pequeño */
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 
-  .footer-container {
-    padding: 0 0.5rem;     /* menos padding lateral */
+  .footer-redes .redes-iconos {
+    justify-content: center;
+    margin-top: 10px;
   }
 
-  .footer-bottom {
-    gap: 0.5rem;           /* menos espacio entre elementos */
+  .footer-botones .botones {
+    justify-content: center;
   }
 
-  .social-container svg {
-    width: 20px;           /* íconos sociales más pequeños */
-    height: 20px;
+  .footer-mapa iframe {
+    height: 200px;
   }
 
-  .card-image {
-    position: relative; /* necesario para el absolute del botón */
+  .footer-titulo {
+    margin-top: 20px;
   }
-
-  .view-more {
-    position: absolute !important;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) !important;
-    opacity: 1 !important;
-    background-color: rgba(0, 0, 0, 0.226);
-    padding: 6px 14px;
-    font-size: 0.9rem;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    user-select: none;
-    transition: background-color 0.3s ease;
-    display: inline-block;
-  }
-
-
 }
+
 
 
 /* Efecto mágico en enlaces del nav */
@@ -1680,85 +1704,7 @@ nav a:focus::before {
   }
 }
 </style>
-<style>
-  @media (max-width: 768px) {
-  /* Box-sizing para todo */
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-  nav {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-  nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 280px;
-    background-color: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(10px);
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    flex-direction: column;
-    padding-top: 80px;
-    color: #fff;
-    z-index: 1000;
-    border-radius: 0 0 0 20px;
-  }
-  nav.open {
-    transform: translateX(0);
-  }
 
-  nav ul {
-    flex-direction: column;
-    gap: 0;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    text-align: center;
-    list-style: none;
-  }
-
-  nav li {
-    border-bottom: 1px solid #444;
-  }
-
-  nav li:last-child {
-    border-bottom: none;
-  }
-
-  nav a {
-    color: #fff;
-    display: block;
-    padding: 1.2rem 0;
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    user-select: none;
-  }
-
-  nav a:hover,
-  nav a:focus {
-    background-color: rgba(255, 0, 0, 0.3);
-    outline: none;
-  }
-
-  .hamburger {
-    display: flex;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: var(--color-red);
-    padding: 0.6rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px var(--color-red);
-    z-index: 1100;
-  }
-}
-</style>
+  
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Automotora CYC: compra y venta de autos usados y nuevos con garantía, asesoría y los mejores precios del mercado." />
-  <title>Nosotros</title>
+  <title>Vende tu vehiculo</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -38,65 +38,170 @@
 
 
 <main class="container1">
-  <section id="contacto" aria-label="Formulario para vender vehículo">
-    <h2>¿Quieres vender tu vehículo?</h2>
-    <p>Déjanos tus datos y te contactaremos.</p>
+<section id="contacto" aria-label="Formulario para vender vehículo">
+  <h2>¿Quieres vender tu vehículo?</h2>
+  <p>Déjanos tus datos y te contactaremos.</p>
 
-    <form id="miFormulario" class="formulario" novalidate>
-      <!-- DATOS PERSONALES -->
-      <div class="form-group">
-        <input type="text" name="nombre" id="nombre" placeholder="Nombre" required />
-        <input type="text" name="apellido" placeholder="Apellido" required />
-      </div>
-      <div class="form-group">
-        <input type="email" name="email" placeholder="ejemplo@gmail.com" required />
-      </div>
-      <div class="form-group">
-        <input type="tel" name="telefono" placeholder="+56 9 1234 6987" required />
-      </div>
+  <form id="miFormulario" class="formulario" novalidate>
+    <!-- DATOS PERSONALES -->
+    <div class="form-group">
+      <label for="nombre">Nombre <span style="color: red;">*</span></label>
+      <input type="text" name="nombre" id="nombre" placeholder="Nombre" required />
+    </div>
+    <div class="form-group">
+      <label for="apellido">Apellido</label>
+      <input type="text" name="apellido" id="apellido" placeholder="Apellido" />
+    </div>
+    <div class="form-group">
+      <label for="email">Correo electrónico <span style="color: red;">*</span></label>
+      <input type="email" name="email" id="email" placeholder="ejemplo@gmail.com" required />
+    </div>
+    <div class="form-group">
+      <label for="telefono">Teléfono <span style="color: red;">*</span></label>
+      <input type="tel" name="telefono" id="telefono" placeholder="+56 9 1234 6987" required />
+    </div>
 
-      <!-- DATOS DEL VEHÍCULO -->
-      <h3>Información del vehículo</h3>
-      <div class="form-group">
-        <input type="text" name="marca" id="marca" placeholder="Marca" required />
-        <input type="text" name="modelo" placeholder="Modelo" required />
-      </div>
+    <!-- DATOS DEL VEHÍCULO -->
+    <h3>Información del vehículo</h3>
+    <div class="form-group">
+      <label for="marca">Marca <span style="color: red;">*</span></label>
+      <input type="text" name="marca" id="marca" placeholder="Marca" required />
+    </div>
+    <div class="form-group">
+      <label for="modelo">Modelo</label>
+      <input type="text" name="modelo" id="modelo" placeholder="Modelo" />
+    </div>
 
-      <div class="form-group">
-        <label for="anio">Año del vehículo</label>
-        <select id="anio" name="anio" required></select>
-      </div>
+    <div class="form-group">
+      <label for="anio">Año del vehículo</label>
+      <select id="anio" name="anio"></select>
+    </div>
 
-      <div class="form-group">
-        <select name="combustible" required>
-          <option value="" disabled selected>Tipo de combustible</option>
-          <option value="Gasolina">Gasolina</option>
-          <option value="Diésel">Diésel</option>
-          <option value="Eléctrico">Eléctrico</option>
-          <option value="Híbrido">Híbrido</option>
-        </select>
+    <div class="form-group">
+      <label for="combustible">Tipo de combustible <span style="color: red;">*</span></label>
+      <select id="combustible" name="combustible" required>
+        <option value="" disabled selected>Tipo de combustible</option>
+        <option value="Gasolina">Gasolina</option>
+        <option value="Diésel">Diésel</option>
+        <option value="Eléctrico">Eléctrico</option>
+        <option value="Híbrido">Híbrido</option>
+      </select>
+    </div>
 
-        <select name="transmision" required>
-          <option value="" disabled selected>Tipo de transmisión</option>
-          <option value="Manual">Manual</option>
-          <option value="Automática">Automática</option>
-          <option value="CVT">CVT</option>
-        </select>
-      </div>
+    <div class="form-group">
+      <label for="transmision">Tipo de transmisión <span style="color: red;">*</span></label>
+      <select id="transmision" name="transmision" required>
+        <option value="" disabled selected>Tipo de transmisión</option>
+        <option value="Manual">Manual</option>
+        <option value="Automática">Automática</option>
+        <option value="CVT">CVT</option>
+      </select>
+    </div>
 
-      <textarea name="comentarios" placeholder="Información adicional..." rows="4"></textarea>
+    <div class="form-group">
+      <label for="comentarios">Información adicional</label>
+      <textarea name="comentarios" id="comentarios" placeholder="Información adicional..." rows="4"></textarea>
+    </div>
 
-      <p>¿Prefieres atención directa? 
-        <a class="btn-wsp" href="https://wa.me/56912345678" target="_blank" rel="noopener" style="color:#ffffff;">Contáctanos por WhatsApp</a>
-      </p>
+    <p>¿Prefieres atención directa? 
+      <a class="btn-wsp" href="https://wa.me/56912345678" target="_blank" rel="noopener" style="color:#ffffff;">Contáctanos por WhatsApp</a>
+    </p>
 
-      <div class="botones-formulario">
-        <button type="submit">Enviar</button>
-      </div>
-    </form>
+    <div class="botones-formulario">
+      <button type="submit">Enviar</button>
+    </div>
+  </form>
 
-    <div id="mensaje-envio"></div>
-  </section>
+  <div id="mensaje-envio"></div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('miFormulario');
+  const mensaje = document.getElementById('mensaje-envio');
+
+  // Carga automática de años para el selector
+  const anioSelect = document.getElementById('anio');
+  const currentYear = new Date().getFullYear();
+  for (let y = currentYear; y >= 1980; y--) {
+    const option = document.createElement('option');
+    option.value = y;
+    option.textContent = y;
+    anioSelect.appendChild(option);
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    // Campos obligatorios según JS
+    const camposObligatorios = [
+      'nombre',
+      'email',
+      'telefono',
+      'marca',
+      'combustible',
+      'transmision'
+    ];
+
+    for (const campo of camposObligatorios) {
+      const input = form.querySelector(`[name="${campo}"]`);
+      if (!input || !input.value.trim()) {
+        mensaje.textContent = `⚠️ El campo "${campo.charAt(0).toUpperCase() + campo.slice(1)}" es obligatorio.`;
+        mensaje.style.color = 'red';
+        input.focus();
+        return;
+      }
+    }
+
+    // Validar email
+    const email = form.querySelector('input[name="email"]').value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      mensaje.textContent = "⚠️ Ingresa un correo válido.";
+      mensaje.style.color = "red";
+      form.querySelector('input[name="email"]').focus();
+      return;
+    }
+
+    // Validar teléfono con formato +xx x xxxx xxxx (espacios opcionales)
+    const telefono = form.querySelector('input[name="telefono"]').value.trim();
+    const telefonoRegex = /^\+\d{2}\s?\d{1}\s?\d{4}\s?\d{4}$/;
+
+    if (!telefonoRegex.test(telefono)) {
+      mensaje.textContent = "⚠️ Ingresa un teléfono válido con formato +xx x xxxx xxxx";
+      mensaje.style.color = "red";
+      form.querySelector('input[name="telefono"]').focus();
+      return;
+    }
+
+    // Enviar formulario
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xeozeagg", {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: data
+      });
+
+      if (response.ok) {
+        mensaje.textContent = "✅ ¡Formulario enviado correctamente!";
+        mensaje.style.color = "green";
+        form.reset();
+      } else {
+        mensaje.textContent = "⚠️ Error al enviar. Intenta más tarde.";
+        mensaje.style.color = "red";
+      }
+    } catch (error) {
+      mensaje.textContent = "❌ Error de red. Intenta nuevamente.";
+      mensaje.style.color = "red";
+    }
+  });
+});
+</script>
+
+
+
 
 <section id="faq" class="faq-section" aria-label="Preguntas frecuentes de venta">
   <h2>Preguntas frecuentes</h2>
@@ -146,42 +251,53 @@
 
 
 </main>
-<footer>
-  <div class="footer-container">
-    <div class="map-container" aria-label="Mapa de ubicación">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1459.8017511327735!2d-70.54969373163439!3d-33.409008159664644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e1!3m2!1ses!2sus!4v1753484768412!5m2!1ses!2sus" 
-        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      <div class="botones-mapas">
-        <p>¿Cómo llegar?</p>
-        <a href="https://www.google.com/maps?q=Av.+Apoquindo+7935,+Las+Condes,+Chile" target="_blank" class="btn-mapa google-maps">
-          Abrir en Google Maps
-        </a>
-        <a href="https://waze.com/ul?ll=-33.4090082,-70.5496937&navigate=yes" target="_blank" class="btn-mapa waze">
-          Abrir en Waze
-        </a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div>
-        © 2025 CC Autos. All rights reserved. <br />
-        Built & secured by <a href="mailto:picininiluciano@gmail.com" style="color: #cc0404; text-decoration: none;">Luciano</a>.
-      </div>
-      <div class="social-container" aria-label="Redes sociales">
-        <!-- Facebook -->
-        <a href="https://www.facebook.com/automoviles.cyc.2025" class="social-link" target="_blank"
-          rel="noopener noreferrer" aria-label="Facebook">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-            alt="Facebook" width="32" height="32" style="border-radius: 4px;" />
-        </a>
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/cycautomoviles_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank"
-          rel="noopener noreferrer" aria-label="Instagram">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
-            alt="Instagram" width="32" height="32" style="border-radius: 8px;" />
-        </a>
-      </div>
-    </div>
+<footer class="footer">
+  <div class="footer-top">
+    <hr class="linea-superior" />
+    <div class="footer-content">
+      <!-- Redes sociales -->
+<div class="footer-redes">
+  <p class="footer-titulo">Síguenos</p>
+  <div class="redes-iconos">
+    <a href="https://www.instagram.com/ccautos.cl" target="_blank" aria-label="Instagram">
+      <img src="images/icons/instagram.svg" alt="Instagram" />
+    </a>
+    <a href="https://www.facebook.com/ccautos.cl" target="_blank" aria-label="Facebook">
+      <img src="images/icons/facebook.svg" alt="Facebook" />
+    </a>
+    <a href="https://wa.me/56988276054" target="_blank" aria-label="WhatsApp">
+      <img src="images/icons/whatsapp.svg" alt="WhatsApp" />
+    </a>
   </div>
+</div>
+      <!-- Mapa -->
+      <div class="footer-mapa">
+        <p class="footer-titulo">¿Cómo llegar?</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2005.704283806157!2d-70.54977287795657!3d-33.4088170678863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e1!3m2!1ses!2snl!4v1753989873260!5m2!1ses!2snl" 
+                width="100%" height="160" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+
+      <!-- Botones -->
+      <div class="footer-botones">
+        <p class="footer-titulo">Ubicación rápida</p>
+        <div class="botones">
+          <a class="btn-mapa" href="https://www.google.com/maps?q=Av.+Apoquindo+7935,+Las+Condes,+Chile" target="_blank">Google Maps</a>
+          <a class="btn-waze" href="https://waze.com/ul?ll=-33.4090082,-70.5496937&navigate=yes" target="_blank">Waze</a>
+        </div>
+      </div>
+    </div>
+    <hr class="linea-inferior" />
+  </div>
+
+<!-- Créditos -->
+<div class="footer-creditos">
+  <p>
+    &copy; 2025 <strong>CC Autos</strong>. Todos los derechos reservados. <br>
+    Diseñado y protegido por 
+    <a href="mailto:picininiluciano@gmail.com">Luciano</a>.
+  </p>
+</div>
+
 </footer>
 
 
@@ -297,304 +413,291 @@ nav a:hover {
   animation: fadeIn 1s ease-in-out;
 }
 
-/* === SECCIÓN FORMULARIO === */
+/* FORMULARIO DE CONTACTO */
 #contacto {
-  background-color: #fff;
-  padding: 2.5rem 2rem;
-  border-radius: 14px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-  animation: slideUp 1s ease-in-out;
-  transition: transform 0.3s ease;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  background-color: #f8f8f8;
+  border-radius: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
 }
 
-#contacto:hover {
-  transform: scale(1.01);
-}
-
-/* === TÍTULOS === */
-#contacto h2, #contacto h3 {
-  text-align: center;
-  color: #B22222;
-  margin-bottom: 1rem;
+#contacto h2 {
   font-size: 2rem;
-  font-weight: 700;
+  color: #b22222;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+#contacto h3 {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  color: #333;
 }
 
 #contacto p {
+  margin-bottom: 1rem;
   text-align: center;
-  font-size: 1.1rem;
-  color: #333;
-  margin-bottom: 2rem;
 }
 
-/* === GRUPOS DE FORMULARIO === */
-.formulario .form-group {
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 1.5rem;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.8s ease forwards;
 }
 
-.formulario .form-group:nth-child(1) { animation-delay: 0.2s; }
-.formulario .form-group:nth-child(2) { animation-delay: 0.4s; }
-.formulario .form-group:nth-child(3) { animation-delay: 0.6s; }
-.formulario .form-group:nth-child(5) { animation-delay: 0.8s; }
-
-/* === CAMPOS === */
-.formulario input,
-.formulario select,
-.formulario textarea {
-  flex: 1 1 100%;
-  padding: 0.8rem 1rem;
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 1rem;
-  background-color: #fafafa;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition: border-color 0.3s ease;
 }
 
-.formulario input:focus,
-.formulario select:focus,
-.formulario textarea:focus {
-  border-color: #B22222;
-  box-shadow: 0 0 6px rgba(178, 34, 34, 0.3);
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #b22222;
   outline: none;
 }
 
-/* === TEXTAREA === */
 textarea {
   resize: vertical;
-  min-height: 120px;
 }
 
-/* === BOTÓN ENVIAR === */
 .botones-formulario {
   text-align: center;
-  margin-top: 1.5rem;
-  animation: fadeUp 1s ease forwards;
-  animation-delay: 1s;
+  margin-top: 1rem;
 }
 
-.botones-formulario button {
-  background-color: #B22222;
-  color: #fff;
-  font-size: 1rem;
+button[type="submit"] {
+  background-color: #b22222;
+  color: white;
   padding: 0.75rem 2rem;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease;
 }
 
-.botones-formulario button:hover {
-  background-color: #8b1a1a;
-  transform: scale(1.05);
+button[type="submit"]:hover {
+  background-color: #a11d1d;
 }
 
-/* === WHATSAPP BOTÓN === */
 .btn-wsp {
   display: inline-block;
-  background-color: #25D366;
-  color: #fff;
-  font-weight: bold;
+  margin-top: 1rem;
+  background-color: #25d366;
   padding: 0.5rem 1rem;
-  border-radius: 8px;
+  border-radius: 6px;
   text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 .btn-wsp:hover {
-  background-color: #1da851;
-  transform: scale(1.05);
+  background-color: #1ebd5a;
 }
 
-/* === ANIMACIONES KEYFRAMES === */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+#mensaje-envio {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-weight: bold;
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 600px) {
-  .formulario .form-group {
-    flex-direction: column;
-  }
-
-  #contacto {
-    padding: 2rem 1rem;
-  }
-
-  .botones-formulario button {
-    width: 100%;
-  }
-}
+/* FAQ Section - Estilo general */
 .faq-section {
-  background-color: #181818;
-  color: #ffffff;
-  border-radius: 12px;
-  padding: 40px 20px;
+  background-color: #f8f8f8;
+  padding: 3rem 2rem;
+  border-radius: 16px;
   max-width: 900px;
-  margin: 60px auto;
-  box-shadow: var(--shadow-soft);
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .faq-section h2 {
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
+  color: #b22222;
 }
 
-.faq-item {
-  border-bottom: 1px solid #444;
-  margin-bottom: 10px;
-}
-
+/* Preguntas */
 .faq-question {
-  background: none;
-  color: #ffffff;
   width: 100%;
-  text-align: left;
-  padding: 15px;
-  font-size: 1.1rem;
-  font-weight: bold;
+  background-color: #fff;
   border: none;
-  outline: none;
+  padding: 1.2rem;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
 }
 
-.faq-question:hover {
-  background-color: #262626;
+.faq-question::after {
+  content: '+';
+  position: absolute;
+  right: 1rem;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
 }
 
+.faq-question.active::after {
+  transform: rotate(45deg);
+}
+
+/* Respuestas */
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease, opacity 0.3s ease;
-  opacity: 0;
-  padding: 0 15px;
+  padding: 0 1rem;
+  transition: max-height 0.5s ease, padding 0.3s ease;
+  background-color: #fff8f8;
+  border-left: 3px solid #b22222;
+  border-radius: 0 0 8px 8px;
+  margin-top: 0.5rem;
 }
 
-.faq-answer.open {
-  max-height: 500px;
-  opacity: 1;
-  padding: 15px;
+.faq-answer p,
+.faq-answer ul {
+  margin: 1rem 0;
+  color: #333;
 }
 
-/* ========== FOOTER ========== */
-/* FOOTER */
-footer {
-  background-color: #111; /* Fondo oscuro */
-  color: #e0e0e0; /* Texto claro */
-  padding: 2rem 1rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.faq-answer ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
 }
 
-.footer-container {
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  .footer {
+  font-family: 'Barlow', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 40px 20px 20px;
+}
+
+.footer-top {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.linea-superior,
+.linea-inferior {
+  border: none;
+  border-top: 1px solid #dcdcdc;
+  margin: 20px 0;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
+  gap: 20px;
 }
 
-.map-container iframe {
-  width: 100%;
-  height: 300px;
-  border: 0;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4); /* Sombra roja suave */
+.footer-titulo {
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+}
+
+.footer-redes .redes-iconos {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-redes img {
+  width: 28px;
   transition: transform 0.3s ease;
 }
-.map-container iframe:hover {
-  transform: scale(1.01);
+
+.footer-redes img:hover {
+  transform: scale(1.2);
 }
 
-/* BOTONES DE MAPAS */
-.botones-mapas {
-  text-align: center;
+.footer-mapa iframe {
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
-.btn-mapa {
-  display: inline-block;
-  padding: 12px 24px;
-  margin: 10px;
-  border-radius: 8px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.btn-mapa:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-}
-
-.google-maps {
-  background-color: #4285F4;
-}
-
-.waze {
-  background-color: #33CCFF;
-}
-
-
-.footer-bottom {
+.footer-botones .botones {
   display: flex;
+  gap: 12px;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid #333;
-  padding-top: 1rem;
+}
+
+.btn-mapa,
+.btn-waze {
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
   font-size: 0.9rem;
-  color: #ece5e5;
-}
-
-.footer-bottom > div:first-child {
-  flex: 1 1 300px;
-}
-
-.social-container {
-  display: flex;
-  gap: 1rem;
-}
-
-.social-link svg {
-  width: 28px;
-  height: 28px;
-  fill: #ece5e5; /* rojo vibrante */
-  transition: fill 0.3s ease;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   cursor: pointer;
 }
 
-.social-link:hover svg {
-  fill: #1713d8; /* rojo más oscuro al pasar el mouse */
+.btn-mapa {
+  background: #e8e8e8;
+  color: #2c3e50;
 }
 
+.btn-waze {
+  background: #d0e8ff;
+  color: #034a8f;
+}
+
+.btn-mapa:hover {
+  background: #ff4c4c;
+  color: #fff;
+  border-color: #ff4c4c;
+}
+
+.btn-waze:hover {
+  background: #0277bd;
+  color: #fff;
+  border-color: #0277bd;
+}
+
+.footer-creditos {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 20px;
+}
+.footer-creditos a {
+  color: #e74c3c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-creditos a:hover {
+  text-decoration: underline;
+  color: #ff6b6b;
+}
 
 
 /* Efecto mágico en enlaces del nav */
@@ -742,8 +845,31 @@ nav a:focus::before {
   .map-container iframe {
     height: 250px;
   }
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-redes .redes-iconos {
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .footer-botones .botones {
+    justify-content: center;
+  }
+
+  .footer-mapa iframe {
+    height: 200px;
+  }
+
+  .footer-titulo {
+    margin-top: 20px;
+  }
+
 }
-</style>s
+</style>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
@@ -786,6 +912,35 @@ nav a:focus::before {
       hamburger.setAttribute('aria-expanded', 'false');
     });
   });
+
+  // Espera que el DOM cargue
+document.addEventListener('DOMContentLoaded', function () {
+  const questions = document.querySelectorAll('.faq-question');
+
+  questions.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const answer = btn.nextElementSibling;
+      const isActive = btn.classList.contains('active');
+
+      // Cierra todos los demás
+      document.querySelectorAll('.faq-question').forEach((q) => {
+        q.classList.remove('active');
+        q.nextElementSibling.style.maxHeight = null;
+        q.nextElementSibling.style.paddingBottom = '0';
+      });
+
+      // Si no estaba activo, lo abre
+      if (!isActive) {
+        btn.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        answer.style.paddingBottom = '1rem';
+      }
+    });
+  });
+});
 </script>
+
+
+
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Automotora CYC: compra y venta de autos usados y nuevos con garantía, asesoría y los mejores precios del mercado." />
-  <title>Nosotros</title>
+  <title>Financiamiento</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet" />
 
@@ -172,100 +172,117 @@
   color: #dddddd;
 }
 
-
-
-
-
-/* FOOTER */
-footer {
-  background-color: #111; /* Fondo oscuro */
-  color: #e0e0e0; /* Texto claro */
-  padding: 2rem 1rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  .footer {
+  font-family: 'Barlow', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 40px 20px 20px;
 }
 
-.footer-container {
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+.footer-top {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.linea-superior,
+.linea-inferior {
+  border: none;
+  border-top: 1px solid #dcdcdc;
+  margin: 20px 0;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
+  gap: 20px;
 }
 
-.map-container iframe {
-  width: 100%;
-  height: 300px;
-  border: 0;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4); /* Sombra roja suave */
+.footer-titulo {
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+}
+
+.footer-redes .redes-iconos {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-redes img {
+  width: 28px;
   transition: transform 0.3s ease;
 }
-.map-container iframe:hover {
-  transform: scale(1.01);
+
+.footer-redes img:hover {
+  transform: scale(1.2);
 }
 
-/* BOTONES DE MAPAS */
-.botones-mapas {
-  text-align: center;
+.footer-mapa iframe {
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
-.btn-mapa {
-  display: inline-block;
-  padding: 12px 24px;
-  margin: 10px;
-  border-radius: 8px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.btn-mapa:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-}
-
-.google-maps {
-  background-color: #4285F4;
-}
-
-.waze {
-  background-color: #33CCFF;
-}
-
-
-.footer-bottom {
+.footer-botones .botones {
   display: flex;
+  gap: 12px;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid #333;
-  padding-top: 1rem;
+}
+
+.btn-mapa,
+.btn-waze {
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
   font-size: 0.9rem;
-  color: #ece5e5;
-}
-
-.footer-bottom > div:first-child {
-  flex: 1 1 300px;
-}
-
-.social-container {
-  display: flex;
-  gap: 1rem;
-}
-
-.social-link svg {
-  width: 28px;
-  height: 28px;
-  fill: #ece5e5; /* rojo vibrante */
-  transition: fill 0.3s ease;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   cursor: pointer;
 }
 
-.social-link:hover svg {
-  fill: #1713d8; /* rojo más oscuro al pasar el mouse */
+.btn-mapa {
+  background: #e8e8e8;
+  color: #2c3e50;
+}
+
+.btn-waze {
+  background: #d0e8ff;
+  color: #034a8f;
+}
+
+.btn-mapa:hover {
+  background: #ff4c4c;
+  color: #fff;
+  border-color: #ff4c4c;
+}
+
+.btn-waze:hover {
+  background: #0277bd;
+  color: #fff;
+  border-color: #0277bd;
+}
+
+.footer-creditos {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 20px;
+}
+.footer-creditos a {
+  color: #e74c3c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-creditos a:hover {
+  text-decoration: underline;
+  color: #ff6b6b;
 }
 
 /* Efecto mágico en enlaces del nav */
@@ -333,10 +350,11 @@ nav a:focus::before {
 .cinta-track {
   display: flex;
   width: max-content;
-  animation: deslizar 10s linear infinite;
+  animation: deslizar 8s linear infinite; /* antes: 10s */
   gap: 40px;
   align-items: center;
 }
+
 
 .cinta-track img {
   height: 40px;
@@ -548,26 +566,27 @@ nav a:focus::before {
     z-index: 1100;
   }
 
-  /* === FOOTER RESPONSIVE === */
- /* Footer: centrar texto y ajustar social */
-  footer {
-    padding: 1rem 0.5rem;  /* menos padding arriba y abajo */
-    font-size: 0.85rem;    /* texto un poco más pequeño */
+    .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 
-  .footer-container {
-    padding: 0 0.5rem;     /* menos padding lateral */
+  .footer-redes .redes-iconos {
+    justify-content: center;
+    margin-top: 10px;
   }
 
-  .footer-bottom {
-    gap: 0.5rem;           /* menos espacio entre elementos */
+  .footer-botones .botones {
+    justify-content: center;
   }
 
-  .social-container svg {
-    width: 20px;           /* íconos sociales más pequeños */
-    height: 20px;
+  .footer-mapa iframe {
+    height: 200px;
   }
 
+  .footer-titulo {
+    margin-top: 20px;
+  }
   .financiamiento {
     padding: 30px 15px;
   }
@@ -630,7 +649,7 @@ nav a:focus::before {
         <li role="none"><a href="index.html" role="menuitem" tabindex="0">Inicio</a></li>
         <li role="none"><a href="stock.html" role="menuitem" tabindex="0">Stock</a></li>
         <li role="none"><a href="vender.html" role="menuitem" tabindex="0">Vende tu vehiculo</a></li>
-        <li role="none"><a href="nosotros.html" role="menuitem" tabindex="0">Financiamiento</a></li>
+        <li role="none"><a href="financiamiento.html" role="menuitem" tabindex="0">Financiamiento</a></li>
       </ul>
     </nav>
 
@@ -644,7 +663,7 @@ nav a:focus::before {
     </button>
   </div>
 </header>
-
+<div id="overlay"></div>
 <main>
 
   <!-- SECCIÓN FINANCIAMIENTO -->
@@ -684,12 +703,21 @@ nav a:focus::before {
   <p>Completa los datos y evalúa tu crédito de forma rápida y sin compromiso</p>
 
   <form id="form-financiamiento">
-    <input type="text" name="nombre" placeholder="Nombre completo" required />
-    <input type="text" name="rut" placeholder="RUT" required />
-    <input type="email" name="email" placeholder="Correo electrónico" required />
-    <input type="text" name="ingreso" id="ingreso" placeholder="Ingreso mensual" required />
-    <input type="text" name="monto" id="monto" placeholder="Monto del vehículo" required />
-    <input type="text" name="pie" id="pie" placeholder="Monto del pie" required />
+    <input type="text" id="nombre" name="nombre" placeholder="Nombre y apellido" required />
+
+    <input type="text" id="rut" name="rut" placeholder="RUT" required />
+
+    <input type="email" id="email" name="email" placeholder="Correo electrónico" list="sugerencias-email" required />
+    <datalist id="sugerencias-email">
+      <option value="gmail.com">
+      <option value="outlook.com">
+      <option value="icloud.com">
+      <option value="hotmail.com">
+    </datalist>
+
+    <input type="text" id="ingreso" name="ingreso" placeholder="$1.000.000" required />
+    <input type="text" id="monto" name="monto" placeholder="$10.000.000" required />
+    <input type="text" id="pie" name="pie" placeholder="$1.500.000" required />
 
     <select name="cuotas" required>
       <option value="">Seleccione cuotas</option>
@@ -698,13 +726,14 @@ nav a:focus::before {
       <option value="36">36 cuotas</option>
     </select>
 
-    <input type="hidden" name="time" id="time" />
+    <input type="hidden" id="time" name="time" />
 
     <button type="submit">Enviar solicitud</button>
   </form>
 
   <div id="mensaje-respuesta"></div>
 </div>
+
 
       <!-- Cinta de logos de pago (fuera del footer) -->
     <div class="cinta-pagos">
@@ -727,61 +756,72 @@ nav a:focus::before {
       </div>
     </div>
   </section>
-
-
-
 </main>
-
-
-<footer>
-    <div class="footer-container">
-      <div class="map-container" aria-label="Mapa de ubicación">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1459.8017511327735!2d-70.54969373163439!3d-33.409008159664644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e1!3m2!1ses!2sus!4v1753484768412!5m2!1ses!2sus" 
-          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-        <div class="botones-mapas">
-          <p>¿Cómo llegar?</p>
-          <a href="https://www.google.com/maps?q=Av.+Apoquindo+7935,+Las+Condes,+Chile" target="_blank" class="btn-mapa google-maps">
-            Abrir en Google Maps
-          </a>
-          <a href="https://waze.com/ul?ll=-33.4090082,-70.5496937&navigate=yes" target="_blank" class="btn-mapa waze">
-            Abrir en Waze
-          </a>
-        </div>
+<footer class="footer">
+  <div class="footer-top">
+    <hr class="linea-superior" />
+    <div class="footer-content">
+      <!-- Redes sociales -->
+<div class="footer-redes">
+  <p class="footer-titulo">Síguenos</p>
+  <div class="redes-iconos">
+    <a href="https://www.instagram.com/ccautos.cl" target="_blank" aria-label="Instagram">
+      <img src="images/icons/instagram.svg" alt="Instagram" />
+    </a>
+    <a href="https://www.facebook.com/ccautos.cl" target="_blank" aria-label="Facebook">
+      <img src="images/icons/facebook.svg" alt="Facebook" />
+    </a>
+    <a href="https://wa.me/56988276054" target="_blank" aria-label="WhatsApp">
+      <img src="images/icons/whatsapp.svg" alt="WhatsApp" />
+    </a>
+  </div>
+</div>
+      <!-- Mapa -->
+      <div class="footer-mapa">
+        <p class="footer-titulo">¿Cómo llegar?</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2005.704283806157!2d-70.54977287795657!3d-33.4088170678863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e1!3m2!1ses!2snl!4v1753989873260!5m2!1ses!2snl" 
+                width="100%" height="160" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
 
-      <div class="footer-bottom">
-        <div>
-          © 2025 CC Autos. All rights reserved. <br />
-          Built & secured by 
-          <a href="mailto:picininiluciano@gmail.com" style="color: #cc0404; text-decoration: none;">Luciano</a>.
-        </div>
-        <div class="social-container" aria-label="Redes sociales">
-          <a href="https://www.facebook.com/automoviles.cyc.2025" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="32" height="32" style="border-radius: 4px;" />
-          </a>
-          <a href="https://www.instagram.com/cycautomoviles_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="32" height="32" style="border-radius: 8px;" />
-          </a>
+      <!-- Botones -->
+      <div class="footer-botones">
+        <p class="footer-titulo">Ubicación rápida</p>
+        <div class="botones">
+          <a class="btn-mapa" href="https://www.google.com/maps?q=Av.+Apoquindo+7935,+Las+Condes,+Chile" target="_blank">Google Maps</a>
+          <a class="btn-waze" href="https://waze.com/ul?ll=-33.4090082,-70.5496937&navigate=yes" target="_blank">Waze</a>
         </div>
       </div>
     </div>
+    <hr class="linea-inferior" />
+  </div>
+
+<!-- Créditos -->
+<div class="footer-creditos">
+  <p>
+    &copy; 2025 <strong>CC Autos</strong>. Todos los derechos reservados. <br>
+    Diseñado y protegido por 
+    <a href="mailto:picininiluciano@gmail.com">Luciano</a>.
+  </p>
+</div>
+
 </footer>
+
+
 
 
   <!-- EmailJS SDK -->
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-  (function() {
+  (function () {
     emailjs.init("g_3sUjPGhjaYGyqxG"); // Tu Public Key
   })();
 </script>
 
 <script>
-  // Formateo de campos en pesos con puntos y $
+  // 💲 Formatea ingresos y montos en CLP
   function formatearPesos(input) {
-    let valor = input.value.replace(/\D/g, ''); // elimina todo lo que no sea número
+    let valor = input.value.replace(/\D/g, '');
     if (valor === '') {
       input.value = '';
       return;
@@ -791,38 +831,78 @@ nav a:focus::before {
 
   ['ingreso', 'monto', 'pie'].forEach(id => {
     const input = document.getElementById(id);
-    input.addEventListener('input', () => formatearPesos(input));
+    if (input) {
+      input.addEventListener('input', () => formatearPesos(input));
+    }
   });
 
-  // Envío del formulario con limpieza de formato
+  // 🆔 Formato RUT
+  const rutInput = document.getElementById('rut');
+  rutInput.addEventListener('input', () => {
+    let valor = rutInput.value.replace(/\D/g, '');
+    if (valor.length > 1) {
+      let cuerpo = valor.slice(0, -1);
+      let dv = valor.slice(-1);
+      cuerpo = cuerpo.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+      rutInput.value = `${cuerpo}-${dv}`;
+    } else {
+      rutInput.value = valor;
+    }
+  });
+
+  // 📧 Email sin @ automático, con sugerencias
+  const emailInput = document.getElementById('email');
+  emailInput.addEventListener('blur', () => {
+    const valor = emailInput.value;
+    if (!valor.includes('@') && valor.length > 3) {
+      console.warn('Email sin dominio (opcional)');
+    }
+  });
+
+  // 📩 Envío del formulario
   const form = document.getElementById('form-financiamiento');
   const mensajeRespuesta = document.getElementById('mensaje-respuesta');
 
-  form.addEventListener('submit', function(event) {
+  form.addEventListener('submit', function (event) {
     event.preventDefault();
 
-    // Agrega la fecha/hora actual
+    // ✅ Solo validar que RUT y PIE estén completos
+    const rut = document.getElementById('rut').value.trim();
+    const pie = document.getElementById('pie').value.trim();
+
+    if (!rut || !pie) {
+      mensajeRespuesta.style.color = 'red';
+      mensajeRespuesta.textContent = 'RUT y monto del pie son obligatorios.';
+      return;
+    }
+
+    // 📅 Agrega fecha y hora actual
     document.getElementById('time').value = new Date().toLocaleString();
 
-    // Limpiar $ y puntos antes de enviar
+    // 🔧 Limpia formato $ y . antes de enviar
     ['ingreso', 'monto', 'pie'].forEach(id => {
       const input = document.getElementById(id);
-      input.value = input.value.replace(/\./g, '').replace(/\$/g, '');
+      if (input) {
+        input.value = input.value.replace(/\./g, '').replace(/\$/g, '');
+      }
     });
 
+    // 📤 Enviar con EmailJS
     emailjs.sendForm('service_cs30t1l', 'template_xsnp61h', this)
-      .then(function(response) {
-        console.log('EmailJS enviado:', response.status, response.text);
+      .then(function (response) {
+        console.log('EmailJS OK:', response.status, response.text);
         mensajeRespuesta.style.color = 'green';
-        mensajeRespuesta.textContent = '¡Formulario enviado con éxito! En breve, un asesor se pondrá en contacto contigo para ayudarte con tu financiamiento.';
+        mensajeRespuesta.textContent = '¡Formulario enviado con éxito!';
         form.reset();
-      }, function(error) {
-        console.error('Error EmailJS:', error);
+      }, function (error) {
+        console.error('EmailJS Error:', error);
         mensajeRespuesta.style.color = 'red';
-        mensajeRespuesta.textContent = 'Error al enviar el formulario. Intenta de nuevo.';
+        mensajeRespuesta.textContent = 'Error al enviar el formulario.';
       });
   });
 </script>
+
+
 <script>
   const animados = document.querySelectorAll('[data-animado]');
   const mostrarAnimado = () => {
@@ -837,7 +917,7 @@ nav a:focus::before {
 </script>
 
 <script>// ===== INYECTAR CSS PARA EFECTOS AVANZADOS =====
-document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('nav');
     const overlay = document.getElementById('overlay');
@@ -857,7 +937,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Click en el ícono hamburguesa
     hamburger.addEventListener('click', toggleMenu);
 
-    // Cierra el menú al hacer clic en cualquier enlace
+    // Cierra el menú al hacer clic en cualquier enlace del menú
     const navLinks = document.querySelectorAll('#nav a');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
