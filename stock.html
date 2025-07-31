@@ -48,9 +48,7 @@
   </div>
 </section>
 
-
 <div class="layout-principal">
-
   <!-- BARRA LATERAL DE FILTROS -->
   <aside id="filtros" class="filtros" aria-label="Filtros de búsqueda de autos">
     <div class="filtros-wrapper">
@@ -76,7 +74,6 @@
       </form>
     </div>
   </aside>
-
   <!-- CATÁLOGO DE AUTOS -->
   <section class="contenedor-principal container" aria-label="Catálogo de autos disponibles">
     <div id="catalogo" class="catalogo">
@@ -110,9 +107,6 @@
             </div>
           </div>
         </div>
-
-
-
         <!-- Más tarjetas aquí -->
          <div class="card-auto" data-aos="fade-up" data-marca="Peugeot" data-anio="2024" data-precio="30000000">
           <div class="card-image">
@@ -142,7 +136,6 @@
             </div>
           </div>
         </div>
-
                 <!-- Más tarjetas aquí -->
          <div class="card-auto" data-aos="fade-up" data-marca="Audi" data-anio="2023" data-precio="40000000">
           <div class="card-image">
@@ -173,10 +166,7 @@
               <strong>$17.500.000</strong>
             </div>
           </div>
-
         </div>
-
-
                 <!-- Más tarjetas aquí -->
          <div class="card-auto" data-aos="fade-up" data-marca="Peugeot" data-anio="2024" data-precio="30000000">
           <div class="card-image">
@@ -209,8 +199,8 @@
       </div>
     </div>
   </section>
-  
 </div>
+
 
 <footer>
   <div class="footer-container">
@@ -244,7 +234,214 @@
   </div>
 </footer>
 
-  <style>
+<script>
+// ===== INYECTAR CSS PARA EFECTOS AVANZADOS =====
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+    const overlay = document.getElementById('overlay');
+    const body = document.body;
+
+    // Función para abrir/cerrar menú
+    const toggleMenu = () => {
+      nav.classList.toggle('open');
+      hamburger.classList.toggle('active');
+      overlay.classList.toggle('show');
+      body.classList.toggle('no-scroll');
+
+      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!isExpanded));
+    };
+
+    // Click en el ícono hamburguesa
+    hamburger.addEventListener('click', toggleMenu);
+
+    // Cierra el menú al hacer clic en cualquier enlace
+    const navLinks = document.querySelectorAll('#nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        hamburger.classList.remove('active');
+        overlay.classList.remove('show');
+        body.classList.remove('no-scroll');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Cierra el menú si se hace clic en el fondo oscuro
+    overlay.addEventListener('click', () => {
+      nav.classList.remove('open');
+      hamburger.classList.remove('active');
+      overlay.classList.remove('show');
+      body.classList.remove('no-scroll');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+
+    // ===== NUEVO: Typewriter Effect =====
+    const texts = [
+      "Encuentra el auto de tus sueños",
+      "Con CYC Automóviles",
+      "Precios insuperables y atención personalizada"
+    ];
+
+    let currentTextIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 100;
+    const pauseBetween = 1500; // pausa al terminar palabra
+
+    const typewriterElement = document.querySelector(".hero-container h1");
+
+    function type() {
+      const fullText = texts[currentTextIndex];
+      if (!isDeleting) {
+        typewriterElement.textContent = fullText.substring(0, currentCharIndex + 1);
+        currentCharIndex++;
+        if (currentCharIndex === fullText.length) {
+          isDeleting = true;
+          setTimeout(type, pauseBetween);
+          return;
+        }
+      } else {
+        typewriterElement.textContent = fullText.substring(0, currentCharIndex - 1);
+        currentCharIndex--;
+        if (currentCharIndex === 0) {
+          isDeleting = false;
+          currentTextIndex = (currentTextIndex + 1) % texts.length;
+        }
+      }
+      setTimeout(type, isDeleting ? typingSpeed / 2 : typingSpeed);
+    }
+
+    if (typewriterElement) type();
+
+    // ===== NUEVO: Efecto 3D + Escala en tarjetas .catalogo-card =====
+    document.querySelectorAll('.catalogo-card').forEach(card => {
+      card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left; // posición X dentro de la tarjeta
+        const y = e.clientY - rect.top;  // posición Y dentro de la tarjeta
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        // Calcular diferencia normalizada -1 a 1
+        const deltaX = (x - centerX) / centerX;
+        const deltaY = (y - centerY) / centerY;
+
+        const rotateMax = 10; // grados máximo rotación
+
+        const rotateX = (-deltaY * rotateMax).toFixed(2);
+        const rotateY = (deltaX * rotateMax).toFixed(2);
+
+        card.style.transform = `perspective(600px) scale(1.05) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        card.style.boxShadow = '0 20px 40px rgba(0,0,0,0.25)';
+        card.style.zIndex = '10';
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'none';
+        card.style.boxShadow = '0 6px 18px rgba(0,0,0,0.1)';
+        card.style.zIndex = '1';
+      });
+    });
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,   // duración de la animación en milisegundos
+    easing: 'ease-in-out', // tipo de animación suave
+    once: true        // anima solo la primera vez que aparece el elemento
+  });
+</script>
+
+<script>
+ document.addEventListener("DOMContentLoaded", () => {
+  const autos = Array.from(document.querySelectorAll(".card-auto"));
+  const selectMarca = document.getElementById("marca");
+  const selectAnio = document.getElementById("anio");
+  const selectPrecio = document.getElementById("precio");
+
+  // Extraer marcas, años y precios únicos desde las tarjetas
+  const marcas = [...new Set(autos.map(a => a.dataset.marca))].sort();
+  const anios = [...new Set(autos.map(a => a.dataset.anio))].sort((a, b) => b - a);
+  const precios = [...new Set(autos.map(a => a.dataset.precio))].sort((a, b) => a - b);
+
+  // Rellenar opciones de marca
+  marcas.forEach(m => {
+    const opt = document.createElement("option");
+    opt.value = m;
+    opt.textContent = m.charAt(0).toUpperCase() + m.slice(1);
+    selectMarca.appendChild(opt);
+  });
+
+  // Rellenar opciones de año
+  anios.forEach(anio => {
+    const opt = document.createElement("option");
+    opt.value = anio;
+    opt.textContent = anio;
+    selectAnio.appendChild(opt);
+  });
+
+  // Rellenar opciones de precio
+  precios.forEach(p => {
+    const opt = document.createElement("option");
+    opt.value = p;
+    opt.textContent = `$${Number(p).toLocaleString()}`;
+    selectPrecio.appendChild(opt);
+  });
+
+  // Función para filtrar autos
+  function filtrarAutos() {
+    const marca = selectMarca.value;
+    const anio = selectAnio.value;
+    const precio = selectPrecio.value;
+
+    autos.forEach(auto => {
+      const marcaAuto = auto.dataset.marca;
+      const anioAuto = auto.dataset.anio;
+      const precioAuto = auto.dataset.precio;
+
+      const coincideMarca = !marca || marcaAuto === marca;
+      const coincideAnio = !anio || anioAuto === anio;
+      const coincidePrecio = !precio || parseInt(precioAuto) <= parseInt(precio);
+
+      if (coincideMarca && coincideAnio && coincidePrecio) {
+        auto.style.display = "";
+      } else {
+        auto.style.display = "none";
+      }
+    });
+  }
+
+  // Escuchar cambios en los filtros
+  [selectMarca, selectAnio, selectPrecio].forEach(select => {
+    select.addEventListener("change", filtrarAutos);
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.innerWidth <= 768) { // Solo para móviles
+    const cardImages = document.querySelectorAll('.card-image');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show-button');
+        } else {
+          entry.target.classList.remove('show-button');
+        }
+      });
+    }, { threshold: 0.5 }); // Cuando el 50% del elemento esté visible
+
+    cardImages.forEach(img => observer.observe(img));
+  }
+});
+</script>
+<style>
 :root {
       --color-black: #000000;
       --color-white: #FFFFFF;
@@ -1482,237 +1679,19 @@ nav a:focus::before {
     text-shadow: 0 0 10px #ff6b6b, 0 0 20px #b22222, 0 0 30px #ff6b6b;
   }
 }
-
-
 </style>
-
-<script>
-// ===== INYECTAR CSS PARA EFECTOS AVANZADOS =====
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.getElementById('hamburger');
-    const nav = document.getElementById('nav');
-    const overlay = document.getElementById('overlay');
-    const body = document.body;
-
-    // Función para abrir/cerrar menú
-    const toggleMenu = () => {
-      nav.classList.toggle('open');
-      hamburger.classList.toggle('active');
-      overlay.classList.toggle('show');
-      body.classList.toggle('no-scroll');
-
-      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-      hamburger.setAttribute('aria-expanded', String(!isExpanded));
-    };
-
-    // Click en el ícono hamburguesa
-    hamburger.addEventListener('click', toggleMenu);
-
-    // Cierra el menú al hacer clic en cualquier enlace
-    const navLinks = document.querySelectorAll('#nav a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
-        hamburger.classList.remove('active');
-        overlay.classList.remove('show');
-        body.classList.remove('no-scroll');
-        hamburger.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    // Cierra el menú si se hace clic en el fondo oscuro
-    overlay.addEventListener('click', () => {
-      nav.classList.remove('open');
-      hamburger.classList.remove('active');
-      overlay.classList.remove('show');
-      body.classList.remove('no-scroll');
-      hamburger.setAttribute('aria-expanded', 'false');
-    });
-
-    // ===== NUEVO: Typewriter Effect =====
-    const texts = [
-      "Encuentra el auto de tus sueños",
-      "Con CYC Automóviles",
-      "Precios insuperables y atención personalizada"
-    ];
-
-    let currentTextIndex = 0;
-    let currentCharIndex = 0;
-    let isDeleting = false;
-    const typingSpeed = 100;
-    const pauseBetween = 1500; // pausa al terminar palabra
-
-    const typewriterElement = document.querySelector(".hero-container h1");
-
-    function type() {
-      const fullText = texts[currentTextIndex];
-      if (!isDeleting) {
-        typewriterElement.textContent = fullText.substring(0, currentCharIndex + 1);
-        currentCharIndex++;
-        if (currentCharIndex === fullText.length) {
-          isDeleting = true;
-          setTimeout(type, pauseBetween);
-          return;
-        }
-      } else {
-        typewriterElement.textContent = fullText.substring(0, currentCharIndex - 1);
-        currentCharIndex--;
-        if (currentCharIndex === 0) {
-          isDeleting = false;
-          currentTextIndex = (currentTextIndex + 1) % texts.length;
-        }
-      }
-      setTimeout(type, isDeleting ? typingSpeed / 2 : typingSpeed);
-    }
-
-    if (typewriterElement) type();
-
-    // ===== NUEVO: Efecto 3D + Escala en tarjetas .catalogo-card =====
-    document.querySelectorAll('.catalogo-card').forEach(card => {
-      card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
-
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left; // posición X dentro de la tarjeta
-        const y = e.clientY - rect.top;  // posición Y dentro de la tarjeta
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        // Calcular diferencia normalizada -1 a 1
-        const deltaX = (x - centerX) / centerX;
-        const deltaY = (y - centerY) / centerY;
-
-        const rotateMax = 10; // grados máximo rotación
-
-        const rotateX = (-deltaY * rotateMax).toFixed(2);
-        const rotateY = (deltaX * rotateMax).toFixed(2);
-
-        card.style.transform = `perspective(600px) scale(1.05) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        card.style.boxShadow = '0 20px 40px rgba(0,0,0,0.25)';
-        card.style.zIndex = '10';
-      });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'none';
-        card.style.boxShadow = '0 6px 18px rgba(0,0,0,0.1)';
-        card.style.zIndex = '1';
-      });
-    });
-
-});
-</script>
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 800,   // duración de la animación en milisegundos
-    easing: 'ease-in-out', // tipo de animación suave
-    once: true        // anima solo la primera vez que aparece el elemento
-  });
-</script>
-
-<script>
- document.addEventListener("DOMContentLoaded", () => {
-  const autos = Array.from(document.querySelectorAll(".card-auto"));
-  const selectMarca = document.getElementById("marca");
-  const selectAnio = document.getElementById("anio");
-  const selectPrecio = document.getElementById("precio");
-
-  // Extraer marcas, años y precios únicos desde las tarjetas
-  const marcas = [...new Set(autos.map(a => a.dataset.marca))].sort();
-  const anios = [...new Set(autos.map(a => a.dataset.anio))].sort((a, b) => b - a);
-  const precios = [...new Set(autos.map(a => a.dataset.precio))].sort((a, b) => a - b);
-
-  // Rellenar opciones de marca
-  marcas.forEach(m => {
-    const opt = document.createElement("option");
-    opt.value = m;
-    opt.textContent = m.charAt(0).toUpperCase() + m.slice(1);
-    selectMarca.appendChild(opt);
-  });
-
-  // Rellenar opciones de año
-  anios.forEach(anio => {
-    const opt = document.createElement("option");
-    opt.value = anio;
-    opt.textContent = anio;
-    selectAnio.appendChild(opt);
-  });
-
-  // Rellenar opciones de precio
-  precios.forEach(p => {
-    const opt = document.createElement("option");
-    opt.value = p;
-    opt.textContent = `$${Number(p).toLocaleString()}`;
-    selectPrecio.appendChild(opt);
-  });
-
-  // Función para filtrar autos
-  function filtrarAutos() {
-    const marca = selectMarca.value;
-    const anio = selectAnio.value;
-    const precio = selectPrecio.value;
-
-    autos.forEach(auto => {
-      const marcaAuto = auto.dataset.marca;
-      const anioAuto = auto.dataset.anio;
-      const precioAuto = auto.dataset.precio;
-
-      const coincideMarca = !marca || marcaAuto === marca;
-      const coincideAnio = !anio || anioAuto === anio;
-      const coincidePrecio = !precio || parseInt(precioAuto) <= parseInt(precio);
-
-      if (coincideMarca && coincideAnio && coincidePrecio) {
-        auto.style.display = "";
-      } else {
-        auto.style.display = "none";
-      }
-    });
-  }
-
-  // Escuchar cambios en los filtros
-  [selectMarca, selectAnio, selectPrecio].forEach(select => {
-    select.addEventListener("change", filtrarAutos);
-  });
-});
-
-
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  if (window.innerWidth <= 768) { // Solo para móviles
-    const cardImages = document.querySelectorAll('.card-image');
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show-button');
-        } else {
-          entry.target.classList.remove('show-button');
-        }
-      });
-    }, { threshold: 0.5 }); // Cuando el 50% del elemento esté visible
-
-    cardImages.forEach(img => observer.observe(img));
-  }
-});
-
-</script>
 <style>
   @media (max-width: 768px) {
-
   /* Box-sizing para todo */
   *,
   *::before,
   *::after {
     box-sizing: border-box;
   }
-  
-
   nav {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
-
   nav {
     position: fixed;
     top: 0;
@@ -1729,7 +1708,6 @@ document.addEventListener('DOMContentLoaded', () => {
     z-index: 1000;
     border-radius: 0 0 0 20px;
   }
-
   nav.open {
     transform: translateX(0);
   }
@@ -1780,9 +1758,7 @@ document.addEventListener('DOMContentLoaded', () => {
     box-shadow: 0 0 10px var(--color-red);
     z-index: 1100;
   }
-
 }
 </style>
-
 </body>
 </html>

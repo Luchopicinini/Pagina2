@@ -6,6 +6,186 @@
   <meta name="description" content="Automotora CYC: compra y venta de autos usados y nuevos con garantía, asesoría y los mejores precios del mercado." />
   <title>Nosotros</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+<!-- HTML: Menú de navegación y botón hamburguesa -->
+<header>
+  <div class="container">
+    <div class="logo-text" style="display: flex; align-items: center; gap: 10px;">
+      <img src="images/Autos/Logo.png" alt="Logo CC Autos" style="height: 70px;" />
+    </div>
+    <!-- Menú de navegación -->
+    <nav id="nav" role="navigation" aria-label="Menú principal">
+      <ul id="nav-menu" role="menubar">
+        <li role="none"><a href="index.html" role="menuitem" tabindex="0">Inicio</a></li>
+        <li role="none"><a href="stock.html" role="menuitem" tabindex="0">Stock</a></li>
+        <li role="none"><a href="vender.html" role="menuitem" tabindex="0">Vende tu vehículo</a></li>
+        <li role="none"><a href="financiamiento.html" role="menuitem" tabindex="0">Financiamiento</a></li>
+      </ul>
+    </nav>
+    <!-- Botón hamburguesa -->
+    <button id="hamburger" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Overlay para menú móvil -->
+<div id="overlay"></div>
+
+
+
+<main class="container1">
+  <section id="contacto" aria-label="Formulario para vender vehículo">
+    <h2>¿Quieres vender tu vehículo?</h2>
+    <p>Déjanos tus datos y te contactaremos.</p>
+
+    <form id="miFormulario" class="formulario" novalidate>
+      <!-- DATOS PERSONALES -->
+      <div class="form-group">
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre" required />
+        <input type="text" name="apellido" placeholder="Apellido" required />
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="ejemplo@gmail.com" required />
+      </div>
+      <div class="form-group">
+        <input type="tel" name="telefono" placeholder="+56 9 1234 6987" required />
+      </div>
+
+      <!-- DATOS DEL VEHÍCULO -->
+      <h3>Información del vehículo</h3>
+      <div class="form-group">
+        <input type="text" name="marca" id="marca" placeholder="Marca" required />
+        <input type="text" name="modelo" placeholder="Modelo" required />
+      </div>
+
+      <div class="form-group">
+        <label for="anio">Año del vehículo</label>
+        <select id="anio" name="anio" required></select>
+      </div>
+
+      <div class="form-group">
+        <select name="combustible" required>
+          <option value="" disabled selected>Tipo de combustible</option>
+          <option value="Gasolina">Gasolina</option>
+          <option value="Diésel">Diésel</option>
+          <option value="Eléctrico">Eléctrico</option>
+          <option value="Híbrido">Híbrido</option>
+        </select>
+
+        <select name="transmision" required>
+          <option value="" disabled selected>Tipo de transmisión</option>
+          <option value="Manual">Manual</option>
+          <option value="Automática">Automática</option>
+          <option value="CVT">CVT</option>
+        </select>
+      </div>
+
+      <textarea name="comentarios" placeholder="Información adicional..." rows="4"></textarea>
+
+      <p>¿Prefieres atención directa? 
+        <a class="btn-wsp" href="https://wa.me/56912345678" target="_blank" rel="noopener" style="color:#ffffff;">Contáctanos por WhatsApp</a>
+      </p>
+
+      <div class="botones-formulario">
+        <button type="submit">Enviar</button>
+      </div>
+    </form>
+
+    <div id="mensaje-envio"></div>
+  </section>
+
+<section id="faq" class="faq-section" aria-label="Preguntas frecuentes de venta">
+  <h2>Preguntas frecuentes</h2>
+
+  <div class="faq-item">
+    <button class="faq-question">¿CC Autos compra mi auto directamente?</button>
+    <div class="faq-answer">
+      <p>No siempre. Evaluamos cada caso según el estado, marca y demanda del vehículo. En algunos casos podemos comprar directamente, y en otros, trabajamos bajo modalidad de consignación (física o virtual) para ayudarte a vender al mejor precio posible.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">¿Qué es la venta en consignación?</button>
+    <div class="faq-answer">
+      <p>La consignación es una opción donde tu vehículo queda exhibido (en nuestra oficina o de forma virtual) para su venta. Una vez se concreta la venta, te transferimos el monto acordado. Esta modalidad te permite alcanzar un mejor precio de mercado.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">¿Puedo elegir entre consignación física o virtual?</button>
+    <div class="faq-answer">
+      <p>Sí. Puedes traer el vehículo a nuestra oficina (consignación física) o enviarnos fotos y documentos para publicarlo en nuestras plataformas (consignación virtual). Tú eliges según tu comodidad.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">¿Cómo se hace la transferencia del auto?</button>
+    <div class="faq-answer">
+      <p>Utilizamos la plataforma <strong>Autofact</strong> para realizar transferencias seguras y legales. Una vez concretada la venta y finalizado el proceso, realizamos el depósito del dinero en un plazo máximo de <strong>24 horas hábiles</strong>. Todo es transparente y respaldado legalmente.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">¿Qué documentos necesito para vender?</button>
+    <div class="faq-answer">
+      <p>Solo necesitas:</p>
+      <ul>
+        <li>Padrón del vehículo</li>
+        <li>Permiso de circulación vigente</li>
+        <li>Revisión técnica al día</li>
+        <li>Tu cédula de identidad</li>
+      </ul>
+      <p>Nosotros nos encargamos del resto del proceso por ti.</p>
+    </div>
+  </div>
+</section>
+
+
+</main>
+<footer>
+  <div class="footer-container">
+    <div class="map-container" aria-label="Mapa de ubicación">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1459.8017511327735!2d-70.54969373163439!3d-33.409008159664644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e1!3m2!1ses!2sus!4v1753484768412!5m2!1ses!2sus" 
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="botones-mapas">
+        <p>¿Cómo llegar?</p>
+        <a href="https://www.google.com/maps?q=Av.+Apoquindo+7935,+Las+Condes,+Chile" target="_blank" class="btn-mapa google-maps">
+          Abrir en Google Maps
+        </a>
+        <a href="https://waze.com/ul?ll=-33.4090082,-70.5496937&navigate=yes" target="_blank" class="btn-mapa waze">
+          Abrir en Waze
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>
+        © 2025 CC Autos. All rights reserved. <br />
+        Built & secured by <a href="mailto:picininiluciano@gmail.com" style="color: #cc0404; text-decoration: none;">Luciano</a>.
+      </div>
+      <div class="social-container" aria-label="Redes sociales">
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/automoviles.cyc.2025" class="social-link" target="_blank"
+          rel="noopener noreferrer" aria-label="Facebook">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+            alt="Facebook" width="32" height="32" style="border-radius: 4px;" />
+        </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/cycautomoviles_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank"
+          rel="noopener noreferrer" aria-label="Instagram">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
+            alt="Instagram" width="32" height="32" style="border-radius: 8px;" />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
 <style>
 /* ========== VARIABLES GENERALES ========== */
 :root {
@@ -542,6 +722,7 @@ nav a:focus::before {
     z-index: 1100;
   }
 
+
   #por-que-vender-con-nosotros h2 {
     font-size: 2rem;
   }
@@ -562,280 +743,9 @@ nav a:focus::before {
     height: 250px;
   }
 }
-
-</style>
-</head>
-<body>
-
-<!-- HTML: Menú de navegación y botón hamburguesa -->
- <header>
-  <div class="container">
-    <div class="logo-text" style="display: flex; align-items: center; gap: 10px;">
-     <img src="images/Autos/Logo.png" alt="Logo CC Autos" style="height: 70px;" />
-    
-    </div>
-
-    <!-- Menú de navegación -->
-    <nav id="nav" role="navigation" aria-label="Menú principal">
-      <ul id="nav-menu" role="menubar">
-        <li role="none"><a href="index.html" role="menuitem" tabindex="0">Inicio</a></li>
-        <li role="none"><a href="stock.html" role="menuitem" tabindex="0">Stock</a></li>
-        <li role="none"><a href="vender.html" role="menuitem" tabindex="0">Vende tu vehiculo</a></li>
-        <li role="none"><a href="financiamiento.html" role="menuitem" tabindex="0">Financiamiento</a></li>
-      </ul>
-    </nav>
-
-
-    <!-- Botón hamburguesa -->
-    <button id="hamburger" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-</header>
-
-
-<main class="container1">
-
-  <section id="contacto" aria-label="Formulario para vender vehículo">
-    <h2>¿Quieres vender tu vehículo?</h2>
-    <p>Déjanos tus datos y te contactaremos.</p>
-
-    <form id="miFormulario" class="formulario" novalidate>
-      <!-- DATOS PERSONALES -->
-      <div class="form-group">
-        <input type="text" name="nombre" id="nombre" placeholder="Nombre" required />
-        <input type="text" name="apellido" placeholder="Apellido" required />
-      </div>
-      <div class="form-group">
-        <input type="email" name="email" placeholder="ejemplo@gmail.com" required />
-      </div>
-      <div class="form-group">
-        <input type="tel" name="telefono" placeholder="+56 9 1234 6987" required />
-      </div>
-
-      <!-- DATOS DEL VEHÍCULO -->
-      <h3>Información del vehículo</h3>
-      <div class="form-group">
-        <input type="text" name="marca" id="marca" placeholder="Marca" required />
-        <input type="text" name="modelo" placeholder="Modelo" required />
-      </div>
-
-      <div class="form-group">
-        <label for="anio">Año del vehículo</label>
-        <select id="anio" name="anio" required></select>
-      </div>
-
-      <div class="form-group">
-        <select name="combustible" required>
-          <option value="" disabled selected>Tipo de combustible</option>
-          <option value="Gasolina">Gasolina</option>
-          <option value="Diésel">Diésel</option>
-          <option value="Eléctrico">Eléctrico</option>
-          <option value="Híbrido">Híbrido</option>
-        </select>
-
-        <select name="transmision" required>
-          <option value="" disabled selected>Tipo de transmisión</option>
-          <option value="Manual">Manual</option>
-          <option value="Automática">Automática</option>
-          <option value="CVT">CVT</option>
-        </select>
-      </div>
-
-      <textarea name="comentarios" placeholder="Información adicional..." rows="4"></textarea>
-
-      <p>¿Prefieres atención directa? 
-        <a class="btn-wsp" href="https://wa.me/56912345678" target="_blank" rel="noopener" style="color:#ffffff;">Contáctanos por WhatsApp</a>
-      </p>
-
-      <div class="botones-formulario">
-        <button type="submit">Enviar</button>
-      </div>
-    </form>
-
-    <div id="mensaje-envio"></div>
-  </section>
-
-  
-<section id="faq" class="faq-section" aria-label="Preguntas frecuentes de venta">
-  <h2>Preguntas frecuentes</h2>
-
-  <div class="faq-item">
-    <button class="faq-question">¿CC Autos compra mi auto directamente?</button>
-    <div class="faq-answer">
-      <p>No siempre. Evaluamos cada caso según el estado, marca y demanda del vehículo. En algunos casos podemos comprar directamente, y en otros, trabajamos bajo modalidad de consignación (física o virtual) para ayudarte a vender al mejor precio posible.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">¿Qué es la venta en consignación?</button>
-    <div class="faq-answer">
-      <p>La consignación es una opción donde tu vehículo queda exhibido (en nuestra oficina o de forma virtual) para su venta. Una vez se concreta la venta, te transferimos el monto acordado. Esta modalidad te permite alcanzar un mejor precio de mercado.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">¿Puedo elegir entre consignación física o virtual?</button>
-    <div class="faq-answer">
-      <p>Sí. Puedes traer el vehículo a nuestra oficina (consignación física) o enviarnos fotos y documentos para publicarlo en nuestras plataformas (consignación virtual). Tú eliges según tu comodidad.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">¿Cómo se hace la transferencia del auto?</button>
-    <div class="faq-answer">
-      <p>Utilizamos la plataforma <strong>Autofact</strong> para realizar transferencias seguras y legales. Una vez concretada la venta y finalizado el proceso, realizamos el depósito del dinero en un plazo máximo de <strong>24 horas hábiles</strong>. Todo es transparente y respaldado legalmente.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">¿Qué documentos necesito para vender?</button>
-    <div class="faq-answer">
-      <p>Solo necesitas:</p>
-      <ul>
-        <li>Padrón del vehículo</li>
-        <li>Permiso de circulación vigente</li>
-        <li>Revisión técnica al día</li>
-        <li>Tu cédula de identidad</li>
-      </ul>
-      <p>Nosotros nos encargamos del resto del proceso por ti.</p>
-    </div>
-  </div>
-</section>
-
-
+</style>s
 <script>
-  const questions = document.querySelectorAll('.faq-question');
-
-  questions.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const answer = btn.nextElementSibling;
-      answer.classList.toggle('open');
-    });
-  });
-</script>
-
-
-</main>
-
-
-
-<footer>
-  <div class="footer-container">
-    <div class="map-container" aria-label="Mapa de ubicación">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1459.8017511327735!2d-70.54969373163439!3d-33.409008159664644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce9569ad04e7%3A0xa64894df53a73b2f!2sAv.%20Apoquindo%207935%2C%207571514%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e1!3m2!1ses!2sus!4v1753484768412!5m2!1ses!2sus" 
-        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      <div class="botones-mapas">
-        <p>¿Cómo llegar?</p>
-        <a href="https://www.google.com/maps?q=Av.+Apoquindo+7935,+Las+Condes,+Chile" target="_blank" class="btn-mapa google-maps">
-          Abrir en Google Maps
-        </a>
-        <a href="https://waze.com/ul?ll=-33.4090082,-70.5496937&navigate=yes" target="_blank" class="btn-mapa waze">
-          Abrir en Waze
-        </a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div>
-        © 2025 CC Autos. All rights reserved. <br />
-        Built & secured by <a href="mailto:picininiluciano@gmail.com" style="color: #cc0404; text-decoration: none;">Luciano</a>.
-      </div>
-      <div class="social-container" aria-label="Redes sociales">
-        <!-- Facebook -->
-        <a href="https://www.facebook.com/automoviles.cyc.2025" class="social-link" target="_blank"
-          rel="noopener noreferrer" aria-label="Facebook">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-            alt="Facebook" width="32" height="32" style="border-radius: 4px;" />
-        </a>
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/cycautomoviles_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank"
-          rel="noopener noreferrer" aria-label="Instagram">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
-            alt="Instagram" width="32" height="32" style="border-radius: 8px;" />
-        </a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-    // Rellenar select años del vehículo
-    const anioSelect = document.getElementById("anio");
-    const yearNow = new Date().getFullYear();
-    for(let y = yearNow; y >= 1990; y--) {
-      const option = document.createElement("option");
-      option.value = y;
-      option.textContent = y;
-      anioSelect.appendChild(option);
-    }
-
-    // Envío con fetch para evitar redirección
-    const form = document.getElementById("formulario");
-    const mensajeEnvio = document.getElementById("mensaje-envio");
-
-    form.addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      const formData = new FormData(form);
-      const nombre = formData.get("nombre");
-      const marca = formData.get("marca");
-
-      fetch("https://formspree.io/f/xeozeagg", {
-        method: "POST",
-        body: formData,
-        headers: { "Accept": "application/json" }
-      })
-      .then(response => {
-        if(response.ok) {
-          mensajeEnvio.textContent = `Hola ${nombre}, gracias por tu interés. Hemos recibido los datos del ${marca} que enviaste a través de nuestra página. ¡Te contactaremos pronto!`;
-          mensajeEnvio.style.display = "block";
-          form.style.display = "none";
-        } else {
-          mensajeEnvio.textContent = "Ups, ocurrió un error. Por favor intenta nuevamente.";
-          mensajeEnvio.style.display = "block";
-        }
-      })
-      .catch(() => {
-        mensajeEnvio.textContent = "Ups, ocurrió un error. Por favor intenta nuevamente.";
-        mensajeEnvio.style.display = "block";
-      });
-    });
-
-
-    // CARRUSEL DE AUTOS DESTACADOS
-    document.addEventListener('DOMContentLoaded', () => {
-      const carousel = document.querySelector('.carousel');
-      const images = document.querySelectorAll('.carousel img');
-      const prevBtn = document.querySelector('.carousel-button.prev');
-      const nextBtn = document.querySelector('.carousel-button.next');
-      let currentIndex = 0;
-
-      function updateCarousel() {
-        images.forEach((img, i) => {
-          img.classList.toggle('active', i === currentIndex);
-        });
-        // Mover el contenedor para efecto suave (opcional)
-        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-      }
-
-      prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        updateCarousel();
-      });
-
-      nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % images.length;
-        updateCarousel();
-      });
-
-      updateCarousel();
-    });
-
-</script>
-<script>// ===== INYECTAR CSS PARA EFECTOS AVANZADOS =====
-document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('nav');
     const overlay = document.getElementById('overlay');
@@ -855,7 +765,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Click en el ícono hamburguesa
     hamburger.addEventListener('click', toggleMenu);
 
-    // Cierra el menú al hacer clic en cualquier enlace
+    // Cierra el menú al hacer clic en cualquier enlace del menú
     const navLinks = document.querySelectorAll('#nav a');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
@@ -877,98 +787,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 </script>
-<script>
-    document.getElementById('miFormulario').addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  // Simular envío
-  setTimeout(() => {
-    const mensaje = document.getElementById('mensaje-envio');
-    mensaje.classList.add('mostrar');
-
-    // Opcional: ocultarlo luego de 5 segundos
-    setTimeout(() => {
-      mensaje.classList.remove('mostrar');
-    }, 5000);
-  }, 1000);
-});
-
-</script>
-
-<script>
-  // Detecta elementos visibles al hacer scroll
-  function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-      rect.top <= window.innerHeight * 0.85 &&
-      rect.bottom >= 0
-    );
-  }
-
-  function revealOnScroll() {
-    const section = document.querySelector('#por-que-vender-con-nosotros');
-    const tarjetas = document.querySelectorAll('.tarjeta');
-    const parrafos = section.querySelectorAll('p');
-    const h2 = section.querySelector('h2');
-
-    if (section && isInViewport(section)) {
-      section.classList.add('visible');
-      h2.classList.add('visible');
-
-      // Revela cada párrafo con delay
-      parrafos.forEach((p, i) => {
-        setTimeout(() => {
-          p.classList.add('visible');
-        }, 300 + i * 300);
-      });
-
-      // Revela cada tarjeta con efecto "staggered"
-      tarjetas.forEach((card, i) => {
-        setTimeout(() => {
-          card.classList.add('visible');
-        }, 800 + i * 200);
-      });
-
-      // Solo una vez
-      window.removeEventListener('scroll', revealOnScroll);
-    }
-  }
-
-  // Espera al cargar el DOM
-  document.addEventListener('DOMContentLoaded', () => {
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Por si ya está visible
-  });
-</script>
-<script>
-  function revealSection(selector, delay = 0) {
-    const section = document.querySelector(selector);
-    if (!section || section.classList.contains('visible')) return;
-
-    const rect = section.getBoundingClientRect();
-    if (rect.top <= window.innerHeight * 0.85 && rect.bottom >= 0) {
-      section.classList.add('visible');
-
-      // Si contiene hijos como campos del formulario, animarlos también
-      const children = section.querySelectorAll('input, textarea, button, h2, p, div');
-      children.forEach((el, i) => {
-        setTimeout(() => {
-          el.classList.add('visible');
-        }, delay + i * 150);
-      });
-    }
-  }
-
-  function handleScrollReveal() {
-    revealSection('#formulario-contacto');
-    revealSection('#conocenos', 300);
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    window.addEventListener('scroll', handleScrollReveal);
-    handleScrollReveal();
-  });
-</script>
-
 </body>
 </html>
