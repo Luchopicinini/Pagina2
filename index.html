@@ -40,6 +40,25 @@
   <button class="btn-primary" aria-label="Ver catálogo de autos destacados" onclick="location.href='stock.html'">Ver stock</button>
 </section>
 
+<section id="por-que-elegir-ccautos" aria-labelledby="titulo-por-que-elegir" class="cc-elegir-section">
+  <h2 id="titulo-por-que-elegir" class="section-title">¿Por qué elegir CC Autos?</h2>
+  <div class="cc-elegir-grid">
+    <div class="cc-elegir-card">
+      <h3>Variedad y Calidad</h3>
+      <p>Vehículos de las mejores marcas, revisados y garantizados para tu tranquilidad.</p>
+    </div>
+    <div class="cc-elegir-card">
+      <h3>Financiamiento a tu Medida</h3>
+      <p>Planes flexibles y transparentes para que manejes el auto que siempre quisiste.</p>
+    </div>
+    <div class="cc-elegir-card">
+      <h3>Atención Personalizada</h3>
+      <p>Un equipo dedicado a ayudarte en cada paso, para una compra segura y sencilla.</p>
+    </div>
+  </div>
+</section>
+
+
   <main>
     <section id="nosotros" aria-labelledby="titulo-nosotros">
       <h2 id="titulo-nosotros" class="section-title">Nosotros</h2>
@@ -107,6 +126,9 @@
 </div>
 
 </footer>
+
+
+
 <a class="chatbot" href="https://wa.me/56988276054?text=Hola%2C%20me%20interesa%20obtener%20m%C3%A1s%20informaci%C3%B3n" target="_blank" aria-label="Habla por WhatsApp">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="#25D366">
     <path d="M16 .396C7.164.396 0 7.56 0 16.396c0 2.883.742 5.636 2.148 8.08L.05 31.95l7.646-2.048a15.938 15.938 0 0 0 8.3 2.292c8.836 0 16-7.164 16-16S24.836.396 16 .396zm0 29.167a13.09 13.09 0 0 1-6.676-1.79l-.478-.285-4.544 1.215 1.215-4.426-.308-.455a13.08 13.08 0 0 1-2.014-7.022c0-7.238 5.885-13.122 13.122-13.122 7.238 0 13.123 5.884 13.123 13.122 0 7.237-5.885 13.121-13.123 13.121zm7.423-9.57c-.406-.204-2.4-1.184-2.772-1.318-.372-.136-.643-.204-.914.204-.27.407-1.05 1.317-1.288 1.59-.237.27-.475.305-.88.102-.406-.204-1.715-.632-3.266-2.016-1.207-1.078-2.02-2.408-2.258-2.814-.237-.407-.025-.627.18-.83.184-.182.406-.475.61-.712.204-.237.27-.407.406-.678.136-.27.068-.508-.034-.712-.102-.204-.914-2.21-1.25-3.017-.33-.792-.666-.682-.914-.694l-.78-.014c-.27 0-.712.102-1.085.475-.372.373-1.421 1.387-1.421 3.38 0 1.994 1.454 3.917 1.656 4.187.203.27 2.86 4.365 6.937 6.114.97.418 1.728.667 2.318.854.974.31 1.86.267 2.56.162.78-.116 2.4-.978 2.738-1.922.338-.95.338-1.767.237-1.922-.102-.153-.37-.27-.777-.475z"/>
@@ -256,6 +278,39 @@
     background-color: #333;
   }
 
+  /* HAMBURGER MENU */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background-color: red;
+    /* menú hamburguesa rojo */
+    border: none;
+    padding: 0.5rem;
+    border-radius: 6px;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
   .hero {
     background-color: #ffffff;
     height: 50vh;
@@ -268,19 +323,19 @@
   }
 
 
-  .hero h1 {
-    font-size: 3rem;
-    color: #b22222a6;
-    margin-bottom: 1.5rem;
-    letter-spacing: 4px;
-    font-weight: 900;
-    text-transform: uppercase;
-  }
-  .fade-on-scroll {
+.hero h1 {
+  font-size: 3rem;
+  color: #000000a6;
+  margin-bottom: 1.5rem;
+  letter-spacing: 4px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.fade-on-scroll {
   transition: opacity 0.6s ease, transform 0.6s ease;
   will-change: opacity, transform;
 }
-
 
   .btn-primary:hover {
     background-color: #8b1a1a;
@@ -308,6 +363,8 @@
     outline: none;
     box-shadow: 0 0 25px #ccc6c6;
   }
+
+  
   
 .section-title {
   margin: 4rem 0 2rem;
@@ -338,6 +395,53 @@
   100% {
     background-position: 0% 50%;
   }
+}
+
+/* Sección: ¿Por qué elegirnos? */
+.cc-elegir-section {
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+  text-align: center;
+  color: var(--color-white);
+}
+
+
+
+.cc-elegir-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.cc-elegir-card {
+  background-color: #151515;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  max-width: 300px;
+  flex: 1 1 260px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cc-elegir-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.cc-elegir-card h3 {
+  font-size: 1.4rem;
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+
+.cc-elegir-card p {
+  font-size: 1.05rem;
+  color: #bbbbbb;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
   /* Sección Nosotros */
@@ -426,129 +530,6 @@
     line-height: 1.5;
   }
 
-/* FOOTER */
-footer {
-  background-color: #111; /* Fondo oscuro */
-  color: #e0e0e0; /* Texto claro */
-  padding: 2rem 1rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.footer-container {
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-}
-
-.map-container iframe {
-  width: 100%;
-  height: 300px;
-  border: 0;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4); /* Sombra roja suave */
-  transition: transform 0.3s ease;
-}
-.map-container iframe:hover {
-  transform: scale(1.01);
-}
-
-/* BOTONES DE MAPAS */
-.botones-mapas {
-  text-align: center;
-}
-
-.btn-mapa {
-  display: inline-block;
-  padding: 12px 24px;
-  margin: 10px;
-  border-radius: 8px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.btn-mapa:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-}
-
-.google-maps {
-  background-color: #4285F4;
-}
-
-.waze {
-  background-color: #33CCFF;
-}
-
-.footer-bottom {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid #333;
-  padding-top: 1rem;
-  font-size: 0.9rem;
-  color: #ece5e5;
-}
-
-.footer-bottom > div:first-child {
-  flex: 1 1 300px;
-}
-
-.social-container {
-  display: flex;
-  gap: 1rem;
-}
-
-.social-link svg {
-  width: 28px;
-  height: 28px;
-  fill: #ece5e5; /* rojo vibrante */
-  transition: fill 0.3s ease;
-  cursor: pointer;
-}
-
-.social-link:hover svg {
-  fill: #1713d8; /* rojo más oscuro al pasar el mouse */
-}
-
-  /* HAMBURGER MENU */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    background-color: red;
-    /* menú hamburguesa rojo */
-    border: none;
-    padding: 0.5rem;
-    border-radius: 6px;
-  }
-
-  .hamburger span {
-    width: 25px;
-    height: 3px;
-    background: white;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
-  .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
 
       .footer {
   font-family: 'Barlow', sans-serif;
@@ -851,7 +832,6 @@ nav a:focus::before {
   }
 }
 </style>  
-
   <style>
   @media (max-width: 768px) {
   /* Box-sizing para todo */
@@ -924,6 +904,13 @@ nav a:focus::before {
     box-shadow: 0 0 10px var(--color-red);
     z-index: 1100;
   }
+ 
+  
+  .hero h1 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+
    .footer-content {
     grid-template-columns: 1fr;
     text-align: center;
@@ -946,7 +933,56 @@ nav a:focus::before {
     margin-top: 20px;
   }
 
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .cc-elegir-grid,
+  .features-grid,
+  .footer-content {
+    grid-template-columns: 1fr !important;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .cc-elegir-card,
+  .feature-item {
+    max-width: 100%;
+    padding: 1.5rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .why-choose h2 {
+    font-size: 2rem;
+  }
+
+
+  .chatbot {
+    bottom: 15px;
+    right: 15px;
+    padding: 12px;
+  }
+
+  .chatbot svg {
+    width: 24px;
+    height: 24px;
+  }
+
 }
+
+
     /* Cursor typing blink */
     @keyframes blink {
 
